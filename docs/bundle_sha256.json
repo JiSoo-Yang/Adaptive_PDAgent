@@ -3,7 +3,7 @@
   "files": {
     ".gitattributes": "18ae87f6967c571767909c8d8500ac11ccbd98f015a02838f80f4c8b02ea1be5",
     ".gitignore": "01558127b2e9b5096214795856e66961a56158391f05ce8ea4baccc39d8dc208",
-    "README.md": "d7e943561daa5589d61990cfd1165227285d6d3529ddfbaea31a8d9fd144ff86",
+    "README.md": "56e4a20c0d63d1e88f3959881dbc211df0d343e613625f92612e8d2f009c8ff9",
     "config/gemma4b.json": "bb0009bf94f72107746e9979ad472199c9dff864b4d0dc86c2aef3fbfdcd6f12",
     "config/llama3b.json": "4394c4bbf1b68c23e0732d36d8107e6777452b13360dfcc247a9b3f9c93e8724",
     "config/models.json": "f35105d483849b76d302ed88dac535644d9b598365bf240a7ff6572ff2a4dd39",
@@ -220,7 +220,7 @@
     "data/recovered/system_prompts.json": "d76234da6c2a682b655590a7ebf28684777a5d54f7f0ca78064ba724ef0f43ba",
     "docs/PAPER_MAPPING.md": "55c94a372e0df3df32c42fdbe8dd291663d918f12cba263d03a7056f2caaa671",
     "docs/REIMPLEMENTATION_ORIGIN.md": "4e322abb90bdab4f7267f4c79a90a88677ae8316386cd1c6f663148a7c03852d",
-    "docs/VALIDATION.md": "e7d7b2fc7811736c68b669d4ccde5b1c9bd305c5a33fd22a1066adf8b2935576",
+    "docs/VALIDATION.md": "6ba643f9781805b3909d63dfaa8eb7a060afa3444e00754ca399d4c2ed597630",
     "docs/model_availability.json": "48bca88e65e85b44ccedf6b9021e9a2ea22fcaab427eeddbd61cfd24412ce106",
     "docs/provenance.json": "5bf17b45f1b5fb2677ef8aa6cdc985b611ede2e665e7e5900ce301fbf286cd74",
     "paper/FINAL_Article.pdf": "e02b0af22d62efb583842fe70297918c509d4860f73f77fca772744d51e5349d",
@@ -245,6 +245,7 @@
     "tools/check_servers.py": "eb703feee2e220fc780f1aecf20b7a76c7e5374f571466be35005949458b1b03",
     "tools/download_models.py": "1f26a923614cd83814e9fdf30d605e697f67b721a0ee64f9d832280b1746eb87",
     "tools/serve_model.py": "4bbc14acfb6eb3cd9b881c0d986761cc4e367d05d94b9ae1e4d3211ac0895ee2",
-    "소프트웨어등록.md": "73f8517b98fe81f52f05c2bb4de4ddd3e7466fcc514f451e33ac0d1be41fce12"
+    "소프트웨어등록.md": "aa0973ce48850c066d70d154b4ebb9e2192303233682ac8175f9aac6a7b86947",
+    "실행안내.md": "5fd0cea2e63fb0d033f694abcec74d8888748693d167517893ba82102b8dbafb"
   }
 }
