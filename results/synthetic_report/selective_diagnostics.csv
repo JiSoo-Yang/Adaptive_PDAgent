@@ -1,0 +1,2 @@
+target,decisions,gate_activation_rate,graph_selection_rate,early_stop_rate,input_token_reduction_vs_online
+Qwen/Qwen3-1.7B,8,0.5,0.5,0.0,

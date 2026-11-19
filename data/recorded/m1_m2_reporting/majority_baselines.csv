@@ -1,0 +1,5 @@
+dimension,majority_baseline,majority_rule,n_personas
+social_role,0.3881578947368421,"""professional""",304
+personality,0.5460526315789473,"{""agreeableness"":""no"",""conscientiousness"":""no"",""extroversion"":""yes"",""neuroticism"":""no"",""openness"":""no""}",304
+background,0.27631578947368424,"{""economic_status"":""uppermiddle clas"",""education"":""other"",""family_status"":""single"",""location"":""metropolitan area"",""work_experience"":""midlevel 610 year""}",304
+interests,0.2565789473684211,"{""communication_style"":""indirect"",""content_preferences"":""health wellnes"",""hobbies"":""watching movy tv show"",""shopping_style"":""qualityfocused"",""social_media_usage"":""yes"",""technology_adoption"":""early adopter"",""values"":""health""}",304

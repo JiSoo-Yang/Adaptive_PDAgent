@@ -1,0 +1,44 @@
+{
+  "call_id": "374665bfcbae722db9901ab9edca03dbd79e4e2913734064ee65f9c72dde64ef",
+  "role": "extract",
+  "request": {
+    "model": "Qwen/Qwen3-14B",
+    "messages": [
+      {
+        "role": "system",
+        "content": "Extract only grounded concepts and bridging relations from the latest Target response. Every new concept or edge supporting_span must be an exact contiguous substring of that response. Do not infer persona labels or use hidden information. Valid relation_type values are: part-of, member-of, instrument, theme, cause-of, in, temporal. Extract at most six concepts and four edges; prefer fewer high-value items. Return one compact JSON object only."
+      },
+      {
+        "role": "user",
+        "content": "Latest question: What experiences have shaped your everyday routine?\nLatest Target response: I review tasks and plan with colleagues before starting the day.\nPreviously known concepts: [\"tasks\", \"colleagues\"]\n\nReturn:\n{\n  \"concepts\": [\n    {\n      \"name\": \"1-3 word concept\",\n      \"dimensions\": [\"zero or more of social_role, personality, background, interests\"],\n      \"supporting_span\": \"exact response substring\"\n    }\n  ],\n  \"edges\": [\n    {\n      \"source\": \"concept name\",\n      \"target\": \"concept name\",\n      \"relation_type\": \"one allowed type\",\n      \"supporting_span\": \"exact response substring supporting the link\"\n    }\n  ]\n}"
+      }
+    ],
+    "temperature": 0.0,
+    "top_p": 0.8,
+    "max_tokens": 768,
+    "seed": 1627868362,
+    "response_format": {
+      "type": "json_object"
+    },
+    "chat_template_kwargs": {
+      "enable_thinking": false
+    }
+  },
+  "response": {
+    "choices": [
+      {
+        "message": {
+          "content": "{\"nodes\": [{\"name\": \"tasks\", \"span\": \"review tasks\", \"dimensions\": [\"social_role\"]}, {\"name\": \"colleagues\", \"span\": \"plan with colleagues\", \"dimensions\": [\"social_role\"]}], \"edges\": [{\"source\": \"tasks\", \"target\": \"colleagues\", \"relation\": \"theme\", \"span\": \"review tasks and plan with colleagues\"}], \"competitions\": []}"
+        },
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": null,
+    "mock": true
+  },
+  "text": "{\"nodes\": [{\"name\": \"tasks\", \"span\": \"review tasks\", \"dimensions\": [\"social_role\"]}, {\"name\": \"colleagues\", \"span\": \"plan with colleagues\", \"dimensions\": [\"social_role\"]}], \"edges\": [{\"source\": \"tasks\", \"target\": \"colleagues\", \"relation\": \"theme\", \"span\": \"review tasks and plan with colleagues\"}], \"competitions\": []}",
+  "requested_revision": "40c069824f4251a91eefaf281ebe4c544efd3e18",
+  "revision_verified": false,
+  "backend": "mock_synthetic",
+  "elapsed_seconds": 1.995125785470009e-05
+}

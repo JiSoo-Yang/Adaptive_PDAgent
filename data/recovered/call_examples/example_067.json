@@ -1,0 +1,35 @@
+{
+  "kind": "verbatim_recorded_call",
+  "source": {
+    "file": "robustness/seed3/raw/google_gemma-3-4b-it.jsonl",
+    "line": 2,
+    "persona_id": "persona_5c140befa4fad722c215fd6917bba5a55252379534cc85a771c2d6ec2d6fbb01",
+    "method": "dialogue_only",
+    "target": "google/gemma-3-4b-it",
+    "base_seed": 20260914,
+    "json_pointer": "/turn_records/0/decision_call"
+  },
+  "call": {
+    "finish_reason": "stop",
+    "generated_tokens": 188,
+    "max_new_tokens": 512,
+    "model": "Qwen/Qwen3-14B",
+    "prompt_messages": [
+      {
+        "content": "You are the Dialogue-only Adaptive controller. Use only the visible dialogue: no graph nodes, edges, relation types, graph novelty, or graph-derived interpretations. Decide what is still missing or ambiguous. Generate exactly three indirect candidate questions and select one, or Stop only when the dialogue already supports all four persona dimensions. Never expose candidate labels. Return JSON only; do not provide chain-of-thought.",
+        "role": "system"
+      },
+      {
+        "content": "Completed turns: 1/5\nDialogue:\nQ1: What do you typically do on a regular day?\nA1: I usually start by reviewing the current roadmap and prioritizing tasks based on their impact on our key metrics, then I spend a good portion of the day coordinating with different teams to ensure we’re all aligned on timelines and requirements, and I often wrap up by analyzing user feedback to identify areas for potential improvements.\n\nReturn exactly this schema:\n{\n  \"action\": \"Explore or Stop\",\n  \"target_dimension\": \"social_role, personality, background, interests, or null\",\n  \"candidates\": [\n    {\"question\": \"...\", \"coverage_gain\": 0.0, \"redundancy_penalty\": 0.0}\n  ],\n  \"selected_question\": \"... or empty for Stop\",\n  \"rationale_summary\": \"one short evidence-based phrase\"\n}",
+        "role": "user"
+      }
+    ],
+    "prompt_tokens": 275,
+    "raw_response": "{\n  \"action\": \"Explore\",\n  \"target_dimension\": \"social_role\",\n  \"candidates\": [\n    {\"question\": \"How do you handle conflicts or disagreements when coordinating with different teams?\", \"coverage_gain\": 0.3, \"redundancy_penalty\": 0.0},\n    {\"question\": \"What kind of feedback do you find most valuable when analyzing user input?\", \"coverage_gain\": 0.2, \"redundancy_penalty\": 0.0},\n    {\"question\": \"Can you describe a typical challenge you face in your role and how you address it?\", \"coverage_gain\": 0.4, \"redundancy_penalty\": 0.0}\n  ],\n  \"selected_question\": \"How do you handle conflicts or disagreements when coordinating with different teams?\",\n  \"rationale_summary\": \"The response highlights team coordination, suggesting further exploration of conflict resolution strategies.\"\n}",
+    "retry_count": 0,
+    "role": "dialogue_action_question_selection",
+    "seed": 718971831,
+    "temperature": 0.7,
+    "top_p": 0.8
+  }
+}

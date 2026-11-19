@@ -1,0 +1,35 @@
+{
+  "kind": "verbatim_recorded_call",
+  "source": {
+    "file": "active_information_gain/main/raw/google_gemma-3-4b-it/shard_0.jsonl",
+    "line": 1,
+    "persona_id": "persona_5c140befa4fad722c215fd6917bba5a55252379534cc85a771c2d6ec2d6fbb01",
+    "method": "uncertainty_sampling",
+    "target": "google/gemma-3-4b-it",
+    "base_seed": 20260913,
+    "json_pointer": "/turn_records/0/decision_call"
+  },
+  "call": {
+    "finish_reason": "stop",
+    "generated_tokens": 18,
+    "max_new_tokens": 128,
+    "model": "Qwen/Qwen3-14B",
+    "prompt_messages": [
+      {
+        "content": "Ask one short, indirect, natural follow-up question. Do not name persona dimensions or candidate labels. Output only the question.",
+        "role": "system"
+      },
+      {
+        "content": "Conversation so far:\nQ1: What do you typically do on a regular day?\nA1: I usually start my day reviewing the progress on current projects, ensuring everything aligns with the established roadmap and that we’re meeting our key performance indicators, often spending a good portion of the day focused on analyzing data and adjusting strategies based on what I’ve observed during my trips – it’s fascinating to see how different markets respond to similar approaches.\n\nAn uncertainty sampler selected the least certain area. Ask one question about usual responsibilities, work problems, routines, or tools. This is question 2 of 5.",
+        "role": "user"
+      }
+    ],
+    "prompt_tokens": 163,
+    "raw_response": "How do you typically handle unexpected challenges that arise during your data analysis or strategy adjustments?",
+    "retry_count": 0,
+    "role": "uncertainty_targeted_question_generation",
+    "seed": 3201278143,
+    "temperature": 0.7,
+    "top_p": 0.8
+  }
+}

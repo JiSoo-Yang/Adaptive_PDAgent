@@ -1,0 +1,44 @@
+{
+  "call_id": "670fa079d3ca095d628e8bdcb99778efe00e42e2328a6bd57fdf8e0e92f2cac7",
+  "role": "generic",
+  "request": {
+    "model": "Qwen/Qwen3-14B",
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a generic fixed-budget interviewer. Generate exactly three natural dialogue follow-ups, rate only conversational specificity and repetition, and select one. Do not estimate persona ambiguity, evidence coverage, or a target dimension. Never expose candidate labels. Return JSON only and do not provide chain-of-thought."
+      },
+      {
+        "role": "user",
+        "content": "Completed turns: 2/5\nDialogue:\nQ1: What responsibilities occupy most of your day?\nA1: I review tasks and plan with colleagues before starting the day.\nQ2: What experiences have shaped your everyday routine?\nA2: I review tasks and plan with colleagues before starting the day.\n\nReturn exactly:\n{\n  \"action\": \"Explore\",\n  \"target_dimension\": null,\n  \"candidates\": [\n    {\"question\": \"...\", \"specificity\": 0.0, \"redundancy_penalty\": 0.0}\n  ],\n  \"selected_question\": \"...\",\n  \"rationale_summary\": \"one short dialogue-based phrase\"\n}"
+      }
+    ],
+    "temperature": 0.7,
+    "top_p": 0.8,
+    "max_tokens": 512,
+    "seed": 1421223644,
+    "response_format": {
+      "type": "json_object"
+    },
+    "chat_template_kwargs": {
+      "enable_thinking": false
+    }
+  },
+  "response": {
+    "choices": [
+      {
+        "message": {
+          "content": "{\"action\": \"explore\", \"target_dimension\": \"background\", \"candidates\": [{\"question\": \"What responsibilities occupy most of your day?\", \"coverage_gain\": 0.5, \"redundancy_penalty\": 0.1}, {\"question\": \"What experiences have shaped your everyday routine?\", \"coverage_gain\": 0.5, \"redundancy_penalty\": 0.1}, {\"question\": \"What do you choose to do when you have time to yourself?\", \"coverage_gain\": 0.5, \"redundancy_penalty\": 0.1}], \"selected_question\": \"What experiences have shaped your everyday routine?\", \"expected_gain\": 0.4}"
+        },
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": null,
+    "mock": true
+  },
+  "text": "{\"action\": \"explore\", \"target_dimension\": \"background\", \"candidates\": [{\"question\": \"What responsibilities occupy most of your day?\", \"coverage_gain\": 0.5, \"redundancy_penalty\": 0.1}, {\"question\": \"What experiences have shaped your everyday routine?\", \"coverage_gain\": 0.5, \"redundancy_penalty\": 0.1}, {\"question\": \"What do you choose to do when you have time to yourself?\", \"coverage_gain\": 0.5, \"redundancy_penalty\": 0.1}], \"selected_question\": \"What experiences have shaped your everyday routine?\", \"expected_gain\": 0.4}",
+  "requested_revision": "40c069824f4251a91eefaf281ebe4c544efd3e18",
+  "revision_verified": false,
+  "backend": "mock_synthetic",
+  "elapsed_seconds": 2.1175015717744827e-05
+}

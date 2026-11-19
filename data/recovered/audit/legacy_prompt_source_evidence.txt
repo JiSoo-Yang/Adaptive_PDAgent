@@ -1,0 +1,163 @@
+LEGACY PROMPT SOURCE ONLY — NOT VERIFIED ACCESS EXPERIMENT PROMPTS
+
+Source: code/test/test_qwen.py
+Git HEAD: 2f98390b0dc2b29fe693ae30ee9e7e2483cbeb4e
+File SHA-256: e57438404393fab694b14ee35971bd6647ab497a038b1663f04210da01ef5e11
+
+This is evidence of the supplied legacy implementation, not a replacement for missing Access prompts. No functions were executed.
+
+Function create_bridging_extraction_prompt_tool; source lines 167-231
+def create_bridging_extraction_prompt_tool(conversation_json: str) -> str:
+    """
+    브리징 관계 추출을 위한 상세 프롬프트를 생성합니다.
+    bridging_relationships.json의 정의를 프롬프트에 포함합니다.
+    """
+    try:
+        bridging_def = load_json(BRIDGING_PATH)
+        conversation = json.loads(conversation_json)
+        utterances = []
+        for turn in conversation:
+            utterances.append(f"Q: {turn['question']}")
+            utterances.append(f"A: {turn['answer']}")
+        utterances_text = "\n".join([f"{i+1}. {utt}" for i, utt in enumerate(utterances)])
+
+        prompt = f"""Extract **Bridging Inference Relations** from the conversation below.
+
+=== CONVERSATION ===
+{utterances_text}
+
+=== BRIDGING INFERENCE DEFINITION ===
+{json.dumps(bridging_def, ensure_ascii=False, indent=2)}
+
+=== YOUR TASK ===
+1. Identify implicit connections that require world knowledge or semantic frame understanding
+2. Extract bridging relations following the relation types defined above
+3. For each relation, provide:
+   - anchor: A SINGLE WORD or SHORT PHRASE (1-3 words max) - the key concept mentioned first
+   - anaphor: A SINGLE WORD or SHORT PHRASE (1-3 words max) - the implicitly connected concept
+   - relation_type: one of (part-of, member-of, instrument, theme, cause-of, in, temporal)
+   - explanation: why this requires inference
+   - sentence_context: the relevant utterances
+
+=== CRITICAL CONSTRAINTS ===
+- anchor and anaphor MUST be SHORT (1-3 words maximum)
+- They should be KEY CONCEPTS or NOUNS, not full phrases or clauses
+- Extract the CORE CONCEPT only
+
+=== GOOD EXAMPLES ===
+✅ anchor: "data engineer", anaphor: "pipeline"
+✅ anchor: "training", anaphor: "public facilities"
+✅ anchor: "murder", anaphor: "knife"
+✅ anchor: "room", anaphor: "ceiling"
+
+=== BAD EXAMPLES (TOO LONG) ===
+❌ anchor: "data engineer", anaphor: "reviewing the latest data pipeline updates and ensuring all data sources are synchronized"
+
+=== OUTPUT FORMAT ===
+Return ONLY valid JSON in this exact format:
+{{
+  "bridging_relations": [
+    {{
+      "anchor": "short concept (1-3 words)",
+      "anaphor": "short concept (1-3 words)",
+      "relation_type": "part-of|member-of|instrument|theme|cause-of|in|temporal",
+      "explanation": "why inference is required",
+      "sentence_context": "relevant sentences"
+    }}
+  ]
+}}
+
+If no bridging relations found, return: {{"bridging_relations": []}}
+"""
+        return prompt
+    except Exception as e:
+        return f"Error creating prompt: {str(e)}"
+
+Function create_target_llm; source lines 779-796
+def create_target_llm(model_name: str, persona: Dict, device: str = "cpu") -> tuple:
+    """타겟 LLM 생성 (페르소나 주입)"""
+    model = HuggingFaceModelWrapper(model_name, device)
+
+    system_msg = f"""You are roleplaying as a person with the following characteristics:
+
+Social Role: {persona.get('social_role', 'unknown')}
+Personality Traits: {json.dumps(persona.get('personality', {}), indent=2)}
+Background: {json.dumps(persona.get('background', {}), indent=2)}
+Interests: {json.dumps(persona.get('interests', {}), indent=2)}
+
+STRICT OUTPUT RULES:
+- Answer in exactly ONE complete sentence.
+- Do NOT include any XML/angle-bracket tags like <think>, <analysis>, or similar.
+- Do NOT reveal internal thoughts, step-by-step reasoning, or meta comments (e.g., "Let me think").
+- Do NOT start with "As a ..." or explicitly state your job title.
+- If unsure, just provide your best single-sentence reply without showing any reasoning."""
+    return model, system_msg
+
+Function create_tool_agent; source lines 802-868
+def create_tool_agent(openai_api_key: str, memory, prediction_template: Dict):
+    """Tool Agent (GPT) 생성 - 예측해야 할 속성 카테고리만 전달 (값 없음)"""
+    from langchain_openai import ChatOpenAI
+    from langchain.agents import create_agent
+    from langchain_core.tools import tool
+
+    llm = ChatOpenAI(model=TOOL_MODEL, api_key=openai_api_key, temperature=0.3)
+
+    # Wrap the plain helper functions as LangChain tools for the GPT agent path.
+    tools = [
+        tool(create_bridging_extraction_prompt_tool),
+        tool(save_bridging_results_tool),
+        tool(create_and_save_graph_tool),
+    ]
+
+    prediction_targets = f"""
+TARGET ATTRIBUTES TO PREDICT (4 total) - You must predict the VALUES:
+
+1. Social Role: ?? (predict the specific role)
+2. Personality Trait - {prediction_template.get('personality', {}).get('trait', 'unknown')}: ?? (yes/no)
+3. Background - {prediction_template.get('background', {}).get('category', 'unknown')}: ?? (specific value)
+4. Interests - {prediction_template.get('interests', {}).get('category', 'unknown')}: ?? (specific value)
+
+NOTE: You know the categories but NOT the values. Infer through interviewing + bridging analysis.
+"""
+
+    system_message = f"""You are an expert interview agent specializing in bridging inference analysis and persona prediction.
+
+{prediction_targets}
+
+Workflow:
+1) Interview the target LLM (ask 1-by-1 questions)
+2) Use create_bridging_extraction_prompt_tool to get a detailed prompt
+3) Extract bridging relations using that prompt
+4) Save with save_bridging_results_tool
+5) Build & save graph with create_and_save_graph_tool
+6) Predict all 4 attribute VALUES with brief reasoning
+
+CRITICAL: Your FINAL response MUST include a JSON object in this EXACT format:
+```json
+{{
+  "social_role": "predicted role here",
+  "personality": {{
+    "trait": "{prediction_template.get('personality', {}).get('trait', 'unknown')}",
+    "value": "yes or no"
+  }},
+  "background": {{
+    "category": "{prediction_template.get('background', {}).get('category', 'unknown')}",
+    "value": "predicted value here"
+  }},
+  "interests": {{
+    "category": "{prediction_template.get('interests', {}).get('category', 'unknown')}",
+    "value": "predicted value here"
+  }}
+}}
+```
+
+Do NOT add any text after the JSON. The JSON must be the last thing in your response.
+"""
+
+    agent = create_agent(
+        llm,
+        tools=tools,
+        checkpointer=memory,
+        system_prompt=system_message,
+    )
+    return agent

@@ -1,0 +1,2826 @@
+[
+  {
+    "deleted": "supplementary/archive_manuscript_only_draft/Editorial_Clarification_Draft.txt",
+    "bytes": 1354,
+    "sha256": "5683def0b1bf1c00f55ebd660d436aba1b2188dffc2f8529207775583ab09cb9",
+    "reason": "Superseded draft or redundant generated intermediate; current independent builder retained in _build"
+  },
+  {
+    "deleted": "supplementary/archive_manuscript_only_draft/Supplementary_Implementation_Protocol.docx",
+    "bytes": 7766,
+    "sha256": "e26e3b76ba61fac7898aa500c8155dcdce7ae2578803f84b27c8ea0c77b688fa",
+    "reason": "Superseded draft or redundant generated intermediate; current independent builder retained in _build"
+  },
+  {
+    "deleted": "supplementary/archive_manuscript_only_draft/Supplementary_Implementation_Protocol.pdf",
+    "bytes": 457180,
+    "sha256": "b6a65ca693b5e699507e73c22e2879a7f313ff6e533b0b8e186407e663d98753",
+    "reason": "Superseded draft or redundant generated intermediate; current independent builder retained in _build"
+  },
+  {
+    "deleted": "supplementary/archive_manuscript_only_draft/Supplementary_Implementation_Protocol.zip",
+    "bytes": 335085,
+    "sha256": "ab981ec8cd8876cbe9ffb26d65606e4a16734ee87b3f7481674b06724dfa245d",
+    "reason": "Superseded draft or redundant generated intermediate; current independent builder retained in _build"
+  },
+  {
+    "deleted": "supplementary/archive_manuscript_only_draft/build_protocol.py",
+    "bytes": 19138,
+    "sha256": "302a926ea45889fe468be9587d143133a5f524bf2c2eda33ed9c14eeb27b51e8",
+    "reason": "Superseded draft or redundant generated intermediate; current independent builder retained in _build"
+  },
+  {
+    "deleted": "supplementary/archive_manuscript_only_draft/protocol_content.txt",
+    "bytes": 14252,
+    "sha256": "2e0c9dde6d3a0d91e182c2d24a83415cfa3bd58100f6a8eb13aadd857ccefa03",
+    "reason": "Superseded draft or redundant generated intermediate; current independent builder retained in _build"
+  },
+  {
+    "deleted": "supplementary/build_protocol.py",
+    "bytes": 13636,
+    "sha256": "4d59c5388b87a306df0124c7601fbb181708f3df15f0b574a7e3b4cee213421f",
+    "reason": "Superseded draft or redundant generated intermediate; current independent builder retained in _build"
+  },
+  {
+    "deleted": "supplementary/protocol_content.html",
+    "bytes": 74045,
+    "sha256": "728474a5e9a37c3f9c6e6991b209e270eb3aebaf1b43afdc95599365c52fe09a",
+    "reason": "Superseded draft or redundant generated intermediate; current independent builder retained in _build"
+  },
+  {
+    "deleted": "supplementary/protocol_content.txt",
+    "bytes": 60663,
+    "sha256": "0073fdc90ef335e3403c4916c4efd71be755483a5e440b70f1714d7f97b092b5",
+    "reason": "Superseded draft or redundant generated intermediate; current independent builder retained in _build"
+  },
+  {
+    "deleted": "supplementary/Editorial_Clarification_Draft.txt",
+    "bytes": 216,
+    "sha256": "e88a7083311800ce766c54263d6f7ba151d003eaf6dab351dae58503dd8b65c9",
+    "reason": "Superseded draft or redundant generated intermediate; current independent builder retained in _build"
+  },
+  {
+    "deleted": "supplementary/RECOVERY_STATUS_UPDATE.txt",
+    "bytes": 161,
+    "sha256": "8df55afb34aac91f4f8c3adf585fdcbb5f4844a5717fb1d03bc02dcdf8277961",
+    "reason": "Superseded draft or redundant generated intermediate; current independent builder retained in _build"
+  },
+  {
+    "deleted": "resubmission_reference/Active_LLM_Persona_Discovery.pdf",
+    "bytes": 3803888,
+    "sha256": "beaf1d9240a1c397ea7272c7d680ba9c0a1ea20a8a09b99f6c541fa8c91f9320",
+    "reason": "Original documents byte-verified in IEEE_Access_Resubmission.zip; text files were derived extractions/comparison reports"
+  },
+  {
+    "deleted": "resubmission_reference/Active_LLM_Persona_Discovery.pdf.txt",
+    "bytes": 141845,
+    "sha256": "caac1e14a35f390d065972f72f35ac11eb1c6babf1c6ea2b25b443ee905a6de6",
+    "reason": "Original documents byte-verified in IEEE_Access_Resubmission.zip; text files were derived extractions/comparison reports"
+  },
+  {
+    "deleted": "resubmission_reference/Active_LLM_Persona_Discovery_Highlighted.pdf",
+    "bytes": 4076890,
+    "sha256": "d9224a4f1cc8015c4c7dbae0c5cf219aacf7873d5f915f7a9d6baa88a9b39474",
+    "reason": "Original documents byte-verified in IEEE_Access_Resubmission.zip; text files were derived extractions/comparison reports"
+  },
+  {
+    "deleted": "resubmission_reference/Active_LLM_Persona_Discovery_Highlighted.pdf.txt",
+    "bytes": 155506,
+    "sha256": "72e9aa2bfc8eec97d2f7f58a46a7c2542cd99eb26a59e15e02468d3ff4b7c291",
+    "reason": "Original documents byte-verified in IEEE_Access_Resubmission.zip; text files were derived extractions/comparison reports"
+  },
+  {
+    "deleted": "resubmission_reference/Active_LLM_Persona_Discovery_LaTeX_Source.zip",
+    "bytes": 3852108,
+    "sha256": "d1f438b40a8a228c0278111369bbbb87e7dc245df7cb6e135789fa24f48d459a",
+    "reason": "Original documents byte-verified in IEEE_Access_Resubmission.zip; text files were derived extractions/comparison reports"
+  },
+  {
+    "deleted": "resubmission_reference/IEEE_Access_Author_Response.docx",
+    "bytes": 34583,
+    "sha256": "ea7720836789be26f54e35307fb2ead97638cb40c4138f689bd415d033c60693",
+    "reason": "Original documents byte-verified in IEEE_Access_Resubmission.zip; text files were derived extractions/comparison reports"
+  },
+  {
+    "deleted": "resubmission_reference/IEEE_Access_Author_Response.txt",
+    "bytes": 47690,
+    "sha256": "02dba213298952bbc5cdc020479759829152e692a567424f6e76f621e65ea5a9",
+    "reason": "Original documents byte-verified in IEEE_Access_Resubmission.zip; text files were derived extractions/comparison reports"
+  },
+  {
+    "deleted": "resubmission_reference/IEEE_Access_Resubmission_Checklist.docx",
+    "bytes": 117190,
+    "sha256": "3d4b8784d29b51fae1f1fc1968af78b4b09b8a2fe89bd083e98fdc2c7263d9c4",
+    "reason": "Original documents byte-verified in IEEE_Access_Resubmission.zip; text files were derived extractions/comparison reports"
+  },
+  {
+    "deleted": "resubmission_reference/IEEE_Access_Resubmission_Checklist.txt",
+    "bytes": 5817,
+    "sha256": "a7896054e120438c5d9e42d74b2dcd9b36f53ff54fd919256fc8bc5eb8dbcbe8",
+    "reason": "Original documents byte-verified in IEEE_Access_Resubmission.zip; text files were derived extractions/comparison reports"
+  },
+  {
+    "deleted": "resubmission_reference/source_comparison.txt",
+    "bytes": 5341,
+    "sha256": "7b2ee4ae0e47d9e01c1d6de136a661ee6f9fb9a8f70db2bcc8d625b6ff1298f4",
+    "reason": "Original documents byte-verified in IEEE_Access_Resubmission.zip; text files were derived extractions/comparison reports"
+  },
+  {
+    "deleted": "final_revision/access_highlighted.tex",
+    "bytes": 223806,
+    "sha256": "a3fc4f05714b8a9ba26aebb576c596652cfe8613f12dd1af709b8fa2b2e7ff9b",
+    "reason": "Unused by curated final source package; identical original preserved in original source ZIP"
+  },
+  {
+    "deleted": "final_revision/figure2.pdf",
+    "bytes": 213784,
+    "sha256": "c84289c9e802573379c86d3755431a351ba7050e7a9ee4eaa0af5d9bb21bc931",
+    "reason": "Unused by curated final source package; identical original preserved in original source ZIP"
+  },
+  {
+    "deleted": "final_revision/access.tex",
+    "bytes": 55706,
+    "sha256": "0de1dca0d74a9c82834961e099775af9dde6052d0b17216bce5935bab6311c96",
+    "reason": "Unused by curated final source package; identical original preserved in original source ZIP"
+  },
+  {
+    "deleted": "final_revision/figure3.pdf",
+    "bytes": 226964,
+    "sha256": "704804c19d51a4e6f030a0f631c5e8f142ec6d643a2df813eccfe8e8dfee42f4",
+    "reason": "Unused by curated final source package; identical original preserved in original source ZIP"
+  },
+  {
+    "deleted": "final_revision/access_ORIGINAL_template.tex.bak",
+    "bytes": 43943,
+    "sha256": "fcbef4f3d54cf19f597f1f919cf998beab02977f0ae296e336b48091f379b724",
+    "reason": "Unused by curated final source package; identical original preserved in original source ZIP"
+  },
+  {
+    "deleted": "final_revision/access.pdf",
+    "bytes": 607652,
+    "sha256": "ae00278d8d0a36a168cc840cdab523493171233bee244b5974c8c88326953d53",
+    "reason": "Unused by curated final source package; identical original preserved in original source ZIP"
+  },
+  {
+    "deleted": "final_revision/log1.txt",
+    "bytes": 5034,
+    "sha256": "c2bac2e9867fe318ebc4a55b2b9ff25f3f91f3709a8e5c0c7e311401a783fb73",
+    "reason": "Unused by curated final source package; identical original preserved in original source ZIP"
+  },
+  {
+    "deleted": "final_revision/figure/figure2.pdf",
+    "bytes": 226964,
+    "sha256": "704804c19d51a4e6f030a0f631c5e8f142ec6d643a2df813eccfe8e8dfee42f4",
+    "reason": "Unused by curated final source package; identical original preserved in original source ZIP"
+  },
+  {
+    "deleted": "final_revision/figure/figure4.pdf",
+    "bytes": 22988,
+    "sha256": "e8ca00005dec3a96deb9e60b4f32e848f312f01c1b029387d3fea1f0428e17d9",
+    "reason": "Unused by curated final source package; identical original preserved in original source ZIP"
+  },
+  {
+    "deleted": "final_revision/figure/figure4_old.pdf",
+    "bytes": 61903,
+    "sha256": "837efc5ad45f16d946f949c62b7206d2421614d1a33fab6324bd74e56fe7be08",
+    "reason": "Unused by curated final source package; identical original preserved in original source ZIP"
+  },
+  {
+    "deleted": "final_revision/figure/figure2_old.pdf",
+    "bytes": 95501,
+    "sha256": "67abd0bd1964101545ad2967ed22e5bee26dc660f000bda8981bc51b92e5bb08",
+    "reason": "Unused by curated final source package; identical original preserved in original source ZIP"
+  },
+  {
+    "deleted": "final_revision/figure/figure1_old.pdf",
+    "bytes": 103125,
+    "sha256": "e4034f30b785e4a43b5f2a2b4136bbe34bd190aa8c408c73aa4e54dc7ac12536",
+    "reason": "Unused by curated final source package; identical original preserved in original source ZIP"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/0027986ccf454ca122e52865e17abb02f954f2d382f5797013d08ecd53f3a316.json",
+    "bytes": 2765,
+    "sha256": "fdfd633cbb9068574c2ac1aa3b5fecbeca48a941d776cf4576cfa45e60fa0b82",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/0041a4929aca8a16fef9c5d6f28dfee135e9627c698190617a6ba8bcf2cf5c02.json",
+    "bytes": 3185,
+    "sha256": "aa543a0f3893b86f0f3fd6bf702e1d8fb28f32a32e515f2141ae9e3b80f7b685",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/00e337eef243a2aef46c2c79e5f6b49ce366beba9cec805ed9467111a3ca8ee3.json",
+    "bytes": 1771,
+    "sha256": "70543d0abed765ec82b5dddb430e0e6c5e87f93557e2966eef69a23639a106d8",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/027045e0da9c373afde562443f420754b5c1513f7718d67a851b59bb51dae77f.json",
+    "bytes": 2764,
+    "sha256": "e0781b48d52a52fc25e56b05c42e41d67336142b51af95c2e34ca7a02963375b",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/03862e5fc5fd4200af1dfe8a8c6e45caea2ccbc647f74bb0694f62ed15672c9f.json",
+    "bytes": 2253,
+    "sha256": "6c4e1def360f986636a727707cee1f467601277377f4441e2750df6a8c0411ec",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/039f46b3990786e879bccd230f562829ab8bf7d8e56e474b0e0dcb7053a8951b.json",
+    "bytes": 2767,
+    "sha256": "b12993f3b3c49ca5f2a172ca74d16658bed1a6a2e41ae8624a1454f7493b4427",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/03d53bfa396209b3c291bd9e1417c3dc6328ee4dab123c67503d0edf84d8070f.json",
+    "bytes": 2268,
+    "sha256": "346dc29d4bf46a0d8c79ba770e5ab6cd85f3c920e73f3e9e3323be963cb145e2",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/04c00071bf02f888725f1d47526f96a48ddc1c905d27c033ca3b2e2f5899a7fe.json",
+    "bytes": 2251,
+    "sha256": "9cb73a6762526de9bfb6baeeb915715f55e100cf3c44947432b4445082ec1e5a",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/05179a731ba0e25d7fbe6f550b263086a340891ee07dbe7ffee3f6a942e26b3b.json",
+    "bytes": 3719,
+    "sha256": "22bc82fe9781e7a567121600ea2bdcd29c4c33eec7afed179155e7e70fcbb40c",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/0585e0931e25049d1f3bde5afd119b2e6376efede30666540ad8851a9f9f7a4b.json",
+    "bytes": 2020,
+    "sha256": "61baa81f791a24876eeb66bd6afef0a148be5ad885bc29eea96fff0b34f83941",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/05cf6369db6f82cf83b2ac37c9ce6ffcfabce2d142e950666faef59a10e6c1c2.json",
+    "bytes": 2760,
+    "sha256": "3959fe33bc0ebf26a1c84bb04980db0c136a319160b51b4976454d6fac2caa98",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/070c394a2fbb3de627b54be51176e18092d0d30d29a197aaa3a91fd787ea460f.json",
+    "bytes": 2763,
+    "sha256": "7fe679b39781c1d0469bcc7d742a0ed10298a580a480c7f7c578ce2dccf2a39d",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/07ae773451b93fe57890d568ee72da6a9d51689300595618651b8ce1c53b10e2.json",
+    "bytes": 2928,
+    "sha256": "ee85b289074abc5a0b74a427387c907e184199741ca2b3eb0ae290909684186b",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/0815603750a45dff47c488bed61e490f1e1b900da96cca75b71cf11c5f5a6adf.json",
+    "bytes": 2764,
+    "sha256": "9867d6d812ccc15ae9ec8d2693c04bd4deeaa442d0efc7bb4a36770c9c89effb",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/09b097e34d2ca9c56e94709c450af235395d45766712d1c589cb16960c41ce15.json",
+    "bytes": 3791,
+    "sha256": "41b013a676119a3d770cf5548801716dac9b30ee62ab3e6cf57578cb2fc24531",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/09f884f0ae786c4266f30a26fb9046d32cbfbcda276dc89ea1a6b0a88f22284b.json",
+    "bytes": 2766,
+    "sha256": "ce6c43523e3486f4dc145fb0142f632ed6e58aed1f8c5ea62e8f1b693113b146",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/0bb69842d8e13944ed4c47a193d72ed74cb5dd0c1ed00efdbd414d88fdc6a9e6.json",
+    "bytes": 2732,
+    "sha256": "b5309887596734a5c89d65d84065fb5b447c4048f7583c1cd2dde5f05f142c39",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/0bba53ea946fc43d257ccad9ebd952dc8f3ebeed8e45cb96f318eef5560dbd8f.json",
+    "bytes": 3247,
+    "sha256": "411e80e7b40ebeac61acf1b534ec0c297965dc35966cc0bccbb48fda0d89d9ca",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/0c8262826e21970745007718d257b73c6757394182b0897699825f5db09c7b27.json",
+    "bytes": 2011,
+    "sha256": "cb15cfa4deec85f89da0f9c2d5903bddc69ec6caabc8bfad853c55255a525b68",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/0d3f6be7ed2280dd1f09548810fb65248b138ad962d51893f4f94ece51fe630c.json",
+    "bytes": 2022,
+    "sha256": "30ade8daaeda78123f12b9106f1e609ab7ef5851402adf05d04a7ffd121d6ccd",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/0f6bae50eb864065b7e97093370d25f26dbac8fbfec8611dcf4b834ac936670f.json",
+    "bytes": 3033,
+    "sha256": "bf2d69df05cecb27e8f7eee68d871146f720cb63040c6a05291a9bb7ecbbe795",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/100d99c1a0617f01b95f29f28f987acd1af16494ddd3ad87b7fb54272f4a29e4.json",
+    "bytes": 2018,
+    "sha256": "1c64eef253e72dab35e48b4558a61d19038c494eead9a4821ba89475ad4094ca",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/11eca6cc740bc4a5b718ae8f0215fbaa1bfc8643ca88c35142351fc90a41b044.json",
+    "bytes": 2991,
+    "sha256": "a2143868f311a81f9cfd3db31cb0afb1e486b92d449dba558b74f087f8fefc59",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/1275297e4d78074b421d200764b6530cfd84beb86f3eeae7dbf9cf5b014ccf73.json",
+    "bytes": 3036,
+    "sha256": "82a36bc2edf343521472bcc0b95822219ba582b9cc9ccdbf47b06bf3590047bc",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/1314b9f96953579d148906f69cdfbcfcee44b288c6b4b2c4fb952ab3c5098706.json",
+    "bytes": 2758,
+    "sha256": "de1c1de64239ff658e87584f8b4d6fd7c360a2a7ef8bfed4054f776c4f9873a6",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/13e7ebc502890efc614813eeca0e62aab960e0812ed6476164baa25b663a49bf.json",
+    "bytes": 2764,
+    "sha256": "6a0e797d388a77cef32a50f38176d4411c0432a866cfee94e5e445a2df9a1f35",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/140d8ef468b76cd920dad205d850208d5fa827c0462902585aeff81de9286ef3.json",
+    "bytes": 3375,
+    "sha256": "306a55c8a583d3de6989229a6fe73a3de8e514159e2f2fb496585839d138d00e",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/156a0cb4dd8170c62d23ae34153c208487c13a02753abacb326df89ff92448f2.json",
+    "bytes": 2215,
+    "sha256": "2e1691377fd815c14af4be1a48f8dafe9f0d6a42d2c25032ba906ba1473090be",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/157419fc06643013195a4a45dc5641091c2ae40a95e5fd80d88e097412d6a1b4.json",
+    "bytes": 1498,
+    "sha256": "57ab73f465a54e47135520a591b2adaf792b3d844db7a2294045e6599718ab6a",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/15e3a3770dad3b6139fe185068db73829a02ceb13147e2a9580b7cbe92030ace.json",
+    "bytes": 3360,
+    "sha256": "b7cfbec7e337d80fe4f28285ea7970d4cebef191febae40b2dbf8e91c77ce153",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/1619a187bbea990250371fae117c188e2bb5ec50b5b05a3a37dcca060f715899.json",
+    "bytes": 1774,
+    "sha256": "7222fd5ab49df6934f1a60f14336707195f0d91b6d6571fb357deb49b097c6e7",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/16c53e74e40c32c780ad3f49fea920ca1192b389ddc3dff64cee591de13b671c.json",
+    "bytes": 2765,
+    "sha256": "a3cb4eacac221f5abf500675a66d80210ee829f133d0047d94496783b7f6318f",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/187f4f8b199fc363ece3cf26ade88a7442f1ae31ea2eee976c6b3bea02aed814.json",
+    "bytes": 1740,
+    "sha256": "aa4f59da6c3ce0d32a498cd386b28d44b4aff6644421725add5efa77937bbc25",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/19a30631cf913e48f13463f9d4e288d25698a690fbf48a34c105b5698419715d.json",
+    "bytes": 3217,
+    "sha256": "8aa486946114dd1edc00e4499f4658d333102ffcda97fdd7413befb654095ca7",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/1b07dfad5e10914f709f1484aaadc2666ed83d9e0e1a37e77828e5fd1aa919ea.json",
+    "bytes": 1326,
+    "sha256": "5192ea93c00979258ec175f93932c4be6a47550ffb072b802a8186859692541d",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/1b1c9a702c44a899d6db672956ce2b297ebf33d07e21a204df84727253c6e1e7.json",
+    "bytes": 2493,
+    "sha256": "abe4783efe3e110890bb9356d9c5caaf87f53a51ee234bb8acfa31f8f65c249a",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/1bdca4bae53c4e586635ec97315a1011e14baf94328237cafa98f8a91f9cd573.json",
+    "bytes": 2915,
+    "sha256": "669195abdc8a02aaf278a2d9d49dfe2d511608d16719e9d306725d1c342c120b",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/1d77cf4157eaa84aa64f0febbce1a7aaa2e85e08122fbd57e386fd3a20aa4bc5.json",
+    "bytes": 2994,
+    "sha256": "7e405088f68591332ba4b5ce76fa156f290c48b01aca49170f7ea0fec08c623b",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/1e19157d90d22c79229ae24df92e984b5bfc7044c758666af8920dea7e96798d.json",
+    "bytes": 2884,
+    "sha256": "13e5dbf8dcec40b7d0873de0cb915fa0ec6f4256163eecbb12f5e11d3eca7ccc",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/1e48343256e595030e9e21dc2cef21b7091ac012e9dc47275b634fab33282e52.json",
+    "bytes": 2763,
+    "sha256": "817fd8fc11c156cb579199a15ccb5fa762b62ea7b8e76fc2228fb78677b14ce1",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/1ee992d5b6fb430458c619ca75933882479b79e26ee53508b2031a16825efc98.json",
+    "bytes": 2451,
+    "sha256": "1a0651ad24fe42c513cad8de76f0434385c66f502c0fee34119e59fe83195c24",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/1f24a74db033637888c53534954d654a400676e2b9c1aaf28bd51560bfc14eef.json",
+    "bytes": 2012,
+    "sha256": "b0f42b355bb471b98f1b69369570947a9eb89e0915aa154be1c66e125053bf93",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/1f55cfcd730ddc68a1d462ef2737f27d30a962f6a2400001eb7287cc5fd22ccf.json",
+    "bytes": 3084,
+    "sha256": "2782b1e8d6764d1374d7e7f24c0e96e817b875ff60abf7f1a7994f906b3398ee",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/1fdb5e70ac9a73af019955010cfc3e2a7bd7e266a9a57899c69c7b501c7187ee.json",
+    "bytes": 1376,
+    "sha256": "00252968c880f8331e18c3810d8b272b7c1edc1f59e7e83d0b72585b0a4303fb",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/2054a8275b35de73a6b9aab0b6631eaa43318ea03a21daffb9adcb3d800f59f6.json",
+    "bytes": 1375,
+    "sha256": "55eaea2bedef8b630da3fce29a57ba023f87bedebacd7ecb543c2ddb50d101ce",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/20f56590c474638252a031ee7048da8140643948d5bd5565ea1f21f1f7f69f94.json",
+    "bytes": 2735,
+    "sha256": "123cf0f1557b2e2b054a47dcb2004e5a17fafbb5102a6b3a1a815968d5bd0f2e",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/20fc7c210bbfd3d2b1dcf61bc9677e5c421ce3dbd427baeee225b75736201f12.json",
+    "bytes": 1874,
+    "sha256": "516a8122a717a96c6f74c6e22147495f912060bc6a4bf8b3a7e09de23b1300b2",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/2118923aa5855aed3a714048a09378d6e97600bd3f3e7d9074044b6d52b62a9d.json",
+    "bytes": 2251,
+    "sha256": "30e2b2685c6e8525fb8364dc4263eb1582da1d77338d8cf87df11ec06ccb5596",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/218200b96e2663d3f5f47dfdb2b3acc1d1f2511ea3ae29dadbb120f5f1fd6807.json",
+    "bytes": 3066,
+    "sha256": "749f243c4d596ddb71aa93127007a89e0b85f5dc24d1a0eea88d3dc245a85793",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/224d875aa51a94eae47e3944ec4d21babd4db649bff62f5a0d74cb2e1ae63893.json",
+    "bytes": 3218,
+    "sha256": "dd4acf4716641e329ec822e11ce66b200b3b5914b22db0d83769ac2436c8da8a",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/229e467170911a5efddf37e513ff817c92c7d1759b52980c593229dbbdcb3b34.json",
+    "bytes": 1570,
+    "sha256": "f768a0455284e5651c6d96fed6478bc0c51cc6c688909994edf92300603e6f5b",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/233891e860e0bf9c05536a356b557c4bc02be9cc626166a940c09c6139422fa1.json",
+    "bytes": 2760,
+    "sha256": "abf02dbe658c462e0b103966707b565a60373ffde02c0f6beae3d7de2e013867",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/23963276caf61295bb6755ce544ae595a3c3521b1413cf37dd35b5ab060dfefb.json",
+    "bytes": 1498,
+    "sha256": "dc93578ff1386ccd8110678c14c153638611eeb2af0c0b7dae2e246755a6bdc8",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/248a3b6367c68afdb1fe2b562ceff5f57dee74d322e65d19cda1dbd44cf57935.json",
+    "bytes": 2735,
+    "sha256": "ece38f2a14c24c81f93f81b5e2536e271f1e294835b277ec3a5f0892f8389773",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/251b76ce9d7be703cb1763cb642e0a70a0f6fc37c379dd6c3f575816b934acf9.json",
+    "bytes": 2757,
+    "sha256": "a9892890ca1c54ea17f599c6b800b02a7c1982cefb398c9f06f86866c613d291",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/26714a5c3643b4dc4b7fe29ff29dafb49a8cd99592279226a13cac4f9b78e73e.json",
+    "bytes": 2760,
+    "sha256": "843fff302614d0e691bf488474689af6d303d13f9bf263837780c3d5494cf436",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/26bf3d0907a8911d25bd434626f2e72fd96d52a74b558eb1ab0e7d16f233b433.json",
+    "bytes": 2760,
+    "sha256": "71d0be0a92d02f5a89a8134072a63505142a45fcc274aa88d8cf1c6bf4fe5262",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/26eb6e9fac24d0e4a26be88f42c00a48fe2849ff64bb2123f160970f4c2449e6.json",
+    "bytes": 3067,
+    "sha256": "908dd21c8d249b35bf97e3e66f385921a08d427894db72afec66e9fce65b935e",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/2936267ca886cdfc16bb7ae1b76c4922f9e3dc7ad27dd26b6959060dd2ceb714.json",
+    "bytes": 1768,
+    "sha256": "1f16eb910781faadc779fd64508947a93a0f08b10b90cbfcec7e7a939cf8aca5",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/2a38ee31f5bea0788cacd0ce76b36c2a121175a2eb9b2d8124938a551491d53a.json",
+    "bytes": 2010,
+    "sha256": "ac4da0e6dd97a1fb99bfdaac77d505dec8a0571b1164387b40efe379fe680254",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/2a4a1cf78be8fe40385ba5d5c41d1770144eb0fa6d2ad06b651c81beb056e124.json",
+    "bytes": 1775,
+    "sha256": "f0abc2450a25ebd4c3a37255932ad40429ac54a2c4c7a77c7d6a159a66d4edd0",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/2b0332d08a6ea621db239a7deb5b561f97ae76cea3bfaf6b5b1121304a0b342d.json",
+    "bytes": 1769,
+    "sha256": "f2ce13536645f72713c0618c1c5c1adc8aac076989cf434c161c259e3b52d628",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/2b3177b354a9feda587239223cc1d54e93941e7be1480339441255413a4825ba.json",
+    "bytes": 2022,
+    "sha256": "fb7ec777cbc17a91c33df0f58202a224fffd86f3c24ebfaa4d4bf58f9d3618ad",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/2b848640d4b9d360d9a436db709deeb26e6a8b305aabc707afb7dec82ea44532.json",
+    "bytes": 3824,
+    "sha256": "264834d4ed725c38ffd4af1bf08fd8cea7dcb2c2ec6a6174a6dcdceec99db3ba",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/2bf6527a423573e96efb6a79261a1c43dff52108ba94609e647fe96bd4b87720.json",
+    "bytes": 2760,
+    "sha256": "a38dafdab411e71b40238b1da57d5426c7caf2ba736157eb9ebcac9ca1aeb25f",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/2c72e2262fcbe610d9cec20dd2b20a6314a1eb4e43ceed3b5d256191547ac582.json",
+    "bytes": 2927,
+    "sha256": "97c23eecb6d455322a90bbd0f3afcaf136d2c92e477fa60eeeb5c05f539a8097",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/2c98b5092f68222b4aec3e26b412ae0125e0f95315407e803a1c63283c861e63.json",
+    "bytes": 3810,
+    "sha256": "c5eae80981938390c5a38d854a32903c40c0f7534a16eea4e020c819274c4781",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/2cd0130eab2ee3a3731514af5d11f5af48f49d85494b8558da1f11258389b5f6.json",
+    "bytes": 3609,
+    "sha256": "341f75f75d0bcf2b379c846701b9c86bf4fa439f27c3cfac5ee11c3a5303bed6",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/2d57ab8ca88f312345431b0e939a9f88a0218de8a5b28c6198d97e39a6f63316.json",
+    "bytes": 2764,
+    "sha256": "ca85c71e09d7b12a48d3a7f22faf52833af8ca5fd598ef7423b67464e765fd9c",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/2d96bbf60c30a2424bf8e17b09d5abeff1efdf569627031c0e695fb3139af381.json",
+    "bytes": 1620,
+    "sha256": "ce3fbff6497e71144ced6acf8f0a70c0380bd942f37ed6137327d6874325a854",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/2dec726d2a5e3bd927ba9956b229c4168b189f2d70639705a4d6cb5b34c9dfdb.json",
+    "bytes": 2918,
+    "sha256": "a56800038f3abefb505eadbb4dc79a8b5e7e4e0ec2c17a5905789e362565b39c",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/2e24f1d6515cc8ade27ad31c984f1ba9159a9e34b4ef4e01b8e4b858927371a7.json",
+    "bytes": 2737,
+    "sha256": "7221c7f3cdd518b6e21fb3492e91992e44cd2ffb14d98dcef2538466d3a7645f",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/2e9c308ce4873f8b65b34083ae895a520d919f93b8d7c60fb2d5c0e7b99344f8.json",
+    "bytes": 2764,
+    "sha256": "81d5e71fb6a95b43e303139ad01e9098bb47680eaaabae003b924a2dbf06dca7",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/2ed38079b7b77b45fe07110769b7e5fe8d627a17355136f597feb52779c4b8a2.json",
+    "bytes": 2765,
+    "sha256": "bb42d964586241a631eddcdd85fe64cec0dec21fa589f65dfb09c15c1c99ff8d",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/2f380e4f51e7a926db2719b59f9a441daee57272fb126002992baffd93271bd9.json",
+    "bytes": 2491,
+    "sha256": "ce89de958a06bdb0d9f7a4e559f049c960f792debb71279ebc8e9f5195120c4a",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/2fc6f6ebc122ad16940c8219a89f229f825a99b087fd5a693a20c3313139fe0f.json",
+    "bytes": 1740,
+    "sha256": "4e7544f97f5f22f2a4762f8bb8487e0f1bced1ffb6ce32aa6a48f0cc8a9878e7",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/30a803ce4d8314a3dcdeec5fbe2e3648f4628335f5b9bda5332aa6845fc0eb25.json",
+    "bytes": 3339,
+    "sha256": "15d94e9fa1477b643d00217ae580adf74e426ffdd0bcd88f54ff57158dd06438",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/318c79b45c0a4308190d550abd1902211f448beadd1e4f321d1a1d43ce2488d0.json",
+    "bytes": 2764,
+    "sha256": "eebbd24063bdb03835273953cb3878cd0b16166329e27e5e4b2fbedb23007bcd",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/3192190be7a0268664d10126162fb0867a9480cb63276db5d8196a95bbd601ae.json",
+    "bytes": 2766,
+    "sha256": "6329b294b474a96253748365f457cfc019c57463d5a2ab191f127582d18b0f22",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/31af6770ecba068327d32d0decd09c7157f21c4f1b642955df2a1b83f365eec8.json",
+    "bytes": 2028,
+    "sha256": "b29181dde782a37453be42815c5e4e0fd07250a1a0b678b164387d68995bffa7",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/32ee12cf5f285a25a2011f164669329abf741597803e86b1d74ee30ec1751eb4.json",
+    "bytes": 2517,
+    "sha256": "18f34abc8d4377dc0147dd6ce3364b5878e4952aef3dec719469e721f93a30d7",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/3340412936fe288c7f2e6bbaf16f59a419d52032ef69cd37167c676beb3f6d23.json",
+    "bytes": 2270,
+    "sha256": "85172950ce198ff2f89fba4b3e6523f76eb58ff07df0b766a147ebc88436557c",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/3371eb6f9fb5e2a9bef3ce21a6939c98f6ce5856c2dea762eaab1f1a2f526fd0.json",
+    "bytes": 2760,
+    "sha256": "9ae72045fb32787002b5d6696a10adf6c6dfd0054187bafd5802ca6f6bc64611",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/33972143512a5ba887e10eb9cc87968c5209be3f9a7ee36ae87ab64c89632192.json",
+    "bytes": 2733,
+    "sha256": "d273689076a62918763ae57b19a705d998f156622ebbd2249c56ff0cf09a1612",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/33c884cda5ae5ba9c42710db63cf186ecf794182ae04d51f61b7b045a54d8fa4.json",
+    "bytes": 2764,
+    "sha256": "ebc9fe9e18fb13b777c4e7e2cd9822f2149b85f1d5d128892aef439e8bfe115c",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/33e0f1ceae8a7a77901879c74a06e5e63b943a4d1fcf4fb309a498661d578b1f.json",
+    "bytes": 3126,
+    "sha256": "bc4c722bf53401ec8c2d170af727816d2c1d0c7fa7a3e5a62a69e23b5eee6d93",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/345260d2e57d83dff716f4b99bd5f6cba3cc28f86c1539fd0793bb3d82dc462e.json",
+    "bytes": 2735,
+    "sha256": "68915fbf729f93be327046a6a7540722164b6c003de22c22d89d6cdc6a79afc1",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/34799a42d4bf025846284640c5b54c6d49bb6dfa43ef29a3ebf67061651c3821.json",
+    "bytes": 2885,
+    "sha256": "902b4c77251583035de14a6f4ad147f2af4e1bbee454cdfc7b5abd10acd7f45f",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/34ddd4d2e8124273e6a803f4629ea706e38b2e0f208848aa96a7a19ac53b3827.json",
+    "bytes": 2765,
+    "sha256": "b9c8aed9c8038f165f4f52e5a08a33118cde800e95ac8eae6a28688b8f5fcd35",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/35d26b25750697e2d4f58e5f357ca7230d332af1ec7a8282640573e1c0df837a.json",
+    "bytes": 2735,
+    "sha256": "f36b2dc350d31cd645b5b74d21b7d99673d6247ad2c1fbf85376a68b2b2b6fdc",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/36d3545d543ce1b6a09e4bda3315a82590a1918d5a6c9de685037012f0b2aea5.json",
+    "bytes": 1374,
+    "sha256": "d0b3cd82a28cc022205f55da544acfbcd2cc5ee74f58710bed2d787497c93a03",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/3707af76132864a4b27933d07067feca8a3040ba7360d85b750d4436d8c72ae9.json",
+    "bytes": 1771,
+    "sha256": "bfc47378e84856d9d6b4cc0ff2d01df291c852bd188ae66262ff166223aa4348",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/374665bfcbae722db9901ab9edca03dbd79e4e2913734064ee65f9c72dde64ef.json",
+    "bytes": 2764,
+    "sha256": "6fc12581baa862463e1cae3dac9eceaf5de8eee051fefd2d0dcff4200db9cde9",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/3758b4bded799f716fd3bcd7ceeef047ab7656289f94d3d0cc1a0c8c579550b5.json",
+    "bytes": 3216,
+    "sha256": "af5ffbee13fc51c8a789ef1be27169660dfbb56ea24cafa1a801be573f685950",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/38ed4e2f50c6ec744ce1b72643b39e57bfd5e7ce55da832a81406fec9a902108.json",
+    "bytes": 2759,
+    "sha256": "24d6432721e24ef7524881d5a72b3081ac9271cddf94cb641f9c6dba53b9b5f5",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/39930bd1e872786d6ccac2f0ad52a1d08ef35f3e5ffc867b5a8b5fd8488db119.json",
+    "bytes": 2885,
+    "sha256": "18ccff68eb30c4349a1c2ad77778b881d786a4489de1700468dbf6bca4c85f54",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/3a1e56040ed3335c61289ddaad18f39fcf7438b81bb83c2da289626f4e486582.json",
+    "bytes": 3764,
+    "sha256": "34d26a1ceaa1de141c83a08a041e4be2a1079ecaeb02cbafb4a704599cc74eef",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/3b8ffd59e6e9e46361604a0645cec0b7bb09b74416d1de97087de64e00ded5b5.json",
+    "bytes": 1770,
+    "sha256": "d30d177e4a24e4104699e7e8c97c664a54508d97de08ad4c6e2b8bb7e66f8e89",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/3c6a56124badc0ff52b92de88c29050b980f164905b514fedadc1a2324ad3183.json",
+    "bytes": 3791,
+    "sha256": "4f1da6becc3aeca1871b6c06fa245d805f8656a88a569f044a983d83b17c63c2",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/3d03c0b626214c4a9ceba5306d0b8a7f2ba52ccc363157e96636e8a21ea2b610.json",
+    "bytes": 1774,
+    "sha256": "9db974eae846e1b72e621fb4298fdc3a19fecbbf7bde1a6125f1ed8d9603b66a",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/3dd3998d1a16ec1c0edaa1be6912b3807b13e79ac18b5474fc2915f138c1adf9.json",
+    "bytes": 2019,
+    "sha256": "8aef3d65912720bd731e786c0216a0f093a88ccc08517ed025ae63e9d4adecc9",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/3e796d0330cd619f9a049ce0d92660fd944553b38bc748cd8397c0ad0659dd33.json",
+    "bytes": 2765,
+    "sha256": "3877d43bdea7ac1900e5f1ecafd25cbbe99ce2d1c788782777fa0e8b9f62add0",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/3f6ba43d3125432545a9b34c0ad70775eb0b1b5f6d2b202527e90e7ffd5f5725.json",
+    "bytes": 2759,
+    "sha256": "3cb1aa4140740de4a230cacb076355100942a6ba4310b6c98bd80429e49f0dc6",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/419b6343126d7cf28ceef4c4d760b238ce1b76066b857e34a1544a9b6eecd126.json",
+    "bytes": 2764,
+    "sha256": "ff9ac8d242d0a9a7ae479a21e408a3ce142b2b5954334675b562c0d51ee013ef",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/4267f1dfa22189a1e2d91fd1f35cc57a407a6dc2cb117684293dff8d67496c9c.json",
+    "bytes": 3609,
+    "sha256": "9258c2b11533cbd6b61738f3afdc805581a14bc1b8528d0d1805b01ef86ccfa4",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/429b11115a456ce35a85add5c0ffe462fc50908f07784b05eb7d8afcc1847af1.json",
+    "bytes": 2512,
+    "sha256": "bd67257c797da4113a1e8f9b1a85f0dd52cb1423a8a5444eb5ae5fbec0ca5683",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/429ba31cd88fe0a11aa78ce3008d6e1db6fc56338a771715ebbd324851212463.json",
+    "bytes": 1776,
+    "sha256": "80cda8efc0bdff98b7f7ee7d70693743aa29a6d01c24f2f1515285ce03cd5554",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/43b0e5473a09d46f8513dd2eb941e54b56db6e5b2e50eed1aa20233cb6ef5d8a.json",
+    "bytes": 1499,
+    "sha256": "3c328849672e960be251c0b29e4fdab96aa9083a680cb87f6fb66d8a4511ad09",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/443cda8d95152ef47d566f64a991290213d196fdfb5da7416a9ded9d61715042.json",
+    "bytes": 2763,
+    "sha256": "0194e23c8ee0fb121748dadc268f04e24068aa8d45ab09c658a041d18da5557b",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/45273f396325fded2566698ed4b08e6f3f7136f0f5a61f276089cb624e03a800.json",
+    "bytes": 2788,
+    "sha256": "c2bc5e343f95191b02f1b912f4ff7e4118ee3a2a0bc4484ad96ce6644e15ae35",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/452a158c99b7b4f71f2cefc8e123d6849fe332eb90a13fe2e103e64895ada739.json",
+    "bytes": 1265,
+    "sha256": "5c0f89ea3e669fca9acaec41beb6fc86a10fc5181077f35d2fce4ee7798ea679",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/453d6f861fd50867a9eaa279f6055770523c355a2ce4c41b408c283e6da01835.json",
+    "bytes": 3821,
+    "sha256": "13d5ab6f2f5541a55b9ba8dc14266f22ab0457b9634d4f06468ef86a50780ddc",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/45cdf465af5b20cf5653285c9ebd2420ecd7cab75725a867efd90fa5793c6072.json",
+    "bytes": 1776,
+    "sha256": "db9237bfe1b554a90c5fe46f61a235fa201c6ac69cc91334748603b6fb703de6",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/462bfac504a738c03a3a3f4544b1abe047eeb8a1220d3dc952547ddc120e143a.json",
+    "bytes": 2764,
+    "sha256": "b6576fee1e4e60193a6fff062cc4e1345ab1c0102596025ab1f5519a8c7c8def",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/465001fdf51393d5390767d2ffa46c73bbeabfcce12df1271a60c8b340f58d00.json",
+    "bytes": 1768,
+    "sha256": "b80ea810f39cbdb866f886343c2d76401255e3e4fcff5798df7a7cfad834adfc",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/47261161904bf973dc023ceb13aaaf2673bb91b6c511d825ae71e5d1a5e8a56d.json",
+    "bytes": 2762,
+    "sha256": "ccceca68e6d4500a7a543dbe889b52e7fd7958d1f06d0a5f800bf6385a91c8b2",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/482fe461a6e7994fade935c45551a10f2f44647c83e67e0db88e3ae15a4735d2.json",
+    "bytes": 1446,
+    "sha256": "bafa9be1f4077195f669a2e7c641f7718945b62db654f781517b95dc6bb2c3c1",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/48a58d8eed6a3cfc6d299d278876579ddffe24fec6e36ecc58b43cfcca8d27b3.json",
+    "bytes": 3216,
+    "sha256": "5a755d94aa4c301471775ecd69302e00f0a85743685954f2ca758f13be695372",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/49bca527c4c890206da6e959807e2218c15eeacfc9d88e9778fd71b9c5075e25.json",
+    "bytes": 2021,
+    "sha256": "26df0d2fa4b2b6a99ad0ff67f964a77182ef6c93717ea247d42e773271ef6c99",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/49ff6f22dabed21996a83659d66af83b570aa3d8e42930ded557bfb8fad9630e.json",
+    "bytes": 3066,
+    "sha256": "5666e502bc06357f53d3716e912c1b5410a9ea3b6791961b2a73978b2bd3209d",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/4a885db1baafb8ac9db66f646d37a9be7427794712fabbab8c584f1980df51ce.json",
+    "bytes": 2759,
+    "sha256": "6029fee650110b0e516fe79a9e1c1aedc81b4ed21b05bca6ce9a10e8befc04ef",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/4ba9c73362ef82088742af03742db4cb20f899e3562f675d3ceb1186708db9d7.json",
+    "bytes": 3106,
+    "sha256": "4c6f79036f306eaeab46dbc35f8288d4191911dc4038f8c86ddbe47220aabd7e",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/4dce736e3311ab15f04da51d58b481e5c3836a846c6343e970bca5da851e1798.json",
+    "bytes": 2765,
+    "sha256": "22afcb2e73c66383edc9e9c2e226785b5fd77d0a337509a3a5b1b58171a819e2",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/4de2763f0fb2de8c4f8f69e9c6d1e70685db994eec9e9b680ce2f3867c67ffa2.json",
+    "bytes": 2019,
+    "sha256": "bfca049ef77c1277e533e27f6a622b8be5cf375ef1ad8273792911f733977d65",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/50ed7440f9a785f1b3b329b6e52d209b505e63da53eb0b575aa0556afd73e19f.json",
+    "bytes": 2758,
+    "sha256": "d6ca1564b6a6ab0f6692e46047552803210729429e0932d07b0876b91231495f",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/50fb4137158e00590f79fa4405f22e7e84876b8b295c43582c5b3ad4cb3563a8.json",
+    "bytes": 1772,
+    "sha256": "ce477c251815ca3814f5c0c721fc022eecf4f4df2368e15b35e4e63fbe9a988b",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/511891adcaa1ec5067a8918a9d8063b329395960337baeec5c3832cfaa1888aa.json",
+    "bytes": 3182,
+    "sha256": "230f5abcb5608383eb2bf200a9b72b080835a593872e8718011cacb84d8193a5",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/5134fdc23942613cd5d17e79f09aedb174e5fc8fecf011aecf8cb2f395449e0c.json",
+    "bytes": 2764,
+    "sha256": "1c0d136e3c3cf2445d4bd168df7a4b73e54a677dd9e57c5f3e403e7620eae163",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/5275fd861bfb35ad7872f5a7f77aaced69df95933099133b4e3904790010b010.json",
+    "bytes": 3764,
+    "sha256": "9563f65a403ad230b60ca2ce28e27fc91c93ceed0af5f690034d11e36aa45b49",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/533805721579762fc8e34b5096ed7830caafeff9851819e9eb02d854029f14fe.json",
+    "bytes": 2735,
+    "sha256": "7a82e870369415ed513dba0bcf33d12a0dafc7192358dc0ff2cfbbb901c23968",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/53d994cfbd49560d44cf35b8683f980eec67b538c9110856279a70ef9e64a646.json",
+    "bytes": 3375,
+    "sha256": "b11a2318d68f899b51da3b2bcd63d548e4a2244d0f70db5e7398ede099ab961b",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/5425605932663398ffbe4ea862da043fb6afd399ac5b48a27d76fca7367a7856.json",
+    "bytes": 2735,
+    "sha256": "b417afed27361af965798986dfadebdf44cc7d425713fc754998ba2ec4f00b5d",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/54434d616532adee67425484cdd8b14a971eade5843306c336aa08c95d821aaa.json",
+    "bytes": 1692,
+    "sha256": "4e2c328720ad814eef3c51a125a1ba593378eab422b2e5b057cfcc6105c2ee40",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/55ce0d6e4d3ff7d909d60c058c64e18bf510234b8411417c7eca8f22e172f3f3.json",
+    "bytes": 2513,
+    "sha256": "df0c73c1ff717bb77e1fb0cfc4299f1de1d7132ec28517ef2737212ac34ea270",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/56298562736ce1453555d43e39a1df7bc002c6250b21477f2f9a8414657ba314.json",
+    "bytes": 3247,
+    "sha256": "e9a3d38f54ac1580266232787f5fd86149cec16d17acbdba80db85e1f7957139",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/5686609a07aa599bc87e42ce9c7f4c572b6fe155a29e3afc47a6fdc1d4e14d67.json",
+    "bytes": 2763,
+    "sha256": "5eea2335e0f9198fdff0d8a0f1d6197863c0fb2fb45020def0f013c84dc0ad2b",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/56c54658545a4d74942b1a41f829e3e0991a9b84ebd88164a4b367b78f17ce8a.json",
+    "bytes": 1498,
+    "sha256": "9aaef47df9a6782f713919b819caa6e3bddfca5cf42c9afcab509278473d250f",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/572b11ccc62fed5e7a2c6ac7078bdcde19f1208113a68a660e1e3027289cb4a0.json",
+    "bytes": 2994,
+    "sha256": "8431124784c5419f8aab31c966779934f6abf271d4de81502a5b509e15fc2015",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/573f72d6863651aaf80bd3d4ee55ad07a5ee47e385b312ae76faa93e76cedbb3.json",
+    "bytes": 3248,
+    "sha256": "bb98f48728e7ba77da7fe4529fe654226433566c5f44defacbbe327da6201085",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/587ebd1913e80b6676bdcfbcb1f46b19ef3bacac2777c9a66fec402353af86ce.json",
+    "bytes": 3122,
+    "sha256": "c6d5e2962d974cfa2ba9de358a1ab1b00f15855d5051317d35d6ad15126d1a2d",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/58f56536a4eca566238739205bb56fbb49eae98ef04044ae92f8a174dd78d25c.json",
+    "bytes": 2514,
+    "sha256": "b0b945ae6b27c18fe77e32671df42f680d16a22e2937e7e9dba9d22061c7d413",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/59576af3b4f39c0b3bc0aa1111677756de4cb4202d81d70240178c0db41b068c.json",
+    "bytes": 2514,
+    "sha256": "f54fc733fe140f370b540a59c0881021c97317ec2ee549d698ea75e22a65da54",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/5ad8d9cf1f8c1368f61bb69593197bf29fe5f3b5a833c226f8a4de01c6884058.json",
+    "bytes": 2760,
+    "sha256": "fca46977b8d18e492e4bd2f16918a235a07a3e00e9b972a047148a7f1b8e1e0d",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/5bf1e63223205f54eb4774519245f83ace1a115fb3313e31188788221ed8ccc8.json",
+    "bytes": 2736,
+    "sha256": "547f2c2603639fddebdd427609de87dea0e5ad281af9cb4cbb102f97b224f227",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/5d73ef865b882436f06c563a9f1f21f50ce050a536098c51740f66a80a3ac4f5.json",
+    "bytes": 2252,
+    "sha256": "fd615efd1767464a9bc424cdacc4581ffba03dc8abe531eee5c31db564bfde96",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/5de54bfa5ddd28264478fc949e42c45a50c577b9b6437c142d2517af5070517f.json",
+    "bytes": 3056,
+    "sha256": "daebc0044f7558a0823fb40746ce2887acccf69ce0fb7b106e507866e8090480",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/5e4edc60cb93ee8ee4575d810eb4e5d954c3518764addc6169fd4f18c7e92982.json",
+    "bytes": 2492,
+    "sha256": "cfbee465c8f5dcab73b4a777ded441d8b56d5da6938f8d8564d71bbf27f40e62",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/5eddbda9e117135724a2d466df44badc4ddc60aa71bd9ba6fe7c4d3a123e7637.json",
+    "bytes": 2765,
+    "sha256": "df1ef203a61d0490f88030c4c918f00196ece7cee829a3e10e3bbde1aeff340a",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/5f3d167065b5a644fdbc9b3ff994f038b649ca11a91fac4454766922c61c2e2f.json",
+    "bytes": 2009,
+    "sha256": "e78c2982ac9f4eb24b5356c453708c9534757ef38bfd09eb4cf69881f2502ac7",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/5f77154e335343d33469db67624df509ef5385d34eecbaf675caca08daab2b5e.json",
+    "bytes": 2765,
+    "sha256": "cce8d09696ff91487a071e749c989a227f3abfa1959307c957733b20f1368998",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/5fca12f6dbc6db46691f097f8903d8897e4f654c0679cdc3679c7beaa3fe2a91.json",
+    "bytes": 2267,
+    "sha256": "ece61e696b4f3e03f60474a7041a9d9d43d8ba880ec7a345e5095f4ce76a91a1",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/605a79dda676d5a47a7320a9f5e28242175ee85f8fb5700245b4896533953756.json",
+    "bytes": 2022,
+    "sha256": "1899f8410f75b4856926060b13a82471db1342fe4fd41719694c1bfa6e9b2958",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/608b22fc99a5845b71992df228b6c3756c63dd4a8fefabed4be088110d5792c1.json",
+    "bytes": 2765,
+    "sha256": "c31fc3e1fea8060f164749b36231a63524b2296e31fe824dd8ed19432073d220",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/622b37a8298915666b423322ee9b11fd69689da9ca2b3d24110b7d5a3a7c106f.json",
+    "bytes": 2514,
+    "sha256": "395d0f5ece4128c32f99ecd8eedd4484c4c128e1b673dea86b7b298a25d93de5",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/63378d2596967e459351f1c31ab5b783b946c0c76e6c2d4c7157d9fa3c759042.json",
+    "bytes": 2265,
+    "sha256": "98b707aa33eb06c2db255f872988c8a4a26c283be8e43a69c0f2172bd258ae40",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/63c6bd3476db785a15e4602cf02e2550e9877b99c16f54fde92ee66cb1f436f5.json",
+    "bytes": 2734,
+    "sha256": "9a9fabc9f92f6ff54bd359c6773363b597e267ddbedce2a286818a650b69e017",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/645cdb3d7cd4697aa229980a458d9988eef2b8c0eb008559470be8732a84527b.json",
+    "bytes": 1619,
+    "sha256": "de8cff5806b08a63c98e145d77631a456523ac5f62447826f901c27ada68dd38",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/66f89d754a9456df127414b2a5d8e7cd7cffb5d8008660080f8a3e7349c099ee.json",
+    "bytes": 2020,
+    "sha256": "4bc9d1bb6505da5da443324e89a51f1e2f77c4a4e6262fe0b4a50432c818c58e",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/670fa079d3ca095d628e8bdcb99778efe00e42e2328a6bd57fdf8e0e92f2cac7.json",
+    "bytes": 2916,
+    "sha256": "4a4c986a9de2514775f1088b63464b15f4979c6118543095fed94a1ea190edf0",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/68900be66379532991d95886be2506bade31d4ed67ae8627fb61f97a0c0d03ae.json",
+    "bytes": 2765,
+    "sha256": "71afc755e81331285faa4ab40fc43a8da5ec9ef107f89aa849ae426be54595c1",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/68aeec576d6203c08cabb8c8773bd941dc16f779af2b1b61411cbea5ff2f5905.json",
+    "bytes": 2251,
+    "sha256": "f241999cd6aa774e127df932be5658709478379d40f7e68de36596403bdfe6d2",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/699730b4ade5cdf728c0430bc65d44687e65e84923355bef9c3386246ac17cdc.json",
+    "bytes": 3185,
+    "sha256": "3f576c5fae0bd3906c9d5b8fef81ff962897e3a57832eae3b87caf0ed5001800",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/69bc69e019b3acf28c8de82a3f6f285ca3a039fe2edc942f61f7f1ac5a892904.json",
+    "bytes": 1775,
+    "sha256": "7719cc1a9867ae476de946b453d8ac7c6b7aef169ef6c4de25c9a9627318fff6",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/6a4181e8e3ddf0b124b749004d360a1acfef58dd87670a98a93105a6ee624d93.json",
+    "bytes": 2993,
+    "sha256": "e5561622ca65f49f5eed142a73cae8198e43b5ba37e3a48352ce5bd121a8aba9",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/6ad24d2b7d0062c368429a063208727f8c194e077a752a7cc1ac865fa7d69c28.json",
+    "bytes": 2764,
+    "sha256": "c7a1dcc55ae6a756f6fa4c484b954b0b1ca630fabee56d82ef0c002509849b8d",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/6b529a849e17b446a40ffd07cdcee0cb80886625ab4c373c484cedc0bf1f384a.json",
+    "bytes": 2513,
+    "sha256": "922839ada058160ddd04a77d0724d743bc1b11f5f11031cfd83ebdd9f18f132f",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/6bfff8ba59f4ea36a283650c4442d3a8b72af96d182fafcb3f963b845e2be059.json",
+    "bytes": 2768,
+    "sha256": "35bb113687487400c131f4ee37f140399287b70e94e97f656797e78c17bc5ed3",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/6c2b4d474af7f16e578ddd1ec5d752e1ae7283260e9c55ee7f826ff9309ee244.json",
+    "bytes": 2605,
+    "sha256": "2b41655774e08e8d35521eac5893bb591a5c35ae768e3cb1e5f33b7e55bd693f",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/6c7155993b195ab2710d2e062544a514a5485ab88f064b514535d43c18f69b4a.json",
+    "bytes": 2767,
+    "sha256": "c74829bde5e895e30ecc6fc6ea55eacb67e24e39c5e1fee059d338cbb40322e0",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/6cc8ea61c0788cfcd24fd9e55f38fa9e4fac27196fd65b56f02563214a3d2966.json",
+    "bytes": 2009,
+    "sha256": "3cc0e84a0f416bef5a1f533b23e0caee29949585f5525efac2c872f79a498ee5",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/6cf06cbbcf221dae7c2f678c5ff2e6fed5702cdcff182d5ee6f594593d08a990.json",
+    "bytes": 2758,
+    "sha256": "5cd0adc086fc1b5a7c127b7233d4e02cedfbf62edac66eb15302c1089448ff1b",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/6d386eec9f29aa3d3c26396f07f0d2b0a481f79a3a158ac1d247f9fc8d433d93.json",
+    "bytes": 1498,
+    "sha256": "c4882726e6dd99c165f8fb17bfde0c1256cebe6a12d64f7466587b309f2f2d57",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/6d9e6a3331b2d5d341b9354b9e457790548f342256eb278593351bab6e8bf73d.json",
+    "bytes": 3036,
+    "sha256": "2a4c9aa7548c98455b6617d37c9b79f1a1b4f44cfa9055832a15ea073207cbc1",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/6f1d0ff481d8cda53e271dfec430d1df0c2d1352afa9769c8860ee7308a5932b.json",
+    "bytes": 2265,
+    "sha256": "96b3f57cb0cd73e4f198b020ed9745eaae0a28bbdc1e957a872bbfcea15f8b1d",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/6f3bbac7dc15395e167069ef455a1c136e493b0b990413df45fb5db6a440a21d.json",
+    "bytes": 1528,
+    "sha256": "2d2c7df7cbe74d17075d5c85109442d637bee6b3bd1e0b8a7b89642d1dcf8355",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/6fc10a0a74045bd118681a2d21aa3cd1423ef6d811991c5953ca68565d3e8650.json",
+    "bytes": 2029,
+    "sha256": "f9f906038eff1745aac07d7a5b5b9a6c3f18665e94163d0fb2de2de766b52c46",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/6fcd80983c5aede7e86bcaaa7517724254ed5c4dcab23bd59236bc6ca8cf673f.json",
+    "bytes": 2763,
+    "sha256": "f24793dec9f3d6de1a4ffb7a943075c4377ec1f5a74036136a52e053a8e5e24f",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/70a4e44347efa254c0273a50c1c5ae2e75da55d1b4dc46f67cbcfbd6085049ad.json",
+    "bytes": 2733,
+    "sha256": "ca1ee36281c3a6b98944dc48af9d4f401a34a034428658f438c58134e6a12830",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/71e8d55fe0b7470b1e0b66ba63781de376d84b18fce800b3dea092a6fb73dda3.json",
+    "bytes": 2022,
+    "sha256": "7c5412f75cb50d8b57d26bc9344820b6bc6a24f022ddd15a3751a2d61704971c",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/71f9487c8ff40934c67dac846c12b4ddabb3dd6876b13b7de05622fe79f4a14d.json",
+    "bytes": 3185,
+    "sha256": "5b0888706757f576b2b5c8bb76575ec46d27d44e0f74d9ee8c427b907bd490a0",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/7223c041a60dd0492713045fae42d25b9c6d007d6b451fa9c80fe0bc906ad1b0.json",
+    "bytes": 2371,
+    "sha256": "d1b6f3716eae630100ef78bae3afaf5272cfb20bf22e95b5ad8c31adf97686d6",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/7237a2371e5f1016ce651634aba6d45578d317e4a67d516f8d0c4042a7e4826f.json",
+    "bytes": 2734,
+    "sha256": "96462eacef184f5785fa2c573061da2a0e3d942ceb8fc7dea1274c3d214db324",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/7351696e3ebd6cb5d8de95622931ee929238190b996dbe6b23e926447a2accf5.json",
+    "bytes": 2765,
+    "sha256": "2e9c0c005dac2bafe1c361bebc6e348a564a7a6ad600555e064054b3cc931c6a",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/73a733f26d6b6015e4faeb09b4f676837918f09296bd858b8dacd6b7ea91d59e.json",
+    "bytes": 1376,
+    "sha256": "b8d9187e8c19f17152711f14a4de7443208f89eeedf1105eef0128cd1c2a7ade",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/73c725a0095564c861379a1c9367ee6b31800a4695a38dbf9f9d6c88abc267aa.json",
+    "bytes": 3033,
+    "sha256": "0ace56e97a41b31d5ac64322871b491e61dffd931c7c5187913636790aa057e3",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/74bd01440f9391c06df7a5b51e1f94bf2796e1a04573bab5e9cb361f6eb937b7.json",
+    "bytes": 2763,
+    "sha256": "8acb755dc977b115e731aa1a91fc3f111c7a8917cfb95793ba7a1091d4891a96",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/7553252b82aa0cbc90d356cb7bc02af3b2a3519be8ef9433fe37633a4f2a1bd4.json",
+    "bytes": 1499,
+    "sha256": "34625ae944189bf06d4018d0c8405bd0b0b1f49da6b673c9caa0d7003684eedf",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/75db8fc6afbb095dbfb435a08e701e9d80a2430db50881c9f2ef1a3a9198bc21.json",
+    "bytes": 2918,
+    "sha256": "c46c16394399503c1902e8470a763a7e98332a6b11065d74e84b733ccf426e2f",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/76d47c2155271d0c93d79c712735d0d1c557a3c3c2e0faaf4ac8e7286c8ee8c0.json",
+    "bytes": 2514,
+    "sha256": "07e5baa133f0d4b4af9621bbd50ce8c82385a2eb35e16c86715839220bb9950a",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/7a3048e9e5118d25a58ee746ec3e91026a7341cccd35ba461ae566ae7080d804.json",
+    "bytes": 2020,
+    "sha256": "e9e75a1f54db66206d53bf71eadbd8c1b89a358028a8502f75488f6c9222dd4e",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/7b3beb07a81d0917bf68a4a5c5027bca98e44816ca24490453d3676ecf56e727.json",
+    "bytes": 3821,
+    "sha256": "b0bd3c011bd37d87a28d937579aa05e499bb026acba59f8f72ccaa626bdbe6a2",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/7b99008645eded522a827c9745256cca9f19648785878a9c1a8a6a3d8dc1bf05.json",
+    "bytes": 2605,
+    "sha256": "d200b5e21411b6984d53c30fb56738eba6f74a49de422884ee64e08d8901aa74",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/7ba7173ad55bec2173bdfc306379941e9b6d6f5f0fe0aa17a3a9668c59f9d32d.json",
+    "bytes": 2250,
+    "sha256": "10f4b6714b9d154ac1d6158683302644712d5c982a932239c6148166dc49c2a3",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/7c0c1b408e728cf41359aeed6f8e7db46864ba6c93e6deb8a77165e02e646f81.json",
+    "bytes": 2764,
+    "sha256": "b0be4678d89fb13071cb35a9107650b641b707eece158f3cee1182253d8b671f",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/7c12f77a48e0574bf583c21e21ec62a9c7c5ec784f0b43fa599e01ef1dde649b.json",
+    "bytes": 3811,
+    "sha256": "80aa4a45bb29f3c79a36cd19794c69c94a80e71ebf096375ac7ed0692cbbaa55",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/7e85c21b3c098f54d79a41edc866e2b87569eb23f3d2d647bde1997abbf8bd0f.json",
+    "bytes": 2215,
+    "sha256": "f2a481034963c3c8808fa49c1cae47a290c4a8057d4f764a8c582f66219e5f39",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/7f363a3b3ec5a3739d50eb6ec0a5f93e90a8641117cb8edef997702a1057ba52.json",
+    "bytes": 2510,
+    "sha256": "3ec48a6ee0dfc62b9eb25ccdb05811041e34483f0253d301a502a534529cbb14",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/801e95e8e9e78b20ae558b16ff9f1e0370504f62894ebaae62dabdc27db32f45.json",
+    "bytes": 2734,
+    "sha256": "9c62bd07e4bf0a2826968728da8c1ad3e6eda6caf1407f4ec21c53d094367a4a",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/81038d558df29e7c24308faa911f31fd8a4490814acedb221448bd66ee30458f.json",
+    "bytes": 2182,
+    "sha256": "fcdc425d219c2a599059e137af4ec1a5489276cd0779ed18bbb428f6c14d90c2",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/81b61be1f49c454f7229dd7ca736ef0ae479915fa716ab19e171ca1f6d20e5b3.json",
+    "bytes": 2268,
+    "sha256": "71f444ad9ef8b34ee3f9ee23a9b655185315a89c84780fffc79826c2cf798cb3",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/82fb2f490f1f874da013a565cae9881a3f81127595410c2b6112ca085e8dd863.json",
+    "bytes": 2759,
+    "sha256": "752c4b3ee4ca12e273e56a7e92c7110f7477e0b482bc31c7101170b4b69ed579",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/830fc33713dfbb742086c94b3dfc622459449c7997b4520750dc283387fd0a94.json",
+    "bytes": 3812,
+    "sha256": "dee5d68bbcd07e1d7a89ca730908c8501999aee433ccbeef50d4dac1ad1e87db",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/831c0054b5d9796677bba8a20c8f4f78b588843fe92e4f302ec29eedb28b8e5f.json",
+    "bytes": 2184,
+    "sha256": "66b2cf02de3d8c1807d48a740cd8e636000f84898ce7f6d316802874f3cd3092",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/836f34be384d321824af1bf1be35c892771f8cfc86a440b80f019a532f166ecd.json",
+    "bytes": 3842,
+    "sha256": "a7bc3276b93cba09322676bb40dffce4078e41221def7874cc7bcb058c38c8ca",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/84a72f865acea418609ed57127fa4bbc9760c723f044853b0df4bbd4e3cc2c71.json",
+    "bytes": 1619,
+    "sha256": "762db482dffbae0742a8b5336863e14ffbf025d7327002d51bed8825c5853e0d",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/857ad3983b2e9f53871d64cf8259886a0cac3ab48d8bbd1998dbf4ea45425bd5.json",
+    "bytes": 2734,
+    "sha256": "78d55785aa16198e130ba6361395525bdb7ce5baba02be72595d3716b97cd487",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/860b3c13222279f24c04a23cccb7424844b87ef3865bf9115e122db9e38cb39f.json",
+    "bytes": 2734,
+    "sha256": "924b8fa1dca3f6429e3d92be23847c58e71b4bbec7712c8256393f1b64db10b8",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/86f74832ed7ff8f2bfb1e11a0afc2a4df18a6f37c9cbf19188f2a262bd99671b.json",
+    "bytes": 3842,
+    "sha256": "3157116125c8b64526d6ca2980f8a6a93076f4c426a9cddf837000317eeaff56",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/8704e66a2458ba2a10214c4aa0abb7fa5c013d29ed1cdc22605831390ed1d36a.json",
+    "bytes": 1620,
+    "sha256": "a7c142bda4ad1de5ab87094084d84a790af32896a339da68083f8aedf6e9661d",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/88b5de40d2d39ef6b538893be36293a28d2eca04234b40b179bdda4cc0e76cdc.json",
+    "bytes": 3381,
+    "sha256": "00ee0748e3335c384a0b535a0b346ac758623128a16ac71ae7e957dd640b2420",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/891f82aaf246b182044e06ed54e8dd5a6837c71cdb2f76db62713c6fbe5150de.json",
+    "bytes": 2512,
+    "sha256": "ee82cbdf33fc3d4af18220a1d8e086e8a4396bdb904d0594f3c7ff26d655f199",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/893c8e344f3c05c595c9d4358297d33cfb2e8b620c4f24621b1d45ed6902fbeb.json",
+    "bytes": 2512,
+    "sha256": "0dbe3bd50d5327882d3ec9b5536a0ee74770428a92cbd43b4aeaf249a8b64bb3",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/89ff83542896f9af4633eabced5260518d459122fd3ef0c7662d42197570ebdb.json",
+    "bytes": 2490,
+    "sha256": "db5ca9b71d8a35ff7c13468c6a5fddf856fd63188c4eb6656b308467fcc93bb1",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/8a97159ced26f231fad1000d958d599b9bc348ee483a03e26e880ef855b4f478.json",
+    "bytes": 2764,
+    "sha256": "875a74e6a2d4a8df1c1aae293219185ce3b26f382c131b9e2a79608e3163d85a",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/8af29665cbf79c13953299b98d954d875c3886d07171ab00fc0099a3a8d5477b.json",
+    "bytes": 3811,
+    "sha256": "89abb4cb1eafa3cfb58bdf3a7f0ced9555086071520708ca9387c7ba3a764fa8",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/8b7e0d843ed8d0c77037aa3beb419f9c49a745b271c86eec404e07b06fff280c.json",
+    "bytes": 2758,
+    "sha256": "60b475ba8559f96893b549d2936243993c2de0b7c117bb7db85de54b7b29988c",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/8ca6fb7f29f451f8a50d1646f0df9d16e6f1a966736bb749a734f7a7a528a26e.json",
+    "bytes": 2765,
+    "sha256": "4a92954226637ac11a18c0940151c20bd827678a0f3c733716762da7a5d37b9c",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/8cf3365150a24e248ec0f7390943006542107dc281f960e6f1e687f678bae427.json",
+    "bytes": 2510,
+    "sha256": "4bfb1dd7da63dcabbc91bb260fc4819b93bccb9a1d643e6a873b7f2cf14e528c",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/8e5014501f07182beb16b429dba228b5372e4cf40f8fe32a13ff4ee73221f8bd.json",
+    "bytes": 2760,
+    "sha256": "2ddefbdd765a278ca02c9f865da7ae49f540cf5099b0c07db759bf05ba1a30da",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/8e58cb84d178df37f80addc6aeca888f829f1a925021ac8c6969443e7a9c640c.json",
+    "bytes": 3842,
+    "sha256": "0d37f5ebdd17be21a9d42606cece0747ab7c14dbcf5308a31fe7d5c008e967f4",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/8f04be510ec0b2f769aa967bab3943898193a13b8af0435661bf289ed18edfc5.json",
+    "bytes": 2735,
+    "sha256": "f557b694aaac8173740dbaf264e63223fa94184c6b177aeb1ad0aca74f2c3676",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/8f0e59e81c80ab72377c500640733032cafedb7cb05b4d756a81ecce301ec289.json",
+    "bytes": 2759,
+    "sha256": "8c63591487ae2fae3b4c122f35f836fbf802c5253dc2a19b2b4dc02dc59d598f",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/8f316a2e9f73f7c6a25a32e8272b1b71ad1cd393477d97a3e350f98af82a2563.json",
+    "bytes": 2732,
+    "sha256": "df7966e9fc964eac2079fa203bd15ec043a33d11cc8061b9c82567399da61880",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/900f28ee6ddb7482d23a0a7c0b1d79efb92f5888408d437f803d1aebbde9d509.json",
+    "bytes": 2339,
+    "sha256": "4f8e90ee0f677e7c4a6963730b57121142e51ae901e1fafe44085da3ff0ef70a",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/902eed2717afc98360b5063e388b22c3803286a5d44e351d7e7b99bb9e6e2574.json",
+    "bytes": 2512,
+    "sha256": "a5f0249babd55fb4a33c728c6b8318c8386621f79c8079d516a52ecb9735dea2",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/9133d749f24dd60f25a9987976333037d6738dc4bedda8808af02671c3b66ff3.json",
+    "bytes": 2763,
+    "sha256": "c25c81c63016f761c8dee1583cd209e3032728f9cb09376bf3b08110295e7ebc",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/916e9252c7b43f9ae8783edb81125b38a2afab620a9ce5f6824db77644e0e44b.json",
+    "bytes": 2735,
+    "sha256": "6d37b79531c97577374574086185ed43d6a918dcb5ea7f01c67584be43e3ffa6",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/9319bdecfc2d813c9ab18988f635652608b84cd19cda6b316060cc65749978af.json",
+    "bytes": 2267,
+    "sha256": "0a0afcc9a81db2a446c6fc30b6cde6a9cec68ba42ba2a5a99db77093f1994fa4",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/9339a95e83318a85bf1ee27f7ca334de9a5ad2285e490e7f6a530b4d6c8a7ab1.json",
+    "bytes": 1768,
+    "sha256": "42e9084388abc90970d471db1ba70febda36a3cc95c101bb6afc6cdeefb57672",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/93587de6d7b31c505ebb6ac286b9cc21f077422011e9a2baa8372ec178299acc.json",
+    "bytes": 2767,
+    "sha256": "a219c581e138e982919b5d4b29d45ce46c85114a32b0d8f8827c95666b4428d2",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/937b8276a27cee3b06663d5391563e88d615b8c018fa2561ae3605e464fbc836.json",
+    "bytes": 2758,
+    "sha256": "cae7a91a696f771d122e0a4b5c65a11cf92bdec2fb8d1cfa6d32fd5a8586b0f0",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/93b79589f8042790a1b49043e9e453df6e3ee7a1bf18ad0e398725f851182346.json",
+    "bytes": 2759,
+    "sha256": "d0f949d38bd598f98c7885c603d305ef4fddc578594f8a1ab6489830335d8c30",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/940733bcfc6c3b1726bb10ff75764d76ec145e06a8f275977c3578679f28c941.json",
+    "bytes": 2265,
+    "sha256": "57b8e9d44575abe0f0904af7a6630774574f5e3477f9e7bd1cfe1b34903bf7c1",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/9427058d9a64e4d9975c288787f146ee6fc34a00103ae3d1d5f3dca7cdb4eee5.json",
+    "bytes": 2759,
+    "sha256": "97a44084965037ebb48542ac08b1a76d8f76a65c4bf37a4da465d6ca5e927f29",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/942d1d82b9ad6280afc96dfba0ffb24b7e2635620937f14ebce433255d7405ea.json",
+    "bytes": 1775,
+    "sha256": "fc19cf8ad988684226bc8a1756793bf9d7936998c2733f27ac8103427f8be61c",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/9434e017296db3988162514ca846d6704284a0b218286c944dd192775215a414.json",
+    "bytes": 2768,
+    "sha256": "39021bdd1182f6639c3ebb00828feda1fd647d2fd8b0d2da190a5f00a2d53762",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/94da9a6e34081aee0d882d521467454529125f907faf2a27910193c229644c02.json",
+    "bytes": 3811,
+    "sha256": "93e73f9f0dffdca16f01132955e0b5b78d2d37648cdf75f288d44f4f06d43e15",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/95771cf10cb50fea3f47874759bbfb41d14573e9350aea88a118352c0aadec36.json",
+    "bytes": 2758,
+    "sha256": "5d6090ef16728a318605e3fc77b7c2d34becced71302df8c7568e50fd0179757",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/9633dafa7883d37891e4a1f9ef541b2512248b5a824001512e0ed432b1a8f99d.json",
+    "bytes": 2979,
+    "sha256": "d561ed6771cdc3f513b599f9613fe4cb78b95481326245e5be047b49fe9db40d",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/9690d1c3e8c3965414657b1e625e32beba9f2130a83c6c48a5a57f99b2bcddad.json",
+    "bytes": 3211,
+    "sha256": "dcbdf1cd60b34cbe9487099aed9be469ae1d6418da12ccfb64564a5e0b7d33cd",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/9694faf6d95466c1c6b8dbbbc1fc1f53e70b32e7a28bec76cf042ced98070d9f.json",
+    "bytes": 1874,
+    "sha256": "de15c82f0f54a67a2f85fd720bec36dd72537f6438558b7d5baab2f9050f706d",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/96c6b828ce04ef8b07271355888b7f95b5eee7a710b3a88b14d77868aa632d16.json",
+    "bytes": 1771,
+    "sha256": "8ff33fbcc1fe9b860b628428a4feddae8fad6c750043cef000101edb975aff80",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/96db857c967630db7656f4ff4fcb245ed7798def86cdb5d29d94b256c7f834f3.json",
+    "bytes": 2764,
+    "sha256": "63aeabe9f625bd9890387a69acf82ce8f113f7d18426e3edcdce27f78ae7ae37",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/9955e2bd6ab7d8e6bde3dc4b52271da168da00b8006dcf1238cc1ba0a5b352ca.json",
+    "bytes": 2736,
+    "sha256": "6ca9e625a5140232d479e8b78b3d9aa72f692f1ba8bd961e04389704316dabed",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/995a6d8ef6784edc1e7d29f3792daf22f8f7abd981bcc0ac2bb187bc489850f5.json",
+    "bytes": 3185,
+    "sha256": "34231b7a73a47ba77aa118f64e1006e60af57909718ab6c0d0fec8145f052c74",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/9aca7077457dc0877a2cae021fef3838fadde190a8d9570eca0ca4b691692bd8.json",
+    "bytes": 2736,
+    "sha256": "a2e7aed229cfac29de5ba8560e390a3ad19dbb2b2724e2764e70ab0410173900",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/9b6d3cb554f90f07e16dfc56046d72e6ab1e324cd2b9c549f3e328eb6de3c2f2.json",
+    "bytes": 3874,
+    "sha256": "28dc89b508e48d78788b8f899a232d23f1e1e00cbbd6eddbde618d1c8d21bef8",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/9bfd93af4d88c7b1c601b871def3a24ba250d3d885ff30f5ed42c6bff0ce7ddb.json",
+    "bytes": 1264,
+    "sha256": "d62c1186ff43e27b2250017fa51f1f9ba537708ec6bc0d014e37090a8b5a2d30",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/9c0e66edd0122530faf4bbdd28e1579b240caec6a5b0d5fc793e10256650f56e.json",
+    "bytes": 1569,
+    "sha256": "3bc248e46a688fffcee1b85f4aee0514ebcd38e6f60d81eb13691fcc81b799d7",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/9da0589b23a1aa66a8c33af02b76c4840110bc5b333ccc110c60dbb9b2f46afe.json",
+    "bytes": 3066,
+    "sha256": "1e2a0019b035924de44ba8242aad3086ef4fc69cc240b3585359aeaf25baef9e",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/9dfb731a1cf7261dabe0bc92d1c82cae58cc3463e1468ee943e5e008ce6f565f.json",
+    "bytes": 3843,
+    "sha256": "61481efa79cb46db7afb83646f924bf9ec87e9ff6c4426bc16f060fa050f9ae6",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/9e0574537359aa04a71503beec95996cc85070ac2752e682b534071e23104668.json",
+    "bytes": 2760,
+    "sha256": "7530a7d41490c8944245ac48f9a26e2f13039629ef5a0bbf3eb123ad57dbec52",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/9e39b578ab694406c94143ad205da8d8ef99ce6bf1b3de81d7dd91ea50cd4813.json",
+    "bytes": 3338,
+    "sha256": "387d4dcb815f083383f6dfff296d5cfb5ab81bc844160f896aba5076b3a0c73b",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/9e41f1a4ebd999fc2c1b1209a71a2d08da4459b160845b27c6079e5182e0563a.json",
+    "bytes": 2760,
+    "sha256": "e23079ffa44ad0e5d2327a6e18675dbfcdfd8422a9024e07ae8f1059e1e879a4",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/9f43649851c90407e10daedb7217a2698711ef9c28d1557adafb23ca4ec2dadd.json",
+    "bytes": 1775,
+    "sha256": "ce12a6e70052d0fa68c5109d466876c17c3e63c40cac659aa99bce3a24e21cb8",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/9fb1733f631ca0f403e6ffdaf827eafcf3bde14583afd7e253b1940334b85799.json",
+    "bytes": 1773,
+    "sha256": "d219ab9317a667c139ebe90c9b9db406738b400a184d8f7d841953fa379ff35b",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/a0d6cf8d2bd911330fe217b4ecbce21811e6a2a00e5e67663fcea2912e16d1d0.json",
+    "bytes": 2020,
+    "sha256": "a627a4dfee88f908c5cdf9dff8515463c1f865448219f3dedc5c6137af38c9a2",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/a0f379f6252652ccd2490c0763c6c38260cfe650fdde2ca3ba0f1feacfe3d05e.json",
+    "bytes": 2764,
+    "sha256": "0beaf1cfb586ae0773e091c21dc1dbc2e4572a119c9fc0e725b77d81da80d035",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/a10ca259b0d801739f73fa639ee5c69b4cbbef98fe5dbf5d547e47b2197b0b96.json",
+    "bytes": 1774,
+    "sha256": "94adc3ac7716336258d613eb9a3a546d1b00db53be670c66c23a1765b0fe0728",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/a265919be1de116a6e84422161bbc04247540a869b96d34525e602a9d104200a.json",
+    "bytes": 2511,
+    "sha256": "05a379e3c6daf41002ab83324de0ca2f7bc76c1fe797533d38a45646e89bd426",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/a493c249beda85de53fb575786755f4b0c328b0416a6e45d0c5aa87eb2717f25.json",
+    "bytes": 2917,
+    "sha256": "aee940c07365d02096dec83f1dcb6ae03ccaa274a8158235fd8c8a0748b14ba1",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/a4ad010a29a0d07b6b334a3ef8ec80e944b06cf19cfe67b548cd21bd1df2b9ec.json",
+    "bytes": 2957,
+    "sha256": "8ba08e895d819b07753833e46cc315c39f72182ed671efb3b0c0de192ebf2580",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/a7101a049244748d0c014ce5234570c2a060e1462e904501834cf172aacf6073.json",
+    "bytes": 2732,
+    "sha256": "791cf5c0bdd426735067c7b601ed5bc1be106bc8aef54297f0ab22087160a025",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/a73c7b576933a7adb708cc7da563708664ec0197928e96c209da38f0fbda2b71.json",
+    "bytes": 2734,
+    "sha256": "b624ace9472ea1f8b13bbee74660c299a5316eaabe91515537e76c4ee8cdbff4",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/a7603e0bf82a83c3f44a73af05957cef0faeddaa06480d6821b68054adbfb9df.json",
+    "bytes": 2010,
+    "sha256": "9fa8a50a1c097a752e4b1af7af2211afe4ef1f1411672f011d6a8d68cf27417a",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/a8bc40398d68b77e4a1e48d901b5c3b5fc7d634242674d6aeee9ec547ca9c921.json",
+    "bytes": 2759,
+    "sha256": "0b5b30a5cc879b66901ed83434182a6dea7d034951bdf35fd052958b7c56ca34",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/a9133bab2940d9213783c937f65b4cc5e912357a9a27e2f4bbf98cb1c5a69479.json",
+    "bytes": 3310,
+    "sha256": "161899fd0d23afdf2a9325675abea0a191b0387c5086642891be8d4989f6c9c6",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/a923eab44d40335386dfb208c859d94ea35f24867a86ab030cad3e226f5bac8f.json",
+    "bytes": 1326,
+    "sha256": "0764bb4dc8e0cfd154edc7bbbf2fa35ed0acc83f21bb93406000f919e897b737",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/aa047cabbc818bcf5dc611534b964e939d25404c2ae05f38b96b5d9c6c322b2c.json",
+    "bytes": 2265,
+    "sha256": "126b819f1b6bbc57ce5e2da8d667cff304b170220c7f77012090cdcf765540fb",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/ab508f1ad0c944333e5d0dc2f6e43e14be710ab9e4192c04d1a1f38d794b2107.json",
+    "bytes": 2979,
+    "sha256": "d18dda1dd51c72c3e6ecf862eb8173f769adee61c8a72f777f89b264a72beba3",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/ab7f2f685b7d56354ad05536d7e3449c9c30b93908739667bf271f6eb99ef853.json",
+    "bytes": 2734,
+    "sha256": "626a057e4d9a77a76d12c057d366127b8febf859acca3ab299e170db56010d89",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/abf068ad506c3e9287928028d2503a0f0db80f31535e76e48d1ee2c2096583c8.json",
+    "bytes": 2768,
+    "sha256": "d2fce4ecc408768a7f50fb6743a4d66a1cd99b01e0cb0407b4eeece711662dea",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/abf6cd9d87658186df615628f9df805f178fa98a91fca54766286a07bc9c37ca.json",
+    "bytes": 2760,
+    "sha256": "66969ac444c8173b579da2f6c9901b2c3590db16439aa646a5020d691670e49e",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/ad0ba49b14949cf17397705196a161fb924fc3fbd69730ef9aa9575f52236394.json",
+    "bytes": 3041,
+    "sha256": "222736b6d7665992f2c4c5304cf6c8b39da8211a0224a276e5c920f16df349c9",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/adf55af8e87b8b41ef2ebd6869a1bb7f61411d16d047726c4f1f5c72f461e195.json",
+    "bytes": 3185,
+    "sha256": "3f2b77fa1a4fd15b051def4cf8b4e67a0a537787bfe95e562d0bb5c01d8cfbea",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/af3144e697aa6380c19e5eb27a475374d3513159e8a5826d03b30a5fb8027bae.json",
+    "bytes": 2756,
+    "sha256": "139e6da8e75b2e4cf6041d4a8318daa33b82f4496e468385968e331b137aae91",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/b0c8e4d545e488b4558b99602189e666e663ea18b9160393525647042b204c9c.json",
+    "bytes": 3212,
+    "sha256": "34e4616f5659e9cb7d9437105cc807d91b55d94fca1c49c0a0cb33de793bcf3f",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/b11bca25cfdaad9cfd146a596a68e7d83b78b2d84b1d4a3cc2fccc34f2512b81.json",
+    "bytes": 2764,
+    "sha256": "ad9ee8c970d5e102150e2a848e76e3a9b83b9f432e3bc62ce1fc65b8b755ecc2",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/b120f5cd20da5dad3a604d3504b998587f8bd4d445e47b0be7e5f63dd10a3c6d.json",
+    "bytes": 3380,
+    "sha256": "40c5a388a42ab0f6f2d107573e221041727dc0f6d01f58d7ea9c4036d39d1dd6",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/b1a238f05e317a7bb07224952df197770a87d24a3c39fa87124933d77b206be7.json",
+    "bytes": 2767,
+    "sha256": "f716d961ace27f379640a53d242fa5ca5b8a6d3196eacc2980452a9e3501a85f",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/b1c28c1909d8dff6f8e2bb658c7076f175d90da7bf97979dc8bb1d32c8687aa9.json",
+    "bytes": 2766,
+    "sha256": "1827357e0d0798bf12ce7fcbe6449b1d705b50c1a8ecc5d5c78d7d4fbb1e401a",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/b1e4e547a39ce25a872036c6aac40efb692c3f39c4771042316f8df1cc73b1ff.json",
+    "bytes": 2022,
+    "sha256": "931255a4cb0fe10ef145d3c84d243cdec9ce8656edf2021f21e0d2606d75dc30",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/b21bd34c8f84919b64ebcc444c2e82a5641d36e99ccf0d57ccb7905c7687c4ee.json",
+    "bytes": 2759,
+    "sha256": "861fe412b654d38b08448cf8a6c98b305df4176d1ad9d9c7e05a1f6856f49707",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/b2bb9cfef55dbc47c4e61e78c8d116160395c4b924efb7aa2cda4d28d38374cf.json",
+    "bytes": 2489,
+    "sha256": "2149e992e7bf961b4e2d3f8d9aa8b29bb7aaa6203dfe17eb63a47e7dbdbc7966",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/b360fd8751eaf8bc501224608dcf525bf5c8723513cab56b79fc9d8ec9bf8f48.json",
+    "bytes": 3170,
+    "sha256": "8cb310d5026db5a35b2300fa0dfde0020fd0f7ae32b22018ba39d1ac2722703f",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/b5c1f8ce0709bee0e7a895c5734b5324f8e92a3c8fa79d26c7ec664b3269c6ec.json",
+    "bytes": 3034,
+    "sha256": "70d0132555d59b6d5b3c30acc0256dc7a0ed4a6d206c8329fb0b8eb15b13abff",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/b5d0e12884bd02bf6d73ec95f1dedae153cb9444ec32fa2506f525fc6110b89b.json",
+    "bytes": 1377,
+    "sha256": "c1f5b53dd5f52dc8b3b571403fe25bcda044669421747598eaa7b27834d307f2",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/b5dca210e5417b324e847a10460e39bdfe50590e4e5ff49499d7829afca304ad.json",
+    "bytes": 1376,
+    "sha256": "44f211db4d55592ea629b815958ec979d460947f4d75aaa123843c2f2ecb9b05",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/b624efc198c1e2d21499761141be4b683ed6f6881d16a088c09c9f243d7f27d4.json",
+    "bytes": 3122,
+    "sha256": "252597a74ca72d1db47cdd573f74e1906e68bbe7482ec96ac4eed82ce8159d28",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/b6fb2a0b6991c661c167456da1fc1bcb111381283beef652baa299a3b79a80a4.json",
+    "bytes": 3919,
+    "sha256": "ab43c927c326d9c5c72d44543450debe2fc9e6b7c044585f806fc8e57dffb196",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/b7196cefd0b29727fec5989d9aeff6203f3bbea8d49901adf09b4f94ab2bd544.json",
+    "bytes": 2268,
+    "sha256": "c1f2c410dcce96f30c747a14ef1f68a34cae110207f913a3dbaa19b0a21da83e",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/b75104e14eab8c41d6a35b5b395976c13b8a623b7f3ec3d60fbb25ffccd4d927.json",
+    "bytes": 2251,
+    "sha256": "c743f50faf3da74a9866fdc55896a1da1c2dba614e504f45ee8d37479f54e2d4",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/b88611ff0ac14972809e66d8467d5a319335ce5a0d1cd318de9b86b09081322e.json",
+    "bytes": 3085,
+    "sha256": "cf552c10ac12ea753fc2028598c600547625f888209ef0ecf1961b2ba2d1ee97",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/baf1b58c27c2d98154a573d17e25b5f0e7ebcba81f4843e5681048a90296231a.json",
+    "bytes": 1770,
+    "sha256": "d1d69fb0f38610613d54bc3bec59e6089b342f66fa10ddfde0464bb4ed44d006",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/bcb3294ff4bf636a53dfa4eeb00bff10d672df919c788c77d458c607060ed286.json",
+    "bytes": 3721,
+    "sha256": "6420f5d7c9431d9e51a39ba8da17044c2846280fa042e1ac2f50fed34a58b8d9",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/be4bda01c76dc564fdab1712c7dd8a9e967164b3f3f956b96f05d149c0e364b7.json",
+    "bytes": 2764,
+    "sha256": "06a6a034c3cf0f1c24fe2d9529633696d26f55f26c86f68a0eca81f97a00fff2",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/bf69b4bfd66f3f516775e44b0b36194f4484cecfdbc77084fa3b9df869fc54c6.json",
+    "bytes": 2770,
+    "sha256": "9786436d55e0cb3ba665bb860856c7c84dc267d44932356948ec07960d0b9d6d",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/bf72740f4288f78e58dbd64a5591e5f7b4a475233d4defcb835e87bee2df50f5.json",
+    "bytes": 2513,
+    "sha256": "68f11700654787c98e4b9137d3fc490f3de4e77b7522989884b626716ef40e79",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/c073ce057dc5b7b9e1089d67aad78c26b3fa38bca73e7be149fc539cd647067e.json",
+    "bytes": 2735,
+    "sha256": "eac30ef72ff42610d5cb7171a91be63392346c3ae19c2884d3edfcd9a1bb1dfe",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/c0cecd6e2656fbc193d5f4f2a1a2d9910e094bd8e05602f07fd1f35cff6b6881.json",
+    "bytes": 2020,
+    "sha256": "32828006965b6a8d6718951ea58fbb39ed5a20621c84560d93f4ec297ca8b6b4",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/c15225f656347b3e5627be864375f24e2a761d4618dbc3d4c6742f4fad067069.json",
+    "bytes": 2915,
+    "sha256": "21a84b385827cdd8a2c40b0a0755f5337e1e3b35008a569cfc5039ec46505737",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/c1742433577ab1b90dc669216642ac4bbe2eeaa1d373aedffe3ad13e4905ce50.json",
+    "bytes": 2492,
+    "sha256": "380e94bc21df0c493a7473d014c0a7a0abfcd241eaee7ec11a60403b1696d45c",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/c2b41ea76814d88442f42de246583c5fc64d719bbd802c87c33e427a1c85d100.json",
+    "bytes": 2918,
+    "sha256": "8332ffeeaff4c56a1b533ae54789838f141f86b585abd6285218a1817902aa21",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/c39412889797c35363f6bcb29717660c013432b1845bd0affe95d7c81e4d3316.json",
+    "bytes": 2956,
+    "sha256": "aadb1bd5a749963f14b06f09621233dd2c575e066cc80886806b164e54f2af8d",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/c3a4b1c2825ba9b50873f0eb16ba497e81eeb08e5da49692d41978f93b8953e7.json",
+    "bytes": 3055,
+    "sha256": "65edebe2d8f3a901c9093155ebf7a8759a1895c7b65f563894d2761e68ad4414",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/c3d516eaf7344ee574d47f5bf56f95eba53f61698178829de61dce3acfeef3e5.json",
+    "bytes": 2764,
+    "sha256": "e45b79c3b2cb9e00dc58919e8fa9cb5ff01dec83db8afb3c739db249cf44506c",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/c48859cdd134a3dadee65addb0af0cf0ee54b2d35ad1c67944cfc4cbb95e1891.json",
+    "bytes": 1741,
+    "sha256": "20aaad986eb3b93e8cca4e1c643c2b72fafb8af12bbfa3bc88b19b92c9372f5a",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/c5c54f04fed718a5d6fe7db83687c8d1132171deede9ca433265a38bd7832109.json",
+    "bytes": 3309,
+    "sha256": "547deb0d841dd2cc5ec03dbd0badae46228ad1d3081a3f78b1ac1f3bfa8e9a84",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/c652926874585f52105c6662fe82dd8550be4a195903de309cd0755dab81458e.json",
+    "bytes": 2764,
+    "sha256": "50c1d102f35304182f285d7816b5604db1353505275d21fc6febf0c1c911b0d0",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/c70783d5687bf8f0ac5f675b88d821fecdbc7e5ceff86ab0721b34abee228230.json",
+    "bytes": 3789,
+    "sha256": "73d5ccc5c7a3189d995efdfa35811104bbe60f4a91e6fbf9c2f20a7f6862524f",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/c76e3ca1ee0e50593c5eb15e4dbdb7363f555327b67888942d997d68659a5403.json",
+    "bytes": 3843,
+    "sha256": "4a586bca0c5cf7974866800218ac07fff9099ec010371299eab25be24c31fc04",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/c808539f3bd8d21ec6e784dae686ba28b207ae51c75f52cbc0fe814e9976c186.json",
+    "bytes": 1741,
+    "sha256": "4a8cc1c2fdec38f0f00ae2a2669f523380b2eff4aaffa8e1143ccd12091164d9",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/c92be4506cb2d55f7d400edad577b3c7b13849ad430d693e7863c5b70ca5d657.json",
+    "bytes": 2009,
+    "sha256": "b1a11bcbbb8a1b6aea9e9390f7afbf75f002d5e080b72a65987cbe17ee918e71",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/c941146c44f8f85fec8772dadbbc97a56c21136fcb6bb46822e4284a109e0bd4.json",
+    "bytes": 2884,
+    "sha256": "71072263d543a539e0802c3b6d56ac337e53d31c9a8762cbb8f6226b22f7c468",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/cb8e536eea2c4bf55fdcf064443bc74c4426f2c6b9c227bf8bba5d55ead3d12f.json",
+    "bytes": 2759,
+    "sha256": "4dffe3dd59a168757be2177d56dc84e831e5eabb293104d4637fc434ff574348",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/cd19a37a63f30d7654f42ed69957f8cdc5e32af972e1fbe28b74f80dcfaf5e6a.json",
+    "bytes": 2758,
+    "sha256": "7c84b9c73a86bb273e2a7f7aa77e796db83a4c5268289aaaf51673c0a2178e20",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/cd7adb293f92c3cc5fa30eb83ba3cd8f7ca3edf628b81e8453edd052fc06fffa.json",
+    "bytes": 2273,
+    "sha256": "b8621a3b325469756e778916d55db8e0e19d9d7063542d788f0f2d27d9f6b628",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/ce5a674da6404a1d079e05c229dd881d3e3016df1029bfbba539fc00d3f70b6c.json",
+    "bytes": 2266,
+    "sha256": "3180b279f0e71a08d50733f21dad17fdfed7a5486a6d5a520f7207c7d016e0f3",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/ce9576996fd5102d5099266bdfb951b85d544879ea312c8f49ad35d1afb31604.json",
+    "bytes": 3067,
+    "sha256": "1f97d65aa5a489d6202dd1d4da69fb32d71ca182618981aeeac6ba676f3da516",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/cea88ec71372ad0c221a48944cb819665cd3601236d1c87fd536ab3eeee17da7.json",
+    "bytes": 3234,
+    "sha256": "923f181334596f0d744aa18a1e0601c67350f3a4ef8976d264e8357bd2cab9c5",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/cf1afd331289f647a7bab9debc6cf2b53d457ea9ac7f51ab7e62518f390b22fb.json",
+    "bytes": 2758,
+    "sha256": "7187c93ffeed27e86a307ff02ccab3e27674642283f4ec9ed5448336f891b778",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/cfe65448cd7ea9d5bdcab601555eca9d6918976b5608f70cd7629e25529614bd.json",
+    "bytes": 2914,
+    "sha256": "82bbfdd90d9f1b1e8b35cec0844f724ef053393578e2b9cbb012cc7fa8a5897b",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/d0ffb3d872d99486cc1f66c071305b2b66f8fc52172c10cabaf6ea32dad11475.json",
+    "bytes": 2339,
+    "sha256": "b0071f889b8b37af34d1f741293669c3d9f96ee2126d688c15f3fa220cab7239",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/d1a318e4acf99d92c3f6ea2af5af0fd3f667d5b6414c0ff173330bfae677c0ad.json",
+    "bytes": 3455,
+    "sha256": "730987b7c02e35082786db8305c3842d825d27016c0ab1c12ff2e99a42008b54",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/d256f4a7981c17e3ce2e4e743cb25612aaf39eceed35c2bb1d1f61e53a2b62e6.json",
+    "bytes": 2759,
+    "sha256": "d1348089a6590f07f449c368ede6e8ea858ede46412f373f94d849a492340597",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/d35456b7d6ab0c65b3b037b9f5279aa7a37c1efc649cd1153fb82aef4ec2a5e6.json",
+    "bytes": 2511,
+    "sha256": "761b769ed78a4c201d18250234deda70ff2c07d513056de705b0bcac57219827",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/d497ae177803d796fe68c2e4fea3a3a36fa089fe48bbda2a480a8d78a28f393d.json",
+    "bytes": 1447,
+    "sha256": "3d190d75a4b2373c1ed13093d7a9d53a374dbd95b5a0327385e3486a7e13c0b7",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/d4ae347bb4b3217f10f309dd3fddafdf2a6e0c9c2fecac5671eac404e858a2e0.json",
+    "bytes": 2758,
+    "sha256": "d743e5716f38d297c337690ade42c2d2661adbfaa2977440f9793c3843952868",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/d534674aa5e12f225e5db77ed077fbd17eb4009c9fc40d8dfc08723a55254c25.json",
+    "bytes": 2763,
+    "sha256": "cfd2acc70aee4104d94aecde81edd2cba33faf1ee67230d3ce0ac977edda85fb",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/d65280423cc571ff4b8350ad634a4bee6210ea931c20d2d6a509374ccbe7aa3c.json",
+    "bytes": 1691,
+    "sha256": "df06c8fca949411dcd724a7bc1c9047c215961c8f9a6f009b37eb0b08cb16070",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/d750260fbbbc56b706790f72c5797d94fcdabf1b87666f58e1871607ec5942aa.json",
+    "bytes": 1741,
+    "sha256": "7075e7d56f98e5f84637d39a77a5cb89af2419ec642195c41e9403c1d386dcff",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/d9126469e66c031fb37069e4695aff4d4df807c7e4cd53caff99b47df9cd8eb5.json",
+    "bytes": 3169,
+    "sha256": "efc4887fd9907013d448568c95156ce57037cffbd285ebbbf5c45f6772ab712e",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/d91c04bb64d1602507e15cccdb6081b1841bb40f118f68f03325d8c41c8868a1.json",
+    "bytes": 2759,
+    "sha256": "09f67fd00cb2d59a05029d179e788eaa4444d6ea4345d04706a10a4d3b41a39c",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/da583d9102dc61be69346620b362dc07450e2e80f38ac676e1b2bd31ebc2128c.json",
+    "bytes": 3183,
+    "sha256": "db248849c190900aa56ee6b55126ae254038700f82b14cc7b4a1d1a79c781a44",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/da5c3704671b5395e33093d41aa4c52ee09fbe9efa2e2a7b2709c544e5a2ccaa.json",
+    "bytes": 3848,
+    "sha256": "e815107da5ec63a5a1b340c1fb728cd19a79ec0a1a9aef73721dd8d4e5582187",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/da978ecd1ff6769f49aaabe151fd3843beb59da367977cd708ce1870da602f05.json",
+    "bytes": 2494,
+    "sha256": "045748880c98b692c69cebb199b3bb29f22766a8f22a0e69ff8bcec58135957e",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/daf71cadfb0ccf37cd8067f463842d0cc45c6dc16e9f51ec90512255e507c9ce.json",
+    "bytes": 3844,
+    "sha256": "a59050f87438a00916d994be1639706ceb1749f2e6d630074c139c55923d7130",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/db294feb185b0543cfb03b30498ace63292368084d82cfd58cde1ca237dded9b.json",
+    "bytes": 2765,
+    "sha256": "79961d00a1a91b7bce53d577f6167b73d0b61c271d72249812c729e1a62a1cb1",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/db5cd865c7e2946174d2ffa00dbee95d32cb8171a40119c78dd73e615f7cf281.json",
+    "bytes": 2734,
+    "sha256": "270bb293e48b2562592d7b71e3325aa611912adcf7d0d6581ca300c5116f59d8",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/dbb009eb191e0aead0d38ec5ee773724057dce38fd1603c7d1cb9de5b1303ada.json",
+    "bytes": 3875,
+    "sha256": "0024ca7f8de5bc3ed91ab28a794a55eb41f81f31b6ef09a1d4680be41691bd9b",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/dc4231eb842c4ba9c1dbbf7eca993818733f01b45e06854e194a6ad0b6b853b4.json",
+    "bytes": 2266,
+    "sha256": "c8d604ddae18988f00e900d40211ad553201894ef5511d7c18a4de24d2644ec2",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/dcbd74dba93b5965a37aee9518e591da8cf85e976bf9582390cde593fbb63f28.json",
+    "bytes": 2764,
+    "sha256": "3e2cecf154352a5790c7b1c1f05462acd726073d433acfe43a86b91a04d61a39",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/dd1de35351570ae58d01f3363cb967b1fd229b1cf0860a19ac97dcca42bd43ba.json",
+    "bytes": 1529,
+    "sha256": "2e81da5929d8bc0bdacaadf493409943209ff2f906445128b1f175c4bb63e513",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/dd579f11b241bdf3f6940c8536a4da0527b6cc818c0e69e3c330025a5e625793.json",
+    "bytes": 3456,
+    "sha256": "60c72ff26e34a3551278a4f6e2c5f234611e1c98d46c8237c2217d0364528931",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/de59139fd832292f0ed2b2c831f178d9e9a5abcbf1d24fc97e59447cdc97bc45.json",
+    "bytes": 2767,
+    "sha256": "9936123f72706fb90ffc99fba5ca474eeda446c90a3e9d4ec351c744b6780a96",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/df0021ffa243e31ee752ed65cca9d89e547975d7744c84dc4dcbc3b55d84a699.json",
+    "bytes": 3812,
+    "sha256": "7a987ed09ed9d6d8b2b317aafd123791d3fec16e0d98b29b7c98fa1ee5f48ee2",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/df595d75323da12771186264e76ba4308aeaa81b453010b4a50e56bc22a05e74.json",
+    "bytes": 2251,
+    "sha256": "51febce81b22b27c6da3dcf96915e89d7ffb4360f8143b0a95f74ab45be65533",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/e1722dbb35c28c8164bf37c986584314dce2bf82d1f15e49fa02818ebdcea045.json",
+    "bytes": 2010,
+    "sha256": "8ccea2d7b7b42aea5ff7a8e24a4790c8fce813b77d97d644f71046cb2765d157",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/e1c51c647837db925333dad61316c598e07d6c393c00979d81ad06c6db3f35e9.json",
+    "bytes": 3361,
+    "sha256": "233156c49d104122d4edd5d621ad0349a0d97c2b86aedd4aed270009be0f1648",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/e2fa0a844e8a382614bf3c4b05e378bb956bd4b4e2917b8ca4b764f03f1dddbf.json",
+    "bytes": 3218,
+    "sha256": "cc124c4d28b891336492f4040ebc95edc22ff4dde0130215952adb1df71edd5a",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/e387a6cac49cb4245f3515fa4bd3a3db4d130868a09eed1e0cdf4ec8a53b9295.json",
+    "bytes": 2759,
+    "sha256": "3bb8a200cc5e3bfb708f0d8f51381d3ecad1bef208e4af595d0dfa939adc1f3c",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/e470731bf8a8e7afc81b82808880f88adcfa3aa87edd63e33cfd352df1b7ef18.json",
+    "bytes": 1779,
+    "sha256": "159583b780af4ee5ad6618c635e30bd7c235acaea0718adeccec9f13e331c773",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/e4a58ab6735ad9f4c04a1d8231077a4aef5603fe4b4e80e8509e6e5895239bf2.json",
+    "bytes": 3043,
+    "sha256": "31eb88094b91770ea66f8e5f196fe8ffa3a2250e86239169b57c1d5ffa66af04",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/e4d3ab53a068cf0052347b6f51093dd6d806574116d43e9654ee0b7a04160eb0.json",
+    "bytes": 3105,
+    "sha256": "6f870d392dd267b304dbb2a9a821dbb1e3a6ecd58987de604af5ad181ae6402d",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/e52372d4b9b734fba4790177101adf249ac5b8ec708fb13f5813e3bc81374f73.json",
+    "bytes": 1618,
+    "sha256": "0aa9e48d25026278a9025114fa6523dfd9b02f7a5277f950f5040cb024df2982",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/e54e3931bb6ed3363f1827c3c59463bb9c90d5eca987f46584d9aebb521ba644.json",
+    "bytes": 2767,
+    "sha256": "e10b3e28095a3da0915040fafc71801338d8cd09c6f44dad77f6ebd9a1761787",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/e6cc74373af7b93d438692fcfcdaf223b44de30a3d5129f0fdc2a7ea624f1e70.json",
+    "bytes": 2268,
+    "sha256": "c9b1a048f8778b267d0b2127af2903a05cada64a436cddcb920f76172a9c55cb",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/e6f811db917b8448ab2fcab07d30b6e914a0f5d8de7fb47cb445d400af89ff07.json",
+    "bytes": 3811,
+    "sha256": "f7b23c73e93a28811cf19726bb94b35f42570e9ba7a9517d1ffa247d336a8e2e",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/e7316a8aa36db2155b085f389f3210b3e5345a274954d28d4ffde4e94184ab02.json",
+    "bytes": 2767,
+    "sha256": "e8b751d5bf6879d739932e0b0f22631e5cfb3708c9cd94066d14bcc3eb62e984",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/e736fe29ff85ec355b82ef4b109213791337d487f4a33dd1dba82ba073dcf3b8.json",
+    "bytes": 3919,
+    "sha256": "70f0f4e7743fe3ced7984f50d9fe6567c71fc0ec16dfd81d634a698749013161",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/e7afffea4e4cadb26c9637711cd8d0a598847da7a02408761a4580abb2070671.json",
+    "bytes": 2492,
+    "sha256": "c490979b3ce39e70ea2c26c0de00f5eef1e2e4fb2b8a71bb83022ee79018cdd4",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/e8aa71cd44a2d0d6929b68ebfc0bc444009ef7e1044318f3f87eb94e5621f52a.json",
+    "bytes": 1619,
+    "sha256": "5e79fdfe4e4181471d9039e9e4a78a9b5e8ca188dcf59c101cec328813f0dc43",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/e8ab6165bbeae069fdd073da7351f8277c38426e8d108c95a9405c218fcf9805.json",
+    "bytes": 3843,
+    "sha256": "fa2ccc5c49493c370732c2dbeeea67c4a575bbcaa149280a5a0cf56fe3a0b529",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/e96b8d4f033862c8686d5744c1b1aae1b1964c8c9440e0e684a317e95a2ce23e.json",
+    "bytes": 2019,
+    "sha256": "9dbd204c0c8ee1d4875adb70dceb3733774a6585e76b0ffeec6a027c5c4a393a",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/ea56fcadd54bb49a8c7401b9ea3aa8c0a2618667f60b5ca067b1b77ae79142e1.json",
+    "bytes": 2765,
+    "sha256": "ce38ba7b111c38049b75300fbafd6439871c224b6b52f995718c2ff9f718a489",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/eb78d1d2eb7844ae96eb85670a07304253638594d01cf5fc3977681c48e57f58.json",
+    "bytes": 2266,
+    "sha256": "5749491b88b0e66e21af1115c3b44fa6a34fb0f7458d4c542004385d53b18023",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/ed0e30ffff584710922e9676af6bd3e383ce8735368c7076d05d3d52d8fb3b13.json",
+    "bytes": 2738,
+    "sha256": "85b78b875345285ecf18ada1d6ad3c0ffb6596f0ab23955dff6216c6b1f5d0a5",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/ed78fc673248a7a31d8fa68fbd8ea42da9c8094f2cd4f339f7c4e7cb376acf33.json",
+    "bytes": 3824,
+    "sha256": "c214d0d6cb316b8ee0cec409533eb374313d78e78f81cf06e74a098f4652d3a1",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/efca5858ee251b5420bf718fd053baf60184335644822f3d4f735e26243d159b.json",
+    "bytes": 2268,
+    "sha256": "935c3a7c390a931d7278cb62153b8513170101acb19a71b2339fe0f0c591e656",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/f0281bed6c3d7e1364ab6dc1303020e4306714b726f10baf29390148a144f19c.json",
+    "bytes": 2759,
+    "sha256": "7a62ac95b36bb8cb170c2acdadaf51a4195951a9ed295276a99777f52105dd6d",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/f048963e6f18a068d9c1c6849ba5c83b6830b9799b79d969316191853b86a083.json",
+    "bytes": 2765,
+    "sha256": "f103a3311feb2fa8a047a8c7aeffc442988d1ab8270d9353223fb832206a1052",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/f0cf35a308711a62f89e4bb17dc8bc86d6a8e7e49cd4267e48a11c7eacd6b063.json",
+    "bytes": 2885,
+    "sha256": "760ba21322e82345cff949f73e9b0fdb6ded9d8fa0e915d98565bb46d0828fae",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/f1d3e238afdaa2b5d066fb307b9168c2bd86ff6daa8cbbde98aafbbf8705511c.json",
+    "bytes": 2765,
+    "sha256": "aa3e352af628c6461ea5625f87a9b3b855cfb61e11c6b313df64c85df60b2f34",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/f4dbc5266c54fd17dcdf79d8822b11c526ab43dc261c4448d0095dc77dd5b93f.json",
+    "bytes": 2917,
+    "sha256": "4823001485e48449aa43025d2cfdb5b6d9a6098063d5b7b00281fda25071398c",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/f5bfcda2abaddc1e9a71adac65845feb55206ecae70e071fe63b69b9e596f65a.json",
+    "bytes": 3812,
+    "sha256": "b5afb41a81f4cc1c9e270bc5f8054cd4e9b796e4707f93a7ea8aa892a0e26c57",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/f6358fa95ddfaced38956fab44c298be0b969b22ee5bb62e990816f667a9f3f2.json",
+    "bytes": 2768,
+    "sha256": "d1d90dd7e8e431b246b48e7a23009b6b0485e49e389304a3de5d1056e7bc8e52",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/f6e627b71196d593c9f188507d8e6f3ad9fdaf081b9436ab9a34e522af340209.json",
+    "bytes": 2785,
+    "sha256": "8c516f71166a96f1967e9b71340580897f9a0b35cfc09f2fc2574bb9ec2d08ef",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/f6fc3fd843d3d8a6f0f0f6f1bc7b7ba0324da14a8c25d2d51e36502bc12d8d18.json",
+    "bytes": 2769,
+    "sha256": "408150557e6d2d536b803449418ff655f8c3dca416f4853e055a58609ce96c75",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/f73572b5f9b7bf2bea6d684f5afda165d9f437b307b6508d860bed04272e394f.json",
+    "bytes": 2759,
+    "sha256": "0d6005faac6e3a1c5804efbcc6b22c165f9a4846f53288a89b47e50477b7693c",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/f7447ef94c33b1537b03398ad88852d08a62184dc8e612909801226e111974c7.json",
+    "bytes": 3233,
+    "sha256": "2976f0dbf17fb53f69cbcb211307f4526548599b345abb22544b89df7fdba794",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/f87d86cdc0d105c19c7e502d434442b22681e2d2d0bd8ab15c80322536d2f914.json",
+    "bytes": 2020,
+    "sha256": "3636d3f86a2319399e794c8d7b5c0d84f903c9ec56a47123401e0f41025c7119",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/f896fe86b298890a6ae7817d1561d7c371a6f3c413e7e976bf25950d29ceaec1.json",
+    "bytes": 2768,
+    "sha256": "217e77b7240ee4f26cb97eb462ca8c0af2139d1247146988605ddf85afa769f6",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/f8c73d5c10debf3a712106de721cc6c80e494e871787b601c94475386a76212a.json",
+    "bytes": 2451,
+    "sha256": "c0a43f3b2469521a7a17644643c221de6b0164efddf5f1ba0cca2d999fa155b2",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/f95149aa8e7435572c0793e8aaf65dd8030a43575e183e045314c127ee30261b.json",
+    "bytes": 3116,
+    "sha256": "c7f97e625caf9bf049e559634527fd766703500db812faf6199473f15e6aad4c",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/f9e0421ff1127da4f70d6eae4cd630d67ede1112501d791aa3116bdf3d57d770.json",
+    "bytes": 2734,
+    "sha256": "6c7d1f6de188f0743b638abc1747b3a0c728b630d1d770e01da11fa8e749f29c",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/fa8684171526d0fe2416847c4b5a77315c39a9e291961211fccd493aec9ef455.json",
+    "bytes": 2732,
+    "sha256": "1e85e0a737c7e4553b25e1a8f8d8d0e9393001b58dc08e65882fe9aac58ad991",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/fb28c50fc9efa9bf19c325f222e5cf27dbc9414f392fc92f48df0e1a8635e0a3.json",
+    "bytes": 2765,
+    "sha256": "b4b21f22289653cbb867670e492ae4fd2d09b236457f9d267561a3b35d2b7e02",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/fbd7f3de4debda5a8b7edfd7fe7489ad807c8e6dbac1360ee2b407fe94ff4a4f.json",
+    "bytes": 2764,
+    "sha256": "4f33f5ec671c49eb33714b14e919efe3be924cf3c3b610fc7d765834800b910f",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/fbdfc4c6ec6cbf5d6afe48ad5a482776864887eaacc222ed55c3a58553416d06.json",
+    "bytes": 1776,
+    "sha256": "74290e28714ea23a9b842aa8754024e1e812439705a56ff8ba96f8137c4325ed",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/fc51c8a2ab9e4820aaca926f29fd863d2d05d952824bef818a8794b436a310c0.json",
+    "bytes": 3791,
+    "sha256": "3c178f660f565ae94db397fe490d49cacbd950806b13619fd884c3e0ee925f1c",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/fd17a6e2cd60aeab8d732d9120877d340b08807dbc02a2262cc71cfb818d32b9.json",
+    "bytes": 2765,
+    "sha256": "58b8dff3c4b5efbaa6b089c2dbae7e534ec03d7749fb8ef46ab0b6f75a19a949",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/fd32705bc92f912bc7a12d14f54c5f87f4252b4275259d12ac49e70915d38597.json",
+    "bytes": 1774,
+    "sha256": "0cfc99e4da4b48aae005cb80d7d43a9eabc89d5ee6ab2908749a62d785484ca4",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/fe8546ef2609b965a9257e96ada793f0dac0ae4792dff155af84396c78a7c2ea.json",
+    "bytes": 3249,
+    "sha256": "8f2218aeed03cf387b6f4d147b42a797cf78d060ccdd6d994b0894f7e2ab1539",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/ff73356f819eee65597f4a79c34800eb15fb7ac70a3e405cbcdeacc451f7a364.json",
+    "bytes": 2371,
+    "sha256": "7265b1a4ca950e3d38f9cba9c973541da8f27aaa7760345d96a7a347877e6212",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/ff9c264a356362bc2e2e03e1a6c87fbbfc245f037c16714e0dfb43c0a54d166d.json",
+    "bytes": 1741,
+    "sha256": "4ec3377c1120d5b44348c4262a543c57002a9375f57f3cc9953a8607a4791045",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/call_cache/ffcb59cfe2e50ee83ffb02c983fff577ee85e887f35f4fa47fd12a5b5d785f93.json",
+    "bytes": 1772,
+    "sha256": "59c934fa817034b4fea8b446c259947f6d11e0b2542cb944d5e8de368355c158",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/calls.jsonl",
+    "bytes": 109356,
+    "sha256": "c9a9fc6616f5b7aa24ed4ea26d99daff2ad792a1407c1ef2b228c706f7b3677f",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/manifest.json",
+    "bytes": 306735,
+    "sha256": "1f9d8e968d5331e132fb6b8e7f8e2b705784d02feba089a985f93f345dbc2301",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/prompt_snapshot.json",
+    "bytes": 55527,
+    "sha256": "ec6c5f3f13a16b661666dd439442ca74a90748dae4fa9402f900c3ccca306710",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/results.jsonl",
+    "bytes": 139158,
+    "sha256": "916b30b264a5fe65550601aa0bab5d9b8e2a6fe1592096958a00f138688fc6cb",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/run.json",
+    "bytes": 2554,
+    "sha256": "1b36d8aae76ff60c1f1fef76f9558374f847a0cd540498a924ef98b16e58cc95",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/source_snapshot/__init__.py",
+    "bytes": 107,
+    "sha256": "291d262b65e6c0816b5098e267391c19b81cd223b22c889eb22b78874adbe75e",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/source_snapshot/__main__.py",
+    "bytes": 4825,
+    "sha256": "4427155e5d4fd449855a6cd32abbbb550d08fcc0ffa667474d42d9cbd3229316",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/source_snapshot/analyze_recovered.py",
+    "bytes": 5721,
+    "sha256": "16b38a8533fa2a325f3f1f96b69fed86d784d6194f9771f61514e51ba642a788",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/source_snapshot/backend.py",
+    "bytes": 5587,
+    "sha256": "c812502f711ce5312cf3d8c9eb855bb1e3da6fd53e76f4ed68a248da674cd86b",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/source_snapshot/core.py",
+    "bytes": 14405,
+    "sha256": "c24040197f144b6fe551dff9582bf0bb9fa0d0ee23d1ff0e6016dfeadb8c84c9",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/source_snapshot/prompts.py",
+    "bytes": 14060,
+    "sha256": "ea83405f9b0e71ba781a35c5831aa8bf2313751c5a388a591859847942707e5c",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/source_snapshot/recover.py",
+    "bytes": 7817,
+    "sha256": "dbf1a68903ed91fa20ec20faafcf8b5882ee7e1cfa033ea7ec98035a1204bbe4",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/source_snapshot/runner.py",
+    "bytes": 13877,
+    "sha256": "00a25df017a75e85999c0d1604d8ca9723093d0bb4c365fb8c11c7f3425e4df2",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/smoke_recovered_cohort/summary.json",
+    "bytes": 3444,
+    "sha256": "c726cb445620dd2a09fad1c2b1f5124ce9c619ea65bdc5d5d986392115697cdd",
+    "reason": "Synthetic smoke-test outputs; reproducible tests retained, not historical experiment evidence"
+  },
+  {
+    "deleted": "access_reimplementation/pdaccess/__pycache__/__init__.cpython-311.pyc",
+    "bytes": 297,
+    "sha256": "71fae04ed1d186f0f5b1bacba9beb6ea3d51115a8f77d1f550a21edb511eb0b8",
+    "reason": "Regenerable Python bytecode cache"
+  },
+  {
+    "deleted": "access_reimplementation/pdaccess/__pycache__/__main__.cpython-311.pyc",
+    "bytes": 9457,
+    "sha256": "efd0d36de7bb79b9441acc5312791d89ce521de9c431f11c26f9a4dc46633d11",
+    "reason": "Regenerable Python bytecode cache"
+  },
+  {
+    "deleted": "access_reimplementation/pdaccess/__pycache__/analyze_recovered.cpython-311.pyc",
+    "bytes": 13311,
+    "sha256": "9a93ccbfa369ae485fadcfa7f68f64ce1a7f9e7e297b16acb38c06183e5c48c6",
+    "reason": "Regenerable Python bytecode cache"
+  },
+  {
+    "deleted": "access_reimplementation/pdaccess/__pycache__/backend.cpython-311.pyc",
+    "bytes": 9281,
+    "sha256": "facc4c162cff2b32675a6ea121e024df70f8d20b4e3c2fe82d18bd7b13f7a5a2",
+    "reason": "Regenerable Python bytecode cache"
+  },
+  {
+    "deleted": "access_reimplementation/pdaccess/__pycache__/core.cpython-311.pyc",
+    "bytes": 31018,
+    "sha256": "c63206a79492b249e83ce4658c46fb60e525662d22a4bbb553e8e9531a116346",
+    "reason": "Regenerable Python bytecode cache"
+  },
+  {
+    "deleted": "access_reimplementation/pdaccess/__pycache__/prompts.cpython-311.pyc",
+    "bytes": 20396,
+    "sha256": "f20efa5303128abe78526a35ad497dc1ffa5f544cb1daf2c10a87ed318072093",
+    "reason": "Regenerable Python bytecode cache"
+  },
+  {
+    "deleted": "access_reimplementation/pdaccess/__pycache__/recover.cpython-311.pyc",
+    "bytes": 14343,
+    "sha256": "662684f44a28e0abde0cc301fdba1b87aef38c54b72e360b64db71d29491e60d",
+    "reason": "Regenerable Python bytecode cache"
+  },
+  {
+    "deleted": "access_reimplementation/pdaccess/__pycache__/runner.cpython-311.pyc",
+    "bytes": 24495,
+    "sha256": "c1f5d4ec6b496931abdc2afa6c41c1ab1776fa7fea5bfe850630209575f962c3",
+    "reason": "Regenerable Python bytecode cache"
+  },
+  {
+    "deleted": "access_reimplementation/tests/__pycache__/test_core.cpython-311.pyc",
+    "bytes": 18780,
+    "sha256": "e013824c20218cc5f6a4ca4f318f7f0afd24684366ce52c4082e68e448190d13",
+    "reason": "Regenerable Python bytecode cache"
+  },
+  {
+    "deleted": "code/__pycache__/test_llama_ablation.cpython-310.pyc",
+    "bytes": 38163,
+    "sha256": "c78a9cbcea0b26af937d75358a2ed89dd08bbaa9f037566617bea34e400c32ad",
+    "reason": "Regenerable Python bytecode cache"
+  },
+  {
+    "deleted": "code/__pycache__/test_qwen_ablation.cpython-310.pyc",
+    "bytes": 38162,
+    "sha256": "4babe2b3f348f649bf4ef9b48363f60a5894709104aea572a712dfc53ab7d18f",
+    "reason": "Regenerable Python bytecode cache"
+  },
+  {
+    "deleted": "code/test/__pycache__/test_ds.cpython-310.pyc",
+    "bytes": 23014,
+    "sha256": "f330ec213a1e3bfb0e103501dd6900cd92a0e827fa2a42bea422c3b8f1acd5c0",
+    "reason": "Regenerable Python bytecode cache"
+  },
+  {
+    "deleted": "code/test/__pycache__/test_llama.cpython-310.pyc",
+    "bytes": 23676,
+    "sha256": "c8653aa669bc034f559ac4ab539d0984892c0d27941968f976e5f34a6cada8a0",
+    "reason": "Regenerable Python bytecode cache"
+  },
+  {
+    "deleted": "code/test/__pycache__/test_qwen.cpython-310.pyc",
+    "bytes": 34067,
+    "sha256": "c24bab46996d3a878132a9ca7e60663a49820e8ec1f3eb2a7edf3f707cc23e86",
+    "reason": "Regenerable Python bytecode cache"
+  },
+  {
+    "deleted": "code/bignet_prototype/__pycache__/datagen.cpython-310.pyc",
+    "bytes": 5568,
+    "sha256": "fdd65311778806f08bfd10fdbb66cf973fd5b0818ffc85558ca1ca2e0bfeaa67",
+    "reason": "Regenerable Python bytecode cache"
+  },
+  {
+    "deleted": "code/bignet_prototype/__pycache__/features.cpython-310.pyc",
+    "bytes": 3065,
+    "sha256": "fe9c09f7543077b1e52fe3bdaae6150728ef8cbb259ba5bc86b92498e3e6d0b1",
+    "reason": "Regenerable Python bytecode cache"
+  },
+  {
+    "deleted": "code/bignet_prototype/__pycache__/model.cpython-310.pyc",
+    "bytes": 4974,
+    "sha256": "be506194d564954de56ca86b4a885b3cbc0bc2d7a75809011613eb54b752b57d",
+    "reason": "Regenerable Python bytecode cache"
+  },
+  {
+    "deleted": "code/bignet_prototype/__pycache__/persona.cpython-310.pyc",
+    "bytes": 3836,
+    "sha256": "79a9faa410ffa9ef23ec8808a2c05d8360186a309101562e37382379b39f0b05",
+    "reason": "Regenerable Python bytecode cache"
+  },
+  {
+    "deleted": "code/bignet_prototype/__pycache__/sanity_check.cpython-310.pyc",
+    "bytes": 3883,
+    "sha256": "6d33a4243a1b797846e26fba9065095feff7df234f0c0c70a975edd7a39a0a31",
+    "reason": "Regenerable Python bytecode cache"
+  },
+  {
+    "deleted": "code/bignet_prototype/__pycache__/selftest_numpy.cpython-310.pyc",
+    "bytes": 5728,
+    "sha256": "3d4248cb580fc778b956970ee379d6e2987dc31e34e2a45537ace325f6624673",
+    "reason": "Regenerable Python bytecode cache"
+  },
+  {
+    "deleted": "code/bignet_prototype/__pycache__/train.cpython-310.pyc",
+    "bytes": 6033,
+    "sha256": "62cc79a523e5afb0f4e50c3d0f1e58e9ede20f99adde53a3af760ec3b02e5a79",
+    "reason": "Regenerable Python bytecode cache"
+  },
+  {
+    "moved": "IEEE_Access_Resubmission.zip",
+    "to": "originals/IEEE_Access_Resubmission.zip"
+  },
+  {
+    "moved": "Active_LLM_Persona_Discovery__Graph_Guided_Adaptive_Interviewing_with_Bridging_Inference.zip",
+    "to": "originals/Active_LLM_Persona_Discovery__Graph_Guided_Adaptive_Interviewing_with_Bridging_Inference.zip"
+  },
+  {
+    "moved": "IEEE Access - Decision on Manuscript ID Access-2026-51476.pdf",
+    "to": "originals/IEEE Access - Decision on Manuscript ID Access-2026-51476.pdf"
+  },
+  {
+    "moved": "reproduction_audit/access_reproduction_audit.json",
+    "to": "recovered_access_artifacts/audit/access_reproduction_audit.json"
+  },
+  {
+    "moved": "reproduction_audit/access_reproduction_audit_ko.txt",
+    "to": "recovered_access_artifacts/audit/access_reproduction_audit_ko.txt"
+  },
+  {
+    "moved": "reproduction_audit/legacy_prompt_source_evidence.txt",
+    "to": "recovered_access_artifacts/audit/legacy_prompt_source_evidence.txt"
+  },
+  {
+    "moved": "reproduction_audit/MORE_RECOVERY_UPDATE.txt",
+    "to": "recovered_access_artifacts/audit/MORE_RECOVERY_UPDATE.txt"
+  },
+  {
+    "moved": "recovered_access_statistics/primary_reanalysis.json",
+    "to": "recovered_access_artifacts/statistics/primary_reanalysis.json"
+  },
+  {
+    "moved": "access_revision_final.patch",
+    "to": "recovered_access_artifacts/audit/access_revision_final.patch"
+  },
+  {
+    "moved": "final_revision_review_ko.txt",
+    "to": "recovered_access_artifacts/audit/final_revision_review_ko.txt"
+  }
+]

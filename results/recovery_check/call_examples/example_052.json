@@ -1,0 +1,35 @@
+{
+  "kind": "verbatim_recorded_call",
+  "source": {
+    "file": "robustness/backbone_qwen3_8b/raw/all.jsonl",
+    "line": 1,
+    "persona_id": "persona_5c140befa4fad722c215fd6917bba5a55252379534cc85a771c2d6ec2d6fbb01",
+    "method": "original",
+    "target": "Qwen/Qwen3-1.7B",
+    "base_seed": 20260913,
+    "json_pointer": "/turn_records/0/decision_call"
+  },
+  "call": {
+    "finish_reason": "stop",
+    "generated_tokens": 22,
+    "max_new_tokens": 96,
+    "model": "Qwen/Qwen3-8B",
+    "prompt_messages": [
+      {
+        "content": "You are the Original PD-Agent interviewer. Use only dialogue history. Ask one general open-ended follow-up. Do not use an evidence state, choose a persona dimension, stop early, or mention candidate labels. Output only the question.",
+        "role": "system"
+      },
+      {
+        "content": "Conversation so far:\nQ1: What do you usually do on a typical day?\nA1: I often start my day with a routine that balances productivity and personal interests, such as , which keeps me curious and connected to the world.\n\nAsk question 2 of 5.",
+        "role": "user"
+      }
+    ],
+    "prompt_tokens": 119,
+    "raw_response": "Q2: Can you share an example of a time when you had to adapt to an unexpected challenge?",
+    "retry_count": 0,
+    "role": "original_question_generation",
+    "seed": 3145284426,
+    "temperature": 0.7,
+    "top_p": 0.8
+  }
+}

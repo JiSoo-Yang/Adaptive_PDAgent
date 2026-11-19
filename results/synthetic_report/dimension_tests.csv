@@ -1,0 +1,5 @@
+target,dimension,original_only_correct,adaptive_only_correct,accuracy_difference,p_raw,p_bh
+Qwen/Qwen3-1.7B,social_role,0,0,0.0,1.0,1.0
+Qwen/Qwen3-1.7B,personality,0,0,0.0,1.0,1.0
+Qwen/Qwen3-1.7B,background,0,0,0.0,1.0,1.0
+Qwen/Qwen3-1.7B,interests,0,0,0.0,1.0,1.0

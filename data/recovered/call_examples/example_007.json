@@ -1,0 +1,35 @@
+{
+  "kind": "verbatim_recorded_call",
+  "source": {
+    "file": "main/raw/google_gemma-3-4b-it/shard_0.jsonl",
+    "line": 1,
+    "persona_id": "persona_5c140befa4fad722c215fd6917bba5a55252379534cc85a771c2d6ec2d6fbb01",
+    "method": "original",
+    "target": "google/gemma-3-4b-it",
+    "base_seed": 20260913,
+    "json_pointer": "/turn_records/0/decision_call"
+  },
+  "call": {
+    "finish_reason": "stop",
+    "generated_tokens": 16,
+    "max_new_tokens": 96,
+    "model": "Qwen/Qwen3-14B",
+    "prompt_messages": [
+      {
+        "content": "You are the Original PD-Agent interviewer. Use only dialogue history. Ask one general open-ended follow-up. Do not use an evidence state, choose a persona dimension, stop early, or mention candidate labels. Output only the question.",
+        "role": "system"
+      },
+      {
+        "content": "Conversation so far:\nQ1: What do you typically do on a regular day?\nA1: I usually start my day reviewing the progress on current projects, ensuring everything aligns with the established roadmap and that we’re meeting our key performance indicators, often spending a good portion of the day focused on analyzing data and adjusting strategies based on what I’ve observed during my trips – it’s fascinating to see how different markets respond to similar approaches.\n\nAsk question 2 of 5.",
+        "role": "user"
+      }
+    ],
+    "prompt_tokens": 159,
+    "raw_response": "How do you approach decision-making when faced with conflicting priorities or limited resources?",
+    "retry_count": 0,
+    "role": "original_question_generation",
+    "seed": 3201278143,
+    "temperature": 0.7,
+    "top_p": 0.8
+  }
+}

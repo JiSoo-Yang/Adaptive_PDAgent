@@ -1,0 +1,68 @@
+{
+  "version": "1.0.0",
+  "config": {
+    "kind": "manuscript_based_reimplementation",
+    "historical_source": false,
+    "base_seed": 20260831,
+    "budget": 5,
+    "timeout_seconds": 300,
+    "agent": {
+      "model": "Qwen/Qwen3-14B",
+      "revision": "40c069824f4251a91eefaf281ebe4c544efd3e18",
+      "base_url": "http://127.0.0.1:8000/v1",
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "local_model_dir": "models/Qwen3-14B"
+    },
+    "target": {
+      "model": "Qwen/Qwen3-1.7B",
+      "revision": "70d244cc86ccca08cf5af4e1e306ecf908b1ad5e",
+      "base_url": "http://127.0.0.1:8001/v1",
+      "chat_template_kwargs": {
+        "enable_thinking": false
+      },
+      "local_model_dir": "models/Qwen3-1.7B"
+    },
+    "known_checkpoints": {
+      "Qwen/Qwen3-14B": "40c069824f4251a91eefaf281ebe4c544efd3e18",
+      "Qwen/Qwen3-1.7B": "70d244cc86ccca08cf5af4e1e306ecf908b1ad5e",
+      "Qwen/Qwen3-4B": "1cfa9a7208912126459214e8b04321603b3df60c",
+      "meta-llama/Llama-3.2-3B-Instruct": "0cb88a4f764b7a12671c53f0838cd831a0843b95",
+      "google/gemma-3-4b-it": "093f9f388b31de276ce2de164bdc2081324b9767"
+    },
+    "reconstruction_choices": [
+      "Major dialogue-role system prompts and user schema suffixes were recovered from recorded calls; fallback text recovered from observed replacements. Online/Selective prompts, runtime serializers, leakage detector, fuzzy label matcher and per-call seed derivation remain reconstructed.",
+      "Qwen enable_thinking=False is a new explicit choice; historical setting unknown.",
+      "Use bfloat16 and generation-config vllm for new servers; historical primary precision remains unknown.",
+      "No reference-table values are used to tune generated data or predictions.",
+      "Integrated Selective extraction/state prompt is explicitly reconstructed for the final manuscript; not recovered historical wording."
+    ]
+  },
+  "manifest_sha256": "4d877cf16be4fc92bf349194c7476ec2bc6484f25a90c6af6ffd6b7f1863b1da",
+  "source_sha256": "5d8c0c184aafbcff00bafe1f9fece50ce8d65da97ae4ea0c288ef360fc03cb22",
+  "methods": [
+    "original",
+    "adaptive",
+    "online",
+    "selective",
+    "random_candidate",
+    "round_robin",
+    "dialogue",
+    "generic",
+    "direct",
+    "no_coverage",
+    "no_redundancy",
+    "uncertainty"
+  ],
+  "mock": true,
+  "limit": 2,
+  "fingerprint": "d59ae851f83970122a668a59b2ec51653ce2e6217df9f4dbfd53f6ccea2b3f74",
+  "python": "3.11.9 | packaged by conda-forge | (main, Apr 19 2024, 18:36:13) [GCC 12.3.0]",
+  "platform": "Linux-6.8.0-71-generic-x86_64-with-glibc2.35",
+  "artifact_kind": "synthetic_smoke_only",
+  "historical_results": false,
+  "server_revision_verification": "not verified by HTTP protocol",
+  "recorded_results": 2,
+  "majority_cohort_size": 304
+}

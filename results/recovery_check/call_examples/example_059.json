@@ -1,0 +1,35 @@
+{
+  "kind": "verbatim_recorded_call",
+  "source": {
+    "file": "robustness/backbone_qwen3_8b/raw/all.jsonl",
+    "line": 2,
+    "persona_id": "persona_5c140befa4fad722c215fd6917bba5a55252379534cc85a771c2d6ec2d6fbb01",
+    "method": "dialogue_only",
+    "target": "Qwen/Qwen3-1.7B",
+    "base_seed": 20260913,
+    "json_pointer": "/turn_records/0/question_call"
+  },
+  "call": {
+    "finish_reason": "stop",
+    "generated_tokens": 11,
+    "max_new_tokens": 96,
+    "model": "Qwen/Qwen3-8B",
+    "prompt_messages": [
+      {
+        "content": "You are the PD-Agent interviewing someone to infer a persona from indirect evidence. Ask one short natural open-ended question. Do not name persona dimensions or candidate labels. Output only the question.",
+        "role": "system"
+      },
+      {
+        "content": "Ask the common first question. It should invite a concrete account of the person's ordinary activities without assuming any identity.",
+        "role": "user"
+      }
+    ],
+    "prompt_tokens": 77,
+    "raw_response": "What do you usually do on a typical day?",
+    "retry_count": 0,
+    "role": "question_generation",
+    "seed": 93798455,
+    "temperature": 0.7,
+    "top_p": 0.8
+  }
+}

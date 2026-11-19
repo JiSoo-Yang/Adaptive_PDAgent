@@ -1,0 +1,5 @@
+target_model,paired_personas,methods_expected,all_ten_methods_present,same_persona_id,same_ground_truth,same_initial_question,same_initial_response,all_success,base_seeds,excluded_personas
+Qwen/Qwen3-1.7B,304,original;dialogue_only;random_candidate;round_robin;dialogue_followup;controller_matched_generic;adaptive_direct;adaptive_no_coverage;adaptive_no_redundancy;uncertainty_sampling,True,True,True,True,True,True,20260913,none
+Qwen/Qwen3-4B,304,original;dialogue_only;random_candidate;round_robin;dialogue_followup;controller_matched_generic;adaptive_direct;adaptive_no_coverage;adaptive_no_redundancy;uncertainty_sampling,True,True,True,True,True,True,20260913,none
+meta-llama/Llama-3.2-3B-Instruct,304,original;dialogue_only;random_candidate;round_robin;dialogue_followup;controller_matched_generic;adaptive_direct;adaptive_no_coverage;adaptive_no_redundancy;uncertainty_sampling,True,True,True,True,True,True,20260913,none
+google/gemma-3-4b-it,304,original;dialogue_only;random_candidate;round_robin;dialogue_followup;controller_matched_generic;adaptive_direct;adaptive_no_coverage;adaptive_no_redundancy;uncertainty_sampling,True,True,True,True,True,True,20260913,none

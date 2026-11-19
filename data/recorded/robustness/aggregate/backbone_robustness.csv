@@ -1,0 +1,4 @@
+target_model,base_seed,pd_model,n,adaptive_minus_original,ci95_low,ci95_high,p_raw,effect_size_rank_biserial,positive_pairs,negative_pairs,tied_pairs,test,comparison_role
+Qwen/Qwen3-1.7B,20260913,Qwen/Qwen3-14B,100,0.00029452112757106017,-0.061960702232643064,0.06494154882113089,0.8228739008086198,-0.039112050739957716,21,22,57,paired Wilcoxon signed-rank,reference_backbone
+Qwen/Qwen3-1.7B,20260913,Qwen/Qwen3-8B,100,-0.003524234638707946,-0.06051999447490332,0.05302072435935771,0.5664479470730932,-0.09898989898989899,23,21,56,paired Wilcoxon signed-rank,alternative_backbone
+Qwen/Qwen3-1.7B,20260913,Qwen/Qwen3-8B minus Qwen/Qwen3-14B,100,-0.003818755766279006,-0.09355803380652085,0.08341168341684918,0.9147188385080663,-0.015384615384615385,31,33,36,paired Wilcoxon signed-rank,difference_in_method_effects

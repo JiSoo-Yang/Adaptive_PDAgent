@@ -1,0 +1,417 @@
+{
+  "n_personas": 304,
+  "unique_personas": 304,
+  "sampled_with_replacement": false,
+  "label_space_sizes": {
+    "personality": 2,
+    "social_role": 43,
+    "social_role_category": 3,
+    "background.education": 6,
+    "background.location": 4,
+    "background.family_status": 5,
+    "background.economic_status": 5,
+    "background.work_experience": 5,
+    "interests.hobbies": 13,
+    "interests.content_preferences": 10,
+    "interests.technology_adoption": 5,
+    "interests.shopping_style": 7,
+    "interests.communication_style": 8,
+    "interests.values": 14,
+    "interests.social_media_usage": 2
+  },
+  "allowed_labels": {
+    "social_role_categories": [
+      "general_role",
+      "professional",
+      "technical_management"
+    ],
+    "social_role_occupations": [
+      "Doctor",
+      "Lawyer",
+      "Accountant",
+      "Architect",
+      "Pharmacist",
+      "Professor",
+      "Researcher",
+      "Judge",
+      "Prosecutor",
+      "Patent Attorney",
+      "Real Estate Agent",
+      "Tax Accountant",
+      "Appraiser",
+      "Labor Consultant",
+      "Software Engineer",
+      "Data Scientist",
+      "Product Manager",
+      "Project Manager",
+      "UX/UI Designer",
+      "System Administrator",
+      "Marketing Manager",
+      "Sales Manager",
+      "HR Specialist",
+      "Finance Manager",
+      "Strategy Planner",
+      "Quality Manager",
+      "DevOps Engineer",
+      "Data Engineer",
+      "Security Specialist",
+      "Student",
+      "Homemaker",
+      "Retiree",
+      "Freelancer",
+      "Self-employed",
+      "Office Worker",
+      "Service Worker",
+      "Salesperson",
+      "Factory Worker",
+      "Artist",
+      "Writer",
+      "Content Creator",
+      "Athlete",
+      "Chef"
+    ],
+    "personality": {
+      "openness": [
+        "yes",
+        "no"
+      ],
+      "conscientiousness": [
+        "yes",
+        "no"
+      ],
+      "extroversion": [
+        "yes",
+        "no"
+      ],
+      "agreeableness": [
+        "yes",
+        "no"
+      ],
+      "neuroticism": [
+        "yes",
+        "no"
+      ]
+    },
+    "background": {
+      "education": [
+        "High School",
+        "Associate Degree",
+        "Bachelor’s Degree",
+        "Master’s Degree",
+        "Doctorate (Ph.D.)",
+        "Other"
+      ],
+      "location": [
+        "Metropolitan Area",
+        "Small/Mid-sized City",
+        "Rural Area",
+        "Abroad"
+      ],
+      "family_status": [
+        "Single",
+        "Married (No Children)",
+        "Married (With Children)",
+        "Single Parent",
+        "Living Alone"
+      ],
+      "economic_status": [
+        "Low Income",
+        "Lower-Middle Class",
+        "Middle Class",
+        "Upper-Middle Class",
+        "High Income"
+      ],
+      "work_experience": [
+        "Entry-level (0–2 years)",
+        "Junior (3–5 years)",
+        "Mid-level (6–10 years)",
+        "Senior (11–15 years)",
+        "Expert (16+ years)"
+      ]
+    },
+    "interests": {
+      "hobbies": [
+        "Reading",
+        "Fitness / Exercise",
+        "Cooking",
+        "Traveling",
+        "Photography / Videography",
+        "Gaming",
+        "Listening to / Playing Music",
+        "Drawing / Crafts",
+        "Hiking / Camping",
+        "Watching Movies / TV Shows",
+        "Fashion / Beauty",
+        "Pet Care",
+        "Gardening"
+      ],
+      "content_preferences": [
+        "News / Current Affairs",
+        "Education / Learning",
+        "Entertainment",
+        "Sports",
+        "Technology / Science",
+        "Business / Economy",
+        "Health / Wellness",
+        "Lifestyle",
+        "Arts / Culture",
+        "Politics / Society"
+      ],
+      "technology_adoption": [
+        "Early Adopter",
+        "Active User",
+        "Average User",
+        "Conservative User",
+        "Tech-averse"
+      ],
+      "shopping_style": [
+        "Value-oriented",
+        "Quality-focused",
+        "Brand-focused",
+        "Trendy",
+        "Practical",
+        "Impulse Buyer",
+        "Planned Buyer"
+      ],
+      "communication_style": [
+        "Direct",
+        "Indirect",
+        "Formal",
+        "Informal",
+        "Emotional",
+        "Logical",
+        "Concise",
+        "Detailed"
+      ],
+      "values": [
+        "Achievement / Success",
+        "Family",
+        "Health",
+        "Freedom",
+        "Stability",
+        "Creativity",
+        "Social Contribution",
+        "Environmental Protection",
+        "Fairness",
+        "Tradition",
+        "Innovation",
+        "Knowledge / Learning",
+        "Reputation",
+        "Financial Security"
+      ],
+      "social_media_usage": [
+        "no",
+        "yes"
+      ]
+    }
+  },
+  "class_frequencies": {
+    "background.category": {
+      "economic_status": 67,
+      "education": 48,
+      "family_status": 48,
+      "location": 66,
+      "work_experience": 75
+    },
+    "background.economic_status": {
+      "high income": 9,
+      "low income": 13,
+      "lowermiddle clas": 10,
+      "middle clas": 16,
+      "uppermiddle clas": 19
+    },
+    "background.education": {
+      "associate degree": 9,
+      "bachelor degree": 5,
+      "doctorate phd": 10,
+      "high school": 6,
+      "master degree": 7,
+      "other": 11
+    },
+    "background.family_status": {
+      "living alone": 6,
+      "married no children": 9,
+      "married with children": 10,
+      "single": 12,
+      "single parent": 11
+    },
+    "background.location": {
+      "abroad": 19,
+      "metropolitan area": 20,
+      "rural area": 10,
+      "smallmidsized city": 17
+    },
+    "background.work_experience": {
+      "entrylevel 02 year": 15,
+      "expert 16 year": 16,
+      "junior 35 year": 11,
+      "midlevel 610 year": 22,
+      "senior 1115 year": 11
+    },
+    "interests.category": {
+      "communication_style": 41,
+      "content_preferences": 37,
+      "hobbies": 38,
+      "shopping_style": 46,
+      "social_media_usage": 43,
+      "technology_adoption": 52,
+      "values": 47
+    },
+    "interests.communication_style": {
+      "concise": 6,
+      "detailed": 3,
+      "direct": 3,
+      "emotional": 6,
+      "formal": 2,
+      "indirect": 8,
+      "informal": 6,
+      "logical": 7
+    },
+    "interests.content_preferences": {
+      "art culture": 3,
+      "busines economy": 3,
+      "education learning": 3,
+      "entertainment": 4,
+      "health wellnes": 7,
+      "lifestyle": 5,
+      "new current affair": 5,
+      "politic society": 2,
+      "sport": 2,
+      "technology science": 3
+    },
+    "interests.hobbies": {
+      "cooking": 1,
+      "drawing craft": 3,
+      "fashion beauty": 2,
+      "fitnes exercise": 4,
+      "gaming": 2,
+      "gardening": 5,
+      "hiking camping": 3,
+      "listening to playing music": 2,
+      "pet care": 2,
+      "photography videography": 3,
+      "reading": 2,
+      "traveling": 4,
+      "watching movy tv show": 5
+    },
+    "interests.shopping_style": {
+      "brandfocused": 7,
+      "impulse buyer": 4,
+      "planned buyer": 5,
+      "practical": 7,
+      "qualityfocused": 10,
+      "trendy": 5,
+      "valueoriented": 8
+    },
+    "interests.social_media_usage": {
+      "no": 18,
+      "yes": 25
+    },
+    "interests.technology_adoption": {
+      "active user": 9,
+      "average user": 10,
+      "conservative user": 6,
+      "early adopter": 15,
+      "techaverse": 12
+    },
+    "interests.values": {
+      "achievement succes": 2,
+      "creativity": 3,
+      "environmental protection": 3,
+      "fairnes": 6,
+      "family": 4,
+      "financial security": 3,
+      "freedom": 3,
+      "health": 8,
+      "innovation": 1,
+      "knowledge learning": 5,
+      "social contribution": 3,
+      "stability": 5,
+      "tradition": 1
+    },
+    "personality.agreeableness": {
+      "no": 36,
+      "yes": 34
+    },
+    "personality.category": {
+      "agreeableness": 70,
+      "conscientiousness": 53,
+      "extroversion": 58,
+      "neuroticism": 61,
+      "openness": 62
+    },
+    "personality.conscientiousness": {
+      "no": 27,
+      "yes": 26
+    },
+    "personality.extroversion": {
+      "no": 23,
+      "yes": 35
+    },
+    "personality.neuroticism": {
+      "no": 33,
+      "yes": 28
+    },
+    "personality.openness": {
+      "no": 35,
+      "yes": 27
+    },
+    "social_role.category": {
+      "general_role": 97,
+      "professional": 118,
+      "technical_management": 89
+    },
+    "social_role.specific": {
+      "accountant": 6,
+      "appraiser": 6,
+      "architect": 11,
+      "artist": 7,
+      "athlete": 7,
+      "chef": 6,
+      "content creator": 7,
+      "data engineer": 6,
+      "data scientist": 4,
+      "devop engineer": 1,
+      "doctor": 9,
+      "factory worker": 7,
+      "finance manager": 6,
+      "freelancer": 8,
+      "homemaker": 9,
+      "hr specialist": 7,
+      "judge": 9,
+      "labor consultant": 5,
+      "lawyer": 7,
+      "marketing manager": 11,
+      "office worker": 6,
+      "patent attorney": 10,
+      "pharmacist": 10,
+      "product manager": 6,
+      "professor": 10,
+      "project manager": 6,
+      "prosecutor": 8,
+      "quality manager": 5,
+      "real estate agent": 7,
+      "researcher": 10,
+      "retiree": 5,
+      "sal manager": 12,
+      "salesperson": 10,
+      "security specialist": 4,
+      "selfemployed": 8,
+      "service worker": 4,
+      "software engineer": 4,
+      "strategy planner": 8,
+      "student": 8,
+      "system administrator": 1,
+      "tax accountant": 10,
+      "uxui designer": 8,
+      "writer": 5
+    }
+  },
+  "majority_baselines": {
+    "social_role": 0.3881578947368421,
+    "personality": 0.5460526315789473,
+    "background": 0.27631578947368424,
+    "interests": 0.2565789473684211
+  },
+  "combination_constraints": "One specific social role; one Big-Five trait with yes/no polarity; one background category/value; and one interests category/value. No additional cross-dimension plausibility constraints are encoded."
+}

@@ -1,0 +1,35 @@
+{
+  "kind": "verbatim_recorded_call",
+  "source": {
+    "file": "robustness/seed3/raw/google_gemma-3-4b-it.jsonl",
+    "line": 1,
+    "persona_id": "persona_5c140befa4fad722c215fd6917bba5a55252379534cc85a771c2d6ec2d6fbb01",
+    "method": "original",
+    "target": "google/gemma-3-4b-it",
+    "base_seed": 20260914,
+    "json_pointer": "/turn_records/0/decision_call"
+  },
+  "call": {
+    "finish_reason": "stop",
+    "generated_tokens": 17,
+    "max_new_tokens": 96,
+    "model": "Qwen/Qwen3-14B",
+    "prompt_messages": [
+      {
+        "content": "You are the Original PD-Agent interviewer. Use only dialogue history. Ask one general open-ended follow-up. Do not use an evidence state, choose a persona dimension, stop early, or mention candidate labels. Output only the question.",
+        "role": "system"
+      },
+      {
+        "content": "Conversation so far:\nQ1: What do you typically do on a regular day?\nA1: I usually start by reviewing the current roadmap and prioritizing tasks based on their impact on our key metrics, then I spend a good portion of the day coordinating with different teams to ensure we’re all aligned on timelines and requirements, and I often wrap up by analyzing user feedback to identify areas for potential improvements.\n\nAsk question 2 of 5.",
+        "role": "user"
+      }
+    ],
+    "prompt_tokens": 152,
+    "raw_response": "How do you approach situations where there are conflicting priorities or disagreements among team members?",
+    "retry_count": 0,
+    "role": "original_question_generation",
+    "seed": 718971831,
+    "temperature": 0.7,
+    "top_p": 0.8
+  }
+}

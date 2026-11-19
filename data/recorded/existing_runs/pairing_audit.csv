@@ -1,0 +1,5 @@
+target_model,paired_personas,all_methods_present,identical_persona_across_methods,identical_first_question,identical_first_answer,adaptive_early_stops
+Qwen/Qwen3-1.7B,304,True,True,True,True,0
+Qwen/Qwen3-4B,304,True,True,True,True,0
+meta-llama/Llama-3.2-3B-Instruct,304,True,True,True,True,0
+google/gemma-3-4b-it,304,True,True,True,True,0

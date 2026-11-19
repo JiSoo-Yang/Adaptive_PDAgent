@@ -1,0 +1,41 @@
+{
+  "call_id": "54434d616532adee67425484cdd8b14a971eade5843306c336aa08c95d821aaa",
+  "role": "original",
+  "request": {
+    "model": "Qwen/Qwen3-14B",
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are the Original PD-Agent interviewer. Use only dialogue history. Ask one general open-ended follow-up. Do not use an evidence state, choose a persona dimension, stop early, or mention candidate labels. Output only the question."
+      },
+      {
+        "role": "user",
+        "content": "Conversation so far:\nQ1: What responsibilities occupy most of your day?\nA1: I review tasks and plan with colleagues before starting the day.\nQ2: What responsibilities occupy most of your day?\nA2: I review tasks and plan with colleagues before starting the day.\nQ3: What responsibilities occupy most of your day?\nA3: I review tasks and plan with colleagues before starting the day.\nQ4: What responsibilities occupy most of your day?\nA4: I review tasks and plan with colleagues before starting the day.\n\nAsk question 5 of 5."
+      }
+    ],
+    "temperature": 0.7,
+    "top_p": 0.8,
+    "max_tokens": 96,
+    "seed": 2081175041,
+    "chat_template_kwargs": {
+      "enable_thinking": false
+    }
+  },
+  "response": {
+    "choices": [
+      {
+        "message": {
+          "content": "What responsibilities occupy most of your day?"
+        },
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": null,
+    "mock": true
+  },
+  "text": "What responsibilities occupy most of your day?",
+  "requested_revision": "40c069824f4251a91eefaf281ebe4c544efd3e18",
+  "revision_verified": false,
+  "backend": "mock_synthetic",
+  "elapsed_seconds": 1.1217780411243439e-06
+}

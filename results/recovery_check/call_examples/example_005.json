@@ -1,0 +1,51 @@
+{
+  "kind": "verbatim_recorded_call",
+  "source": {
+    "file": "active_information_gain/main/raw/google_gemma-3-4b-it/shard_0.jsonl",
+    "line": 1,
+    "persona_id": "persona_5c140befa4fad722c215fd6917bba5a55252379534cc85a771c2d6ec2d6fbb01",
+    "method": "uncertainty_sampling",
+    "target": "google/gemma-3-4b-it",
+    "base_seed": 20260913,
+    "json_pointer": "/turn_records/0/uncertainty_prediction_calls/0"
+  },
+  "call": {
+    "finish_reason": "stop",
+    "generated_tokens": 66,
+    "max_new_tokens": 384,
+    "model": "Qwen/Qwen3-14B",
+    "parsed_prediction": {
+      "background": {
+        "category": "family_status",
+        "value": "Single"
+      },
+      "interests": {
+        "category": "hobbies",
+        "value": "Traveling"
+      },
+      "personality": {
+        "trait": "openness",
+        "value": "yes"
+      },
+      "social_role": "Project Manager"
+    },
+    "prompt_messages": [
+      {
+        "content": "Estimate the persona from only the visible interview. Copy one allowed value per field and return one JSON object without reasoning.",
+        "role": "system"
+      },
+      {
+        "content": "Interview:\n[{\"question\": \"What do you typically do on a regular day?\", \"answer\": \"I usually start my day reviewing the progress on current projects, ensuring everything aligns with the established roadmap and that we’re meeting our key performance indicators, often spending a good portion of the day focused on analyzing data and adjusting strategies based on what I’ve observed during my trips – it’s fascinating to see how different markets respond to similar approaches.\"}]\n\nAllowed values:\n- social_role: Doctor, Lawyer, Accountant, Architect, Pharmacist, Professor, Researcher, Judge, Prosecutor, Patent Attorney, Real Estate Agent, Tax Accountant, Appraiser, Labor Consultant, Software Engineer, Data Scientist, Product Manager, Project Manager, UX/UI Designer, System Administrator, Marketing Manager, Sales Manager, HR Specialist, Finance Manager, Strategy Planner, Quality Manager, DevOps Engineer, Data Engineer, Security Specialist, Student, Homemaker, Retiree, Freelancer, Self-employed, Office Worker, Service Worker, Salesperson, Factory Worker, Artist, Writer, Content Creator, Athlete, Chef\n- personality trait \"openness\": yes, no\n- background category \"family_status\": Single, Married (No Children), Married (With Children), Single Parent, Living Alone\n- interests category \"hobbies\": Reading, Fitness / Exercise, Cooking, Traveling, Photography / Videography, Gaming, Listening to / Playing Music, Drawing / Crafts, Hiking / Camping, Watching Movies / TV Shows, Fashion / Beauty, Pet Care, Gardening\n\nReturn exactly:\n{\n  \"social_role\": \"...\",\n  \"personality\": {\"trait\": \"openness\", \"value\": \"yes or no\"},\n  \"background\": {\"category\": \"family_status\", \"value\": \"...\"},\n  \"interests\": {\"category\": \"hobbies\", \"value\": \"...\"}\n}",
+        "role": "user"
+      }
+    ],
+    "prompt_tokens": 421,
+    "raw_response": "{\n  \"social_role\": \"Project Manager\",\n  \"personality\": {\"trait\": \"openness\", \"value\": \"yes\"},\n  \"background\": {\"category\": \"family_status\", \"value\": \"Single\"},\n  \"interests\": {\"category\": \"hobbies\", \"value\": \"Traveling\"}\n}",
+    "retry_count": 0,
+    "role": "uncertainty_prediction",
+    "sample_index": 0,
+    "seed": 3833573525,
+    "temperature": 0.8,
+    "top_p": 0.8
+  }
+}

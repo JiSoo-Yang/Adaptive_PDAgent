@@ -1,0 +1,149 @@
+{
+  "main": {
+    "rows": 10944,
+    "successful_rows": 10944,
+    "total_model_calls": 175104,
+    "model_calls_per_persona_method": [
+      16
+    ],
+    "total_input_tokens": 73516252,
+    "total_output_tokens": 28322163,
+    "invalid_prediction_fields": 1310,
+    "prediction_fields": 43776,
+    "invalid_prediction_rate": 0.029925073099415205,
+    "parse_fallbacks": 5,
+    "shard_runtime_seconds": [
+      {
+        "log": "results/access_revision/main/logs/google_gemma-3-4b-it/shard_0.log",
+        "elapsed_seconds": 1542
+      },
+      {
+        "log": "results/access_revision/main/logs/google_gemma-3-4b-it/shard_1.log",
+        "elapsed_seconds": 1548
+      },
+      {
+        "log": "results/access_revision/main/logs/meta-llama_llama-3_2-3b-instruct/shard_0.log",
+        "elapsed_seconds": 1482
+      },
+      {
+        "log": "results/access_revision/main/logs/meta-llama_llama-3_2-3b-instruct/shard_1.log",
+        "elapsed_seconds": 1467
+      },
+      {
+        "log": "results/access_revision/main/logs/qwen_qwen3-1_7b/shard_0.log",
+        "elapsed_seconds": 1263
+      },
+      {
+        "log": "results/access_revision/main/logs/qwen_qwen3-1_7b/shard_1.log",
+        "elapsed_seconds": 1262
+      },
+      {
+        "log": "results/access_revision/main/logs/qwen_qwen3-4b/shard_0.log",
+        "elapsed_seconds": 1333
+      },
+      {
+        "log": "results/access_revision/main/logs/qwen_qwen3-4b/shard_1.log",
+        "elapsed_seconds": 1333
+      }
+    ],
+    "gpu_hours": 3.1194444444444445,
+    "parallel_wall_clock_upper_seconds": 1548
+  },
+  "robustness_new_runs": {
+    "rows": 1000,
+    "successful_rows": 1000,
+    "runtime_seconds": [
+      {
+        "log": "results/access_revision/robustness/backbone_qwen3_8b/logs/all.log",
+        "elapsed_seconds": 338
+      },
+      {
+        "log": "results/access_revision/robustness/seed3/logs/google_gemma-3-4b-it.log",
+        "elapsed_seconds": 576
+      },
+      {
+        "log": "results/access_revision/robustness/seed3/logs/meta-llama_llama-3_2-3b-instruct.log",
+        "elapsed_seconds": 541
+      },
+      {
+        "log": "results/access_revision/robustness/seed3/logs/qwen_qwen3-1_7b.log",
+        "elapsed_seconds": 487
+      },
+      {
+        "log": "results/access_revision/robustness/seed3/logs/qwen_qwen3-4b.log",
+        "elapsed_seconds": 497
+      }
+    ],
+    "gpu_hours": 0.6775
+  },
+  "hardware": {
+    "gpus": [
+      "NVIDIA H200, 143771 MiB, 580.126.16",
+      "NVIDIA H200, 143771 MiB, 580.126.16",
+      "NVIDIA H200, 143771 MiB, 580.126.16",
+      "NVIDIA H200, 143771 MiB, 580.126.16",
+      "NVIDIA H200, 143771 MiB, 580.126.16",
+      "NVIDIA H200, 143771 MiB, 580.126.16",
+      "NVIDIA H200, 143771 MiB, 580.126.16",
+      "NVIDIA H200, 143771 MiB, 580.126.16"
+    ],
+    "api_inference_fee_usd": 0,
+    "electricity_and_hardware_depreciation_usd": "not measured"
+  },
+  "token_accounting": {
+    "input_tokens": "len(vLLM RequestOutput.prompt_token_ids)",
+    "output_tokens": "len(vLLM CompletionOutput.token_ids)",
+    "tokenizer": "native tokenizer returned by each vLLM model instance",
+    "cached_tokens": "not exposed separately and not recorded"
+  },
+  "software": {
+    "vllm": "0.11.0",
+    "transformers": "4.57.6",
+    "torch": "2.8.0+cu126",
+    "numpy": "2.2.6",
+    "scipy": "1.17.1"
+  },
+  "checkpoint_revisions": [
+    {
+      "model": "Qwen/Qwen3-1.7B",
+      "revision": "70d244cc86ccca08cf5af4e1e306ecf908b1ad5e",
+      "row_references": 3136
+    },
+    {
+      "model": "Qwen/Qwen3-14B",
+      "revision": "40c069824f4251a91eefaf281ebe4c544efd3e18",
+      "row_references": 11744
+    },
+    {
+      "model": "Qwen/Qwen3-4B",
+      "revision": "1cfa9a7208912126459214e8b04321603b3df60c",
+      "row_references": 2936
+    },
+    {
+      "model": "Qwen/Qwen3-8B",
+      "revision": "b968826d9c46dd6066d109eabc6255188de91218",
+      "row_references": 200
+    },
+    {
+      "model": "google/gemma-3-4b-it",
+      "revision": "093f9f388b31de276ce2de164bdc2081324b9767",
+      "row_references": 2936
+    },
+    {
+      "model": "meta-llama/Llama-3.2-3B-Instruct",
+      "revision": "0cb88a4f764b7a12671c53f0838cd831a0843b95",
+      "row_references": 2936
+    }
+  ],
+  "settings_source": "Per-call records are authoritative. The legacy top-level decoding.json_calls.temperature field is inconsistent with its note for question/action calls.",
+  "main_raw_files": {
+    "results/access_revision/main/raw/google_gemma-3-4b-it/shard_0.jsonl": "4f6c019f6607f9a07ae74f20993c264ff112589fe1f78a5628cbcb13730e1368",
+    "results/access_revision/main/raw/google_gemma-3-4b-it/shard_1.jsonl": "b64008be25abc276c1b34a98dcb8bc547517bf858f2adcef29f35b94fcddc19c",
+    "results/access_revision/main/raw/meta-llama_llama-3_2-3b-instruct/shard_0.jsonl": "b5416164c94dca8d454283c34ba5618c864082c6294b9f5e95a8eb605c4f5d39",
+    "results/access_revision/main/raw/meta-llama_llama-3_2-3b-instruct/shard_1.jsonl": "c0587e3800ab65beeeb248f7c0cb6d3a1939d76300f6cb754728a454594bda93",
+    "results/access_revision/main/raw/qwen_qwen3-1_7b/shard_0.jsonl": "03db36bcaa6d1121212410c1ba79ca9e248d4155b493d899002e711821d87eac",
+    "results/access_revision/main/raw/qwen_qwen3-1_7b/shard_1.jsonl": "9b5547357ed6407e91ee173b696c3ace8b90e8cf8e0b7c2f6c505466bd584d2f",
+    "results/access_revision/main/raw/qwen_qwen3-4b/shard_0.jsonl": "623663ff0bdb75515dc3983eb3d9104137bf147fc3a240f45352a8443799e779",
+    "results/access_revision/main/raw/qwen_qwen3-4b/shard_1.jsonl": "a53c4ddb8af70a9ee3a76d4f9a309514f9301be0fa6510442d77f5d8e55e3f76"
+  }
+}

@@ -1,0 +1,122 @@
+IEEE Access 최종 원고 점검 메모 — 2026-11-04
+대상: Access-2026-51476 / access_revision.tex
+
+1. 결정문 판독
+2026-10-29 결정은 Accept이며 최종 파일 업로드 전 minor changes를 요청한다.
+Reviewer 1: 내용은 수용 가능. 철자 및 인쇄용 그림 품질 점검.
+Reviewer 2: substantive concerns와 additional experimental requests가 없다고 명시.
+Reviewer 3: 수정 원고의 명료성, 투명성, 한계 설명을 긍정적으로 평가.
+따라서 이번 결정문에 대응하기 위해 새 실험을 수행할 필요는 없다.
+결정문은 accept 이후 저자 및 참고문헌 추가/삭제를 금지한다.
+
+2. 반영한 수정 (10곳)
+- 템플릿 DOI 10.1109/ACCESS.2024.0429000을 비움. 실제 배정 DOI는 production 단계에서 반영.
+- 초록의 코드 공개 문구를 Original PD-Agent 코드에 한정.
+- Code and Data Availability: 선행 연구 코드와 이번 실험 구현을 구분하고,
+  이번 결과에 대응하는 검증된 코드 스냅샷을 현재 제공할 수 없음을 명시.
+  코드 유실은 사용자의 설명을 반영한 것이며, 원시 데이터 유실 여부는 단정하지 않음.
+- Fig. 2 (파일명 figure3.pdf) 캡션: 개념 스케치는 controller의 graph input이 아니며,
+  coverage/redundancy 표기는 host-side 뺄셈 공식이 아니라 LLM 판단이라는 점을 설명.
+  Adaptive의 held-out 평가에서는 early stopping이 관찰되지 않았다는 기존 결과를 재명시.
+- target 소문자 통일, now/required와 같은 수정 회차 표현 정리.
+- 결론의 병렬 문법, 저자 소개의 multimodal reasoning 및 Postdoctoral Research Associate 교정.
+수치, 표, 수식, 알고리즘, 저자 명단, 참고문헌 및 인용 순서는 보존.
+변경 전체는 access_revision_final.patch에서 검토 가능.
+
+3. 제출 전 남은 확인 — 재실험이 아닌 파일/편집 문제
+A. 보충파일 누락
+본문 2곳에서 Supplementary Implementation Protocol을 참조하지만 ZIP에는 없다.
+appendix에 실행 설정과 예시는 있으나, 본문이 약속한 전체 실행 프롬프트와 fallback bank를
+담은 별도 protocol은 찾지 못했다. 기존 심사 제출물/Author Portal/백업에서 해당 파일을
+회수하여 함께 제출할 것. 코드 없이 당시 실행 프롬프트를 추정하여 '실행된 원문'으로
+작성하면 안 된다. 회수할 수 없으면 저자/편집부에 실제 제공 범위를 확인해야 한다.
+결정문이 언급하는 Final-Files-Checklist.docx도 제공된 두 파일에는 없다.
+
+B. 그림 원본에 남은 사항 (이번 작업은 TEX만 수정, 그림 PDF는 보존)
+- Fig. 1 / figure/figure1.pdf: 'charts never stop pilling up'의 pilling을 piling으로 수정 필요.
+- Fig. 2 / figure/figure3.pdf: graph처럼 보이는 dialogue history와
+  'coverage gain − redundancy', 'STOP all dimensions supported'를 실제 프롬프트/구현과
+  일치하도록 원본 도식에서 정리하는 것이 좋다. 이번 TEX 캡션에 오해 방지 설명을 추가함.
+- PDF를 렌더링하여 확인했다. 현재 class 폭에서 작은 글자의 환산 크기는
+  Fig. 1 약 4.3 pt, Fig. 2 약 5.2 pt, Fig. 3(figure4_re.pdf) 약 3.5 pt이다.
+  수학 첨자/짧은 라벨도 포함한 최솟값 추정치이므로 정식 인쇄 적합성 판정은 아니다.
+  최종 PDF를 실제 크기로 보고 작은 라벨을 확대할 것. 특히 Fig. 3은 한 단 폭이므로
+  두 단 폭으로 변경하거나 원본 플롯의 글씨를 키우는 방안을 검토할 것.
+- Fig. 1/2의 TrueType 폰트는 내장 확인. Fig. 3은 Type3 폰트 사용.
+  Type3을 미내장 폰트로 단정하지 않음. 출판 도구에서의 표시를 최종 확인할 것.
+- jongwonryu.png는 243x331 px, 지정 박스에 맞췄을 때 약 265 dpi.
+  더 높은 해상도의 원본 사진이 있으면 교체 권장. 다른 사진은 약 454 dpi 이상.
+
+C. 빌드 및 제출 파일
+환경에 pdflatex/xelatex/latexmk/tectonic이 없다. Tectonic 설치용 GitHub 요청은
+권한 상승 재시도에서도 HTTP 403으로 실패하여 최종 PDF 컴파일은 수행하지 못했다.
+Overleaf 등의 기존 환경에서 main document를 access_revision.tex로 지정하고 재컴파일할 것.
+기존 ZIP의 access.pdf는 수정된 원고의 PDF가 아니므로 최종본으로 제출하지 말 것.
+새 source ZIP에서는 구버전 TEX, 구버전 access.pdf, log/backup 파일을 제외했다.
+최종 PDF는 새로 생성해야 하며, 표/그림 배치 및 인용/폰트 경고를 확인해야 한다.
+새 source ZIP은 현재 검토용 소스 묶음이며, 누락된 protocol/PDF까지 완비된 제출 묶음은 아니다.
+
+4. 수행한 정적 검증
+원본과 비교하여 모든 table/table*, equation, algorithm 블록 불변 확인.
+mybibliography.bib 바이트 동일 및 인용 키 순서 불변 확인.
+미정의 ref/eqref 0개, 중복 label 0개, 누락된 citation key 0개.
+begin/end 환경 중첩 일치 및 includegraphics 파일 존재 확인.
+이 검사는 LaTeX 컴파일 또는 실험 재현을 대체하지 않는다.
+문헌의 외부 서지정보 전체에 대한 검증은 수행하지 않았다.
+
+5. 다시 실험이 필요한 경우
+이번 수정 자체에는 필요하지 않다. 그래프의 독립적 효과, ranking component의 유의한 이점,
+새 모델/언어에 대한 일반화, 전반적인 seed robustness를 새로 주장하려면 추가 실험이 필요하다.
+현재 원고는 이를 한계로 인정하므로 그 주장을 확대하지 않았다.
+당시 결과의 계산 오류나 근거 문제를 발견하면 원시 예측/로그로 재분석해야 하며,
+그 자료도 없다면 재구현·재실험과 편집부 협의가 필요할 수 있다.
+공개 선행연구 코드만으로 이번 연구 결과를 그대로 재현할 수 있다고 보장할 수 없다.
+
+6. 확인한 공개 자료
+https://github.com/JiSoo-Yang/Persona_Bridging
+README는 'The Pragmatic Persona: Discovering LLM Persona through Bridging Inference'
+(ICPR 2026)의 구현이라고 명시한다. 이번 Adaptive PD-Agent 결과의 코드 버전으로
+동일시하지 않는 근거로 사용했다. 저장소를 수정하거나 원격으로 게시하지 않았다.
+
+7. 재제출 패키지 추가 대조 (IEEE_Access_Resubmission.zip)
+- clean PDF 34쪽, highlighted PDF 37쪽, Author Response DOCX,
+  LaTeX Source ZIP, Resubmission Checklist DOCX 확인.
+- 내부 access_revision.tex, mybibliography.bib 및 본문 그림 3개는
+  처음 제공된 원본 ZIP의 해당 파일과 바이트 단위로 동일하다.
+  따라서 이번 최종 수정의 기준 소스가 재제출 소스와 일치함을 확인했다.
+- 별도 Supplementary Implementation Protocol은 외부 ZIP과 내부 소스 ZIP 모두에 없다.
+  clean/highlighted PDF에도 protocol을 참조하는 문구는 있지만, 별도 protocol 본문은
+  발견하지 못했다.
+- Author Response의 Reviewer 2 Major Comment 4 답변은 protocol에 실행 프롬프트,
+  JSON 예시, fallback banks, 감사한 소스 파일 해시 3개를 제공한다고 설명한다.
+  Minor Comment 7 답변 역시 protocol의 audited file hashes를 언급한다.
+- 반면 Resubmission Checklist의 Supplementary materials 항목은 N/A이다.
+  이는 패키지 내 문서 간 불일치이며, 실제 Author Portal에 별도 업로드가 있었는지는
+  이 ZIP만으로 확정할 수 없다. 포털의 제출 파일 목록/다운로드를 확인할 것.
+- Resubmission Checklist는 최종 승인 메일의 Final-Files-Checklist.docx와 다른 문서이다.
+- 새로 확인한 자료 때문에 본문 수정이나 실험 결과 변경이 추가로 필요하지는 않다.
+  protocol의 존재 여부가 확인되기 전까지 본문의 참조 문구를 임의 삭제하거나,
+  없어진 소스를 바탕으로 실행 프롬프트/해시를 추정하여 새 보충파일을 만들지 않았다.
+- 재제출 원본 자료는 resubmission_reference/ 아래에 따로 보존했다.
+
+8. 미제출 보충문서에 대한 후속 처리
+사용자가 이전 제출 때 Implementation Protocol을 제출하지 않았다고 확인함.
+supplementary/에 새로 작성한 5쪽 PDF, 편집용 DOCX, PDF를 담은 ZIP을 생성함.
+기존 원고에서 확인할 수 있는 규칙/설정만 정리하며, 실제 프롬프트·완전한 JSON schema·
+fallback bank 원문·실험 소스 해시는 제공하지 못한다는 점을 문서에 명시함.
+access_revision.tex의 보충문서 관련 두 문구를 실제 제공 범위에 맞춰 수정함.
+소스 ZIP과 변경 patch도 갱신함. Overleaf의 TEX를 다시 교체해야 함.
+기존 심사 답변서는 수정하지 않음. 편집부 전달용 정정 설명 초안을 별도로 생성했으며
+메일을 발송하거나 외부 제출하지 않음. 신규 보충자료의 최종 포함 여부는 편집부 확인 필요.
+
+9. 사용자 요청에 따른 복원
+보충문서 작성 과정에서 변경한 본문 두 곳을 직전 상태로 복원함.
+기존 문법 등 앞선 수정은 유지. 소스 ZIP과 patch도 동기화함.
+8번의 본문 두 곳 수정 완료 안내는 이 복원으로 대체됨.
+새 보충문서는 원고가 약속한 실행 프롬프트/전체 fallback bank를 충족하지 못하므로
+완전한 대체 자료로 간주할 수 없음. 본문은 더 수정하지 않음.
+
+10. more/ 추가 자료 확인
+실제 Access 실행 프롬프트·예측/결과·fallback 문구가 기록에 남아 있음을 확인했다.
+이전의 프롬프트/기록 부재 설명은 새 자료에 의해 정정된다.
+recovered_access_artifacts/RECOVERY_REPORT_KO.txt 참조. 본문은 변경하지 않았다.

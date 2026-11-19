@@ -1,0 +1,44 @@
+{
+  "call_id": "3a1e56040ed3335c61289ddaad18f39fcf7438b81bb83c2da289626f4e486582",
+  "role": "online",
+  "request": {
+    "model": "Qwen/Qwen3-14B",
+    "messages": [
+      {
+        "role": "system",
+        "content": "Use the supplied dialogue, incremental graph and evidence state to select an indirect follow-up that resolves missing evidence or grounded ambiguity. You may stop when enough evidence is present. Return JSON with action (explore or stop), target_dimension and selected_question. Do not reveal persona labels."
+      },
+      {
+        "role": "user",
+        "content": "{\"dialogue\": [{\"question\": \"What responsibilities occupy most of your day?\", \"answer\": \"I review tasks and plan with colleagues before starting the day.\"}, {\"question\": \"What experiences have shaped your everyday routine?\", \"answer\": \"I review tasks and plan with colleagues before starting the day.\"}, {\"question\": \"What experiences have shaped your everyday routine?\", \"answer\": \"I review tasks and plan with colleagues before starting the day.\"}], \"graph\": {\"nodes\": [{\"name\": \"tasks\", \"spans\": [\"review tasks\"], \"dimensions\": [\"social_role\"]}, {\"name\": \"colleagues\", \"spans\": [\"plan with colleagues\"], \"dimensions\": [\"social_role\"]}], \"edges\": [{\"source\": \"tasks\", \"relation\": \"theme\", \"target\": \"colleagues\", \"spans\": [\"review tasks and plan with colleagues\"]}]}, \"state\": {\"dimensions\": {\"social_role\": {\"status\": \"covered\", \"confidence\": 0.8500000000000001, \"concepts\": 2, \"edges\": 1, \"spans\": [\"plan with colleagues\", \"review tasks\"]}, \"personality\": {\"status\": \"missing\", \"confidence\": 0.0, \"concepts\": 0, \"edges\": 0, \"spans\": []}, \"background\": {\"status\": \"missing\", \"confidence\": 0.0, \"concepts\": 0, \"edges\": 0, \"spans\": []}, \"interests\": {\"status\": \"missing\", \"confidence\": 0.0, \"concepts\": 0, \"edges\": 0, \"spans\": []}}, \"novelty\": 0.0, \"previous_novelty\": 0.0, \"competitions\": []}}"
+      }
+    ],
+    "temperature": 0.7,
+    "top_p": 0.8,
+    "max_tokens": 640,
+    "seed": 380482929,
+    "response_format": {
+      "type": "json_object"
+    },
+    "chat_template_kwargs": {
+      "enable_thinking": false
+    }
+  },
+  "response": {
+    "choices": [
+      {
+        "message": {
+          "content": "{\"action\": \"explore\", \"target_dimension\": \"background\", \"candidates\": [{\"question\": \"What responsibilities occupy most of your day?\", \"coverage_gain\": 0.5, \"redundancy_penalty\": 0.1}, {\"question\": \"What experiences have shaped your everyday routine?\", \"coverage_gain\": 0.5, \"redundancy_penalty\": 0.1}, {\"question\": \"What do you choose to do when you have time to yourself?\", \"coverage_gain\": 0.5, \"redundancy_penalty\": 0.1}], \"selected_question\": \"What experiences have shaped your everyday routine?\", \"expected_gain\": 0.4}"
+        },
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": null,
+    "mock": true
+  },
+  "text": "{\"action\": \"explore\", \"target_dimension\": \"background\", \"candidates\": [{\"question\": \"What responsibilities occupy most of your day?\", \"coverage_gain\": 0.5, \"redundancy_penalty\": 0.1}, {\"question\": \"What experiences have shaped your everyday routine?\", \"coverage_gain\": 0.5, \"redundancy_penalty\": 0.1}, {\"question\": \"What do you choose to do when you have time to yourself?\", \"coverage_gain\": 0.5, \"redundancy_penalty\": 0.1}], \"selected_question\": \"What experiences have shaped your everyday routine?\", \"expected_gain\": 0.4}",
+  "requested_revision": "40c069824f4251a91eefaf281ebe4c544efd3e18",
+  "revision_verified": false,
+  "backend": "mock_synthetic",
+  "elapsed_seconds": 2.7043279260396957e-05
+}

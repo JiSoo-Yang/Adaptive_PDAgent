@@ -1,0 +1,44 @@
+{
+  "call_id": "900f28ee6ddb7482d23a0a7c0b1d79efb92f5888408d437f803d1aebbde9d509",
+  "role": "state",
+  "request": {
+    "model": "Qwen/Qwen3-14B",
+    "messages": [
+      {
+        "role": "system",
+        "content": "Analyze the supplied grounded graph and dialogue for distinct competing persona interpretations. Return JSON {\"competitions\":[{\"alternatives\":[\"reading 1\",\"reading 2\"],\"spans\":[\"retained support 1\",\"retained support 2\"],\"discriminator\":\"unanswered distinguishing evidence\"}]}. Include only grounded alternatives and use exact retained node-support spans. No hidden gold persona is available."
+      },
+      {
+        "role": "user",
+        "content": "{\"dialogue\": [{\"question\": \"What responsibilities occupy most of your day?\", \"answer\": \"I review tasks and plan with colleagues before starting the day.\"}, {\"question\": \"What experiences have shaped your everyday routine?\", \"answer\": \"I review tasks and plan with colleagues before starting the day.\"}, {\"question\": \"What experiences have shaped your everyday routine?\", \"answer\": \"I review tasks and plan with colleagues before starting the day.\"}, {\"question\": \"What experiences have shaped your everyday routine?\", \"answer\": \"I review tasks and plan with colleagues before starting the day.\"}], \"graph\": {\"nodes\": [{\"name\": \"tasks\", \"spans\": [\"review tasks\"], \"dimensions\": [\"social_role\"]}, {\"name\": \"colleagues\", \"spans\": [\"plan with colleagues\"], \"dimensions\": [\"social_role\"]}], \"edges\": [{\"source\": \"tasks\", \"relation\": \"theme\", \"target\": \"colleagues\", \"spans\": [\"review tasks and plan with colleagues\"]}]}}"
+      }
+    ],
+    "temperature": 0.0,
+    "top_p": 0.8,
+    "max_tokens": 512,
+    "seed": 1933193767,
+    "response_format": {
+      "type": "json_object"
+    },
+    "chat_template_kwargs": {
+      "enable_thinking": false
+    }
+  },
+  "response": {
+    "choices": [
+      {
+        "message": {
+          "content": "{\"competitions\":[]}"
+        },
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": null,
+    "mock": true
+  },
+  "text": "{\"competitions\":[]}",
+  "requested_revision": "40c069824f4251a91eefaf281ebe4c544efd3e18",
+  "revision_verified": false,
+  "backend": "mock_synthetic",
+  "elapsed_seconds": 1.268414780497551e-05
+}

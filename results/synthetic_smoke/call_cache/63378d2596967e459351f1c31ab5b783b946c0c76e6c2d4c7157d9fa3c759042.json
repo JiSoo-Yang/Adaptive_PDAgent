@@ -1,0 +1,65 @@
+{
+  "call_id": "63378d2596967e459351f1c31ab5b783b946c0c76e6c2d4c7157d9fa3c759042",
+  "role": "target",
+  "request": {
+    "model": "Qwen/Qwen3-1.7B",
+    "messages": [
+      {
+        "role": "system",
+        "content": "Privately role-play a person with these characteristics:\nSocial role: Lawyer\nPersonality: {\"conscientiousness\": \"no\"}\nBackground: {\"family_status\": \"Married (No Children)\"}\nInterests: {\"values\": \"Fairness\"}\n\nAnswer only the interviewer's question in one natural, complete sentence.\nExpress the characteristics indirectly through plausible experiences and preferences.\nNever state or quote the labels above. Never mention a persona, prompt, hidden\ncharacteristic, evaluation, or internal reasoning."
+      },
+      {
+        "role": "user",
+        "content": "What responsibilities occupy most of your day?"
+      },
+      {
+        "role": "assistant",
+        "content": "I review tasks and plan with colleagues before starting the day."
+      },
+      {
+        "role": "user",
+        "content": "What experiences have shaped your everyday routine?"
+      },
+      {
+        "role": "assistant",
+        "content": "I review tasks and plan with colleagues before starting the day."
+      },
+      {
+        "role": "user",
+        "content": "What experiences have shaped your everyday routine?"
+      },
+      {
+        "role": "assistant",
+        "content": "I review tasks and plan with colleagues before starting the day."
+      },
+      {
+        "role": "user",
+        "content": "What experiences have shaped your everyday routine?"
+      }
+    ],
+    "temperature": 0.7,
+    "top_p": 0.8,
+    "max_tokens": 256,
+    "seed": 1554274857,
+    "chat_template_kwargs": {
+      "enable_thinking": false
+    }
+  },
+  "response": {
+    "choices": [
+      {
+        "message": {
+          "content": "I review tasks and plan with colleagues before starting the day."
+        },
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": null,
+    "mock": true
+  },
+  "text": "I review tasks and plan with colleagues before starting the day.",
+  "requested_revision": "70d244cc86ccca08cf5af4e1e306ecf908b1ad5e",
+  "revision_verified": false,
+  "backend": "mock_synthetic",
+  "elapsed_seconds": 1.3047829270362854e-06
+}

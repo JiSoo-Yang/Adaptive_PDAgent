@@ -1,0 +1,7 @@
+{
+  "tex_identical": true,
+  "other_differences": [
+    "figure/figure1.pdf"
+  ],
+  "note": "Cleanup did not edit figure contents or source ZIP; existing figure discrepancy retained rather than choosing an authoritative version."
+}

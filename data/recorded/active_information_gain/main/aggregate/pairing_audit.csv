@@ -1,0 +1,5 @@
+target_model,paired_personas,all_methods_present,same_ground_truth,same_first_question,same_first_answer,expected_personas
+Qwen/Qwen3-1.7B,304,True,True,True,True,304
+Qwen/Qwen3-4B,304,True,True,True,True,304
+meta-llama/Llama-3.2-3B-Instruct,304,True,True,True,True,304
+google/gemma-3-4b-it,304,True,True,True,True,304

@@ -1,0 +1,45 @@
+more 폴더 복구 조사 결과
+
+기존 결론 정정
+구버전 code/만 보았을 때와 달리, more/에는 Access 실험 당시 호출 메시지와 결과가 보존되어 있다.
+따라서 '실행 프롬프트와 원시 결과가 모두 없다'는 이전 설명은 더 이상 맞지 않는다.
+원고 본문과 기존 code/는 변경하지 않았다.
+
+복구한 자료
+- expanded main 10,944건 + active uncertainty 1,216건 + robustness 1,000건 = 13,160건 raw run.
+- 304개 persona ID와 ground truth. 여러 run에서 동일 ID의 gold 값 일치 확인.
+- 14개 call role의 실제 prompt_messages, raw_response, seed, temperature/top-p/token limit.
+- system prompt 320개 변형: persona별 target system 문구 등이 포함되어 있어 role 320개라는 뜻은 아님.
+- 3,041개 question replacement 기록. dimension 및 (turn-1) mod 3에 따른 15개 슬롯의 문구가 모두 일관됨.
+- 제공 manifest와 비교한 main raw 8개 및 M1/M2 산출물 7개의 SHA-256 총 15개 일치.
+
+통계 재현
+M1_M2_raw_results.csv 9,728행에서 binary score, baseline 정규화 및 persona AG 계산을 확인했다.
+직렬화된 당시 persona AG를 통계 입력으로 사용해 네 target의 Wilcoxon statistic, raw/BH p,
+평균 차이, bootstrap CI, 양/음/tie 수를 다시 계산했다. 저장된 primary summary와 모든 비교값이 일치했다.
+16개 dimension-level McNemar/BH 값도 일치했다. 비교한 수치의 최대 절대오차는 0.0이다.
+NumPy 2.2.6, SciPy 1.17.1을 사용했다. LLM inference는 수행하지 않았다.
+이는 기록된 점수의 재분석이며 원래 label canonicalizer의 독립 재현이나 예측 재생성을 뜻하지 않는다.
+primary 20260831과 expanded 20260913은 구분하여 처리했다.
+
+여전히 확인되지 않은 것
+- evaluation/run_table3_table4_vllm.py, table3_table4.py, selective_gai.py 등 원본 실행 소스.
+- primary 전체 Online/Selective 호출 trace. more/main/raw는 9개 expanded method이며
+  active raw는 uncertainty_sampling이다. 일부 보고서와 정성 사례를 전체 trace로 간주하지 않았다.
+- 원래 heldout_personas.jsonl의 바이트 단위 파일 복원. profile은 회복했지만 새 JSON 직렬화는 별개이다.
+- 모든 host-side 규칙과 seed 파생/환경을 원본 실행과 동일하다고 보증할 수는 없다.
+
+재구현 현재 상태
+access_reimplementation/에 CLI, 12-method 흐름, graph/parser/scoring/selection, call cache/resume,
+실제 호출 복구 및 재분석 도구를 작성했다. 주요 dialogue prompt 문구와 fallback text는 복구자료를 반영했다.
+Online/Selective prompt와 일부 serializer/label matching/leakage/seed 규칙은 여전히 재구현이다.
+8개 테스트 통과: graph grounding, parser, utility/stop, sampling/scoring, 후보 재정렬 금지,
+12방법×2persona synthetic 흐름 및 paired 첫문답, resume 검증, 로컬 HTTP 요청/캐시,
+대표 실제 프롬프트와 재구성된 메시지의 일치 확인.
+GPU 모델은 설치하거나 실행하지 않았다. synthetic 결과는 논문 실험 수치가 아니다.
+
+권장 활용
+1. 새 실험보다 보존된 기록을 우선한다.
+2. Recovered_Execution_Prompts.txt와 call_examples/를 기반으로 보충문서의 실제 프롬프트를 정리할 수 있다.
+3. 앞서 만든 '프롬프트 원문이 없다'는 보충문서/편집부 초안은 현재 증거를 반영하지 않으므로 그대로 사용하지 않는다.
+4. 본문은 사용자의 요청대로 유지했다. 새 코드나 새 결과를 원래 실행 코드/결과라고 표기하지 않는다.

@@ -1,0 +1,3208 @@
+\documentclass{ieeeaccess}
+% =====================================================================
+%  IEEE Access manuscript
+% =====================================================================
+
+\usepackage{cite}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{graphicx}
+\usepackage{textcomp}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{booktabs}
+\usepackage{makecell}
+\usepackage{listings}
+\usepackage{tabularx}
+\usepackage{xurl}
+\usepackage{float}
+\usepackage{multicol}
+\usepackage[ruled,vlined]{algorithm2e}
+
+\usepackage{bm}
+\makeatletter
+\AtBeginDocument{\DeclareMathVersion{bold}
+\SetSymbolFont{operators}{bold}{T1}{times}{b}{n}
+\SetSymbolFont{NewLetters}{bold}{T1}{times}{b}{it}
+\SetMathAlphabet{\mathrm}{bold}{T1}{times}{b}{n}
+\SetMathAlphabet{\mathit}{bold}{T1}{times}{b}{it}
+\SetMathAlphabet{\mathbf}{bold}{T1}{times}{b}{n}
+\SetMathAlphabet{\mathtt}{bold}{OT1}{pcr}{b}{n}
+\SetSymbolFont{symbols}{bold}{OMS}{cmsy}{b}{n}
+\renewcommand\boldmath{\@nomath\boldmath\mathversion{bold}}}
+\makeatother
+
+\def\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
+    T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
+
+%Your document starts from here ___________________________________________________
+\begin{document}
+\history{Date of publication xxxx 00, 0000, date of current version xxxx 00, 0000.}
+% The production office will supply the assigned DOI.
+\doi{}
+
+\title{Adaptive PD-Agent: Active Interviewing for LLM Persona Discovery with Bridging Inference}
+
+\author{\uppercase{Jisoo Yang}\authorrefmark{1},
+\uppercase{Jongwon Ryu}\authorrefmark{1},
+\uppercase{Trung X. Pham}\authorrefmark{2},
+\uppercase{and Junyeong Kim}\authorrefmark{1}}
+
+\address[1]{Department of Artificial Intelligence, Chung-Ang University, Seoul 06974, Republic of Korea (e-mail: yjs229@cau.ac.kr; fbwhddnjs511@cau.ac.kr; junyeongkim@cau.ac.kr)}
+\address[2]{Van Lang University, Ho Chi Minh City, Vietnam (e-mail: trung.px@vlu.edu.vn)}
+
+\tfootnote{Jisoo Yang and Jongwon Ryu contributed equally to this work.\\
+This work was partly supported by the Institute of Information \&
+Communications Technology Planning \& Evaluation (IITP) grant funded by
+the Korea government (MSIT) [RS-2021-II211341, Artificial Intelligence
+Graduate School Program (Chung-Ang University)], partly supported by the
+National Research Foundation of Korea (NRF) grant funded by the Korea
+government (MSIT) [RS-2026-25498346], and partly supported by Start-up
+Pioneering in Research and InnovaTion (SPRINT).}
+
+\markboth
+{Yang \headeretal: Adaptive PD-Agent: Active Interviewing for LLM Persona Discovery with Bridging Inference}
+{Yang \headeretal: Adaptive PD-Agent: Active Interviewing for LLM Persona Discovery with Bridging Inference}
+
+\corresp{Corresponding author: Junyeong Kim (e-mail: junyeongkim@cau.ac.kr).}
+
+\begin{abstract}
+Large Language Models (LLMs) exhibit recurring roles, preferences, and interaction styles that shape their responses across turns and can be described as a persona. Inferring these latent attributes supports behavioral characterization, role-consistency auditing, and adaptive interaction when model conditioning is not observable. This matters in multi-agent systems, where coordination depends on stable expectations about other models. Existing methods often rely on surface cues or fixed question sequences, which can miss implicit evidence and revisit already supported attributes, making persona discovery both a prediction and an information-acquisition problem whose success depends on eliciting distinguishing evidence.
+The Persona-Discovering Agent (PD-Agent) uses bridging inference to organize implicit conceptual links as a typed semantic graph, but its original fixed-budget policy does not explicitly target unresolved persona dimensions.
+We introduce \textbf{Adaptive PD-Agent}, which conditions each follow-up on the accumulated dialogue to acquire non-redundant persona evidence before applying the common bridging-based predictor. Unconditional and selective graph-guided variants test whether inserting the graph into the questioning loop provides further benefit. Across four small target LLMs, Adaptive PD-Agent has the highest point-estimate Average Gain for every target and improves over Original PD-Agent by $0.019$--$0.054$. Direct graph guidance provides no consistent further improvement and substantially increases input-token use. A selective gate reduces this overhead by $48.8$--$52.3\%$ relative to unconditional graph guidance, but does not surpass Adaptive PD-Agent. The observed gains are positive but do not establish a uniform dimension-level improvement or an independent benefit for any single controller component; bridging inference remains the structured representation used for final persona prediction.
+Code for Original PD-Agent is available at \url{https://github.com/JiSoo-Yang/Persona_Bridging}; availability of the present experimental implementation is discussed in the Code and Data Availability section.
+\end{abstract}
+
+\begin{keywords}
+Adaptive interviewing, bridging inference, large language models, persona discovery, question selection.
+\end{keywords}
+
+\titlepgskip=-21pt
+
+\maketitle
+
+\begin{figure*}[t]
+    \centering
+    \includegraphics[width=\textwidth]{figure/figure1.pdf}
+\caption{Conceptual comparison of persona representation and adaptive question selection.
+(a) A keyword-based reading emphasizes frequent surface terms, whereas bridging inference
+connects low-frequency but semantically related concepts into a persona-relevant frame.
+(b) A generic follow-up may reconfirm existing evidence without resolving an ambiguity,
+whereas an adaptive follow-up targets the missing evidence and updates the persona
+interpretation from the response. Panel (a) adapts the conceptual comparison of
+Original PD-Agent~\cite{yang2026pragmatic} using a new hospital example; panel (b)
+adds the adaptive-interviewing contrast. Both panels are illustrative, not experimental
+traces, and the diagram in (b) is an explanatory view rather than the Adaptive
+controller's input.}
+    \label{figure1}
+\end{figure*}
+
+\section{Introduction}
+\label{sec:introduction}
+\PARstart{L}{arge} Language Models (LLMs) exhibit recurring preferences, roles, and
+interaction styles that can be described as a \textit{persona}. Discovering these attributes
+from dialogue is useful for characterizing model behavior, auditing role consistency, and
+adapting subsequent interaction. Persona discovery is also an information-acquisition problem. Prediction depends on both
+the interpretation of responses and the questions that elicit them. Those questions must
+obtain evidence that distinguishes the candidate attributes.
+
+Most persona studies evaluate a model after a predetermined prompt or an already collected
+set of responses. This formulation treats the conversation as a fixed observation and leaves
+two questions unresolved. Has sufficient evidence been obtained for every persona dimension?
+If some dimensions remain ambiguous, what should PD-Agent ask next? Longer interaction alone
+does not guarantee better evidence because successive questions may repeat resolved topics or
+fail to separate competing persona values.
+
+Bridging inference offers a structured way to represent the information accumulated during
+such an interaction. Human discourse remains coherent even when relations between entities,
+events, and situations are left unstated; listeners recover these links using background
+knowledge~\cite{asher1998bridging,clark1977comprehension,irmer2011bridging}. Relations such as
+part--whole, instrument, cause, and situational inclusion connect concepts that may be distant
+or individually infrequent. A bridging graph can therefore serve not only as a summary for
+final prediction, but also as a state describing which persona-relevant concepts have and
+have not been elicited.
+
+
+\textbf{Persona-Discovering Agent (PD-Agent)} interacts with a target LLM and interprets its
+responses through bridging inference~\cite{yang2026pragmatic}. As illustrated in
+Fig.~\ref{figure1}(a), PD-Agent can
+connect low-frequency, persona-relevant concepts into a coherent frame that a
+frequency-based reading misses. The resulting semantic graph records the concepts and
+implicit links elicited during the interaction using seven relation types adapted from
+Irmer~\cite{irmer2011bridging}.
+
+We refer to the prior method as \textbf{Original PD-Agent}. It constructs the graph
+primarily for persona inference after completing a fixed short interaction. Although later questions receive the preceding
+conversation, the original policy is not explicitly designed to seek non-redundant evidence
+for the unresolved persona. Figure~\ref{figure1}(b) illustrates the resulting opportunity: a
+generic follow-up can reconfirm an existing medical context, whereas a targeted follow-up can
+elicit the responsibility that separates two plausible roles.
+
+This study builds on that interview-and-predict framework with bridging-based persona
+inference~\cite{yang2026pragmatic}. We introduce \textbf{Adaptive PD-Agent}, an LLM-prompted
+adaptive interviewing policy that seeks new persona evidence while avoiding redundant
+questioning. Each follow-up is generated from the accumulated dialogue. After the interview,
+the common final predictor uses the bridging-inference representation. We additionally
+study unconditional and selective graph-guided variants to determine whether moving graph
+analysis inside the loop improves upon dialogue-conditioned adaptation.
+
+We evaluate Original and Adaptive PD-Agent using a frozen held-out persona cohort and a
+per-dimension scoring protocol. The Original-versus-Adaptive results reported here are
+obtained from these evaluations, rather than reproduced from the prior publication.
+The inherited methodological basis comprises the interview-and-predict framework,
+the bridging background and relation definitions in Sections III--IV, the four-dimensional
+schema organization, and the historical degree-centrality definition.
+Table~\ref{tab:persona_schema} summarizes the schema used in the present evaluation.
+Figure~\ref{figure1}(a) retains a conceptual comparison adapted from the earlier work,
+using a new hospital dialogue rather than a prior experimental trace.
+These elements explain the prior method and are not claimed as new
+contributions~\cite{yang2026pragmatic}. The adaptive policy, current held-out comparisons,
+paired statistical analyses, and quality--cost results are contributions of this study.
+No aggregate cosine-similarity result from the earlier paper is reproduced or converted.
+
+Our main contributions are:
+\begin{enumerate}
+    \item \textbf{Adaptive persona evidence acquisition.} We extend PD-Agent with
+    dialogue-conditioned follow-up selection that seeks new persona evidence while avoiding
+    redundant questioning.
+    \item \textbf{A controlled test of graph guidance.} We compare Adaptive PD-Agent with
+    unconditional and selective online graph variants, separating the benefit of adaptive
+    questioning from the effect of inserting bridging structure into the policy.
+    \item \textbf{A multi-target quality--cost evaluation.} We evaluate fixed and adaptive
+    policies on four small target LLMs using per-dimension, chance-referenced metrics and
+    interaction-cost diagnostics.
+\end{enumerate}
+
+The proposed contribution is an LLM-prompted, dialogue-conditioned heuristic for persona-
+evidence acquisition, rather than a trained acquisition model or a formally optimized ranking
+objective. All comparison methods share the final persona predictor and scoring procedure. The
+evaluation therefore isolates the questioning policy under the stated protocol.
+
+Adaptive PD-Agent achieves the highest point-estimate Average Gain on all four target LLMs. Online graph
+guidance yields no consistent additional gain, although selective use roughly halves the
+cost of unconditional graph intervention. These results favor dialogue-conditioned evidence
+acquisition over adding online graph reasoning to the questioning policy.
+
+\section{Related Work}
+
+We relate our work to four lines of research: assigning and evaluating personas in LLMs,
+inferring persona from observed responses, acquiring persona information through interaction,
+and representing dialogue through discourse or graph structure.
+
+\subsection{Persona Assignment and Consistency Evaluation}
+
+LLM persona research includes role-playing, in which a model adopts an assigned identity, and
+personalization, in which its behavior reflects a user or profile~\cite{tseng2024survey}.
+% [리뷰 1] 반영 - human-centered persona와 model-oriented persona의 차이 명시.
+Human-centered AI research uses personas primarily to represent archetypal users, their
+needs, and the contexts of human--AI interaction~\cite{holzinger2022personas}. This paper
+instead adopts a model-oriented interpretation. A persona is a latent profile of the target
+LLM's social role, personality traits, background, interests, and interaction tendencies,
+inferred from its generated responses. We therefore study persona discovery at the model
+level, rather than the design of user personas.
+%
+Prior studies induce roles or personality traits through prompting and measure whether model
+responses remain aligned with the assigned specification~\cite{jiang2023evaluating,
+li2024steerability}. Related agent simulations instantiate profile-conditioned characters
+whose memories and actions are expected to remain behaviorally coherent over time
+~\cite{park2023generative}. Psychometric evaluations, including Big-Five-based protocols,
+similarly test whether LLM responses express intended personality traits
+~\cite{jiang2024personalllm}. These studies primarily assess persona expression or
+consistency when the persona is known to the evaluator. Our setting instead hides the target
+persona from PD-Agent and asks it to recover that persona through interaction.
+
+\subsection{Persona Inference}
+
+Persona inference reverses the assignment problem: the system observes generated responses and
+attempts to recover an underlying role, trait, or preference. Data-driven persona work studies
+how strongly LLM behavior can be steered toward learned profiles and, conversely, which
+profile-dependent patterns remain observable in model outputs~\cite{li2024steerability}.
+Generated-persona frameworks also reproduce response patterns for survey analysis
+~\cite{kim2024llmmirror}, while psychometric methods infer traits through structured
+questionnaires or response scoring~\cite{jiang2024personalllm}. These approaches demonstrate
+that persona-related information can be recovered from language, but inference quality
+depends on the observations supplied to the predictor. Our work focuses on that acquisition
+stage: PD-Agent must decide which additional response would provide non-redundant evidence
+about the target persona. PD-Agent previously approached this inference problem by extracting
+bridging relations from its interaction with a target LLM and organizing them into a semantic
+graph for four-dimensional persona prediction~\cite{yang2026pragmatic}. Adaptive PD-Agent
+extends this framework at the acquisition stage by choosing each follow-up from the dialogue
+evidence accumulated so far, while retaining bridging inference for final prediction.
+
+\subsection{Interactive Persona Acquisition}
+
+Interactive inference is distinct from predicting persona from a fixed response set. It allows
+the querying system to select a new observation based on what has already been learned.
+Recent work has examined whether active persona inference is necessary for aligning compact
+models with personal preferences~\cite{tang2025activepersona}, highlighting the broader value
+of obtaining preference information before acting on it. Our problem differs in both target
+and mechanism. PD-Agent discovers the hidden persona of another LLM through natural dialogue
+rather than eliciting an explicit user profile. Our proposed method conditions each new
+question on the interaction history and asks for additional, non-redundant persona evidence.
+This connects persona discovery to sequential information acquisition while preserving the
+bridging representation used by PD-Agent. Graph-guided variants then test whether an evolving
+discourse graph is a better question-selection state than the dialogue itself.
+
+\subsection{Structural and Graph-based Approaches}
+
+Structured representations have been used to maintain persona consistency and long-term
+context in dialogue. Persona or knowledge graphs can organize profile facts and conversational
+memories, while compact knowledge-grounded dialogue models use distilled structured
+information to support consistent role-playing~\cite{hu2025efficient,wang2024ai}. Such graphs
+typically encode explicit profile facts, entities, or memories. PD-Agent instead constructs
+its graph from implicit discourse links that emerge during interaction.
+
+The linguistic basis for this representation lies in the given--new organization of discourse
+~\cite{clark1977comprehension} and formal accounts of bridging
+~\cite{asher1998bridging,irmer2011bridging}. Computational work has studied the resolution of
+bridging anaphora and the recovery of globally coherent antecedents
+~\cite{gardent2003bridging,hou2013global}. We use the resulting relations as an evolving
+memory of concepts elicited from a target LLM. In Adaptive PD-Agent, this structure remains
+the representation used for final persona prediction. Our graph-guided analyses additionally
+test whether the same memory should control the acquisition process itself.
+
+Existing active persona methods generally adapt queries from uncertainty or preference
+feedback, whereas graph-based dialogue methods primarily use structure as memory or
+prediction context. Our comparison isolates these choices: Adaptive PD-Agent uses dialogue
+history for acquisition and bridging structure for prediction, while two diagnostic variants
+move bridging analysis into the questioning loop.
+
+\section{Bridging Inference}
+
+This section introduces bridging inference and the seven relation types used in our graph
+representation. It also explains how these relations connect sparse persona cues.
+
+\subsection{Definition and Cognitive Foundation}
+Bridging inference establishes discourse coherence by linking a newly introduced entity
+to a previously mentioned event, state, or process~\cite{asher2003logics,murphy1985processes,
+huang2000discourse}. The link expresses an implicit semantic relation~\cite{clark1977comprehension,
+irmer2011bridging,asher1998semantics,baker1998berkeley,bos1995bridging}. Building on Segmented
+Discourse Representation Theory (SDRT)~\cite{asher2003logics} and Frame Semantics
+~\cite{fillmore1976frame,malt1985role}, we interpret bridging as more than linguistic repair.
+It also follows from maximizing discourse coherence (MDC)~\cite{chierchia2009dynamics,
+johnson1977thinking,cohen2007anaphora}.
+
+According to Irmer \cite{irmer2011bridging,fillmore2003background}, every eventuality
+introduced in a discourse evokes a corresponding semantic frame. This frame activates
+Weak Discourse Referents: abstract entities that remain implicit but serve as necessary
+participants in the situation. For instance, `murder' evokes a Killing frame with roles
+for a \textit{killer}, a \textit{victim}, and an \textit{instrument}. These roles can remain
+unstated in the surface text. They nevertheless exist as underspecified variables in the
+speaker's mental representation of the discourse
+\cite{farkas2003semantics,kamp2013discourse,koenig1999definites}.
+
+Consider a Segmented Discourse Representation Structure (SDRS) under neo-Davidsonian event
+semantics~\cite{parsons1990events,webber2016formal}. In ``John was murdered,'' the event
+introduces underspecified roles such as a killer and instrument. When ``The knife lay
+nearby'' subsequently introduces the knife, an \textit{instrument} bridge fills the implicit
+event role, producing the unification between the new referent and the previously unfilled
+slot~\cite{pustejovsky1991generative}.
+PD-Agent uses bridging inference more conservatively to connect sparse cues that would
+otherwise remain isolated. Persona conditioning can affect which situations,
+entities, and attributes a target LLM emphasizes, and the bridge places those concepts in a
+shared discourse frame. We do not assume that a relation type alone identifies a persona;
+the representation is useful because it preserves the concepts together with their local
+semantic context.
+
+
+\subsection{Taxonomy of Bridging Relations}
+Following Original PD-Agent~\cite{yang2026pragmatic}, we use seven relation types drawn
+from Irmer~\cite{irmer2011bridging}. The mereological labels \textit{part-of} and
+\textit{member-of} link components to wholes and individuals to groups. The other labels
+represent an event's means (\textit{instrument}), its participant or subject (\textit{theme}),
+a causal link (\textit{cause-of}), containment (\textit{in}), or a time relation
+(\textit{temporal}). These labels describe links between concepts; none directly
+specifies a persona value.
+
+The seven relation types form the edge-label vocabulary of our semantic graph
+$G=(V,E)$~\cite{hou2013global}. All methods update this
+representation after each target response and use it for final persona prediction.
+Only the graph-guided variants expose the intermediate graph to question selection;
+Adaptive PD-Agent selects questions from the dialogue alone.
+
+\section{PD-Agent}
+
+The \textbf{Persona-Discovering Agent (PD-Agent)}~\cite{yang2026pragmatic} interviews a target LLM,
+extracts bridging relations from the resulting dialogue, and predicts the target LLM's hidden
+persona. The target LLM receives the assigned persona values in its private system prompt.
+PD-Agent observes the dialogue, not that conditioning prompt or the assigned values.
+This section describes the persona schema, extraction procedure, and
+graph representation.
+
+\subsection{Framework Overview}
+
+Let $\mathcal{S}=\{\mathcal{V}_1,\ldots,\mathcal{V}_K\}$ denote the persona schema, where
+$\mathcal{V}_k$ is the candidate-value set for dimension $k$. At turn $t$, PD-Agent asks
+$q_t$, receives response $r_t$, and appends the pair to the dialogue history
+\begin{equation}
+D_t=D_{t-1}\cup\{(q_t,r_t)\}.
+\label{eq:dialogue_update}
+\end{equation}
+Original PD-Agent generates general open-ended follow-ups from the preceding dialogue and
+uses a fixed interaction budget. In the present evaluation, the span-grounded extractor
+updates a concept--relation graph after each response. Once the interview ends, the
+common predictor receives the dialogue and accumulated graph and predicts the four
+persona dimensions. The following subsections specify the schema and graph procedure
+shared by the evaluated methods.
+
+\subsection{Structured Persona Schema}
+We define a four-dimensional persona schema covering sociological and psychological
+attributes. Table~\ref{tab:persona_schema} summarizes the schema, which provides the ground
+truth for persona assignment and prediction. Its dimensions are \textit{Social Role},
+\textit{Personality (Big-Five)}, \textit{Background}, and \textit{Interests}. These dimensions
+allow us to evaluate attributes ranging from professional expertise to personal preferences.
+
+% \begin{table*}[!t]
+% \centering
+% \caption{The four-dimensional persona schema used for Target LLM conditioning and PD-Agent evaluation.}
+% \label{tab:persona_schema}
+% \renewcommand{\arraystretch}{1.1}
+% \begin{tabular}{@{} l|p{4.0cm}|p{9.0cm} @{}}
+% \toprule
+% \multicolumn{1}{c|}{\textbf{Dimension}} &
+% \multicolumn{1}{c|}{\textbf{Subcategory}} &
+% \multicolumn{1}{c}{\textbf{Representative Values}} \\ \midrule
+% \textbf{Social Role} & Professional & Doctor, Lawyer, Professor, Accountant \\
+% & Technical Management & Software Engineer, Data Scientist, Product Manager \\
+% & Public Service & Civil Servant, Police Officer, Teacher \\ \hline
+% \textbf{Personality} & Big-Five Traits & Openness, Conscientiousness, Extroversion, Agreeableness, Neuroticism \\ \hline
+% \textbf{Background} & Education & High School, Bachelor's, Master's, Ph.D. \\
+% & Location & Urban, Rural \\
+% & Family Status & Single, Married, Living Alone \\ \hline
+% \textbf{Interests} & Hobbies & Reading, Traveling, Gaming \\
+% & Core Values & Creativity, Family, Integrity \\
+% & Comm. Style & Direct, Emotional \\ \bottomrule
+% \end{tabular}
+% \end{table*}
+
+% \begin{lstlisting}[
+%   float,
+%   floatplacement=t,
+%   basicstyle=\ttfamily\scriptsize,
+%   breaklines=true,
+%   columns=fullflexible,
+%   frame=single,
+%   caption={Bridging extraction prompt template used by PD-Agent.},
+%   label={lst:bridging_prompt_template}
+% ]
+% TASK
+% Given the conversation below, identify implicit bridging relations that require world knowledge or frame understanding.
+% Use the seven relation types: {part-of, member-of, instrument, theme, cause-of, in, temporal}.
+
+% RETURN
+% For each relation, provide:
+% - anchor: 1-3 word concept that appears earlier
+% - anaphor: 1-3 word concept that is implicitly linked
+% - relation_type: one of {part-of, member-of, instrument, theme, cause-of, in, temporal}
+% - explanation: one-sentence rationale
+% - sentence_context: minimal spans from the dialogue that support the inference
+
+% CONSTRAINTS
+% - Use short noun phrases (1-3 words) for anchor/anaphor.
+% - Pure coreference (e.g., "car ... it") is not bridging.
+% - Prefer canonical concepts (e.g., "oven" over "the big oven in my kitchen").
+
+% FORMAT
+% Return ONLY valid JSON with a top-level key "bridging_relations".
+% \end{lstlisting}
+
+\begin{table}[!t]
+\centering
+\small
+\caption{Four-dimensional persona schema and label spaces used for target LLM conditioning and closed-set persona-discovery evaluation. The dimensional organization is inherited from Original PD-Agent~\cite{yang2026pragmatic}; the values shown describe the present protocol. The complete inventory, probabilities, and development/held-out frequencies are provided in Supplementary Tables~\ref{tab:persona-schema-social}--\ref{tab:persona-schema-interests}; both cohorts' majority baselines are in Table~\ref{tab:cohort-baselines}.}
+\label{tab:persona_schema}
+
+\setlength{\tabcolsep}{4pt}
+
+\begin{tabularx}{\columnwidth}
+{l|p{2.4cm}|>{\raggedright\arraybackslash}X}
+\toprule
+\textbf{Dimension} &
+\makecell{\textbf{Prediction}\\\textbf{Type}} &
+\textbf{Target Attributes} \\
+\midrule
+Social role &
+Multiclass &
+Occupation category and specific professional role \\
+
+Personality &
+Single-value binary &
+Polarity of a specified Big-Five trait \\
+
+Background &
+Single-value categorical &
+Economic status, education, location, family status, and work experience \\
+
+Interests &
+Single-value categorical &
+Hobbies, content preferences, technology adoption, shopping style, communication style, values, and social-media usage \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+The full schema contains 43 social-role values grouped into three categories: general role
+(14 values), professional (14), and technical/management (15). Personality contains the five
+Big-Five traits---openness, conscientiousness, extroversion, agreeableness, and neuroticism---
+with a binary yes/no flag for the selected trait. These are literal conditioning labels,
+not psychometric scores: the target prompt supplies, for example,
+\texttt{\{"openness": "no"\}}, without a numerical threshold or a trait-specific
+behavioral definition. Thus the model interprets the intended presence/absence of the
+named trait; we do not equate these flags with validated high/low Big-Five measurements.
+Background contains five categories and
+25 values in total: economic status (5), education (6), family status (5), location (4), and
+work experience (5). Interests contains seven categories and 59 values in total: hobbies (13),
+content preferences (10), technology adoption (5), shopping style (7), communication style
+(8), values (14), and social-media usage (2). The complete label inventory and the observed
+cohort frequencies are provided in Supplementary Tables~\ref{tab:persona-schema-social}--
+\ref{tab:persona-schema-interests}.
+
+To generate a persona, we select one social-role category and occupation and one Big-Five
+trait and polarity. We also select one background category and value and one interest
+category and value.
+The raw Cartesian product therefore contains
+$43\times10\times25\times59=634{,}250$ possible combinations. We first sample categories uniformly, then sample values uniformly within each selected
+category. We sample the four dimensions independently and impose no additional
+cross-dimension plausibility or contradiction constraints.
+
+\begin{figure*}[t]
+    \centering
+    \includegraphics[width=\textwidth]{figure/figure3.pdf}
+    \caption{Overview of Adaptive PD-Agent. Each follow-up is conditioned on the accumulated
+    dialogue and seeks non-redundant persona evidence. The questioning controller does not
+    observe the graph; the accumulated bridging representation is used by the common final
+    persona predictor. The concept sketch in the dialogue-history panel is illustrative,
+    not a graph input to the controller. Coverage gain and redundancy denote qualitative
+    LLM judgments, not a host-computed subtraction rule. Stopping is permitted by the
+    prompt, but no early stopping occurred for Adaptive PD-Agent in the held-out evaluation.}
+    \label{fig:adaptive_pd_agent}
+\end{figure*}
+
+\subsection{Bridging Extraction}
+After each target response, the common extractor returns short concepts, one of the seven
+relation labels, and an exact supporting span in schema-constrained JSON. The validation
+step rejects concepts or edges whose spans do not occur in the current response after
+case folding and whitespace normalization. Thus, ``exact-span'' means contiguous matching
+under this normalization, not byte-identical matching. These incremental
+updates form the final bridging representation for every method. Adaptive PD-Agent does not
+expose that representation to question selection; only the graph-guided diagnostic variants
+do so. The complete extraction prompt is reproduced in the accompanying
+Supplementary Implementation Protocol.
+
+We express each response-conditioned update as
+\begin{equation}
+\Delta G_t=f_{\mathrm{bridge}}(q_t,r_t;D_{t-1},G_{t-1})
+\end{equation}
+and merge it with the previous state:
+\begin{equation}
+G_t=\operatorname{Merge}(G_{t-1},\Delta G_t).
+\label{eq:incremental_graph}
+\end{equation}
+Canonicalization merges names with the same case-folded, whitespace-normalized surface
+form, not independently verified synonyms. Edges are deduplicated by their source,
+target, and relation type and are inserted only when both endpoint concepts exist.
+The accumulated graph is $G_t=(V_t,E_t)$, where $V_t$ contains grounded
+discourse concepts and each directed edge $(u,\rho,v)\in E_t$ records one of the seven
+bridging-relation types $\rho$. All methods retain $\Delta G_t$ and its supporting spans for
+the common final representation, but only the graph-guided variants expose the intermediate
+state to question selection.
+
+\subsection{Semantic Graph Construction and Reasoning}
+
+The original PD-Agent framework~\cite{yang2026pragmatic} describes concept prominence
+using normalized degree centrality:
+
+\begin{equation}
+\mathrm{Importance}(v_i)
+=
+\frac{\deg(v_i)}{\max_{v_j \in V_t} \deg(v_j)}
+\label{eq:importance}
+\end{equation}
+
+where $\deg(v_i)$ is the sum of incoming and outgoing edges. This inherited definition
+provides background for the graph representation. In the present evaluator, the common
+predictor receives the accumulated concept/edge JSON, without an explicitly computed
+centrality score or centrality-based pruning. Centrality is not an adaptive scoring term.
+
+The graph is an LLM-generated intermediate representation. We retain its nodes and edges
+only when their concepts and relation claims have an exact supporting span in the dialogue.
+Exact-span grounding establishes textual support but does not by itself establish semantic
+relation validity. Accordingly, we do not claim that the graph is expert-validated or
+semantically correct without an independent human annotation and adjudication study.
+
+\section{Adaptive PD-Agent}
+
+Adaptive PD-Agent changes the acquisition policy while retaining the PD-Agent representation
+and final predictor. Instead of following a fixed elicitation procedure, it selects each
+follow-up from the accumulated dialogue with the explicit goal of obtaining additional
+persona evidence. Figure~\ref{fig:adaptive_pd_agent} summarizes the resulting pipeline.
+We describe the dialogue-conditioned controller first, followed by the two graph-guided
+diagnostic variants.
+
+\subsection{Adaptive Interviewing}
+Adaptive PD-Agent follows three steps at each turn:
+\begin{enumerate}
+    \item It reviews $D_{t-1}$ and estimates which dimension is least supported or most
+    ambiguous: social role, personality, background, or interests.
+    \item It generates three contextually coherent candidate questions that seek
+    information not already established in the dialogue.
+    \item Qwen3-14B provides coverage-gain and redundancy-penalty judgments for the
+    candidates. It returns either a selected question or \textsc{Stop} in a
+    schema-constrained response.
+\end{enumerate}
+The main controller is an LLM-prompted, dialogue-conditioned heuristic. The LLM jointly
+generates, judges, and selects the candidates. The host code does not recompute the two
+score fields with a deterministic function. Coverage gain denotes the requested judgment
+of additional persona evidence and redundancy penalty the requested judgment of repetition,
+but the executed prompt supplies no numerical anchors or operational rubric for either.
+It also does not enforce a numeric score range,
+fixed weighted utility, or host-side tie-break among equally scored candidates.
+Questions must reveal behavior, responsibilities, preferences, or background indirectly.
+They may not expose candidate labels. Although stopping is allowed, Adaptive PD-Agent used
+all five questions on every held-out instance. We observed no early-stop event, so its
+observed gain comes from question selection.
+Algorithm~\ref{alg:adaptive_pd_agent} summarizes the complete procedure.
+
+\begin{algorithm}[!t]
+\caption{Adaptive PD-Agent Interview and Persona Prediction}
+\label{alg:adaptive_pd_agent}
+\small
+\KwIn{Target LLM $M_T$, PD-Agent $M_{PD}$, schema $\mathcal{S}$, budget $B$}
+\KwOut{Predicted persona $\hat{y}$}
+$D_0\leftarrow\emptyset$, $G_0\leftarrow\emptyset$\;
+$q_1\leftarrow\textsc{GeneralOpenQuestion}()$\;
+\For{$t\leftarrow1$ \KwTo $B$}{
+    $r_t\leftarrow M_T(q_t)$; $D_t\leftarrow D_{t-1}\cup\{(q_t,r_t)\}$\;
+    $\Delta G_t\leftarrow f_{\mathrm{bridge}}(q_t,r_t;D_{t-1},G_{t-1})$\;
+    $G_t\leftarrow\operatorname{Merge}(G_{t-1},\Delta G_t)$\;
+    $T\leftarrow t$\;
+    \If{$t=B$}{\textbf{break}\;}
+    $(a_t,k_t,\mathcal{Q}_t)\leftarrow f_{\mathrm{adapt}}(D_t,\mathcal{S})$
+    \tcp*[r]{dialogue only; $|\mathcal{Q}_t|=3$}
+    \If{$a_t=\textsc{Stop}$}{\textbf{break}\;}
+    $q_{t+1}\leftarrow k_t$\;
+    \tcp*[r]{LLM-selected candidate returned by the controller}
+}
+$\hat{y}\leftarrow f_{\mathrm{persona}}(D_T,G_T)$\;
+\Return{$\hat{y}$}\;
+\end{algorithm}
+
+The prompt requests exactly three candidates, but the parser does not enforce that count.
+The controller response contains an action, an optional target dimension,
+candidate questions, and the selected question. Each candidate record includes coverage-gain
+and redundancy-penalty fields. The parser reads the last balanced JSON object. It maps
+invalid or missing actions to \textsc{Explore}, invalid target dimensions to \texttt{null},
+and non-list candidate fields to an empty list.
+
+After cleaning the question, the validator checks for empty text, schema-label leakage,
+and forbidden meta-level terms. Any such problem triggers a deterministic, dimension-specific
+fallback question selected by $(t-1)\bmod 3$ from a three-question bank for the next
+turn $t$, or a generic bank if the dimension is absent. The host uses
+\texttt{selected\_question} directly, without checking membership in the candidate list,
+re-ranking candidates, or breaking score ties. Malformed JSON is not retried at this
+stage; the parser defaults to \textsc{Explore} and the empty question triggers fallback.
+The accompanying \textit{Supplementary Implementation Protocol} provides the executed
+system/user prompts, JSON examples, field handling, fallback banks, and detailed graph
+rules. It distinguishes prompt requests from constraints actually enforced by code.
+
+
+
+\subsection{Graph-Guided Diagnostic Variants}
+\label{subsec:adaptive_interviewing}
+
+We test whether the bridging graph should also enter the acquisition loop. \textit{Online
+Graph Guidance} analyzes an incremental graph at every turn. \textit{Selective Graph
+Guidance} generates a separate dialogue-only fallback question and invokes a graph candidate
+only when the incremental state is actionable. These are diagnostic variants rather than the
+primary proposed method.
+
+\subsubsection{Graph Evidence State}
+
+After updating $G_t$, a structured analyzer produces a compact state
+\begin{equation}
+S_t=\{C_t,N_t,H_t\},
+\label{eq:gai_state}
+\end{equation}
+where $C_t$ denotes evidence coverage, $N_t$ denotes graph novelty, and $H_t$ contains
+competing persona interpretations.
+
+For each dimension $d$, let $n_d$, $e_d$, and $s_d$ count supporting concepts,
+incident edges, and distinct retained spans (at most 12). The selective state is
+missing if $n_d=0$, covered if $n_d\ge2$ and either $e_d\ge1$ or $s_d\ge2$, and
+partial otherwise. Its deterministic confidence is
+\begin{equation}
+c_d=\min\{1,\;0.25n_d+0.15e_d+0.10\min(s_d,2)\}.
+\end{equation}
+Graph novelty is the number of newly inserted concepts and edges divided by the
+post-update number of concepts and edges (denominator at least one), so $N_t\in[0,1]$.
+These count-based quantities are distinct from LLM-generated coverage-gain judgments.
+The analyzer retains \textbf{competing interpretations} only when distinct
+span-grounded observations support different readings. It must also identify a concrete,
+unanswered discriminator.
+For example, \textit{patient}, \textit{rounds}, and \textit{test results} may support both
+\textit{hospital doctor} and \textit{medical researcher}; direct treatment responsibility
+would separate them. The state never contains the hidden ground-truth persona.
+
+\subsubsection{Actionability Gate and Candidate Selection}
+
+At every decision turn, PD-Agent first generates a dialogue-only candidate $q_{t+1}^D$ from
+$D_t$, without graph concepts, relations, or graph-derived persona candidates. An
+actionability gate then decides whether a graph candidate is warranted:
+\begin{equation}
+\begin{aligned}
+A_t=\mathbb{I}\bigl[
+&H_t^{\mathrm{grounded}}\neq\emptyset \\
+&{}\lor\; P_t \\
+&{}\lor\; (t\ge2\land N_{t-1}\le\tau_n\land N_t\le\tau_n\\
+&\hspace{2.5em}{}\land R_t)
+\bigr],
+\end{aligned}
+\label{eq:graph_gate}
+\end{equation}
+where $P_t$ means that a partial dimension has retained support and $c_d\ge\tau_c$,
+and $R_t$ means that at least one dimension is not covered. The last condition is
+two-turn stagnation, not a single low-novelty observation. If $A_t=0$,
+the policy uses $q_{t+1}^D$ and avoids the additional graph-question path. If $A_t=1$, it also
+generates $q_{t+1}^G$ from the compact state and supporting spans. The graph candidate either explores a partially covered dimension or asks about a
+behavior, responsibility, or preference that separates grounded alternatives. The policy
+removes candidate persona labels from the target-visible question.
+
+Selective Graph Guidance scores both candidates with the following source-blind utility.
+The LLM estimates the five components; the host deterministically combines them.
+This score is specific to the selective variant; the main dialogue-only
+Adaptive controller does not use it:
+\begin{equation}
+U(q)=w_c C(q)+w_d D(q)+w_n N(q)-w_r R(q)-w_l L(q),
+\label{eq:question_score}
+\end{equation}
+where $C$, $D$, and $N$ estimate coverage, discrimination, and novelty, $R$ penalizes
+redundancy, and $L$ penalizes leading questions or label leakage. All five component values
+are clamped to $[0,1]$, and the frozen weights are
+$(w_c,w_d,w_n,w_r,w_l)=(0.30,0.25,0.25,0.15,0.05)$. Selective Graph Guidance chooses
+\begin{equation}
+q_{t+1}=\begin{cases}
+q_{t+1}^G,& A_t=1\ \text{and}\ U(q_{t+1}^G)\ge U(q_{t+1}^D)+\delta,\\
+q_{t+1}^D,& \text{otherwise}.
+\end{cases}
+\label{eq:selective_question}
+\end{equation}
+The total is rounded to six decimals and lies in $[-0.20,0.80]$. At $\delta=0$,
+an exact tie favors the graph candidate. The scoring prompt specifies $[0,1]$ and defines
+leakage, but supplies no anchored rubric for the other four fields. A/B order is
+seed-randomized and source names are hidden; this does not preclude source inference
+from the question content. Empty utility JSON or an invalid graph question falls back
+to $q_{t+1}^D$. Missing fields in nonempty utility JSON instead default to zero for
+coverage/discrimination/novelty and one for redundancy/leakage before scoring; such a
+partial object is not automatically rejected. The frozen policy
+uses $\tau_c=0.35$, $\tau_n=0.10$, and $\delta=0$, selected only on the independent
+development cohort.
+
+\subsubsection{Selective Stopping and Common Prediction}
+
+The selective variant permits early stopping from turn three, only when the dialogue
+path is selected and no valid competition remains. It then stops if all four dimensions
+are covered. Otherwise it stops only if the dialogue candidate requests \textsc{Stop},
+both recent novelty values are at most 0.10, no partial dimension has supporting spans,
+and the maximum available candidate gain is below $\tau_s=0.25$. When no utility
+comparison is made, the dialogue candidate's clamped \texttt{expected\_gain} is used;
+otherwise the two weighted utilities are used, with zero for an absent graph path.
+These two gain quantities have different scales and are heuristic, not calibrated
+probabilities. The five-question budget terminates every method independently of
+these conditions. Let $T$ denote the stopping turn.
+
+To isolate acquisition from decoding, all four interviewing policies use the same final
+prediction procedure. The same Qwen3-14B predictor receives the identically formatted
+dialogue and accumulated graph summary:
+\begin{equation}
+\hat{y}=f_{\mathrm{persona}}(D_T,G_T).
+\label{eq:final_persona}
+\end{equation}
+Thus, method differences reflect the acquired interaction rather than a method-specific
+final decoder.
+
+% \begin{algorithm}[!t]
+% \caption{PD-Agent Persona Discovery Process}
+% \label{alg:pd_agent_process}
+% \KwIn{Target LLM $M_T$, PD-Agent $M_{PD}$, Persona Schema $\mathcal{S}$}
+% \KwOut{Predicted Persona Attributes $\hat{p}$}
+
+% \tcp{Step 1: Persona Assignment}
+% $p \leftarrow \text{Sample persona from } \mathcal{S}$\;
+% Condition $M_T$ with hidden prompt $p$\;
+
+% \tcp{Step 2: Interactive Interview}
+% $D \leftarrow \emptyset$ \tcp*{Dialogue history}
+% \For{$i \leftarrow 1$ \KwTo $N_{turns}$}{
+%     $q_i \leftarrow M_{PD}.\text{generate\_question}(D)$\;
+%     $r_i \leftarrow M_T.\text{generate\_response}(q_i)$\;
+%     $D \leftarrow D \cup \{(q_i, r_i)\}$\;
+% }
+
+% \tcp{Step 3: Bridging Inference Extraction}
+% $\mathcal{R} \leftarrow \emptyset$ \tcp*{Set of bridging relations}
+% $\mathcal{R} \leftarrow M_{PD}.\text{extract\_bridging\_relations}(D, \text{Taxonomy})$\;
+
+% \tcp{Step 4: Graph Construction and Reasoning}
+% $G \leftarrow (V, E)$ where $V \in \text{concepts in } \mathcal{R}, E \in \text{relations in } \mathcal{R}$\;
+% \ForEach{$v_i \in V$}{
+%     $\text{Importance}(v_i) \leftarrow \frac{\deg(v_i)}{\max_{v_j \in V} \deg(v_j)}$\;
+% }
+% $\hat{p} \leftarrow M_{PD}.\text{infer\_persona}(G, \text{Centrality})$\;
+% \Return $\hat{p}$\;
+% \end{algorithm}
+
+\section{Evaluation Protocol}
+\label{sec:evaluation}
+We evaluate all interviewing methods with the same per-dimension scoring and paired
+instances so that their comparison reflects evidence acquisition rather than differences
+in measurement.
+
+\begin{table*}[!t]
+\centering
+\caption{Held-out prediction and interview efficiency under a five-question budget
+($N=304$ per target and method). Dimension cells report majority-normalized gains.
+Average Gain (AG) is the equally weighted mean of the four gains. Corresponding raw
+metrics and majority baselines are reported in Supplementary Table~\ref{tab:primary-raw-metrics}.
+Bold and underlined gains denote the best and second-best observed values, respectively,
+and do not indicate statistical significance.}
+\label{tab:main_results}
+\footnotesize
+\setlength{\tabcolsep}{4pt}
+\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}llrrrrrrr@{}}
+\toprule
+\multicolumn{9}{c}{\textit{PD-Agent backbone: Qwen3-14B (fixed across all conditions)}} \\
+\midrule
+\textbf{Target LLM} & \textbf{Method}
+& \makecell{\textbf{Social}\\\textbf{Role}}
+& \textbf{Personality} & \textbf{Background} & \textbf{Interests}
+& \textbf{AG}
+& \makecell{\textbf{Avg.}\\\textbf{Turns}}
+& \makecell{\textbf{Input}\\\textbf{Tokens}} \\
+\midrule
+\multirow{4}{*}{Qwen3-1.7B}
+& Original PD-Agent & \underline{0.565} & 0.022 & 0.009 & \underline{0.416} & 0.253 & 5.00 & \textbf{5998} \\
+& Online Graph Guidance & 0.538 & \underline{0.058} & \textbf{0.045} & \textbf{0.429} & \underline{0.268} & 5.00 & 17552 \\
+& Selective Graph Guidance & 0.548 & 0.000 & \underline{0.027} & 0.394 & 0.242 & \textbf{4.82} & 8986 \\
+& \textbf{Adaptive PD-Agent} & \textbf{0.597} & \textbf{0.065} & 0.014 & 0.412 & \textbf{0.272} & 5.00 & 6093 \\
+\midrule
+\multirow{4}{*}{Qwen3-4B}
+& Original PD-Agent & 0.812 & \textbf{0.087} & 0.036 & 0.336 & 0.318 & 5.00 & \textbf{5987} \\
+& Online Graph Guidance & 0.785 & 0.058 & 0.045 & \underline{0.381} & 0.317 & 4.99 & 17817 \\
+& Selective Graph Guidance & \underline{0.839} & 0.043 & \underline{0.073} & \textbf{0.394} & \underline{0.337} & \textbf{4.83} & 9071 \\
+& \textbf{Adaptive PD-Agent} & \textbf{0.855} & \underline{0.072} & \textbf{0.109} & \textbf{0.394} & \textbf{0.358} & 5.00 & 6206 \\
+\midrule
+\multirow{4}{*}{Llama-3.2-3B}
+& Original PD-Agent & 0.753 & 0.188 & 0.064 & \underline{0.341} & 0.336 & 5.00 & \textbf{7330} \\
+& Online Graph Guidance & 0.758 & \textbf{0.283} & 0.082 & \textbf{0.350} & \underline{0.368} & 5.00 & 21170 \\
+& Selective Graph Guidance & \underline{0.763} & 0.246 & \underline{0.123} & 0.336 & 0.367 & \textbf{4.66} & 10174 \\
+& \textbf{Adaptive PD-Agent} & \textbf{0.774} & \underline{0.254} & \textbf{0.200} & 0.332 & \textbf{0.390} & 5.00 & 7418 \\
+\midrule
+\multirow{4}{*}{Gemma-3-4B}
+& Original PD-Agent & \underline{0.704} & 0.246 & 0.077 & \textbf{0.465} & 0.373 & 5.00 & \textbf{7237} \\
+& Online Graph Guidance & 0.688 & 0.268 & \underline{0.118} & \underline{0.434} & 0.377 & 5.00 & 21220 \\
+& Selective Graph Guidance & 0.699 & \underline{0.290} & 0.114 & \textbf{0.465} & \underline{0.392} & \textbf{4.84} & 10131 \\
+& \textbf{Adaptive PD-Agent} & \textbf{0.737} & \textbf{0.297} & \textbf{0.191} & 0.381 & \textbf{0.401} & 5.00 & 7416 \\
+\bottomrule
+\end{tabular*}
+\par
+\smallskip
+\begin{minipage}{\textwidth}
+\footnotesize
+\textit{Note:} All four methods use the same primary held-out cohort (base seed 20260831).
+Interest micro-F1 is reported descriptively at cohort level in
+Supplementary Table~\ref{tab:primary-raw-metrics}; it is not replicated as 304 independent
+test observations. Paired tests use persona-level Average Gain. The expanded-run results
+(base seed 20260913) are reported separately in
+Supplementary Tables~\ref{tab:controller-ablation-raw-metrics}--\ref{tab:expanded-raw-gemma}.
+\end{minipage}
+\end{table*}
+
+
+ 
+\subsection{Per-Dimension Closed-Set Scoring}
+Each of the four persona dimensions has a finite, predefined label space. The social role is
+one of a fixed set of occupations, grouped into three higher-level categories. Personality is
+the yes/no polarity of a given Big-Five trait, and background and interests each select a
+value from the schema for a given category. Persona inference is therefore a closed-set classification task. We lightly normalize
+the predicted and ground-truth labels, then apply rule-based matching. A string-similarity
+fallback maps format-deviating predictions onto the nearest schema label.
+% We report a metric suited to each dimension: category-level accuracy for social role,
+% accuracy for personality, value accuracy for background, and micro-F1 for interests. To make
+% the numbers interpretable, we report each metric against its majority-class baseline.
+% Statistical comparisons reported below use paired Wilcoxon signed-rank tests with
+% Benjamini--Hochberg correction~\cite{benjamini1995} for multiple comparisons (the corrected
+% $p$-value is denoted $p_{\mathrm{BH}}$). Because all judgments are rule-based, the protocol
+% requires no embedding model.
+%
+% [리뷰 2-2] 반영.
+We distinguish persona-level scores from cohort-level summary metrics. For each persona,
+we use the following dimension-level scores:
+\begin{itemize}
+    \item Social role: coarse-category correctness.
+    \item Personality: exact correctness of the sampled Big-Five yes/no polarity.
+    \item Background: exact correctness of the sampled value within its category.
+    \item Interests: set F1.
+\end{itemize}
+In the present closed-set schema, each persona has one gold and one predicted interest
+value. The observed persona-level interest F1 is therefore binary. We report cohort-level
+interest micro-F1 descriptively as a cell summary. We do not duplicate it or treat it as
+304 independent observations. Statistical comparisons use paired Wilcoxon signed-rank
+tests with Benjamini--Hochberg correction~\cite{benjamini1995} for multiple comparisons.
+We denote the corrected $p$-value by $p_{\mathrm{BH}}$. Because all judgments are rule-based,
+the protocol requires no embedding model.
+
+\subsection{Aggregation and Statistical Tests}
+\label{sec:metrics}
+
+% We normalize each dimension-specific metric against its majority baseline:
+% \begin{equation}
+% g_k=\frac{m_k-b_k}{1-b_k},
+% \end{equation}
+% where $m_k$ is the observed performance for dimension $k$ and $b_k$ is the corresponding
+% majority baseline. Average Gain is the unweighted mean of the four $g_k$ values. Interview
+% efficiency is measured by average turns and by the input tokens consumed by all PD-Agent,
+% Target LLM, and final-prediction calls. Pairwise comparisons use Wilcoxon signed-rank tests
+% with Benjamini--Hochberg correction and paired-bootstrap 95\% confidence intervals.
+
+% [리뷰 2-1,2] 반영
+% 순서는 (1) persona-level Average Gain 정의, (2) 그 차이에 대한 Wilcoxon 및 bootstrap 검정.
+Let $s_{t,i,d}^{(m)}$ denote the persona-level score for target model $t$, persona $i$,
+dimension $d$, and method $m$. Let $B_d$ denote the majority baseline, computed once from
+the frozen 304-persona held-out cohort. We define the majority-normalized gain as
+
+\begin{equation}
+G_{t,i,d}^{(m)} = \frac{s_{t,i,d}^{(m)} - B_d}{1-B_d}.
+\end{equation}
+
+The four dimensions receive equal weight. The persona-level Average Gain is
+
+\begin{equation}
+\begin{aligned}
+AG_{t,i}^{(m)}
+&= \frac{1}{4}\sum_{d\in\mathcal{D}}G_{t,i,d}^{(m)},\\
+\mathcal{D}
+&= \{\mathrm{social},\mathrm{personality},\\[-1mm]
+&\quad \mathrm{background},\mathrm{interests}\}.
+\end{aligned}
+\end{equation}
+
+The reported target-method Average Gain is the mean of the 304 persona-level Average Gains:
+
+\begin{equation}
+\overline{AG}_{t}^{(m)} = \frac{1}{304}\sum_{i=1}^{304}AG_{t,i}^{(m)}.
+\end{equation}
+
+We compute majority baselines from the held-out gold labels only. The social-role baseline
+is the global majority of the three coarse categories, $118/304=0.3882$. Personality uses
+trait-conditional yes/no majorities. Background and interests use category-conditional
+value majorities. Their resulting baselines are $166/304=0.5461$, $84/304=0.2763$, and
+$78/304=0.2566$, respectively.
+
+We performed the primary comparison at the persona level. For each target model and persona $i$, we first computed the four dimension-level gains and their equally weighted Average Gain for Original PD-Agent and Adaptive PD-Agent. The paired observation for the primary test was therefore
+
+\begin{equation}
+\Delta_{t,i}
+=
+AG_{t,i}^{(\mathrm{Adaptive})}
+-
+AG_{t,i}^{(\mathrm{Original})},
+\qquad i=1,\ldots,304,
+\end{equation}
+
+where $t$ denotes the target model. Thus, each target-level test received 304 paired persona-level differences rather than a single cohort-level difference replicated across personas.
+
+For each target model, we applied a two-sided Wilcoxon signed-rank test to the 304 values
+$\Delta_{t,i}$. We used SciPy 1.17.1 with \texttt{zero\_method=wilcox}, no continuity
+correction, and \texttt{method=auto}. At this sample size, the resolved method was
+asymptotic. We omitted zero differences from the signed-rank calculation but retained
+them in the total pair and tie counts. We report both the total number of pairs and the
+effective nonzero sample size.
+
+We estimated a 95\% confidence interval for the mean paired difference using 10,000 ordinary percentile bootstrap replicates. Each replicate resampled the 304 persona indices with replacement and recomputed the mean of the paired differences. We corrected the four target-level primary Wilcoxon tests as one Benjamini--Hochberg
+family. We treated the dimension-level binary tests as a separate 16-test family.
+For each target and dimension, we also formed paired binary correctness outcomes for Original and Adaptive. We implemented the exact two-sided McNemar test as a binomial test on discordant pairs.
+We used neither a continuity correction nor an asymptotic chi-square approximation.
+We corrected the 16 target-by-dimension tests as a separate Benjamini--Hochberg family.
+
+\section{Experiments}
+\label{sec:experiments}
+
+We describe the experimental setup and evaluate prediction quality and interaction cost.
+We then examine the expanded controls, component ablations, and graph-guided variants.
+
+% [리뷰 2-1] 테이블 추가
+\begin{table*}[t]
+\caption{Primary paired comparison between Adaptive and Original PD-Agent on the frozen held-out cohort. $N$ is the total number of paired personas, and $N_{\mathrm{eff}}$ is the number of nonzero paired differences used by the Wilcoxon signed-rank test. The confidence interval is a 10,000-replicate percentile bootstrap interval for the mean difference. $p_{\mathrm{BH}}$ is adjusted across the four target-level tests. The $+/-/\mathrm{tie}$ column reports the numbers of personas for which Adaptive performed better, Original performed better, or both methods tied, respectively.}
+\label{tab:primary-paired-statistics}
+\centering
+\footnotesize
+\setlength{\tabcolsep}{3pt}
+\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}lrrrrrlrrrl@{}}
+\hline
+Target & $N$ & $N_{\mathrm{eff}}$ & Original & Adaptive & $\Delta$ & 95\% CI & $W$ & $p$ & $p_{\mathrm{BH}}$ & $+/-/$tie \\
+\hline
+Qwen3-1.7B & 304 & 117 & 0.2528 & 0.2718 & +0.0190 & [-0.0139,+0.0519] & 2994.0 & 0.211209 & 0.211209 & 63/54/187 \\
+Qwen3-4B & 304 & 133 & 0.3179 & 0.3575 & +0.0397 & [+0.0046,+0.0753] & 3442.0 & 0.022351 & 0.030072 & 80/53/171 \\
+Llama-3.2-3B-Instruct & 304 & 161 & 0.3364 & 0.3899 & +0.0536 & [+0.0181,+0.0901] & 4603.5 & 0.001188 & 0.004750 & 98/63/143 \\
+Gemma-3-4B-IT & 304 & 153 & 0.3731 & 0.4013 & +0.0281 & [-0.0088,+0.0656] & 4641.5 & 0.022554 & 0.030072 & 81/72/151 \\
+\hline
+\end{tabular*}
+\end{table*}
+
+\subsection{Experimental Setup}
+
+We keep \textit{Qwen3-14B} fixed as PD-Agent for question generation, graph extraction,
+candidate scoring, stopping, and final persona prediction. The target LLMs are
+\textit{Qwen3-1.7B}, \textit{Qwen3-4B}, \textit{Llama-3.2-3B-Instruct}, and
+\textit{Gemma-3-4B-it}. We compare Original PD-Agent with the proposed Adaptive PD-Agent and
+two diagnostic variants, Online Graph Guidance and Selective Graph Guidance. The maximum
+budget is five questions. Adaptive PD-Agent can emit \textsc{Stop}, but it used all five
+questions in every held-out evaluation. The selective graph-guided variant provides the
+substantive early-stopping evaluation; we do not claim an empirically validated stopping
+benefit for Adaptive PD-Agent. Paired conditions use identical target-specific decoding
+settings.
+
+We fixed the graph-guidance thresholds on a separate development cohort without inspecting
+the held-out results. The configuration uses a minimum stop turn of three,
+utility margin $\delta=0$, coverage threshold $0.35$, novelty threshold $0.10$, and stop
+threshold $0.25$. 
+For each comparison family, we evaluated all methods on the same 304 unique frozen
+held-out personas. Within each target--persona bundle, the persona ID, ground truth,
+first-question string, and first-response realization were identical across methods.
+We reused the initial question verbatim rather than generating it independently from a
+shared prompt. We also reused the same first response. Later questions and responses
+could diverge.
+Each target--method cell contained 304 successful evaluations, with no missing, duplicate,
+or excluded persona indices.
+
+The development, previously observed, and held-out cohorts used seeds 20260801, 20260730,
+and 20260802, respectively. The sampler includes duplicate rejection and redraw with an
+incremented nonce, but all 304 retained held-out identities were unique on their first draw
+(nonce zero). No held-out identity was duplicated, redrawn, or excluded, and the held-out
+cohort did not overlap with the 100-persona development cohort. The primary Original-versus-Adaptive run used base
+seed 20260831. The expanded baseline and ablation run used base seed 20260913 on the same
+held-out cohort.
+
+The common PD-Agent and final predictor used Qwen3-14B. Its exact model revision and the
+retained execution settings are listed in Supplementary Table~\ref{tab:model-execution-settings}.
+The target repositories were
+\path{Qwen/Qwen3-1.7B}, \path{Qwen/Qwen3-4B},
+\path{meta-llama/Llama-3.2-3B-Instruct}, and
+\path{google/gemma-3-4b-it}. Their recorded revision hashes are listed in
+Supplementary Table~\ref{tab:model-execution-settings}. The primary records identify
+vLLM 0.11.0 as the inference backend. The revision execution audit additionally records
+Transformers 4.57.6, PyTorch 2.8.0+cu126, NumPy 2.2.6, and SciPy 1.17.1.
+The recorded hardware was eight NVIDIA H200 GPUs (143{,}771 MiB each; driver 580.126.16).
+The retained call settings were temperature $0.7$, top-$p=0.8$,
+and at most 256 new tokens for target responses; question/action generation also used
+temperature $0.7$ and top-$p=0.8$, with role-specific output limits reported in
+Supplementary Table~\ref{tab:call-decoding-settings}. Graph extraction used temperature
+$0.0$ and top-$p=0.8$, with a 768-token limit except for Selective Graph Guidance's
+integrated extraction/state call, whose limit was 896 tokens. Final prediction used
+temperature $0.0$, top-$p=0.8$, and at most 384 new tokens. Revision-run engine logs
+record bfloat16 and no weight quantization; this does not establish the precision of
+the earlier primary run. A separate CUDA toolkit/runtime version and the complete
+primary-run generation-seed derivation remain unverified.
+Paired comparisons therefore rely on the frozen persona manifest and exact reuse of the
+initial question and response; later method-specific generations may differ because their
+prompts differ. The active uncertainty baseline used deterministic persona/turn/sample
+seeding for its five stochastic predictions, and the random-candidate control used a stable
+seed-derived candidate index.
+
+As an exploratory check, Supplementary Table~\ref{tab:generation-seed-results} reports
+the retained Original-versus-Adaptive comparisons for three base seeds, with 100 personas
+per target and seed. All mean differences are positive, but most seed-specific
+persona-bootstrap intervals include zero. These limited comparisons do not establish
+general generation-seed robustness.
+
+To isolate the source of the observed improvement, the expanded revision run added four
+controls under the same five-question budget and paired held-out persona manifest. The
+\textit{random-candidate} policy generated the same three candidates as Adaptive PD-Agent
+but selected one using a stable pseudorandom index, ignoring the candidate scores. The
+\textit{round-robin} policy targeted social role, personality, background, and interests in
+a fixed cyclic order for turns two through five. The \textit{dialogue-follow-up} policy
+generated a specific follow-up from the recent dialogue without explicit candidate ranking,
+coverage, redundancy, ambiguity, or target-dimension fields. The
+\textit{controller-matched generic} policy retained the three-candidate JSON interaction
+shape but evaluated only conversational specificity and repetition. An additional \textit{active-uncertainty} condition selected the dimension with the largest
+normalized entropy from five stochastic closed-set predictions. This condition is a
+protocol adaptation, not a direct reproduction of an external active-inference implementation. All controls
+used the same final persona predictor, per-dimension scoring, and majority normalization as
+Adaptive PD-Agent. Every condition in this expanded run used all five turns.
+Controller matching preserves the candidate-generation interaction shape, not exact
+realized input/output token counts. Consequently, this control does not completely
+separate the effect of the policy from differences in generated computation.
+
+Supplementary Tables~\ref{tab:resource-accounting} and \ref{tab:primary-resource-totals}
+separately summarize revision-run and primary-run resource use. We count input tokens as the
+length of the prompt token IDs returned by each vLLM model instance. We count output tokens
+as the length of the generated completion token IDs. Both counts use the corresponding
+model's native tokenizer. The backend did not expose cached prompt tokens separately,
+so we cannot separate cached from non-cached input tokens.
+
+The revision-addition runs comprised 234,880 model calls, 99,945,760 input tokens, and
+35,147,408 output tokens, corresponding to 6.1372 summed H200 GPU-hours. The largest
+recorded shard elapsed times were 1,548~s for the main wave and 1,127~s for the
+active-uncertainty wave. We did not retain complete queueing-inclusive end-to-end wall-clock
+time. Local inference incurred an external API fee of USD~0. We did not measure
+electricity, facility overhead, hardware depreciation, or time-resolved GPU utilization.
+The four-method primary comparison comprised 4,864 interviews and 87,688 model calls,
+with 51,621,229 input tokens and 14,379,336 output tokens. Complete primary-run GPU-hours
+and wall-clock timing were not retained and are not inferred from the revision-run timings.
+
+\subsection{Original PD-Agent as a Baseline}
+
+Original PD-Agent~\cite{yang2026pragmatic} provides the prior-method baseline: it uses
+general dialogue-conditioned follow-ups and bridging-based final persona prediction.
+In this study, we evaluate it anew under the same frozen held-out persona cohort,
+maximum five-question budget, and per-dimension scoring protocol as Adaptive PD-Agent.
+The Original PD-Agent rows in Table~\ref{tab:main_results} and
+Tables~\ref{tab:controller-ablation-raw-metrics}--\ref{tab:expanded-raw-gemma}
+therefore report evaluations conducted for the present study, not the prior publication's
+aggregate cosine-similarity scores or a conversion of those scores. The primary and
+expanded runs remain separate, as specified in their respective tables. The comparisons
+below assess the interviewing policies using the common final predictor and paired
+persona-level analysis.
+
+\subsection{Adaptive PD-Agent Results}
+
+% Table~\ref{tab:main_results} compares prediction quality and interaction cost under the same
+% maximum budget. Adaptive PD-Agent obtains the highest Average Gain on every Target, ranging
+% from $0.272$ to $0.401$, and improves over Original PD-Agent by $0.019$, $0.040$, $0.054$,
+% and $0.028$ on Qwen3-1.7B, Qwen3-4B, Llama-3.2-3B, and Gemma-3-4B, respectively. Since all
+% methods share the final extractor and predictor, the comparison reflects differences in the
+% dialogue acquired by each questioning policy.
+
+% Figure~\ref{fig:quality_cost} summarizes the same comparison as a quality--cost trade-off
+% relative to Original PD-Agent. Adaptive PD-Agent stays near the original token budget and
+% shows a positive Average Gain difference for all four targets. Selective and Online Graph
+% Guidance move farther right because of their additional graph-conditioned calls, while their
+% quality differences are less consistent.
+
+% [리뷰 2-1] 반영.
+Table~\ref{tab:main_results} compares prediction quality and interaction cost under the
+same maximum five-question budget. All methods within each comparison family used the
+same frozen held-out persona cohort. Adaptive PD-Agent has the highest point-estimate
+Average Gain for all four target LLMs, ranging from $0.272$ to $0.401$. Its point-estimate
+improvements over Original PD-Agent are $0.019$, $0.040$, $0.054$, and $0.028$ for
+Qwen3-1.7B, Qwen3-4B, Llama-3.2-3B, and Gemma-3-4B, respectively.
+Table~\ref{tab:primary-paired-statistics} reports the inferential primary comparison.
+
+At the persona level, Adaptive PD-Agent produced a positive mean Average Gain difference
+for all four target LLMs. The differences were $+0.0190$ for Qwen3-1.7B, $+0.0397$ for
+Qwen3-4B, $+0.0536$ for Llama-3.2-3B-Instruct, and $+0.0281$ for Gemma-3-4B-IT.
+The paired-bootstrap 95\% confidence intervals excluded zero for Qwen3-4B
+[$+0.0046$, $+0.0753$] and Llama-3.2-3B-Instruct [$+0.0181$, $+0.0901$]. They included
+zero for Qwen3-1.7B [$-0.0139$, $+0.0519$] and Gemma-3-4B-IT [$-0.0088$, $+0.0656$].
+After Benjamini--Hochberg correction across the four target-level Wilcoxon tests,
+the adjusted $p$-values were $0.2112$, $0.0301$, $0.0048$, and $0.0301$, respectively.
+
+These results indicate a positive observed direction across the four targets, but they do not establish a uniformly reliable mean improvement. Qwen3-1.7B was not significant in the primary correction family. For Gemma-3-4B-IT, the signed-rank result passed the 0.05 Benjamini--Hochberg threshold, whereas the bootstrap confidence interval for the mean difference included zero. In addition, the positive overall Average Gain does not imply improvement in every persona dimension.
+After correction across the 16 target-by-dimension tests, positive differences remained
+supported only for background inference. The supported contrasts were Llama-3.2-3B-Instruct
+($b=18$, $c=48$, adjusted $p=0.0046$) and Gemma-3-4B-IT
+($b=16$, $c=41$, adjusted $p=0.0101$). No other target-dimension contrast survived this
+correction. The results therefore do not establish a uniform improvement across all four
+persona dimensions. Table~\ref{tab:dimension-level-tests} reports the complete paired
+results and unadjusted paired-bootstrap confidence intervals for each target and dimension.
+Gemma's interest difference is negative ($-0.0625$, 95\% CI $[-0.1118,-0.0132]$),
+but its adjusted McNemar $p=0.1204$ does not pass the 16-test correction.
+Supplementary Table~\ref{tab:primary-raw-metrics}
+reports the corresponding raw metrics and held-out majority baselines for all four methods.
+Supplementary Tables~\ref{tab:controller-ablation-raw-metrics}--\ref{tab:expanded-raw-gemma}
+provide the expanded controller-ablation run's raw metric/gain summary.
+
+Figure~\ref{fig:quality_cost} summarizes the same comparison as a quality--cost trade-off relative to Original PD-Agent. Adaptive PD-Agent stays near the original input-token budget and shows a positive Average Gain difference for all four targets. Selective and Online Graph Guidance move farther right because of their additional graph-conditioned calls, while their quality differences are less consistent.
+
+\begin{figure}[t]
+    \centering
+    \includegraphics[width=\columnwidth]{figure/figure4.pdf}
+    \caption{Quality--cost trade-off on the primary held-out cohort ($N=304$ paired personas
+    per target). The horizontal coordinate is the ratio of mean total input tokens to
+    Original PD-Agent; horizontal error bars are paired-persona bootstrap 95\% confidence
+    intervals. Marker shape identifies the target LLM. The vertical coordinate is the
+    mean Average Gain difference, with no vertical uncertainty shown. All coordinates use
+    unrounded primary-run values. Intervals represent persona-sampling uncertainty for
+    the recorded generation seed, not variability across generation seeds.}
+    \label{fig:quality_cost}
+\end{figure}
+
+Supplementary Table~\ref{tab:primary-token-uncertainty} reports primary-run mean input and output tokens
+with their retained persona-bootstrap intervals. The Adaptive/Original input-token ratios
+range from 1.012 to 1.037. Figure~\ref{fig:quality_cost} includes paired ratio intervals
+for Adaptive, Online Graph Guidance, and Selective Graph Guidance. We resampled 304
+persona indices with replacement in each of 10{,}000 replicates (NumPy PCG64 seed
+20260928), using the same index matrix for all methods and targets. Each replicate
+recomputed both the method mean and the Original mean before taking their ratio.
+The interval endpoints are the 2.5th and 97.5th percentiles with linear interpolation.
+Total input tokens include every recorded call role, including target responses.
+This ratio-of-means procedure is distinct from averaging individual persona ratios
+or combining marginal mean intervals. The revision-run totals in Supplementary Table~\ref{tab:resource-accounting}
+describe a separate run bundle and are not uncertainty estimates for this figure.
+
+Appendix~\ref{app:qualitative-interviews} provides successful and failed primary-run
+interviews for all four methods, with selected follow-up questions, final graph summaries,
+and four-dimensional predictions. The Original/Adaptive paired examples include a failure
+in which repeated hobby questions leave other dimensions unresolved. Additional Online
+and Selective Graph Guidance examples show both four-dimension successes and failures.
+These selected cases are illustrative and do not estimate method-level success rates.
+Appendix~\ref{app:expanded-qualitative}
+separately compares higher- and lower-scoring examples for each of the ten expanded-run
+methods. Its cases are drawn from the retained extreme-contrast bundles and should not be
+interpreted as typical behavior.
+
+\subsection{Stronger Baseline Comparisons}
+To separate adaptive interviewing from candidate ranking and from simpler dialogue controls, we
+compare Adaptive PD-Agent with four locally implemented controls under the same paired
+held-out protocol. Supplementary Table~\ref{tab:stronger-baselines} reports the paired macro Average Gain
+contrast, defined as Adaptive minus the comparator. The four controls form one
+16-test Benjamini--Hochberg family; the adapted active-uncertainty condition is reported as a
+separate four-test family. All conditions used the same 304 personas, final predictor, scoring,
+and five-turn budget. The complete per-method raw metrics, majority baselines, and gains
+are reported separately in Supplementary
+Tables~\ref{tab:controller-ablation-raw-metrics}--\ref{tab:expanded-raw-gemma}.
+
+Adaptive PD-Agent did not significantly outperform random candidate selection for any target
+after correction. It was higher than round-robin, dialogue-follow-up, and
+controller-matched generic controls for Qwen3-4B and Llama-3.2-3B-Instruct, but not
+consistently for Qwen3-1.7B or Gemma-3-4B-IT. It also did not differ significantly from the
+adapted active-uncertainty condition. These results do not isolate a consistent independent
+benefit of the proposed candidate-ranking mechanism.
+
+The expanded controller ablations in Supplementary Table~\ref{tab:controller-ablation-tests}
+do not isolate a significant independent benefit for
+candidate generation, coverage assessment, or redundancy assessment. Across the 12
+target-by-ablation contrasts, no Benjamini--Hochberg-adjusted $p$-value is below 0.05.
+Together with the random-candidate comparison above, this result supports interpreting
+Adaptive PD-Agent as a coupled prompted heuristic. It does not establish that any
+individual scoring component is necessary or sufficient.
+
+The expanded-run question allocation also helps characterize this limitation
+(Supplementary Table~\ref{tab:dimension-budget}). Adaptive PD-Agent declared interests
+as its target in 72.0\% of follow-up decisions, compared with 19.2\% for background,
+5.0\% for social role, and 3.8\% for personality. These are controller-declared targets,
+not independent semantic annotations. They describe an imbalanced allocation in the
+expanded run, not a causal explanation of the primary dimension-level effects.
+
+An exploratory backbone comparison used Qwen3-1.7B as the target and the same
+100-persona subset at base seed 20260913 (Supplementary Table~\ref{tab:backbone-results}).
+The Adaptive-minus-Original effect was $+0.0003$ with Qwen3-14B as PD-Agent and
+$-0.0035$ with Qwen3-8B. The between-backbone contrast was $-0.0038$
+(95\% CI $[-0.0936,+0.0834]$). This small comparison is inconclusive and does not
+establish backbone independence. Sharing a predictor controls its identity across
+methods but does not remove correlated model errors or shared-backbone bias.
+
+\subsection{Graph-Guidance Analysis}
+
+Selective Graph Guidance reaches $0.242$--$0.392$ and trails Adaptive PD-Agent by
+$0.010$--$0.029$. None of these Average Gain differences is significant after correction
+($p_{\mathrm{BH}}=0.286$, $0.396$, $0.324$, and $0.522$ for Qwen3-1.7B, Qwen3-4B,
+Llama-3.2-3B, and Gemma-3-4B, respectively). Online Graph Guidance is likewise not
+consistently better than Adaptive PD-Agent despite consuming $17{,}552$--$21{,}220$ input
+tokens per interview. Thus, the held-out study does not support an additional
+prediction-quality benefit from conditioning question selection on the graph.
+
+Supplementary Table~\ref{tab:selective_behavior} reports how often the frozen gate activates, selects the graph
+candidate, falls back to the dialogue candidate, and stops early. These quantities test
+whether selection actually avoids unconditional graph use rather than reproducing Online
+Graph Guidance.
+
+The gate activates on $42.0$--$51.4\%$ of decision turns but selects a graph question on only
+$31.9$--$40.7\%$; dialogue fallback therefore remains the majority path. Selective Graph
+Guidance reduces online-graph input tokens by $48.8$--$52.3\%$ and stops early in
+$10.2$--$21.4\%$ of interviews. Its average turns are significantly below those of both Adaptive PD-Agent and Online
+Graph Guidance on all targets (all $p_{\mathrm{BH}}\le1.85\times10^{-6}$). Its token
+reduction relative to Online Graph Guidance is also significant
+(all $p_{\mathrm{BH}}<3\times10^{-50}$). Relative to the much
+lighter Adaptive PD-Agent, however, selective guidance still consumes $2{,}715$--$2{,}893$
+additional input tokens per interview.
+\section{Limitations}
+
+The held-out results reveal several limitations of Adaptive PD-Agent and the evaluation
+setting.
+
+\begin{itemize}
+    \item \textbf{Policy-level extension}: Adaptive PD-Agent changes the
+    questioning objective but uses the same LLM backbone and final predictor as Original
+    PD-Agent. The method is an acquisition-policy extension rather than a separately trained
+    model.
+
+    \item \textbf{Prompted controller and baseline dependence}: The main controller is an
+    LLM-prompted heuristic that generates, scores, and selects candidates. The implementation
+    does not enforce a deterministic weighted acquisition objective or a host-side tie-break
+    among equally scored candidates. The expanded controls also show no
+    significant advantage over random candidate selection after correction, so the independent
+    contribution of candidate ranking is not isolated. The generic control matches the
+    controller interaction shape, not exact realized token expenditure; an exact
+    token-matched effect has therefore not been established.
+
+    \item \textbf{Reproducibility limits}: We report the recorded common/target model
+    revisions, backend version, role-specific decoding limits, cohort seeds, and paired
+    manifest. The revision audit also identifies software versions and bfloat16 inference
+    without weight quantization. Primary-run precision, the separate CUDA toolkit/runtime
+    version, and complete primary-run generation-seed derivation remain unverified.
+    The three-seed comparisons on 100 personas per target show variable effect sizes
+    and mostly zero-spanning intervals (Supplementary
+    Table~\ref{tab:generation-seed-results}). Neither these limited comparisons nor the
+    primary persona-bootstrap intervals establish general generation-seed robustness.
+    
+    \item \textbf{Limited benefit from online graph guidance}: Coverage and actionability are inferred from a
+    fixed seven-relation taxonomy. Grounded edges can still be irrelevant to the persona
+    distinction, and the current heuristic gate cannot reliably identify when a graph
+    question will be more informative than a dialogue-only question.
+    
+    \item \textbf{Residual computation}: Selection halves the cost of Online Graph Guidance
+    but remains more expensive than Adaptive PD-Agent because it still performs
+    incremental extraction and candidate comparison.
+
+    \item \textbf{Partial cost accounting}: We report model calls, native-tokenizer input and
+    output tokens for the primary and revision runs, and summed H200 GPU-hours for the
+    revision runs only. Complete primary-run timing was not retained. The backend did not expose cached-token
+    counts separately. We did not measure power consumption, facility overhead, hardware depreciation, or
+    time-resolved GPU utilization. The available shard timings do not provide complete
+    queueing-inclusive wall-clock time. Thus, USD~0 denotes the absence of an
+    external API fee, not zero total computational cost.
+    
+    \item \textbf{Evaluation scope}: Qwen3-14B is fixed as PD-Agent, and the study covers
+    four small open target LLMs in English text dialogue. The Qwen3-8B comparison is limited
+    to one target and 100 personas; its interval is too wide to establish equivalence or
+    a reliable backbone difference. The common predictor can introduce correlated errors,
+    and the seed-specific comparisons do not support a blanket robustness claim. Generalization to other PD-Agent
+    backbones, larger targets, languages, and modalities therefore remains unverified.
+\end{itemize}
+
+\section{Conclusion}
+
+We introduced Adaptive PD-Agent, which extends bridging-based persona discovery with
+dialogue-conditioned follow-up selection. Across four small target LLMs, it achieves the
+highest point-estimate Average Gain under a common five-question budget and improves over Original PD-Agent
+by $0.019$--$0.054$. This pattern indicates that question selection can affect the evidence
+available for final persona prediction.
+
+Moving bridging analysis directly into the questioning loop provides no consistent further
+gain and incurs substantial computation. Selective intervention halves that overhead but
+does not surpass Adaptive PD-Agent. The results therefore support adaptive interviewing as
+the practical extension, while retaining bridging inference as the final structured persona
+representation. In the expanded controls, Adaptive PD-Agent was not significantly better than random
+candidate selection for any target. The results therefore do not establish an independent
+benefit of the candidate-ranking mechanism. The 12 component-ablation contrasts likewise did
+not isolate a significant independent contribution after correction. Future work should develop lighter evidence states,
+more reproducible controller objectives, and methods for learning when structural guidance adds information
+beyond the dialogue history.
+
+\section*{Code and Data Availability}
+The repository at \url{https://github.com/JiSoo-Yang/Persona_Bridging} provides
+code for the prior Original PD-Agent framework. It should not be treated as a verified
+implementation of the adaptive policies or as an archive of the experiments reported here.
+We cannot currently provide a verified source-code snapshot corresponding to the present
+results. The appendices document the persona schema, sampling details, recorded execution
+settings, aggregate results, and selected interview examples; these materials do not
+substitute for the complete experimental code and per-instance data needed for exact
+reproduction.
+
+\section*{LLM Usage}
+LLMs were used in two roles: (1) as reasoning agents and target models in the persona
+discovery experiments and (2) as writing assistants for language editing, organization, and
+presentation of the manuscript. In the experiments, the models served as subjects or
+analytical agents; no model parameters were trained or updated on the experimental data.
+
+AI-assisted manuscript edits were reviewed and approved by the authors, who take
+responsibility for the accuracy of the text, the reported results, and the conclusions. The
+experimental design, data analysis, and final scientific claims were determined by the
+authors.
+
+% Start the appendices on a new full-width page, without strip/output buffering.
+\onecolumn
+\raggedbottom
+\appendices
+\section{Dimension-Level Statistical Results}
+\renewcommand{\thetable}{S1}
+
+
+\begin{table}[H]
+\caption{Dimension-level paired binary comparisons between Adaptive and Original PD-Agent. $b$ denotes Original-correct/Adaptive-incorrect pairs and $c$ denotes Original-incorrect/Adaptive-correct pairs. Unadjusted confidence intervals use 10,000 paired-persona percentile bootstrap replicates. BH correction applies to the 16 McNemar tests.}
+\label{tab:dimension-level-tests}
+\centering
+\footnotesize
+\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}llrrrlrr@{}}
+\hline
+Target & Dimension & $b$ & $c$ & $\Delta$ accuracy & 95\% CI & Raw $p$ & BH $p$ \\
+\hline
+Qwen3-1.7B & Social role & 10 & 16 & +0.0197 & $[-0.0132,0.0526]$ & 0.326940 & 0.569496 \\
+Qwen3-1.7B & Personality & 14 & 20 & +0.0197 & $[-0.0164,0.0559]$ & 0.391528 & 0.569496 \\
+Qwen3-1.7B & Background & 14 & 15 & +0.0033 & $[-0.0296,0.0395]$ & 1.000000 & 1.000000 \\
+Qwen3-1.7B & Interests & 26 & 25 & -0.0033 & $[-0.0493,0.0428]$ & 1.000000 & 1.000000 \\
+Qwen3-4B & Social role & 7 & 15 & +0.0263 & $[-0.0033,0.0559]$ & 0.133801 & 0.356801 \\
+Qwen3-4B & Personality & 21 & 19 & -0.0066 & $[-0.0493,0.0329]$ & 0.874629 & 1.000000 \\
+Qwen3-4B & Background & 17 & 33 & +0.0526 & $[0.0066,0.0954]$ & 0.032839 & 0.131357 \\
+Qwen3-4B & Interests & 19 & 32 & +0.0428 & $[-0.0033,0.0888]$ & 0.091915 & 0.294127 \\
+Llama-3.2-3B-Instruct & Social role & 13 & 17 & +0.0132 & $[-0.0230,0.0493]$ & 0.584665 & 0.779553 \\
+Llama-3.2-3B-Instruct & Personality & 21 & 30 & +0.0296 & $[-0.0164,0.0757]$ & 0.262438 & 0.569496 \\
+Llama-3.2-3B-Instruct & Background & 18 & 48 & +0.0987 & $[0.0493,0.1513]$ & 0.000287 & 0.004594 \\
+Llama-3.2-3B-Instruct & Interests & 36 & 34 & -0.0066 & $[-0.0592,0.0493]$ & 0.904975 & 1.000000 \\
+Gemma-3-4B-IT & Social role & 13 & 19 & +0.0197 & $[-0.0164,0.0559]$ & 0.377086 & 0.569496 \\
+Gemma-3-4B-IT & Personality & 19 & 26 & +0.0230 & $[-0.0197,0.0658]$ & 0.371298 & 0.569496 \\
+Gemma-3-4B-IT & Background & 16 & 41 & +0.0822 & $[0.0362,0.1316]$ & 0.001264 & 0.010108 \\
+Gemma-3-4B-IT & Interests & 41 & 22 & -0.0625 & $[-0.1118,-0.0132]$ & 0.022575 & 0.120400 \\
+\hline
+\end{tabular*}
+\end{table}
+
+
+\clearpage
+\section{Complete Persona Schema and Sampling Details}
+
+The following four tables constitute the complete schema and sampling inventory for
+Supplementary Table S2. Category rows report the number of values and category-level
+sampling probability; value rows report the complete label and value-level probability.
+The development and held-out columns are observed counts. Table~\ref{tab:cohort-baselines}
+reports the corresponding majority baselines for both cohorts. The held-out cohort has
+304 unique identities, all accepted on their first draw (nonce zero), with no duplicates,
+redraws, exclusions, or overlap with development. Duplicate rejection is a sampler
+safeguard, not an event observed in this held-out manifest. No semantic plausibility
+filter or cross-dimension contradiction constraint was applied.
+
+\renewcommand{\thetable}{S2a}
+\begin{table}[H]
+\centering
+\footnotesize
+\renewcommand{\arraystretch}{0.92}
+\caption{Complete social-role label inventory, hierarchical sampling probabilities, and observed development/held-out frequencies.}
+\label{tab:persona-schema-social}
+\begin{tabularx}{\textwidth}{l l l X c r r}
+\toprule
+Dimension & Level & Category & Label / cardinality & $P$ & Dev. & Held-out \\
+\midrule
+social-role & category & \textbf{general role} & 14 values & $1/3$ & 32 & 97 \\
+ & value & general role & Student & $1/3\times1/14$ & 5 & 8 \\
+ & value & general role & Homemaker & $1/3\times1/14$ & 2 & 9 \\
+ & value & general role & Retiree & $1/3\times1/14$ & 1 & 5 \\
+ & value & general role & Freelancer & $1/3\times1/14$ & 3 & 8 \\
+ & value & general role & Self-employed & $1/3\times1/14$ & 4 & 8 \\
+ & value & general role & Office Worker & $1/3\times1/14$ & 3 & 6 \\
+ & value & general role & Service Worker & $1/3\times1/14$ & 2 & 4 \\
+ & value & general role & Salesperson & $1/3\times1/14$ & 1 & 10 \\
+ & value & general role & Factory Worker & $1/3\times1/14$ & 0 & 7 \\
+ & value & general role & Artist & $1/3\times1/14$ & 1 & 7 \\
+ & value & general role & Writer & $1/3\times1/14$ & 1 & 5 \\
+ & value & general role & Content Creator & $1/3\times1/14$ & 5 & 7 \\
+ & value & general role & Athlete & $1/3\times1/14$ & 0 & 7 \\
+ & value & general role & Chef & $1/3\times1/14$ & 4 & 6 \\
+social-role & category & \textbf{professional} & 14 values & $1/3$ & 32 & 118 \\
+ & value & professional & Doctor & $1/3\times1/14$ & 3 & 9 \\
+ & value & professional & Lawyer & $1/3\times1/14$ & 4 & 7 \\
+ & value & professional & Accountant & $1/3\times1/14$ & 2 & 6 \\
+ & value & professional & Architect & $1/3\times1/14$ & 5 & 11 \\
+ & value & professional & Pharmacist & $1/3\times1/14$ & 1 & 10 \\
+ & value & professional & Professor & $1/3\times1/14$ & 0 & 10 \\
+ & value & professional & Researcher & $1/3\times1/14$ & 3 & 10 \\
+ & value & professional & Judge & $1/3\times1/14$ & 1 & 9 \\
+ & value & professional & Prosecutor & $1/3\times1/14$ & 3 & 8 \\
+ & value & professional & Patent Attorney & $1/3\times1/14$ & 2 & 10 \\
+ & value & professional & Real Estate Agent & $1/3\times1/14$ & 3 & 7 \\
+ & value & professional & Tax Accountant & $1/3\times1/14$ & 0 & 10 \\
+ & value & professional & Appraiser & $1/3\times1/14$ & 2 & 6 \\
+ & value & professional & Labor Consultant & $1/3\times1/14$ & 3 & 5 \\
+social-role & category & \textbf{technical management} & 15 values & $1/3$ & 36 & 89 \\
+ & value & technical management & Software Engineer & $1/3\times1/15$ & 4 & 4 \\
+ & value & technical management & Data Scientist & $1/3\times1/15$ & 3 & 4 \\
+ & value & technical management & Product Manager & $1/3\times1/15$ & 2 & 6 \\
+ & value & technical management & Project Manager & $1/3\times1/15$ & 3 & 6 \\
+ & value & technical management & UX/UI Designer & $1/3\times1/15$ & 2 & 8 \\
+ & value & technical management & System Administrator & $1/3\times1/15$ & 2 & 1 \\
+ & value & technical management & Marketing Manager & $1/3\times1/15$ & 1 & 11 \\
+ & value & technical management & Sales Manager & $1/3\times1/15$ & 3 & 12 \\
+ & value & technical management & HR Specialist & $1/3\times1/15$ & 4 & 7 \\
+ & value & technical management & Finance Manager & $1/3\times1/15$ & 1 & 6 \\
+ & value & technical management & Strategy Planner & $1/3\times1/15$ & 3 & 8 \\
+ & value & technical management & Quality Manager & $1/3\times1/15$ & 4 & 5 \\
+ & value & technical management & DevOps Engineer & $1/3\times1/15$ & 3 & 1 \\
+ & value & technical management & Data Engineer & $1/3\times1/15$ & 0 & 6 \\
+ & value & technical management & Security Specialist & $1/3\times1/15$ & 1 & 4 \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\renewcommand{\thetable}{S2b}
+\begin{table}[H]
+\centering
+\footnotesize
+\renewcommand{\arraystretch}{0.92}
+\caption{Complete personality label inventory, hierarchical sampling probabilities, and observed development/held-out frequencies.}
+\label{tab:persona-schema-personality}
+\begin{tabularx}{\textwidth}{l l l X c r r}
+\toprule
+Dimension & Level & Category & Label / cardinality & $P$ & Dev. & Held-out \\
+\midrule
+personality & category & \textbf{openness} & 2 values & $1/5$ & 10 & 62 \\
+ & value & openness & yes & $1/5\times1/2$ & 5 & 27 \\
+ & value & openness & no & $1/5\times1/2$ & 5 & 35 \\
+personality & category & \textbf{conscientiousness} & 2 values & $1/5$ & 25 & 53 \\
+ & value & conscientiousness & yes & $1/5\times1/2$ & 12 & 26 \\
+ & value & conscientiousness & no & $1/5\times1/2$ & 13 & 27 \\
+personality & category & \textbf{extroversion} & 2 values & $1/5$ & 21 & 58 \\
+ & value & extroversion & yes & $1/5\times1/2$ & 7 & 35 \\
+ & value & extroversion & no & $1/5\times1/2$ & 14 & 23 \\
+personality & category & \textbf{agreeableness} & 2 values & $1/5$ & 17 & 70 \\
+ & value & agreeableness & yes & $1/5\times1/2$ & 12 & 34 \\
+ & value & agreeableness & no & $1/5\times1/2$ & 5 & 36 \\
+personality & category & \textbf{neuroticism} & 2 values & $1/5$ & 27 & 61 \\
+ & value & neuroticism & yes & $1/5\times1/2$ & 15 & 28 \\
+ & value & neuroticism & no & $1/5\times1/2$ & 12 & 33 \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\renewcommand{\thetable}{S2c}
+\begin{table}[H]
+\centering
+\footnotesize
+\renewcommand{\arraystretch}{0.92}
+\caption{Complete background label inventory, hierarchical sampling probabilities, and observed development/held-out frequencies.}
+\label{tab:persona-schema-background}
+\begin{tabularx}{\textwidth}{l l l X c r r}
+\toprule
+Dimension & Level & Category & Label / cardinality & $P$ & Dev. & Held-out \\
+\midrule
+background & category & \textbf{economic status} & 5 values & $1/5$ & 25 & 67 \\
+ & value & economic status & Low Income & $1/5\times1/5$ & 4 & 13 \\
+ & value & economic status & Lower-Middle Class & $1/5\times1/5$ & 4 & 10 \\
+ & value & economic status & Middle Class & $1/5\times1/5$ & 7 & 16 \\
+ & value & economic status & Upper-Middle Class & $1/5\times1/5$ & 5 & 19 \\
+ & value & economic status & High Income & $1/5\times1/5$ & 5 & 9 \\
+background & category & \textbf{education} & 6 values & $1/5$ & 13 & 48 \\
+ & value & education & High School & $1/5\times1/6$ & 3 & 6 \\
+ & value & education & Associate Degree & $1/5\times1/6$ & 2 & 9 \\
+ & value & education & Bachelor's Degree & $1/5\times1/6$ & 0 & 5 \\
+ & value & education & Master's Degree & $1/5\times1/6$ & 4 & 7 \\
+ & value & education & Doctorate (Ph.D.) & $1/5\times1/6$ & 3 & 10 \\
+ & value & education & Other & $1/5\times1/6$ & 1 & 11 \\
+background & category & \textbf{family status} & 5 values & $1/5$ & 17 & 48 \\
+ & value & family status & Single & $1/5\times1/5$ & 5 & 12 \\
+ & value & family status & Married (No Children) & $1/5\times1/5$ & 4 & 9 \\
+ & value & family status & Married (With Children) & $1/5\times1/5$ & 2 & 10 \\
+ & value & family status & Single Parent & $1/5\times1/5$ & 2 & 11 \\
+ & value & family status & Living Alone & $1/5\times1/5$ & 4 & 6 \\
+background & category & \textbf{location} & 4 values & $1/5$ & 19 & 66 \\
+ & value & location & Metropolitan Area & $1/5\times1/4$ & 8 & 20 \\
+ & value & location & Small/Mid-sized City & $1/5\times1/4$ & 2 & 17 \\
+ & value & location & Rural Area & $1/5\times1/4$ & 3 & 10 \\
+ & value & location & Abroad & $1/5\times1/4$ & 6 & 19 \\
+background & category & \textbf{work experience} & 5 values & $1/5$ & 26 & 75 \\
+ & value & work experience & Entry-level (0--2 years) & $1/5\times1/5$ & 3 & 15 \\
+ & value & work experience & Junior (3--5 years) & $1/5\times1/5$ & 6 & 11 \\
+ & value & work experience & Mid-level (6--10 years) & $1/5\times1/5$ & 10 & 22 \\
+ & value & work experience & Senior (11--15 years) & $1/5\times1/5$ & 3 & 11 \\
+ & value & work experience & Expert (16+ years) & $1/5\times1/5$ & 4 & 16 \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\renewcommand{\thetable}{S2d}
+\begin{table}[H]
+\centering
+\footnotesize
+\renewcommand{\arraystretch}{0.92}
+\caption{Complete interests label inventory, hierarchical sampling probabilities, and observed development/held-out frequencies.}
+\label{tab:persona-schema-interests}
+\begin{tabularx}{\textwidth}{l l l X c r r}
+\toprule
+Dimension & Level & Category & Label / cardinality & $P$ & Dev. & Held-out \\
+\midrule
+interests & category & \textbf{communication style} & 8 values & $1/7$ & 19 & 41 \\
+ & value & communication style & Direct & $1/7\times1/8$ & 3 & 3 \\
+ & value & communication style & Indirect & $1/7\times1/8$ & 2 & 8 \\
+ & value & communication style & Formal & $1/7\times1/8$ & 3 & 2 \\
+ & value & communication style & Informal & $1/7\times1/8$ & 2 & 6 \\
+ & value & communication style & Emotional & $1/7\times1/8$ & 2 & 6 \\
+ & value & communication style & Logical & $1/7\times1/8$ & 2 & 7 \\
+ & value & communication style & Concise & $1/7\times1/8$ & 3 & 6 \\
+ & value & communication style & Detailed & $1/7\times1/8$ & 2 & 3 \\
+interests & category & \textbf{content preferences} & 10 values & $1/7$ & 10 & 37 \\
+ & value & content preferences & News / Current Affairs & $1/7\times1/10$ & 1 & 5 \\
+ & value & content preferences & Education / Learning & $1/7\times1/10$ & 2 & 3 \\
+ & value & content preferences & Entertainment & $1/7\times1/10$ & 2 & 4 \\
+ & value & content preferences & Sports & $1/7\times1/10$ & 1 & 2 \\
+ & value & content preferences & Technology / Science & $1/7\times1/10$ & 1 & 3 \\
+ & value & content preferences & Business / Economy & $1/7\times1/10$ & 2 & 3 \\
+ & value & content preferences & Health / Wellness & $1/7\times1/10$ & 0 & 7 \\
+ & value & content preferences & Lifestyle & $1/7\times1/10$ & 0 & 5 \\
+ & value & content preferences & Arts / Culture & $1/7\times1/10$ & 1 & 3 \\
+ & value & content preferences & Politics / Society & $1/7\times1/10$ & 0 & 2 \\
+interests & category & \textbf{hobbies} & 13 values & $1/7$ & 10 & 38 \\
+ & value & hobbies & Reading & $1/7\times1/13$ & 1 & 2 \\
+ & value & hobbies & Fitness / Exercise & $1/7\times1/13$ & 2 & 4 \\
+ & value & hobbies & Cooking & $1/7\times1/13$ & 1 & 1 \\
+ & value & hobbies & Traveling & $1/7\times1/13$ & 1 & 4 \\
+ & value & hobbies & Photography / Videography & $1/7\times1/13$ & 1 & 3 \\
+ & value & hobbies & Gaming & $1/7\times1/13$ & 0 & 2 \\
+ & value & hobbies & Listening to / Playing Music & $1/7\times1/13$ & 1 & 2 \\
+ & value & hobbies & Drawing / Crafts & $1/7\times1/13$ & 0 & 3 \\
+ & value & hobbies & Hiking / Camping & $1/7\times1/13$ & 0 & 3 \\
+ & value & hobbies & Watching Movies / TV Shows & $1/7\times1/13$ & 0 & 5 \\
+ & value & hobbies & Fashion / Beauty & $1/7\times1/13$ & 1 & 2 \\
+ & value & hobbies & Pet Care & $1/7\times1/13$ & 2 & 2 \\
+ & value & hobbies & Gardening & $1/7\times1/13$ & 0 & 5 \\
+interests & category & \textbf{shopping style} & 7 values & $1/7$ & 16 & 46 \\
+ & value & shopping style & Value-oriented & $1/7\times1/7$ & 2 & 8 \\
+ & value & shopping style & Quality-focused & $1/7\times1/7$ & 5 & 10 \\
+ & value & shopping style & Brand-focused & $1/7\times1/7$ & 1 & 7 \\
+ & value & shopping style & Trendy & $1/7\times1/7$ & 0 & 5 \\
+ & value & shopping style & Practical & $1/7\times1/7$ & 3 & 7 \\
+ & value & shopping style & Impulse Buyer & $1/7\times1/7$ & 2 & 4 \\
+ & value & shopping style & Planned Buyer & $1/7\times1/7$ & 3 & 5 \\
+interests & category & \textbf{social media usage} & 2 values & $1/7$ & 13 & 43 \\
+ & value & social media usage & no & $1/7\times1/2$ & 5 & 18 \\
+ & value & social media usage & yes & $1/7\times1/2$ & 8 & 25 \\
+interests & category & \textbf{technology adoption} & 5 values & $1/7$ & 15 & 52 \\
+ & value & technology adoption & Early Adopter & $1/7\times1/5$ & 5 & 15 \\
+ & value & technology adoption & Active User & $1/7\times1/5$ & 0 & 9 \\
+ & value & technology adoption & Average User & $1/7\times1/5$ & 0 & 10 \\
+ & value & technology adoption & Conservative User & $1/7\times1/5$ & 6 & 6 \\
+ & value & technology adoption & Tech-averse & $1/7\times1/5$ & 4 & 12 \\
+interests & category & \textbf{values} & 14 values & $1/7$ & 17 & 47 \\
+ & value & values & Achievement / Success & $1/7\times1/14$ & 4 & 2 \\
+ & value & values & Family & $1/7\times1/14$ & 2 & 4 \\
+ & value & values & Health & $1/7\times1/14$ & 0 & 8 \\
+ & value & values & Freedom & $1/7\times1/14$ & 3 & 3 \\
+ & value & values & Stability & $1/7\times1/14$ & 2 & 5 \\
+ & value & values & Creativity & $1/7\times1/14$ & 0 & 3 \\
+ & value & values & Social Contribution & $1/7\times1/14$ & 2 & 3 \\
+ & value & values & Environmental Protection & $1/7\times1/14$ & 0 & 3 \\
+ & value & values & Fairness & $1/7\times1/14$ & 1 & 6 \\
+ & value & values & Tradition & $1/7\times1/14$ & 0 & 1 \\
+ & value & values & Innovation & $1/7\times1/14$ & 1 & 1 \\
+ & value & values & Knowledge / Learning & $1/7\times1/14$ & 0 & 5 \\
+ & value & values & Reputation & $1/7\times1/14$ & 1 & 0 \\
+ & value & values & Financial Security & $1/7\times1/14$ & 1 & 3 \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\clearpage
+\renewcommand{\thetable}{S2e}
+\begin{table}[H]
+\centering
+\footnotesize
+\caption{Majority baselines computed separately within each cohort. Development has 100 personas and held-out has 304. Only held-out baselines normalize the reported gains. These are descriptive reference accuracies, not a classifier fitted on development and transferred to held-out data. Ties among modal labels do not affect the reference accuracy.}
+\label{tab:cohort-baselines}
+\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}llrr@{}}
+\toprule
+Dimension & Majority rule & Development & Held-out \\
+\midrule
+Social role & Global coarse-category mode & $36/100=0.3600$ & $118/304=0.3882$ \\
+Personality & Sum of trait-conditional modes & $59/100=0.5900$ & $166/304=0.5461$ \\
+Background & Sum of category-conditional modes & $34/100=0.3400$ & $84/304=0.2763$ \\
+Interests & Sum of category-conditional modes & $30/100=0.3000$ & $78/304=0.2566$ \\
+\bottomrule
+\end{tabular*}
+\end{table}
+
+\section{Expanded Baseline and Ablation Raw Metrics}
+\label{app:expanded-raw-metrics}
+Tables~\ref{tab:controller-ablation-raw-metrics}--\ref{tab:expanded-raw-gemma}
+report all ten methods from the expanded evaluation (base seed 20260913).
+These are separate from the primary-run results in Table~\ref{tab:main_results}
+(base seed 20260831). Scores and gains below use the full-precision aggregate exports;
+normalization is not recomputed from already rounded table entries. Every target--method
+cell contains the same 304 frozen held-out personas. The interest score is reported
+descriptively at cohort level; the paired tests use persona-level Average Gain.
+
+\renewcommand{\thetable}{S3a}
+\begin{table}[H]
+\centering
+\footnotesize
+\setlength{\tabcolsep}{4pt}
+\caption{Expanded-run raw dimension metrics and majority-normalized gains for Qwen3-1.7B ($N=304$ per method). Each dimension cell is raw/gain. SR is social-role category
+accuracy, P is personality polarity accuracy, B is background value accuracy, and I is
+interest micro-F1. AG equally weights the four gains. The baseline row reports raw scores.}
+\label{tab:controller-ablation-raw-metrics}
+\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}lrrrrr@{}}
+\toprule
+Method & SR (raw/gain) & P (raw/gain) & B (raw/gain) & I (raw/gain) & AG \\
+\midrule
+Majority baseline (raw) & 0.3882 & 0.5461 & 0.2763 & 0.2566 & 0.0000 \\
+\midrule
+Original PD-Agent & 0.7007/0.5108 & 0.5164/-0.0652 & 0.2829/0.0091 & 0.5691/0.4204 & 0.2187 \\
+Adaptive PD-Agent & 0.6974/0.5054 & 0.5526/0.0145 & 0.3257/0.0682 & 0.5625/0.4115 & 0.2499 \\
+Random candidate & 0.7007/0.5108 & 0.5559/0.0217 & 0.3224/0.0636 & 0.5757/0.4292 & 0.2563 \\
+Round-robin & 0.6974/0.5054 & 0.5230/-0.0507 & 0.2928/0.0227 & 0.5461/0.3894 & 0.2167 \\
+Dialogue follow-up & 0.7138/0.5323 & 0.5296/-0.0362 & 0.2566/-0.0273 & 0.5822/0.4381 & 0.2267 \\
+Controller-matched generic & 0.7039/0.5161 & 0.5526/0.0145 & 0.2829/0.0091 & 0.5658/0.4159 & 0.2389 \\
+Direct generation & 0.6875/0.4892 & 0.5559/0.0217 & 0.2862/0.0136 & 0.5921/0.4513 & 0.2440 \\
+No coverage & 0.6941/0.5000 & 0.5625/0.0362 & 0.2993/0.0318 & 0.5724/0.4248 & 0.2482 \\
+No redundancy & 0.6908/0.4946 & 0.5362/-0.0217 & 0.2895/0.0182 & 0.5526/0.3982 & 0.2223 \\
+Active uncertainty & 0.6974/0.5054 & 0.5461/0.0000 & 0.2961/0.0273 & 0.5822/0.4381 & 0.2427 \\
+\bottomrule
+\end{tabular*}
+\end{table}
+
+\renewcommand{\thetable}{S3b}
+\begin{table}[H]
+\centering
+\footnotesize
+\setlength{\tabcolsep}{4pt}
+\caption{Expanded-run raw dimension metrics and majority-normalized gains for Qwen3-4B ($N=304$ per method). Each dimension cell is raw/gain. SR is social-role category
+accuracy, P is personality polarity accuracy, B is background value accuracy, and I is
+interest micro-F1. AG equally weights the four gains. The baseline row reports raw scores.}
+\label{tab:expanded-raw-qwen4}
+\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}lrrrrr@{}}
+\toprule
+Method & SR (raw/gain) & P (raw/gain) & B (raw/gain) & I (raw/gain) & AG \\
+\midrule
+Majority baseline (raw) & 0.3882 & 0.5461 & 0.2763 & 0.2566 & 0.0000 \\
+\midrule
+Original PD-Agent & 0.8849/0.8118 & 0.5592/0.0290 & 0.2961/0.0273 & 0.5263/0.3628 & 0.3077 \\
+Adaptive PD-Agent & 0.9145/0.8602 & 0.6020/0.1232 & 0.3553/0.1091 & 0.5954/0.4558 & 0.3871 \\
+Random candidate & 0.9178/0.8656 & 0.6020/0.1232 & 0.3816/0.1455 & 0.5164/0.3496 & 0.3709 \\
+Round-robin & 0.9112/0.8548 & 0.5526/0.0145 & 0.2928/0.0227 & 0.5493/0.3938 & 0.3215 \\
+Dialogue follow-up & 0.9013/0.8387 & 0.5625/0.0362 & 0.3092/0.0455 & 0.5362/0.3761 & 0.3241 \\
+Controller-matched generic & 0.8849/0.8118 & 0.6118/0.1449 & 0.3026/0.0364 & 0.5296/0.3673 & 0.3401 \\
+Direct generation & 0.8980/0.8333 & 0.5888/0.0942 & 0.3191/0.0591 & 0.5822/0.4381 & 0.3562 \\
+No coverage & 0.9046/0.8441 & 0.6151/0.1522 & 0.3684/0.1273 & 0.5592/0.4071 & 0.3827 \\
+No redundancy & 0.9178/0.8656 & 0.6020/0.1232 & 0.3520/0.1045 & 0.5559/0.4027 & 0.3740 \\
+Active uncertainty & 0.8882/0.8172 & 0.6151/0.1522 & 0.3750/0.1364 & 0.5921/0.4513 & 0.3893 \\
+\bottomrule
+\end{tabular*}
+\end{table}
+
+\clearpage
+\renewcommand{\thetable}{S3c}
+\begin{table}[H]
+\centering
+\footnotesize
+\setlength{\tabcolsep}{4pt}
+\caption{Expanded-run raw dimension metrics and majority-normalized gains for Llama-3.2-3B-Instruct ($N=304$ per method). Each dimension cell is raw/gain. SR is social-role category
+accuracy, P is personality polarity accuracy, B is background value accuracy, and I is
+interest micro-F1. AG equally weights the four gains. The baseline row reports raw scores.}
+\label{tab:expanded-raw-llama}
+\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}lrrrrr@{}}
+\toprule
+Method & SR (raw/gain) & P (raw/gain) & B (raw/gain) & I (raw/gain) & AG \\
+\midrule
+Majority baseline (raw) & 0.3882 & 0.5461 & 0.2763 & 0.2566 & 0.0000 \\
+\midrule
+Original PD-Agent & 0.8783/0.8011 & 0.6118/0.1449 & 0.2895/0.0182 & 0.5033/0.3319 & 0.3240 \\
+Adaptive PD-Agent & 0.8750/0.7957 & 0.6447/0.2174 & 0.4178/0.1955 & 0.5789/0.4336 & 0.4105 \\
+Random candidate & 0.8816/0.8065 & 0.6513/0.2319 & 0.4046/0.1773 & 0.5691/0.4204 & 0.4090 \\
+Round-robin & 0.8750/0.7957 & 0.6382/0.2029 & 0.2895/0.0182 & 0.5164/0.3496 & 0.3416 \\
+Dialogue follow-up & 0.8717/0.7903 & 0.6020/0.1232 & 0.3224/0.0636 & 0.5263/0.3628 & 0.3350 \\
+Controller-matched generic & 0.8553/0.7634 & 0.6020/0.1232 & 0.3421/0.0909 & 0.5033/0.3319 & 0.3273 \\
+Direct generation & 0.8947/0.8280 & 0.6579/0.2464 & 0.3520/0.1045 & 0.5625/0.4115 & 0.3976 \\
+No coverage & 0.8980/0.8333 & 0.6480/0.2246 & 0.4178/0.1955 & 0.5526/0.3982 & 0.4129 \\
+No redundancy & 0.8684/0.7849 & 0.6546/0.2391 & 0.3684/0.1273 & 0.5789/0.4336 & 0.3962 \\
+Active uncertainty & 0.8882/0.8172 & 0.6776/0.2899 & 0.3783/0.1409 & 0.6283/0.5000 & 0.4370 \\
+\bottomrule
+\end{tabular*}
+\end{table}
+
+\renewcommand{\thetable}{S3d}
+\begin{table}[H]
+\centering
+\footnotesize
+\setlength{\tabcolsep}{4pt}
+\caption{Expanded-run raw dimension metrics and majority-normalized gains for Gemma-3-4B-it ($N=304$ per method). Each dimension cell is raw/gain. SR is social-role category
+accuracy, P is personality polarity accuracy, B is background value accuracy, and I is
+interest micro-F1. AG equally weights the four gains. The baseline row reports raw scores.}
+\label{tab:expanded-raw-gemma}
+\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}lrrrrr@{}}
+\toprule
+Method & SR (raw/gain) & P (raw/gain) & B (raw/gain) & I (raw/gain) & AG \\
+\midrule
+Majority baseline (raw) & 0.3882 & 0.5461 & 0.2763 & 0.2566 & 0.0000 \\
+\midrule
+Original PD-Agent & 0.8125/0.6935 & 0.6546/0.2391 & 0.3355/0.0818 & 0.5493/0.3938 & 0.3521 \\
+Adaptive PD-Agent & 0.8257/0.7151 & 0.6513/0.2319 & 0.3980/0.1682 & 0.5592/0.4071 & 0.3805 \\
+Random candidate & 0.8191/0.7043 & 0.6743/0.2826 & 0.4276/0.2091 & 0.5691/0.4204 & 0.4041 \\
+Round-robin & 0.8454/0.7473 & 0.6941/0.3261 & 0.3586/0.1136 & 0.5658/0.4159 & 0.4007 \\
+Dialogue follow-up & 0.8257/0.7151 & 0.6711/0.2754 & 0.3289/0.0727 & 0.5493/0.3938 & 0.3642 \\
+Controller-matched generic & 0.8224/0.7097 & 0.6447/0.2174 & 0.3388/0.0864 & 0.5625/0.4115 & 0.3562 \\
+Direct generation & 0.8158/0.6989 & 0.6809/0.2971 & 0.3586/0.1136 & 0.5296/0.3673 & 0.3692 \\
+No coverage & 0.8322/0.7258 & 0.6579/0.2464 & 0.3914/0.1591 & 0.4868/0.3097 & 0.3603 \\
+No redundancy & 0.8257/0.7151 & 0.6447/0.2174 & 0.3750/0.1364 & 0.5230/0.3584 & 0.3568 \\
+Active uncertainty & 0.8158/0.6989 & 0.6875/0.3116 & 0.4243/0.2045 & 0.6020/0.4646 & 0.4199 \\
+\bottomrule
+\end{tabular*}
+\end{table}
+
+% Flow the qualitative examples below the preceding tables without a forced blank page.
+\begin{multicols*}{2}
+\raggedcolumns
+\section{Illustrative Successful and Failed Interviews}
+\label{app:qualitative-interviews}
+The first two primary-run Qwen3-4B persona bundles illustrate contrasting outcomes for
+Original and Adaptive PD-Agent. They were selected from the retained qualitative export,
+not sampled to estimate a success rate. Success means correctness on all four scored
+dimensions. Failure in these paired bundles means correctness on only one. Social role is scored at category
+level, so success does not require identifying the exact occupation. Both methods used the
+same initial question, ``What do you typically do on a regular day?'', and the same initial
+response within each bundle. We list every subsequent selected question, summarize the
+final graph, and report the full four-dimensional prediction. Graph excerpts are
+LLM-generated intermediate representations, not validated semantic relations.
+In the comparison panels below, a score of 1 means correct and 0 means incorrect.
+
+\subsection{Persona 220: contrasting paired outcomes}
+
+\begin{samepage}
+\noindent\textbf{Original PD-Agent (failure).} Selected follow-up questions:\par\nopagebreak[4]
+\begin{enumerate}
+\setcounter{enumi}{1}
+\item How do you approach solving a complex problem when there are multiple competing priorities?
+\item Can you describe a time when you had to adapt your approach to a project based on new information or changing circumstances?
+\item How do you handle situations where you need to provide feedback or address performance issues with a team member?
+\item How do you stay motivated and maintain a high level of performance when working on long-term projects with limited immediate feedback or recognition?
+\end{enumerate}
+\end{samepage}
+\noindent\begin{minipage}{\linewidth}
+\noindent\textbf{Final graph:} 23 concepts and 16 edges. Recorded examples follow:
+\begin{itemize}
+\item \textbf{Recorded edge:} prioritize $\rightarrow$ impact.
+\par\textbf{Relation:} theme. \textbf{Turn:} 2.
+\par\textbf{Supporting span:} ``I prioritize based on impact and urgency''.
+\item \textbf{Recorded edge:} project progress $\rightarrow$ long-term impact.
+\par\textbf{Relation:} theme. \textbf{Turn:} 5.
+\par\textbf{Supporting span:} ``long-term impact of the project''.
+\end{itemize}
+\end{minipage}\par\smallskip
+\noindent\begin{minipage}{\linewidth}
+\noindent\textbf{Average Gain:} $-0.2325$.\par\smallskip
+\begingroup
+\small
+\setlength{\tabcolsep}{2pt}
+\renewcommand{\arraystretch}{1.12}
+\noindent\begin{tabularx}{\linewidth}{@{}p{0.19\linewidth}>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}Xr@{}}
+\toprule
+Dimension & Ground truth & Prediction & Score \\
+\midrule
+Social role & Project Manager & Project Manager & 1 \\
+\addlinespace[2pt]
+Personality & Agreeableness: no & Agreeableness: yes & 0 \\
+\addlinespace[2pt]
+Background & Location: Rural Area & Location: Metropolitan Area & 0 \\
+\addlinespace[2pt]
+Interests & Technology adoption: Early Adopter & Technology adoption: Active User & 0 \\
+\bottomrule
+\end{tabularx}\par
+\endgroup
+\end{minipage}\par\medskip
+
+\begin{samepage}
+\noindent\textbf{Adaptive PD-Agent (success).} Selected follow-up questions:\par\nopagebreak[4]
+\begin{enumerate}
+\setcounter{enumi}{1}
+\item What inspired you to pursue a career in project management and technical troubleshooting?
+\item Can you share more about the environment you grew up in and how it influenced your problem-solving approach?
+\item How did your early exposure to limited resources shape your long-term career goals?
+\item What aspects of technology or project management excite you the most in your work?
+\end{enumerate}
+\end{samepage}
+\noindent\begin{minipage}{\linewidth}
+\noindent\textbf{Final graph:} 21 concepts and 11 edges. Recorded examples follow:
+\begin{itemize}
+\item \textbf{Recorded edge:} technology $\rightarrow$ streamline processes.
+\par\textbf{Relation:} theme. \textbf{Turn:} 2.
+\par\textbf{Supporting span:} ``how it can streamline processes''.
+\item \textbf{Recorded edge:} tangible improvements $\rightarrow$ team and community.
+\par\textbf{Relation:} in. \textbf{Turn:} 5.
+\par\textbf{Supporting span:} ``make a difference for the team and the community''.
+\end{itemize}
+\end{minipage}\par\smallskip
+\noindent\begin{minipage}{\linewidth}
+\noindent\textbf{Average Gain:} $1.0000$.\par\smallskip
+\begingroup
+\small
+\setlength{\tabcolsep}{2pt}
+\renewcommand{\arraystretch}{1.12}
+\noindent\begin{tabularx}{\linewidth}{@{}p{0.19\linewidth}>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}Xr@{}}
+\toprule
+Dimension & Ground truth & Prediction & Score \\
+\midrule
+Social role & Project Manager & Project Manager & 1 \\
+\addlinespace[2pt]
+Personality & Agreeableness: no & Agreeableness: no & 1 \\
+\addlinespace[2pt]
+Background & Location: Rural Area & Location: Rural Area & 1 \\
+\addlinespace[2pt]
+Interests & Technology adoption: Early Adopter & Technology adoption: Early Adopter & 1 \\
+\bottomrule
+\end{tabularx}\par
+\endgroup
+\end{minipage}\par\medskip
+
+Adaptive follow-ups probed the upbringing and resource context, whereas Original questions remained focused on workplace behavior. Adaptive recovered all four scored dimensions in this example.
+
+\subsection{Persona 43: contrasting paired outcomes}
+
+\begin{samepage}
+\noindent\textbf{Original PD-Agent (success).} Selected follow-up questions:\par\nopagebreak[4]
+\begin{enumerate}
+\setcounter{enumi}{1}
+\item How do you approach solving a problem that doesn't have an obvious solution?
+\item How do you handle situations where you have to manage conflicting priorities or deadlines?
+\item How do you stay motivated and maintain a positive attitude, especially during challenging or high-pressure situations?
+\item How do you ensure that your creative ideas are effectively communicated and understood by others, especially when they may not share the same perspective or background?
+\end{enumerate}
+\end{samepage}
+\noindent\begin{minipage}{\linewidth}
+\noindent\textbf{Final graph:} 20 concepts and 11 edges. Recorded examples follow:
+\begin{itemize}
+\item \textbf{Recorded edge:} open dialogue $\rightarrow$ break into smaller parts.
+\par\textbf{Relation:} temporal. \textbf{Turn:} 2.
+\par\textbf{Supporting span:} ``I encourage open dialogue to gather different perspectives, then break the issue into smaller parts''.
+\item \textbf{Recorded edge:} active listening $\rightarrow$ relevance and acceptance.
+\par\textbf{Relation:} cause-of. \textbf{Turn:} 5.
+\par\textbf{Supporting span:} ``I actively listen to others' perspectives to ensure my ideas are relevant and well-received''.
+\end{itemize}
+\end{minipage}\par\smallskip
+\noindent\begin{minipage}{\linewidth}
+\noindent\textbf{Average Gain:} $1.0000$.\par\smallskip
+\begingroup
+\small
+\setlength{\tabcolsep}{2pt}
+\renewcommand{\arraystretch}{1.12}
+\noindent\begin{tabularx}{\linewidth}{@{}p{0.19\linewidth}>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}Xr@{}}
+\toprule
+Dimension & Ground truth & Prediction & Score \\
+\midrule
+Social role & HR Specialist & Project Manager & 1 \\
+\addlinespace[2pt]
+Personality & Extroversion: yes & Extroversion: yes & 1 \\
+\addlinespace[2pt]
+Background & Work experience: Senior (11--15 years) & Work experience: Senior (11--15 years) & 1 \\
+\addlinespace[2pt]
+Interests & Hobbies: Drawing / Crafts & Hobbies: Drawing / Crafts & 1 \\
+\bottomrule
+\end{tabularx}\par
+\endgroup
+\end{minipage}\par\medskip
+
+\begin{samepage}
+\noindent\textbf{Adaptive PD-Agent (failure).} Selected follow-up questions:\par\nopagebreak[4]
+\begin{enumerate}
+\setcounter{enumi}{1}
+\item What kind of things do you enjoy sketching in your journal?
+\item What inspired you to start sketching in your journal?
+\item What kind of nature elements do you find most inspiring to sketch?
+\item How does sketching in your journal influence your work or interactions with colleagues?
+\end{enumerate}
+\end{samepage}
+\noindent\begin{minipage}{\linewidth}
+\noindent\textbf{Final graph:} 21 concepts and 17 edges. Recorded examples follow:
+\begin{itemize}
+\item \textbf{Recorded edge:} sketch scenes $\rightarrow$ relax.
+\par\textbf{Relation:} cause-of. \textbf{Turn:} 2.
+\par\textbf{Supporting span:} ``helps me relax''.
+\item \textbf{Recorded edge:} sketch in journal $\rightarrow$ share with colleagues.
+\par\textbf{Relation:} instrument. \textbf{Turn:} 5.
+\par\textbf{Supporting span:} ``share in a friendly way with colleagues''.
+\end{itemize}
+\end{minipage}\par\smallskip
+\noindent\begin{minipage}{\linewidth}
+\noindent\textbf{Average Gain:} $-0.3048$.\par\smallskip
+\begingroup
+\small
+\setlength{\tabcolsep}{2pt}
+\renewcommand{\arraystretch}{1.12}
+\noindent\begin{tabularx}{\linewidth}{@{}p{0.19\linewidth}>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}Xr@{}}
+\toprule
+Dimension & Ground truth & Prediction & Score \\
+\midrule
+Social role & HR Specialist & Office Worker & 0 \\
+\addlinespace[2pt]
+Personality & Extroversion: yes & Extroversion: no & 0 \\
+\addlinespace[2pt]
+Background & Work experience: Senior (11--15 years) & Work experience: Mid-level (6--10 years) & 0 \\
+\addlinespace[2pt]
+Interests & Hobbies: Drawing / Crafts & Hobbies: Drawing / Crafts & 1 \\
+\bottomrule
+\end{tabularx}\par
+\endgroup
+\end{minipage}\par\medskip
+
+Adaptive repeatedly pursued sketching and recovered interests but missed the other three scored dimensions. Original recovered all four scored dimensions, despite predicting Project Manager rather than HR Specialist: both belong to the same evaluated social-role category. This example illustrates that a specific follow-up need not provide balanced evidence across dimensions.
+
+\subsection{Primary graph-guidance successes and failures}
+The following four Qwen3-4B examples use the same primary run (base seed 20260831).
+For each graph-guided method, the retained selection rule chooses the first persona
+index with all four dimensions correct and the lowest-Average-Gain failure, breaking
+ties by the smallest index. All selected failures below have zero correct dimensions.
+These are deliberately selected extremes, not representative samples. Their first
+question is the same general question stated above. We report all four selected
+follow-ups, graph size and two recorded edges, and the complete final prediction.
+The cases need not have the same persona index across methods and are not paired
+method-effect estimates.
+\subsubsection{Online Graph Guidance, persona 11 (success)}
+\noindent\textbf{Selected follow-up questions:}\par\nopagebreak[4]
+\begin{enumerate}
+\setcounter{enumi}{1}
+\item How do you handle challenges in your work life?
+\item Can you describe a time when you had to adapt your approach to achieve a goal?
+\item Can you share how you manage your time between personal and professional responsibilities?
+\item Could you describe a problem you often help other people solve?
+\end{enumerate}
+\noindent\textbf{Final graph:} 28 concepts and 18 edges. Recorded examples follow:\par\nopagebreak[4]
+\begin{itemize}
+\item \textbf{Recorded edge:} morning hike $\rightarrow$ family.
+\par\textbf{Relation:} member-of. \textbf{Turn:} 1.
+\par\textbf{Supporting span:} ``with my family''.
+\item \textbf{Recorded edge:} colleagues $\rightarrow$ sales techniques.
+\par\textbf{Relation:} member-of. \textbf{Turn:} 5.
+\par\textbf{Supporting span:} ``help colleagues refine their sales techniques''.
+\end{itemize}
+\noindent\begin{minipage}{\linewidth}
+\noindent\textbf{Average Gain:} $1.0000$.\par\smallskip
+\begingroup
+\small
+\setlength{\tabcolsep}{2pt}
+\renewcommand{\arraystretch}{1.12}
+\noindent\begin{tabularx}{\linewidth}{@{}p{0.19\linewidth}>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}Xr@{}}
+\toprule
+Dimension & Ground truth & Prediction & Score \\
+\midrule
+Social role & Sales Manager & Sales Manager & 1 \\
+\addlinespace[2pt]
+Personality & Neuroticism: no & Neuroticism: no & 1 \\
+\addlinespace[2pt]
+Background & Family status: Married (With Children) & Family status: Married (With Children) & 1 \\
+\addlinespace[2pt]
+Interests & Hobbies: Hiking / Camping & Hobbies: Hiking / Camping & 1 \\
+\bottomrule
+\end{tabularx}\par
+\endgroup
+\end{minipage}\par\medskip
+\subsubsection{Online Graph Guidance, persona 6 (failure)}
+\noindent\textbf{Selected follow-up questions:}\par\nopagebreak[4]
+\begin{enumerate}
+\setcounter{enumi}{1}
+\item What tools or software have you found most useful in your work?
+\item How do you typically interact with clients or colleagues during your workday?
+\item Can you describe a time when you had to adjust your communication style for a specific client or team?
+\item Can you describe a situation where you had to adapt your work approach based on feedback from a colleague?
+\end{enumerate}
+\noindent\textbf{Final graph:} 19 concepts and 14 edges. Recorded examples follow:\par\nopagebreak[4]
+\begin{itemize}
+\item \textbf{Recorded edge:} working on projects $\rightarrow$ tools and software.
+\par\textbf{Relation:} instrument. \textbf{Turn:} 1.
+\par\textbf{Supporting span:} ``using tools and software to help me get things done efficiently''.
+\item \textbf{Recorded edge:} clarity and efficiency $\rightarrow$ fewer misunderstandings.
+\par\textbf{Relation:} cause-of. \textbf{Turn:} 5.
+\par\textbf{Supporting span:} ``with fewer misunderstandings''.
+\end{itemize}
+\noindent\begin{minipage}{\linewidth}
+\noindent\textbf{Average Gain:} $-0.6411$.\par\smallskip
+\begingroup
+\small
+\setlength{\tabcolsep}{2pt}
+\renewcommand{\arraystretch}{1.12}
+\noindent\begin{tabularx}{\linewidth}{@{}p{0.19\linewidth}>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}Xr@{}}
+\toprule
+Dimension & Ground truth & Prediction & Score \\
+\midrule
+Social role & Freelancer & Project Manager & 0 \\
+\addlinespace[2pt]
+Personality & Openness: no & Openness: yes & 0 \\
+\addlinespace[2pt]
+Background & Work experience: Entry-level (0--2 years) & Work experience: Mid-level (6--10 years) & 0 \\
+\addlinespace[2pt]
+Interests & Technology adoption: Early Adopter & Technology adoption: Active User & 0 \\
+\bottomrule
+\end{tabularx}\par
+\endgroup
+\end{minipage}\par\medskip
+\subsubsection{Selective Graph Guidance, persona 10 (success)}
+\noindent\textbf{Selected follow-up questions:}\par\nopagebreak[4]
+\begin{enumerate}
+\setcounter{enumi}{1}
+\item What kind of updates do you usually look for on social media?
+\item What activities help you recharge when you have free time?
+\item How do you usually choose to spend an unstructured evening?
+\item What kinds of activities do you typically engage in with others during your free time?
+\end{enumerate}
+\noindent\textbf{Final graph:} 24 concepts and 12 edges. Recorded examples follow:\par\nopagebreak[4]
+\begin{itemize}
+\item \textbf{Recorded edge:} wake up early $\rightarrow$ hit the gym.
+\par\textbf{Relation:} temporal. \textbf{Turn:} 1.
+\par\textbf{Supporting span:} ``I wake up early, hit the gym''.
+\item \textbf{Recorded edge:} attend local events $\rightarrow$ shared experiences.
+\par\textbf{Relation:} theme. \textbf{Turn:} 5.
+\par\textbf{Supporting span:} ``attend local events''.
+\end{itemize}
+\noindent\begin{minipage}{\linewidth}
+\noindent\textbf{Average Gain:} $1.0000$.\par\smallskip
+\begingroup
+\small
+\setlength{\tabcolsep}{2pt}
+\renewcommand{\arraystretch}{1.12}
+\noindent\begin{tabularx}{\linewidth}{@{}p{0.19\linewidth}>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}Xr@{}}
+\toprule
+Dimension & Ground truth & Prediction & Score \\
+\midrule
+Social role & Athlete & Office Worker & 1 \\
+\addlinespace[2pt]
+Personality & Openness: no & Openness: no & 1 \\
+\addlinespace[2pt]
+Background & Economic status: Middle Class & Economic status: Middle Class & 1 \\
+\addlinespace[2pt]
+Interests & Social media usage: yes & Social media usage: yes & 1 \\
+\bottomrule
+\end{tabularx}\par
+\endgroup
+\end{minipage}\par\medskip
+The social-role score is correct at category level: Athlete and Office Worker belong to the same evaluated category. This is not exact occupation recovery.
+\subsubsection{Selective Graph Guidance, persona 143 (failure)}
+\noindent\textbf{Selected follow-up questions:}\par\nopagebreak[4]
+\begin{enumerate}
+\setcounter{enumi}{1}
+\item What kind of tech projects are you currently working on?
+\item How did you get started with integrating wearable data into fitness applications?
+\item What inspired you to experiment with AI tools for optimizing your workouts?
+\item What other areas of technology interest you besides fitness and AI?
+\end{enumerate}
+\noindent\textbf{Final graph:} 22 concepts and 16 edges. Recorded examples follow:\par\nopagebreak[4]
+\begin{itemize}
+\item \textbf{Recorded edge:} morning run $\rightarrow$ athletic routine.
+\par\textbf{Relation:} part-of. \textbf{Turn:} 1.
+\par\textbf{Supporting span:} ``balancing my athletic routine''.
+\item \textbf{Recorded edge:} blockchain $\rightarrow$ sports data sharing.
+\par\textbf{Relation:} instrument. \textbf{Turn:} 5.
+\par\textbf{Supporting span:} ``blockchain might be used for secure, transparent sports data sharing''.
+\end{itemize}
+\noindent\begin{minipage}{\linewidth}
+\noindent\textbf{Average Gain:} $-0.6411$.\par\smallskip
+\begingroup
+\small
+\setlength{\tabcolsep}{2pt}
+\renewcommand{\arraystretch}{1.12}
+\noindent\begin{tabularx}{\linewidth}{@{}p{0.19\linewidth}>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}Xr@{}}
+\toprule
+Dimension & Ground truth & Prediction & Score \\
+\midrule
+Social role & Athlete & Software Engineer & 0 \\
+\addlinespace[2pt]
+Personality & Conscientiousness: no & Conscientiousness: yes & 0 \\
+\addlinespace[2pt]
+Background & Education: Other & Education: Bachelor's Degree & 0 \\
+\addlinespace[2pt]
+Interests & Technology adoption: Average User & Technology adoption: Early Adopter & 0 \\
+\bottomrule
+\end{tabularx}\par
+\endgroup
+\end{minipage}\par\medskip
+The failed graph-guided cases illustrate that grounded graph content and specific follow-up questions can coexist with incorrect persona predictions. They do not establish that a graph edge caused the error, or validate the extracted relation semantics.
+
+\section{Expanded-Run Qualitative Comparisons}
+\label{app:expanded-qualitative}
+The retained expanded-run case set contains eight persona bundles, each with all ten
+methods (80 interviews, base seed 20260913). The bundles were originally selected by the
+largest and smallest Adaptive-minus-Original persona-level Average Gain for each target.
+For each method below, we show its highest- and lowest-scoring interview within these
+eight bundles. These are illustrative high/low outcomes, not population extrema or a
+representative sample. In particular, the higher-scoring case is not necessarily a complete
+four-dimension success. Ties are resolved by target identifier and then persona index.
+
+We show two selected follow-ups (Q2 and Q5), a final graph summary with one recorded edge,
+the ground truth, and the final prediction. The comparison panels list ground truth, prediction, and correctness for each
+dimension (1 = correct, 0 = incorrect). Social role is scored by category, not by exact
+occupation matching. Graph edges are LLM-generated intermediate
+representations, not human-validated relations. The common first question and response are
+identical across methods within each bundle, but these expanded-run realizations are
+not substituted for the primary-run examples in Appendix~\ref{app:qualitative-interviews}.
+Graph-guided variants are not part of this ten-method expanded run.
+
+\subsection{Original PD-Agent}
+\par\medskip\noindent\begin{minipage}{\linewidth}
+\textbf{Higher-scoring example}\par
+\noindent Target: Qwen3-1.7B. Persona: 69.\par
+\noindent Average Gain: $1.0000$.\par\smallskip
+\noindent\textbf{Selected questions}\par
+\noindent\textbf{Q2:} ``How do you approach complex problems or challenges in your work?''\par
+\noindent\textbf{Q5:} ``How do you ensure that your professional growth and development align with the evolving needs of your clients and the industry?''\par\smallskip
+\noindent\textbf{Final graph:} 25 concepts and 12 edges.\par
+\noindent\textbf{Recorded edge:} professional growth $\rightarrow$ clients.\par
+\noindent\textbf{Relation:} theme. \textbf{Turn:} 5.\par
+\noindent\textbf{Supporting span:} ``actively engaging with my clients''.\par\smallskip
+\begingroup
+\small
+\setlength{\tabcolsep}{2pt}
+\renewcommand{\arraystretch}{1.12}
+\noindent\begin{tabularx}{\linewidth}{@{}p{0.19\linewidth}>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}Xr@{}}
+\toprule
+Dimension & Ground truth & Prediction & Score \\
+\midrule
+Social role & Tax Accountant & Tax Accountant & 1 \\
+\addlinespace[2pt]
+Personality & Agreeableness: yes & Agreeableness: yes & 1 \\
+\addlinespace[2pt]
+Background & Work experience: Senior (11--15 years) & Work experience: Senior (11--15 years) & 1 \\
+\addlinespace[2pt]
+Interests & Content preferences: News / Current Affairs & Content preferences: News / Current Affairs & 1 \\
+\bottomrule
+\end{tabularx}\par
+\endgroup
+\end{minipage}\par\medskip
+
+\par\medskip\noindent\begin{minipage}{\linewidth}
+\textbf{Lower-scoring example}\par
+\noindent Target: Qwen3-1.7B. Persona: 116.\par
+\noindent Average Gain: $-0.3048$.\par\smallskip
+\noindent\textbf{Selected questions}\par
+\noindent\textbf{Q2:} ``How do you approach challenges or setbacks when they arise in your personal or professional life?''\par
+\noindent\textbf{Q5:} ``How do you envision your role in creating positive change, both in your immediate environment and on a larger scale?''\par\smallskip
+\noindent\textbf{Final graph:} 18 concepts and 13 edges.\par
+\noindent\textbf{Recorded edge:} community engagement $\rightarrow$ legacy of kindness.\par
+\noindent\textbf{Relation:} theme. \textbf{Turn:} 5.\par
+\noindent\textbf{Supporting span:} ``strive to leave a legacy of kindness''.\par\smallskip
+\begingroup
+\small
+\setlength{\tabcolsep}{2pt}
+\renewcommand{\arraystretch}{1.12}
+\noindent\begin{tabularx}{\linewidth}{@{}p{0.19\linewidth}>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}Xr@{}}
+\toprule
+Dimension & Ground truth & Prediction & Score \\
+\midrule
+Social role & Architect & Community Organizer & 0 \\
+\addlinespace[2pt]
+Personality & Extroversion: no & Extroversion: yes & 0 \\
+\addlinespace[2pt]
+Background & Economic status: Upper-Middle Class & Economic status: Middle Class & 0 \\
+\addlinespace[2pt]
+Interests & Social media usage: no & Social media usage: no & 1 \\
+\bottomrule
+\end{tabularx}\par
+\endgroup
+\end{minipage}\par\medskip
+
+\smallskip
+
+\subsection{Adaptive PD-Agent}
+\par\medskip\noindent\begin{minipage}{\linewidth}
+\textbf{Higher-scoring example}\par
+\noindent Target: Qwen3-1.7B. Persona: 116.\par
+\noindent Average Gain: $1.0000$.\par\smallskip
+\noindent\textbf{Selected questions}\par
+\noindent\textbf{Q2:} ``What kind of activities do you engage in that foster personal growth?''\par
+\noindent\textbf{Q5:} ``What kinds of topics do you voluntarily seek out?''\par\smallskip
+\noindent\textbf{Final graph:} 18 concepts and 15 edges.\par
+\noindent\textbf{Recorded edge:} books $\rightarrow$ broaden understanding.\par
+\noindent\textbf{Relation:} instrument. \textbf{Turn:} 5.\par
+\noindent\textbf{Supporting span:} ``through books, conversations, or experiences that broaden my understanding of the world''.\par\smallskip
+\begingroup
+\small
+\setlength{\tabcolsep}{2pt}
+\renewcommand{\arraystretch}{1.12}
+\noindent\begin{tabularx}{\linewidth}{@{}p{0.19\linewidth}>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}Xr@{}}
+\toprule
+Dimension & Ground truth & Prediction & Score \\
+\midrule
+Social role & Architect & Professor & 1 \\
+\addlinespace[2pt]
+Personality & Extroversion: no & Extroversion: no & 1 \\
+\addlinespace[2pt]
+Background & Economic status: Upper-Middle Class & Economic status: Upper-Middle Class & 1 \\
+\addlinespace[2pt]
+Interests & Social media usage: no & Social media usage: no & 1 \\
+\bottomrule
+\end{tabularx}\par
+\endgroup
+\end{minipage}\par\medskip
+
+\par\medskip\noindent\begin{minipage}{\linewidth}
+\textbf{Lower-scoring example}\par
+\noindent Target: Gemma-3-4B-it. Persona: 297.\par
+\noindent Average Gain: $-0.6411$.\par\smallskip
+\noindent\textbf{Selected questions}\par
+\noindent\textbf{Q2:} ``What inspired you to focus on employment contracts and administrative processes?''\par
+\noindent\textbf{Q5:} ``What specific features in document management platforms do you find most valuable for streamlining administrative tasks?''\par\smallskip
+\noindent\textbf{Final graph:} 27 concepts and 16 edges.\par
+\noindent\textbf{Recorded edge:} review and signature $\rightarrow$ automated routing.\par
+\noindent\textbf{Relation:} theme. \textbf{Turn:} 5.\par
+\noindent\textbf{Supporting span:} ``automated routing for review and signature''.\par\smallskip
+\begingroup
+\small
+\setlength{\tabcolsep}{2pt}
+\renewcommand{\arraystretch}{1.12}
+\noindent\begin{tabularx}{\linewidth}{@{}p{0.19\linewidth}>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}Xr@{}}
+\toprule
+Dimension & Ground truth & Prediction & Score \\
+\midrule
+Social role & Labor Consultant & HR Specialist & 0 \\
+\addlinespace[2pt]
+Personality & Openness: no & Openness: yes & 0 \\
+\addlinespace[2pt]
+Background & Education: Doctorate (Ph.D.) & Education: Bachelor's Degree & 0 \\
+\addlinespace[2pt]
+Interests & Technology adoption: Average User & Technology adoption: Active User & 0 \\
+\bottomrule
+\end{tabularx}\par
+\endgroup
+\end{minipage}\par\medskip
+
+\smallskip
+
+\subsection{Random candidate}
+\par\medskip\noindent\begin{minipage}{\linewidth}
+\textbf{Higher-scoring example}\par
+\noindent Target: Qwen3-1.7B. Persona: 116.\par
+\noindent Average Gain: $1.0000$.\par\smallskip
+\noindent\textbf{Selected questions}\par
+\noindent\textbf{Q2:} ``What kind of activities do you engage in that foster personal growth?''\par
+\noindent\textbf{Q5:} ``How do you balance your intellectual pursuits with more hands-on or creative activities?''\par\smallskip
+\noindent\textbf{Final graph:} 20 concepts and 15 edges.\par
+\noindent\textbf{Recorded edge:} balance $\rightarrow$ structured routine.\par
+\noindent\textbf{Relation:} cause-of. \textbf{Turn:} 5.\par
+\noindent\textbf{Supporting span:} ``I find balance by incorporating elements of both into my daily life''.\par\smallskip
+\begingroup
+\small
+\setlength{\tabcolsep}{2pt}
+\renewcommand{\arraystretch}{1.12}
+\noindent\begin{tabularx}{\linewidth}{@{}p{0.19\linewidth}>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}Xr@{}}
+\toprule
+Dimension & Ground truth & Prediction & Score \\
+\midrule
+Social role & Architect & Researcher & 1 \\
+\addlinespace[2pt]
+Personality & Extroversion: no & Extroversion: no & 1 \\
+\addlinespace[2pt]
+Background & Economic status: Upper-Middle Class & Economic status: Upper-Middle Class & 1 \\
+\addlinespace[2pt]
+Interests & Social media usage: no & Social media usage: no & 1 \\
+\bottomrule
+\end{tabularx}\par
+\endgroup
+\end{minipage}\par\medskip
+
+\par\medskip\noindent\begin{minipage}{\linewidth}
+\textbf{Lower-scoring example}\par
+\noindent Target: Qwen3-1.7B. Persona: 69.\par
+\noindent Average Gain: $-0.2325$.\par\smallskip
+\noindent\textbf{Selected questions}\par
+\noindent\textbf{Q2:} ``Are there any specific topics or industries you focus on when researching the economic landscape?''\par
+\noindent\textbf{Q5:} ``How do you apply insights from emerging technologies to your clients' strategies?''\par\smallskip
+\noindent\textbf{Final graph:} 24 concepts and 14 edges.\par
+\noindent\textbf{Recorded edge:} emerging technologies $\rightarrow$ innovation areas.\par
+\noindent\textbf{Relation:} cause-of. \textbf{Turn:} 5.\par
+\noindent\textbf{Supporting span:} ``I use these insights to help my clients identify potential areas for innovation''.\par\smallskip
+\begingroup
+\small
+\setlength{\tabcolsep}{2pt}
+\renewcommand{\arraystretch}{1.12}
+\noindent\begin{tabularx}{\linewidth}{@{}p{0.19\linewidth}>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}Xr@{}}
+\toprule
+Dimension & Ground truth & Prediction & Score \\
+\midrule
+Social role & Tax Accountant & Tax Accountant & 1 \\
+\addlinespace[2pt]
+Personality & Agreeableness: yes & Agreeableness: no & 0 \\
+\addlinespace[2pt]
+Background & Work experience: Senior (11--15 years) & Work experience: Expert (16+ years) & 0 \\
+\addlinespace[2pt]
+Interests & Content preferences: News / Current Affairs & Content preferences: Business / Economy, Technology / Science & 0 \\
+\bottomrule
+\end{tabularx}\par
+\endgroup
+\end{minipage}\par\medskip
+
+\smallskip
+
+\subsection{Round-robin}
+\par\medskip\noindent\begin{minipage}{\linewidth}
+\textbf{Higher-scoring example}\par
+\noindent Target: Qwen3-1.7B. Persona: 69.\par
+\noindent Average Gain: $0.6637$.\par\smallskip
+\noindent\textbf{Selected questions}\par
+\noindent\textbf{Q2:} ``How do you approach situations where your professional responsibilities might conflict with your personal values or interests?''\par
+\noindent\textbf{Q5:} ``Can you share an example of a project or task you've worked on that you found particularly engaging or satisfying, and what made it stand out to you?''\par\smallskip
+\noindent\textbf{Final graph:} 25 concepts and 12 edges.\par
+\noindent\textbf{Recorded edge:} client support $\rightarrow$ intellectually stimulating.\par
+\noindent\textbf{Relation:} theme. \textbf{Turn:} 5.\par
+\noindent\textbf{Supporting span:} ``both intellectually stimulating and rewarding''.\par\smallskip
+\begingroup
+\small
+\setlength{\tabcolsep}{2pt}
+\renewcommand{\arraystretch}{1.12}
+\noindent\begin{tabularx}{\linewidth}{@{}p{0.19\linewidth}>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}Xr@{}}
+\toprule
+Dimension & Ground truth & Prediction & Score \\
+\midrule
+Social role & Tax Accountant & Tax Accountant & 1 \\
+\addlinespace[2pt]
+Personality & Agreeableness: yes & Agreeableness: yes & 1 \\
+\addlinespace[2pt]
+Background & Work experience: Senior (11--15 years) & Work experience: Senior (11--15 years) & 1 \\
+\addlinespace[2pt]
+Interests & Content preferences: News / Current Affairs & Content preferences: Business / Economy & 0 \\
+\bottomrule
+\end{tabularx}\par
+\endgroup
+\end{minipage}\par\medskip
+
+\par\medskip\noindent\begin{minipage}{\linewidth}
+\textbf{Lower-scoring example}\par
+\noindent Target: Gemma-3-4B-it. Persona: 297.\par
+\noindent Average Gain: $0.2459$.\par\smallskip
+\noindent\textbf{Selected questions}\par
+\noindent\textbf{Q2:} ``How do you usually handle situations where a colleague or team member has a different approach to solving a problem?''\par
+\noindent\textbf{Q5:} ``Can you describe a situation where you had to balance following established procedures with the need to adapt to a new or changing circumstance, and how you approached that balance?''\par\smallskip
+\noindent\textbf{Final graph:} 28 concepts and 17 edges.\par
+\noindent\textbf{Recorded edge:} communication $\rightarrow$ service levels.\par
+\noindent\textbf{Relation:} cause-of. \textbf{Turn:} 5.\par
+\noindent\textbf{Supporting span:} ``careful communication was key to that''.\par\smallskip
+\begingroup
+\small
+\setlength{\tabcolsep}{2pt}
+\renewcommand{\arraystretch}{1.12}
+\noindent\begin{tabularx}{\linewidth}{@{}p{0.19\linewidth}>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}Xr@{}}
+\toprule
+Dimension & Ground truth & Prediction & Score \\
+\midrule
+Social role & Labor Consultant & HR Specialist & 0 \\
+\addlinespace[2pt]
+Personality & Openness: no & Openness: no & 1 \\
+\addlinespace[2pt]
+Background & Education: Doctorate (Ph.D.) & Education: Bachelor's Degree & 0 \\
+\addlinespace[2pt]
+Interests & Technology adoption: Average User & Technology adoption: Average User & 1 \\
+\bottomrule
+\end{tabularx}\par
+\endgroup
+\end{minipage}\par\medskip
+
+\smallskip
+
+\subsection{Dialogue follow-up}
+\par\medskip\noindent\begin{minipage}{\linewidth}
+\textbf{Higher-scoring example}\par
+\noindent Target: Qwen3-1.7B. Persona: 116.\par
+\noindent Average Gain: $1.0000$.\par\smallskip
+\noindent\textbf{Selected questions}\par
+\noindent\textbf{Q2:} ``How do you approach challenges or obstacles that arise in your personal or professional life?''\par
+\noindent\textbf{Q5:} ``How do you ensure that your personal values align with the actions you take in both your professional and personal life?''\par\smallskip
+\noindent\textbf{Final graph:} 19 concepts and 13 edges.\par
+\noindent\textbf{Recorded edge:} impact on others $\rightarrow$ consistency between beliefs and behavior.\par
+\noindent\textbf{Relation:} cause-of. \textbf{Turn:} 5.\par
+\noindent\textbf{Supporting span:} ``considering their impact on others, which helps me maintain consistency between my beliefs and my behavior''.\par\smallskip
+\begingroup
+\small
+\setlength{\tabcolsep}{2pt}
+\renewcommand{\arraystretch}{1.12}
+\noindent\begin{tabularx}{\linewidth}{@{}p{0.19\linewidth}>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}Xr@{}}
+\toprule
+Dimension & Ground truth & Prediction & Score \\
+\midrule
+Social role & Architect & Researcher & 1 \\
+\addlinespace[2pt]
+Personality & Extroversion: no & Extroversion: no & 1 \\
+\addlinespace[2pt]
+Background & Economic status: Upper-Middle Class & Economic status: Upper-Middle Class & 1 \\
+\addlinespace[2pt]
+Interests & Social media usage: no & Social media usage: no & 1 \\
+\bottomrule
+\end{tabularx}\par
+\endgroup
+\end{minipage}\par\medskip
+
+\par\medskip\noindent\begin{minipage}{\linewidth}
+\textbf{Lower-scoring example}\par
+\noindent Target: Gemma-3-4B-it. Persona: 208.\par
+\noindent Average Gain: $-0.6411$.\par\smallskip
+\noindent\textbf{Selected questions}\par
+\noindent\textbf{Q2:} ``How do you decide which tasks are the most urgent when you begin your day?''\par
+\noindent\textbf{Q5:} ``How do you determine when it's time to revisit or update the handwritten notes you keep for tasks that slipped through the system?''\par\smallskip
+\noindent\textbf{Final graph:} 11 concepts and 7 edges.\par
+\noindent\textbf{Recorded edge:} weekly review $\rightarrow$ adjust priorities.\par
+\noindent\textbf{Relation:} cause-of. \textbf{Turn:} 5.\par
+\noindent\textbf{Supporting span:} ``adjusting priorities as needed''.\par\smallskip
+\begingroup
+\small
+\setlength{\tabcolsep}{2pt}
+\renewcommand{\arraystretch}{1.12}
+\noindent\begin{tabularx}{\linewidth}{@{}p{0.19\linewidth}>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}Xr@{}}
+\toprule
+Dimension & Ground truth & Prediction & Score \\
+\midrule
+Social role & Office Worker & Project Manager & 0 \\
+\addlinespace[2pt]
+Personality & Conscientiousness: no & Conscientiousness: yes & 0 \\
+\addlinespace[2pt]
+Background & Location: Abroad & Location: Metropolitan Area & 0 \\
+\addlinespace[2pt]
+Interests & Communication style: Concise & Communication style: Logical & 0 \\
+\bottomrule
+\end{tabularx}\par
+\endgroup
+\end{minipage}\par\medskip
+
+\smallskip
+
+\subsection{Controller-matched generic}
+\par\medskip\noindent\begin{minipage}{\linewidth}
+\textbf{Higher-scoring example}\par
+\noindent Target: Qwen3-4B. Persona: 34.\par
+\noindent Average Gain: $0.6637$.\par\smallskip
+\noindent\textbf{Selected questions}\par
+\noindent\textbf{Q2:} ``How do you decide which industry trends are most relevant to your audience?''\par
+\noindent\textbf{Q5:} ``How do you balance covering emerging trends with maintaining a consistent content theme?''\par\smallskip
+\noindent\textbf{Final graph:} 24 concepts and 14 edges.\par
+\noindent\textbf{Recorded edge:} trend integration $\rightarrow$ brand identity.\par
+\noindent\textbf{Relation:} cause-of. \textbf{Turn:} 5.\par
+\noindent\textbf{Supporting span:} ``ensuring each topic enhances the overall theme without disrupting the brand's identity''.\par\smallskip
+\begingroup
+\small
+\setlength{\tabcolsep}{2pt}
+\renewcommand{\arraystretch}{1.12}
+\noindent\begin{tabularx}{\linewidth}{@{}p{0.19\linewidth}>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}Xr@{}}
+\toprule
+Dimension & Ground truth & Prediction & Score \\
+\midrule
+Social role & Content Creator & Content Creator & 1 \\
+\addlinespace[2pt]
+Personality & Agreeableness: yes & Agreeableness: yes & 1 \\
+\addlinespace[2pt]
+Background & Work experience: Senior (11--15 years) & Work experience: Senior (11--15 years) & 1 \\
+\addlinespace[2pt]
+Interests & Technology adoption: Active User & Technology adoption: Early Adopter & 0 \\
+\bottomrule
+\end{tabularx}\par
+\endgroup
+\end{minipage}\par\medskip
+
+\par\medskip\noindent\begin{minipage}{\linewidth}
+\textbf{Lower-scoring example}\par
+\noindent Target: Qwen3-1.7B. Persona: 116.\par
+\noindent Average Gain: $-0.3048$.\par\smallskip
+\noindent\textbf{Selected questions}\par
+\noindent\textbf{Q2:} ``Can you give an example of a recent project or initiative that had a meaningful impact on your surroundings?''\par
+\noindent\textbf{Q5:} ``How did you ensure that the community's specific needs were addressed throughout the project?''\par\smallskip
+\noindent\textbf{Final graph:} 17 concepts and 14 edges.\par
+\noindent\textbf{Recorded edge:} project approach $\rightarrow$ relevance.\par
+\noindent\textbf{Relation:} theme. \textbf{Turn:} 5.\par
+\noindent\textbf{Supporting span:} ``remained relevant''.\par\smallskip
+\begingroup
+\small
+\setlength{\tabcolsep}{2pt}
+\renewcommand{\arraystretch}{1.12}
+\noindent\begin{tabularx}{\linewidth}{@{}p{0.19\linewidth}>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}Xr@{}}
+\toprule
+Dimension & Ground truth & Prediction & Score \\
+\midrule
+Social role & Architect & Project Manager & 0 \\
+\addlinespace[2pt]
+Personality & Extroversion: no & Extroversion: yes & 0 \\
+\addlinespace[2pt]
+Background & Economic status: Upper-Middle Class & Economic status: Middle Class & 0 \\
+\addlinespace[2pt]
+Interests & Social media usage: no & Social media usage: no & 1 \\
+\bottomrule
+\end{tabularx}\par
+\endgroup
+\end{minipage}\par\medskip
+
+\smallskip
+
+\subsection{Direct generation}
+\par\medskip\noindent\begin{minipage}{\linewidth}
+\textbf{Higher-scoring example}\par
+\noindent Target: Qwen3-1.7B. Persona: 69.\par
+\noindent Average Gain: $0.6637$.\par\smallskip
+\noindent\textbf{Selected questions}\par
+\noindent\textbf{Q2:} ``What kind of news or current affairs topics do you find most interesting to follow?''\par
+\noindent\textbf{Q5:} ``How do you balance your professional responsibilities with your personal interests in economics and current affairs?''\par\smallskip
+\noindent\textbf{Final graph:} 22 concepts and 5 edges.\par
+\noindent\textbf{Recorded edge:} policy changes $\rightarrow$ business decisions.\par
+\noindent\textbf{Relation:} cause-of. \textbf{Turn:} 2.\par
+\noindent\textbf{Supporting span:} ``direct impact on business decisions''.\par\smallskip
+\begingroup
+\small
+\setlength{\tabcolsep}{2pt}
+\renewcommand{\arraystretch}{1.12}
+\noindent\begin{tabularx}{\linewidth}{@{}p{0.19\linewidth}>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}Xr@{}}
+\toprule
+Dimension & Ground truth & Prediction & Score \\
+\midrule
+Social role & Tax Accountant & Tax Accountant & 1 \\
+\addlinespace[2pt]
+Personality & Agreeableness: yes & Agreeableness: yes & 1 \\
+\addlinespace[2pt]
+Background & Work experience: Senior (11--15 years) & Work experience: Senior (11--15 years) & 1 \\
+\addlinespace[2pt]
+Interests & Content preferences: News / Current Affairs & Content preferences: Business / Economy & 0 \\
+\bottomrule
+\end{tabularx}\par
+\endgroup
+\end{minipage}\par\medskip
+
+\par\medskip\noindent\begin{minipage}{\linewidth}
+\textbf{Lower-scoring example}\par
+\noindent Target: Gemma-3-4B-it. Persona: 208.\par
+\noindent Average Gain: $-0.6411$.\par\smallskip
+\noindent\textbf{Selected questions}\par
+\noindent\textbf{Q2:} ``What kinds of activities or topics do you find yourself regularly engaging with outside of your daily tasks?''\par
+\noindent\textbf{Q5:} ``What other kinds of topics or subjects do you find yourself naturally curious about, beyond etymology and history?''\par\smallskip
+\noindent\textbf{Final graph:} 17 concepts and 11 edges.\par
+\noindent\textbf{Recorded edge:} systems $\rightarrow$ streamlined approach.\par
+\noindent\textbf{Relation:} theme. \textbf{Turn:} 5.\par
+\noindent\textbf{Supporting span:} ``to see if there's a more streamlined approach''.\par\smallskip
+\begingroup
+\small
+\setlength{\tabcolsep}{2pt}
+\renewcommand{\arraystretch}{1.12}
+\noindent\begin{tabularx}{\linewidth}{@{}p{0.19\linewidth}>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}Xr@{}}
+\toprule
+Dimension & Ground truth & Prediction & Score \\
+\midrule
+Social role & Office Worker & Researcher & 0 \\
+\addlinespace[2pt]
+Personality & Conscientiousness: no & Conscientiousness: yes & 0 \\
+\addlinespace[2pt]
+Background & Location: Abroad & Location: Metropolitan Area & 0 \\
+\addlinespace[2pt]
+Interests & Communication style: Concise & Communication style: Logical & 0 \\
+\bottomrule
+\end{tabularx}\par
+\endgroup
+\end{minipage}\par\medskip
+
+\smallskip
+
+\subsection{No coverage}
+\par\medskip\noindent\begin{minipage}{\linewidth}
+\textbf{Higher-scoring example}\par
+\noindent Target: Qwen3-1.7B. Persona: 69.\par
+\noindent Average Gain: $0.6637$.\par\smallskip
+\noindent\textbf{Selected questions}\par
+\noindent\textbf{Q2:} ``What kinds of news or current affairs do you find most interesting to follow?''\par
+\noindent\textbf{Q5:} ``What specific aspects of economic trends or policy changes do you find most compelling?''\par\smallskip
+\noindent\textbf{Final graph:} 25 concepts and 16 edges.\par
+\noindent\textbf{Recorded edge:} small businesses $\rightarrow$ clients.\par
+\noindent\textbf{Relation:} in. \textbf{Turn:} 5.\par
+\noindent\textbf{Supporting span:} ``directly influence the financial stability and growth of my clients''.\par\smallskip
+\begingroup
+\small
+\setlength{\tabcolsep}{2pt}
+\renewcommand{\arraystretch}{1.12}
+\noindent\begin{tabularx}{\linewidth}{@{}p{0.19\linewidth}>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}Xr@{}}
+\toprule
+Dimension & Ground truth & Prediction & Score \\
+\midrule
+Social role & Tax Accountant & Tax Accountant & 1 \\
+\addlinespace[2pt]
+Personality & Agreeableness: yes & Agreeableness: yes & 1 \\
+\addlinespace[2pt]
+Background & Work experience: Senior (11--15 years) & Work experience: Senior (11--15 years) & 1 \\
+\addlinespace[2pt]
+Interests & Content preferences: News / Current Affairs & Content preferences: Business / Economy & 0 \\
+\bottomrule
+\end{tabularx}\par
+\endgroup
+\end{minipage}\par\medskip
+
+\par\medskip\noindent\begin{minipage}{\linewidth}
+\textbf{Lower-scoring example}\par
+\noindent Target: Gemma-3-4B-it. Persona: 297.\par
+\noindent Average Gain: $-0.6411$.\par\smallskip
+\noindent\textbf{Selected questions}\par
+\noindent\textbf{Q2:} ``What kind of software solutions are you most interested in researching for administrative processes?''\par
+\noindent\textbf{Q5:} ``What kinds of topics do you voluntarily seek out?''\par\smallskip
+\noindent\textbf{Final graph:} 24 concepts and 17 edges.\par
+\noindent\textbf{Recorded edge:} industry best practices $\rightarrow$ industry practices.\par
+\noindent\textbf{Relation:} part-of. \textbf{Turn:} 5.\par
+\noindent\textbf{Supporting span:} ``industry best practices''.\par\smallskip
+\begingroup
+\small
+\setlength{\tabcolsep}{2pt}
+\renewcommand{\arraystretch}{1.12}
+\noindent\begin{tabularx}{\linewidth}{@{}p{0.19\linewidth}>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}Xr@{}}
+\toprule
+Dimension & Ground truth & Prediction & Score \\
+\midrule
+Social role & Labor Consultant & HR Specialist & 0 \\
+\addlinespace[2pt]
+Personality & Openness: no & Openness: yes & 0 \\
+\addlinespace[2pt]
+Background & Education: Doctorate (Ph.D.) & Education: Bachelor's Degree & 0 \\
+\addlinespace[2pt]
+Interests & Technology adoption: Average User & Technology adoption: Active User & 0 \\
+\bottomrule
+\end{tabularx}\par
+\endgroup
+\end{minipage}\par\medskip
+
+\smallskip
+
+\subsection{No redundancy}
+\par\medskip\noindent\begin{minipage}{\linewidth}
+\textbf{Higher-scoring example}\par
+\noindent Target: Qwen3-1.7B. Persona: 116.\par
+\noindent Average Gain: $1.0000$.\par\smallskip
+\noindent\textbf{Selected questions}\par
+\noindent\textbf{Q2:} ``What kinds of activities do you find most fulfilling when it comes to personal growth?''\par
+\noindent\textbf{Q5:} ``What are some specific examples of complex issues you've explored in the past?''\par\smallskip
+\noindent\textbf{Final graph:} 20 concepts and 13 edges.\par
+\noindent\textbf{Recorded edge:} societal structures $\rightarrow$ personal and collective challenges.\par
+\noindent\textbf{Relation:} theme. \textbf{Turn:} 5.\par
+\noindent\textbf{Supporting span:} ``provided valuable insights into both personal and collective challenges''.\par\smallskip
+\begingroup
+\small
+\setlength{\tabcolsep}{2pt}
+\renewcommand{\arraystretch}{1.12}
+\noindent\begin{tabularx}{\linewidth}{@{}p{0.19\linewidth}>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}Xr@{}}
+\toprule
+Dimension & Ground truth & Prediction & Score \\
+\midrule
+Social role & Architect & Researcher & 1 \\
+\addlinespace[2pt]
+Personality & Extroversion: no & Extroversion: no & 1 \\
+\addlinespace[2pt]
+Background & Economic status: Upper-Middle Class & Economic status: Upper-Middle Class & 1 \\
+\addlinespace[2pt]
+Interests & Social media usage: no & Social media usage: no & 1 \\
+\bottomrule
+\end{tabularx}\par
+\endgroup
+\end{minipage}\par\medskip
+
+\par\medskip\noindent\begin{minipage}{\linewidth}
+\textbf{Lower-scoring example}\par
+\noindent Target: Gemma-3-4B-it. Persona: 208.\par
+\noindent Average Gain: $-0.2325$.\par\smallskip
+\noindent\textbf{Selected questions}\par
+\noindent\textbf{Q2:} ``What kind of news topics do you find most interesting or relevant?''\par
+\noindent\textbf{Q5:} ``What other aspects of your daily routine are influenced by local developments?''\par\smallskip
+\noindent\textbf{Final graph:} 18 concepts and 11 edges.\par
+\noindent\textbf{Recorded edge:} route adjustment $\rightarrow$ shopping patterns.\par
+\noindent\textbf{Relation:} part-of. \textbf{Turn:} 5.\par
+\noindent\textbf{Supporting span:} ``adjust my route to avoid construction zones, naturally''.\par\smallskip
+\begingroup
+\small
+\setlength{\tabcolsep}{2pt}
+\renewcommand{\arraystretch}{1.12}
+\noindent\begin{tabularx}{\linewidth}{@{}p{0.19\linewidth}>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}Xr@{}}
+\toprule
+Dimension & Ground truth & Prediction & Score \\
+\midrule
+Social role & Office Worker & Office Worker & 1 \\
+\addlinespace[2pt]
+Personality & Conscientiousness: no & Conscientiousness: yes & 0 \\
+\addlinespace[2pt]
+Background & Location: Abroad & Location: Small/Mid-sized City & 0 \\
+\addlinespace[2pt]
+Interests & Communication style: Concise & Communication style: Detailed & 0 \\
+\bottomrule
+\end{tabularx}\par
+\endgroup
+\end{minipage}\par\medskip
+
+\smallskip
+
+\subsection{Active uncertainty}
+\par\medskip\noindent\begin{minipage}{\linewidth}
+\textbf{Higher-scoring example}\par
+\noindent Target: Qwen3-1.7B. Persona: 116.\par
+\noindent Average Gain: $1.0000$.\par\smallskip
+\noindent\textbf{Selected questions}\par
+\noindent\textbf{Q2:} ``How have your experiences influenced your perspective on personal growth and connection?''\par
+\noindent\textbf{Q5:} ``How do you decide when to prioritize efficiency over mindfulness in your daily tasks?''\par\smallskip
+\noindent\textbf{Final graph:} 19 concepts and 12 edges.\par
+\noindent\textbf{Recorded edge:} allocate time $\rightarrow$ mindfulness.\par
+\noindent\textbf{Relation:} instrument. \textbf{Turn:} 5.\par
+\noindent\textbf{Supporting span:} ``allocate time for mindfulness''.\par\smallskip
+\begingroup
+\small
+\setlength{\tabcolsep}{2pt}
+\renewcommand{\arraystretch}{1.12}
+\noindent\begin{tabularx}{\linewidth}{@{}p{0.19\linewidth}>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}Xr@{}}
+\toprule
+Dimension & Ground truth & Prediction & Score \\
+\midrule
+Social role & Architect & Researcher & 1 \\
+\addlinespace[2pt]
+Personality & Extroversion: no & Extroversion: no & 1 \\
+\addlinespace[2pt]
+Background & Economic status: Upper-Middle Class & Economic status: Upper-Middle Class & 1 \\
+\addlinespace[2pt]
+Interests & Social media usage: no & Social media usage: no & 1 \\
+\bottomrule
+\end{tabularx}\par
+\endgroup
+\end{minipage}\par\medskip
+
+\par\medskip\noindent\begin{minipage}{\linewidth}
+\textbf{Lower-scoring example}\par
+\noindent Target: Gemma-3-4B-it. Persona: 297.\par
+\noindent Average Gain: $-0.3048$.\par\smallskip
+\noindent\textbf{Selected questions}\par
+\noindent\textbf{Q2:} ``How do you usually approach researching new software solutions for administrative processes?''\par
+\noindent\textbf{Q5:} ``How did your early experiences shape your approach to problem-solving in the workplace?''\par\smallskip
+\noindent\textbf{Final graph:} 27 concepts and 16 edges.\par
+\noindent\textbf{Recorded edge:} methodical approach $\rightarrow$ problem-solving.\par
+\noindent\textbf{Relation:} theme. \textbf{Turn:} 5.\par
+\noindent\textbf{Supporting span:} ``breaking down complex issues, examining all the relevant factors, and presenting a reasoned solution''.\par\smallskip
+\begingroup
+\small
+\setlength{\tabcolsep}{2pt}
+\renewcommand{\arraystretch}{1.12}
+\noindent\begin{tabularx}{\linewidth}{@{}p{0.19\linewidth}>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}Xr@{}}
+\toprule
+Dimension & Ground truth & Prediction & Score \\
+\midrule
+Social role & Labor Consultant & HR Specialist & 0 \\
+\addlinespace[2pt]
+Personality & Openness: no & Openness: yes & 0 \\
+\addlinespace[2pt]
+Background & Education: Doctorate (Ph.D.) & Education: Bachelor's Degree & 0 \\
+\addlinespace[2pt]
+Interests & Technology adoption: Average User & Technology adoption: Average User & 1 \\
+\bottomrule
+\end{tabularx}\par
+\endgroup
+\end{minipage}\par\medskip
+
+\smallskip
+
+\end{multicols*}
+\clearpage
+\section{Model and Execution Settings}
+\label{app:model-execution-settings}
+
+Table~\ref{tab:model-execution-settings} records the common and target model snapshots
+and the provenance of the execution settings. A model revision identifies a checkpoint,
+not the experimental code repository. Table~\ref{tab:call-decoding-settings} gives
+role-specific decoding limits, and Table~\ref{tab:generation-seed-results} reports the
+exploratory three-seed comparisons.
+
+\renewcommand{\thetable}{S4a}
+\begin{table}[H]
+\centering
+\footnotesize
+\renewcommand{\arraystretch}{1.12}
+\caption{Model snapshots and recorded execution settings. Common and target checkpoint
+revisions are present in both the primary records and the revision audit. Additional
+software and precision entries are explicitly scoped to the revision execution audit/logs.
+Seeds are reported as used, without relabeling.}
+\label{tab:model-execution-settings}
+\begin{tabularx}{\textwidth}{@{}p{0.29\textwidth} X@{}}
+\toprule
+Setting & Value \\
+\midrule
+Common PD-Agent/final predictor & Qwen3-14B \\
+PD-Agent/final-predictor revision &
+\texttt{40c06982\allowbreak{}4f4251a9\allowbreak{}1eefaf28\allowbreak{}1ebe4c54\allowbreak{}4efd3e18} \\
+Qwen3-1.7B target revision &
+\texttt{70d244cc\allowbreak{}86ccca08\allowbreak{}cf5af4e1\allowbreak{}e306ecf9\allowbreak{}08b1ad5e} \\
+Qwen3-4B target revision &
+\texttt{1cfa9a72\allowbreak{}08912126\allowbreak{}459214e8\allowbreak{}b0432160\allowbreak{}3b3df60c} \\
+Llama-3.2-3B-Instruct target revision &
+\texttt{0cb88a4f\allowbreak{}764b7a12\allowbreak{}671c53f0\allowbreak{}838cd831\allowbreak{}a0843b95} \\
+Gemma-3-4B-it target revision &
+\texttt{093f9f38\allowbreak{}8b31de27\allowbreak{}6ce2de16\allowbreak{}4bdc2081\allowbreak{}324b9767} \\
+Maximum interview budget & Five questions \\
+Inference backend & vLLM 0.11.0 (primary records and revision audit) \\
+Additional software (revision audit) & Transformers 4.57.6; PyTorch 2.8.0+cu126; NumPy 2.2.6; SciPy 1.17.1 \\
+Precision (revision engine logs) & bfloat16; \texttt{quantization=None}. Not retrospectively attributed to the primary run \\
+Hardware & Eight NVIDIA H200 GPUs; 143{,}771 MiB per GPU; driver 580.126.16 \\
+Development cohort seed & 20260801 \\
+Previously observed cohort seed & 20260730 \\
+Frozen held-out cohort seed & 20260802 \\
+Primary run base seed & 20260831 \\
+Expanded baseline/ablation base seed & 20260913 \\
+Additional robustness base seed & 20260914 \\
+Unverified historical settings & Primary-run precision, separate CUDA toolkit/runtime version, and complete primary-run generation-seed derivation \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\renewcommand{\thetable}{S4b}
+\begin{table}[H]
+\centering
+\footnotesize
+\renewcommand{\arraystretch}{1.12}
+\caption{Recorded per-call decoding settings. All rows use top-$p=0.8$.
+Limits count newly generated tokens, not input context. The primary graph-guidance
+traces and revision call audit agree on shared roles; method-specific roles are
+listed separately. Integrated extraction in Selective Graph Guidance has a different
+limit from standalone graph extraction.}
+\label{tab:call-decoding-settings}
+\begin{tabularx}{\textwidth}{@{}Xrrp{0.25\textwidth}@{}}
+\toprule
+Call role & Temperature & Token limit & Record source \\
+\midrule
+Initial question & 0.7 & 96 & Primary and revision \\
+Original follow-up & 0.7 & 96 & Revision call audit \\
+Adaptive and three-candidate controllers & 0.7 & 512 & Revision call audit \\
+Dialogue-follow-up and round-robin & 0.7 & 128 & Revision call audit \\
+Online Graph Guidance action/question & 0.7 & 640 & Primary traces \\
+Selective dialogue/graph candidate & 0.7 & 256 & Primary traces \\
+Selective candidate utility & 0.0 & 256 & Primary traces \\
+Standalone evidence-state analysis & 0.0 & 512 & Primary traces \\
+Standalone graph extraction & 0.0 & 768 & Primary and revision \\
+Selective integrated extraction/state & 0.0 & 896 & Primary traces \\
+Target response & 0.7 & 256 & Primary and revision \\
+Final prediction & 0.0 & 384 & Primary and revision \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\renewcommand{\thetable}{S4c}
+\begin{table}[H]
+\centering
+\footnotesize
+\setlength{\tabcolsep}{5pt}
+\caption{Exploratory Original-versus-Adaptive comparisons for three recorded base seeds
+with Qwen3-14B as PD-Agent ($N=100$ personas per target and seed).
+Effects are mean persona-level Adaptive-minus-Original Average Gain.
+The retained paired-persona bootstrap intervals are seed-specific, not intervals
+over a population of generation seeds. These subsets do not replace the primary
+$N=304$ comparison.}
+\label{tab:generation-seed-results}
+\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}llrrr@{}}
+\toprule
+Target & Base seed & Mean difference & 95\% CI low & 95\% CI high \\
+\midrule
+Qwen3-1.7B & 20260831 & $+0.0134$ & $-0.0450$ & $+0.0727$ \\
+ & 20260913 & $+0.0003$ & $-0.0620$ & $+0.0649$ \\
+ & 20260914 & $+0.0458$ & $-0.0127$ & $+0.1049$ \\
+\addlinespace
+Qwen3-4B & 20260831 & $+0.0665$ & $-0.0013$ & $+0.1313$ \\
+ & 20260913 & $+0.0702$ & $+0.0097$ & $+0.1310$ \\
+ & 20260914 & $+0.0723$ & $+0.0110$ & $+0.1319$ \\
+\addlinespace
+Llama-3.2-3B-Instruct & 20260831 & $+0.0578$ & $-0.0047$ & $+0.1155$ \\
+ & 20260913 & $+0.0505$ & $-0.0176$ & $+0.1174$ \\
+ & 20260914 & $+0.0941$ & $+0.0276$ & $+0.1617$ \\
+\addlinespace
+Gemma-3-4B-it & 20260831 & $+0.0295$ & $-0.0360$ & $+0.0957$ \\
+ & 20260913 & $+0.0122$ & $-0.0533$ & $+0.0780$ \\
+ & 20260914 & $+0.0312$ & $-0.0478$ & $+0.1093$ \\
+\bottomrule
+\end{tabular*}
+\end{table}
+
+All twelve point estimates are positive, but nine of their intervals include zero.
+The spread across three recorded base seeds is descriptive and does not establish
+stability across arbitrary seeds or eliminate stochastic-generation uncertainty.
+
+\renewcommand{\thetable}{S4d}
+\begin{table}[H]
+\centering
+\footnotesize
+\caption{Exploratory backbone comparison with Qwen3-1.7B as target, the same 100-persona subset, and base seed 20260913. The first two rows report Adaptive-minus-Original Average Gain; the last compares those effects. Intervals are paired-persona bootstrap intervals. Raw Wilcoxon $p$-values are descriptive, outside the primary four-target correction family.}
+\label{tab:backbone-results}
+\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}lrrrr@{}}
+\toprule
+PD-Agent backbone / contrast & Mean difference & 95\% CI low & 95\% CI high & Raw $p$ \\
+\midrule
+Qwen3-14B & $+0.0003$ & $-0.0620$ & $+0.0649$ & 0.8229 \\
+Qwen3-8B & $-0.0035$ & $-0.0605$ & $+0.0530$ & 0.5664 \\
+8B effect minus 14B effect & $-0.0038$ & $-0.0936$ & $+0.0834$ & 0.9147 \\
+\bottomrule
+\end{tabular*}
+\end{table}
+
+\section{Primary-Run Raw Metrics and Majority Baselines}
+\label{app:primary-raw-metrics}
+
+Table~\ref{tab:primary-raw-metrics} reports the raw metrics corresponding to the normalized
+gains in Table~\ref{tab:main_results}. All four methods were evaluated on the same 304
+frozen held-out personas in the primary run (base seed 20260831, cohort seed 20260802).
+The scores were aggregated from persona-level evaluation records, not reconstructed from
+rounded gains. These results are separate from the expanded baseline and ablation run.
+
+\renewcommand{\thetable}{S5}
+\begin{table}[H]
+\centering
+\footnotesize
+\setlength{\tabcolsep}{4pt}
+\caption{Primary-run raw dimension metrics and held-out majority baselines
+($N=304$ per target and method). Social role uses category accuracy, personality uses
+polarity accuracy, background uses value accuracy, and interests use cohort-level
+micro-F1. The baseline is the overall category majority for social role and the
+trait/category-conditional majority for the other dimensions. Values are rounded to
+four decimal places only for display. Normalized gains and interview costs appear in
+Table~\ref{tab:main_results}.}
+\label{tab:primary-raw-metrics}
+\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}llrrrr@{}}
+\toprule
+\textbf{Target LLM} & \textbf{Method}
+& \makecell{\textbf{Social-role}\\\textbf{accuracy}}
+& \makecell{\textbf{Personality}\\\textbf{accuracy}}
+& \makecell{\textbf{Background}\\\textbf{accuracy}}
+& \makecell{\textbf{Interest}\\\textbf{micro-F1}} \\
+\midrule
+\multicolumn{2}{l}{Held-out majority baseline} & 0.3882 & 0.5461 & 0.2763 & 0.2566 \\
+\midrule
+\multirow{4}{*}{Qwen3-1.7B}
+& Original PD-Agent & 0.7336 & 0.5559 & 0.2829 & 0.5658 \\
+& Online Graph Guidance & 0.7171 & 0.5724 & 0.3092 & 0.5757 \\
+& Selective Graph Guidance & 0.7237 & 0.5461 & 0.2961 & 0.5493 \\
+& Adaptive PD-Agent & 0.7533 & 0.5757 & 0.2862 & 0.5625 \\
+\midrule
+\multirow{4}{*}{Qwen3-4B}
+& Original PD-Agent & 0.8849 & 0.5855 & 0.3026 & 0.5066 \\
+& Online Graph Guidance & 0.8684 & 0.5724 & 0.3092 & 0.5395 \\
+& Selective Graph Guidance & 0.9013 & 0.5658 & 0.3289 & 0.5493 \\
+& Adaptive PD-Agent & 0.9112 & 0.5789 & 0.3553 & 0.5493 \\
+\midrule
+\multirow{4}{*}{Llama-3.2-3B}
+& Original PD-Agent & 0.8487 & 0.6316 & 0.3224 & 0.5099 \\
+& Online Graph Guidance & 0.8520 & 0.6743 & 0.3355 & 0.5164 \\
+& Selective Graph Guidance & 0.8553 & 0.6579 & 0.3651 & 0.5066 \\
+& Adaptive PD-Agent & 0.8618 & 0.6612 & 0.4211 & 0.5033 \\
+\midrule
+\multirow{4}{*}{Gemma-3-4B}
+& Original PD-Agent & 0.8191 & 0.6579 & 0.3322 & 0.6020 \\
+& Online Graph Guidance & 0.8092 & 0.6678 & 0.3618 & 0.5789 \\
+& Selective Graph Guidance & 0.8158 & 0.6776 & 0.3586 & 0.6020 \\
+& Adaptive PD-Agent & 0.8388 & 0.6809 & 0.4145 & 0.5395 \\
+\bottomrule
+\end{tabular*}
+\end{table}
+
+\clearpage
+\section{Additional Experimental Results and Resource Accounting}
+\label{app:additional-result-tables}
+
+\subsection{Resource Accounting and Primary-Run Token Use}
+\renewcommand{\thetable}{S6a}
+\begin{table}[H]
+\centering
+\footnotesize
+\setlength{\tabcolsep}{3pt}
+\caption{Partial computational resource accounting for the revision runs. Input and output
+tokens are counted using the native tokenizer exposed by each vLLM model instance. GPU-hours
+are the sum of shard elapsed times on eight NVIDIA H200 GPUs and are not a monetary or
+environmental cost estimate. Cached-token counts, power consumption, depreciation, and
+time-resolved utilization were not available.}
+\label{tab:resource-accounting}
+\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}lrrrrr@{}}
+\toprule
+Run bundle & Rows & Model calls & Input tokens & Output tokens & H200 GPU-hours \\
+\midrule
+Main strong-baseline + ablation & 10,944 & 175,104 & 73,516,252 & 28,322,163 & 3.1194 \\
+Multi-seed + Qwen3-8B robustness & 1,000 & 16,000 & 6,500,344 & 2,465,908 & 0.6775 \\
+Active uncertainty baseline & 1,216 & 43,776 & 19,929,164 & 4,359,337 & 2.3403 \\
+\textbf{Revision addition total} & \textbf{13,160} & \textbf{234,880} & \textbf{99,945,760} & \textbf{35,147,408} & \textbf{6.1372} \\
+\bottomrule
+\end{tabular*}
+\end{table}
+
+\renewcommand{\thetable}{S6b}
+\begin{table}[H]
+\centering
+\footnotesize
+\caption{Complete recorded primary-run call and token totals for all four methods. Each row covers 304 interviews and every recorded call role, including Target calls. Counts use native tokenizers. Complete primary-run wall-clock time and GPU-hours were not retained.}
+\label{tab:primary-resource-totals}
+\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}llrrr@{}}
+\toprule
+Target & Method & Calls & Input tokens & Output tokens \\
+\midrule
+Qwen3-1.7B & Original & 4,864 & 1,823,467 & 611,251 \\
+ & Adaptive & 4,864 & 1,852,138 & 781,170 \\
+ & Online graph & 6,381 & 5,335,711 & 1,171,252 \\
+ & Selective graph & 5,932 & 2,731,735 & 694,297 \\
+Qwen3-4B & Original & 4,864 & 1,820,114 & 633,861 \\
+ & Adaptive & 4,864 & 1,886,736 & 814,816 \\
+ & Online graph & 6,378 & 5,416,438 & 1,181,280 \\
+ & Selective graph & 5,899 & 2,757,639 & 725,182 \\
+Llama-3.2-3B & Original & 4,864 & 2,228,283 & 766,735 \\
+ & Adaptive & 4,864 & 2,255,103 & 946,913 \\
+ & Online graph & 6,384 & 6,435,783 & 1,356,269 \\
+ & Selective graph & 5,687 & 3,092,938 & 817,153 \\
+Gemma-3-4B & Original & 4,864 & 2,200,089 & 750,600 \\
+ & Adaptive & 4,864 & 2,254,387 & 944,226 \\
+ & Online graph & 6,384 & 6,450,866 & 1,368,719 \\
+ & Selective graph & 5,731 & 3,079,802 & 815,612 \\
+\multicolumn{2}{l}{All 4,864 primary interviews} & 87,688 & 51,621,229 & 14,379,336 \\
+\bottomrule
+\end{tabular*}
+\end{table}
+
+\renewcommand{\thetable}{S7}
+\begin{table}[H]
+\centering
+\footnotesize
+\setlength{\tabcolsep}{3pt}
+\caption{Primary-run token use per interview ($N=304$ per target and method). Brackets
+contain the retained persona-bootstrap 95\% confidence intervals for each mean. The final
+column is the ratio of the method's mean input tokens to Original's mean for the same target.
+These marginal mean intervals are not confidence intervals for that ratio.}
+\label{tab:primary-token-uncertainty}
+\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}llrrr@{}}
+\toprule
+Target & Method & Mean input tokens [95\% CI] & Mean output tokens [95\% CI] & Input ratio \\
+\midrule
+Qwen3-1.7B & Original & 5998.2 [5931.9, 6063.8] & 2010.7 [1981.9, 2039.8] & 1.000 \\
+Qwen3-1.7B & Adaptive & 6092.6 [6042.0, 6144.9] & 2569.6 [2544.3, 2595.6] & 1.016 \\
+Qwen3-4B & Original & 5987.2 [5946.9, 6027.3] & 2085.1 [2065.3, 2104.6] & 1.000 \\
+Qwen3-4B & Adaptive & 6206.4 [6169.2, 6244.3] & 2680.3 [2657.9, 2702.5] & 1.037 \\
+Llama-3.2-3B & Original & 7329.9 [7267.2, 7394.2] & 2522.2 [2501.1, 2543.2] & 1.000 \\
+Llama-3.2-3B & Adaptive & 7418.1 [7360.6, 7476.5] & 3114.8 [3091.3, 3138.7] & 1.012 \\
+Gemma-3-4B & Original & 7237.1 [7156.9, 7322.9] & 2469.1 [2442.4, 2495.6] & 1.000 \\
+Gemma-3-4B & Adaptive & 7415.7 [7341.5, 7489.0] & 3106.0 [3077.1, 3135.3] & 1.025 \\
+\bottomrule
+\end{tabular*}
+\end{table}
+
+\clearpage
+\subsection{Expanded Baseline and Controller-Ablation Tests}
+\renewcommand{\thetable}{S8}
+\begin{table}[H]
+\centering
+\footnotesize
+\setlength{\tabcolsep}{3pt}
+\caption{Paired macro Average Gain contrasts for the expanded baseline run. Each difference is
+Adaptive PD-Agent minus the comparator over the same 304 held-out personas. The four required
+controls were corrected as one 16-test Benjamini--Hochberg family; active uncertainty was
+corrected as a separate four-test family. CI denotes a 10,000-replicate paired percentile
+bootstrap interval, and effect is the rank-biserial effect size.}
+\label{tab:stronger-baselines}
+\begin{tabularx}{\textwidth}{l l r X r r r}
+\toprule
+Target & Comparator & $\Delta$ & 95\% CI & Raw $p$ & BH $p$ & Effect \\
+\midrule
+Qwen3-1.7B & Random candidate & $-0.0064$ & $[-0.0364,+0.0253]$ & 0.6225 & 0.7487 & $-0.053$ \\
+Qwen3-1.7B & Round-robin & $+0.0332$ & $[-0.0020,+0.0686]$ & 0.07242 & 0.1448 & $+0.172$ \\
+Qwen3-1.7B & Dialogue follow-up & $+0.0232$ & $[-0.0088,+0.0566]$ & 0.1138 & 0.2023 & $+0.172$ \\
+Qwen3-1.7B & Controller-matched generic & $+0.0110$ & $[-0.0266,+0.0477]$ & 0.6551 & 0.7487 & $+0.045$ \\
+Qwen3-4B & Random candidate & $+0.0161$ & $[-0.0160,+0.0492]$ & 0.7662 & 0.8173 & $+0.032$ \\
+Qwen3-4B & Round-robin & $+0.0656$ & $[+0.0304,+0.1001]$ & 0.000376 & 0.001504 & $+0.341$ \\
+Qwen3-4B & Dialogue follow-up & $+0.0629$ & $[+0.0267,+0.0986]$ & 0.001965 & 0.006289 & $+0.296$ \\
+Qwen3-4B & Controller-matched generic & $+0.0470$ & $[+0.0153,+0.0791]$ & 0.007717 & 0.02058 & $+0.277$ \\
+Llama-3.2-3B-Instruct & Random candidate & $+0.0016$ & $[-0.0341,+0.0366]$ & 0.9946 & 0.9946 & $+0.001$ \\
+Llama-3.2-3B-Instruct & Round-robin & $+0.0690$ & $[+0.0314,+0.1067]$ & 0.000310 & 0.001504 & $+0.323$ \\
+Llama-3.2-3B-Instruct & Dialogue follow-up & $+0.0755$ & $[+0.0350,+0.1153]$ & 0.000197 & 0.001504 & $+0.341$ \\
+Llama-3.2-3B-Instruct & Controller-matched generic & $+0.0832$ & $[+0.0470,+0.1194]$ & 0.000014 & 0.000231 & $+0.393$ \\
+Gemma-3-4B-IT & Random candidate & $-0.0235$ & $[-0.0591,+0.0122]$ & 0.1811 & 0.2898 & $-0.132$ \\
+Gemma-3-4B-IT & Round-robin & $-0.0202$ & $[-0.0585,+0.0177]$ & 0.5668 & 0.7487 & $-0.054$ \\
+Gemma-3-4B-IT & Dialogue follow-up & $+0.0163$ & $[-0.0232,+0.0554]$ & 0.4768 & 0.6936 & $+0.067$ \\
+Gemma-3-4B-IT & Controller-matched generic & $+0.0243$ & $[-0.0125,+0.0621]$ & 0.06103 & 0.1395 & $+0.183$ \\
+Qwen3-1.7B & Active uncertainty & $+0.0072$ & $[-0.0261,+0.0409]$ & 0.7088 & 0.7206 & $+0.037$ \\
+Qwen3-4B & Active uncertainty & $-0.0022$ & $[-0.0366,+0.0309]$ & 0.7206 & 0.7206 & $-0.035$ \\
+Llama-3.2-3B-Instruct & Active uncertainty & $-0.0264$ & $[-0.0654,+0.0118]$ & 0.2947 & 0.5894 & $-0.091$ \\
+Gemma-3-4B-IT & Active uncertainty & $-0.0394$ & $[-0.0756,-0.0036]$ & 0.06943 & 0.2777 & $-0.173$ \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\renewcommand{\thetable}{S9}
+\begin{table}[H]
+\centering
+\footnotesize
+\setlength{\tabcolsep}{3pt}
+\caption{Paired controller-ablation contrasts for the expanded run. Each difference is
+Adaptive PD-Agent minus the indicated ablation over the same 304 held-out personas. The 12
+target-by-ablation tests were corrected as one Benjamini--Hochberg family. CI denotes a
+10,000-replicate paired percentile bootstrap interval, and effect is the rank-biserial effect
+size.}
+\label{tab:controller-ablation-tests}
+\begin{tabularx}{\textwidth}{l l r X r r r}
+\toprule
+Target & Ablation & $\Delta$ & 95\% CI & Raw $p$ & BH $p$ & Effect \\
+\midrule
+Qwen3-1.7B & Direct generation & $+0.0059$ & $[-0.0258,+0.0384]$ & 0.5863 & 0.9848 & $+0.057$ \\
+Qwen3-1.7B & No coverage & $+0.0017$ & $[-0.0295,+0.0325]$ & 0.9974 & 0.9974 & $+0.000$ \\
+Qwen3-1.7B & No redundancy & $+0.0276$ & $[-0.0031,+0.0575]$ & 0.05552 & 0.3331 & $+0.211$ \\
+Qwen3-4B & Direct generation & $+0.0309$ & $[-0.0016,+0.0639]$ & 0.03895 & 0.3331 & $+0.212$ \\
+Qwen3-4B & No coverage & $+0.0044$ & $[-0.0263,+0.0365]$ & 0.9028 & 0.9848 & $-0.013$ \\
+Qwen3-4B & No redundancy & $+0.0131$ & $[-0.0182,+0.0443]$ & 0.5477 & 0.9848 & $+0.063$ \\
+Llama-3.2-3B-Instruct & Direct generation & $+0.0129$ & $[-0.0236,+0.0499]$ & 0.7836 & 0.9848 & $+0.026$ \\
+Llama-3.2-3B-Instruct & No coverage & $-0.0024$ & $[-0.0369,+0.0324]$ & 0.8624 & 0.9848 & $-0.017$ \\
+Llama-3.2-3B-Instruct & No redundancy & $+0.0143$ & $[-0.0203,+0.0486]$ & 0.3759 & 0.9022 & $+0.087$ \\
+Gemma-3-4B-IT & Direct generation & $+0.0113$ & $[-0.0246,+0.0490]$ & 0.6697 & 0.9848 & $+0.040$ \\
+Gemma-3-4B-IT & No coverage & $+0.0203$ & $[-0.0134,+0.0544]$ & 0.3467 & 0.9022 & $+0.096$ \\
+Gemma-3-4B-IT & No redundancy & $+0.0237$ & $[-0.0113,+0.0590]$ & 0.2498 & 0.9022 & $+0.111$ \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\subsection{Selective Graph-Guidance Behavior}
+\renewcommand{\thetable}{S10}
+\begin{table}[H]
+\centering
+\caption{Behavior and efficiency of Selective Graph Guidance on the held-out cohort. Although
+the gate activates on $42.0$--$51.4\%$ of decision turns, graph-guided questions are selected
+on only $31.9$--$40.7\%$, so dialogue fallback remains the dominant path. Selective use
+reduces input tokens by $48.8$--$52.3\%$ relative to Online Graph Guidance and enables early
+stopping in $10.2$--$21.4\%$ of interviews. Rates are reported as proportions in the table.}
+\label{tab:selective_behavior}
+\footnotesize
+\setlength{\tabcolsep}{3pt}
+\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}lrrrrrrrr@{}}
+\toprule
+\textbf{Target LLM}
+& \makecell{\textbf{Avg.}\\\textbf{Gain}}
+& \makecell{\textbf{Avg.}\\\textbf{Turns}}
+& \makecell{\textbf{Input}\\\textbf{Tokens}}
+& \makecell{\textbf{Token}\\\textbf{Reduction}}
+& \makecell{\textbf{Gate}\\\textbf{Rate}}
+& \makecell{\textbf{Graph}\\\textbf{Selection}}
+& \makecell{\textbf{Dialogue}\\\textbf{Fallback}}
+& \makecell{\textbf{Early}\\\textbf{Stop}} \\
+\midrule
+Qwen3-1.7B   & 0.242 & 4.82 & 8986  & 48.8\% & 0.514 & 0.407 & 0.593 & 0.125 \\
+Qwen3-4B     & 0.337 & 4.83 & 9071  & 49.1\% & 0.491 & 0.394 & 0.606 & 0.125 \\
+Llama-3.2-3B & 0.367 & 4.66 & 10174 & 51.9\% & 0.459 & 0.361 & 0.639 & 0.214 \\
+Gemma-3-4B   & 0.392 & 4.84 & 10131 & 52.3\% & 0.420 & 0.319 & 0.681 & 0.102 \\
+\bottomrule
+\end{tabular*}
+\end{table}
+
+\subsection{Declared Dimension Allocation in the Expanded Run}
+\renewcommand{\thetable}{S11}
+\begin{table}[H]
+\centering
+\footnotesize
+\caption{Declared target dimensions in the expanded run (seed 20260913), pooled across four targets. Each method has $4\times304\times4=4,864$ follow-up decisions, excluding the shared first question. Counts are controller metadata, not independent annotations of content. Methods without a target-dimension field are not assigned inferred labels.}
+\label{tab:dimension-budget}
+\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}lrrrrr@{}}
+\toprule
+Method & Social role & Personality & Background & Interests & Unlabelled \\
+\midrule
+Adaptive & 241 & 187 & 933 & 3503 & 0 \\
+Random candidate & 330 & 191 & 1015 & 3327 & 1 \\
+Round-robin & 1216 & 1216 & 1216 & 1216 & 0 \\
+Direct generation & 373 & 138 & 332 & 4021 & 0 \\
+No coverage & 351 & 52 & 876 & 3580 & 5 \\
+No redundancy & 141 & 136 & 424 & 4163 & 0 \\
+Active uncertainty & 1281 & 1165 & 1451 & 967 & 0 \\
+\bottomrule
+\end{tabular*}
+\end{table}
+
+\twocolumn
+\bibliographystyle{IEEEtran}
+\bibliography{mybibliography}
+
+\begin{IEEEbiography}[{\includegraphics[width=1in,height=1.25in,clip,keepaspectratio]{author/jisooyang.png}}]{Jisoo Yang}
+received the B.S. degree in Software Engineering from Dankook University, Republic of Korea, in 2024. She is currently pursuing the M.S. degree in Artificial Intelligence at Chung-Ang University, Seoul, Republic of Korea. Her research interests include calibration and uncertainty estimation for large language models and vision-language models, with a particular focus on improving their reliability and trustworthiness.
+\end{IEEEbiography}
+
+\vspace{-3\baselineskip}
+
+\begin{IEEEbiography}[{\includegraphics[width=1in,height=1.25in,clip,keepaspectratio]{author/jongwonryu.png}}]{Jongwon Ryu}
+received the M.S. degree in artificial intelligence from Chung-Ang University,
+Seoul, Republic of Korea, in 2025. He is currently pursuing the Ph.D. degree
+at Chung-Ang University. His research interests include natural language
+processing and multimodal reasoning.
+\end{IEEEbiography}
+
+\vspace{-3\baselineskip}
+
+\begin{IEEEbiography}[{\includegraphics[width=1in,height=1.25in,clip,keepaspectratio]{author/trung.png}}]{Trung X. Pham}
+received the B.S. degree from the School of Electronics and Telecommunications
+(SET), Hanoi University of Science and Technology (HUST), Hanoi, Vietnam,
+in 2014, and the Ph.D. degree from the Korea Advanced Institute of Science
+and Technology (KAIST), Republic of Korea, in 2025. He is currently a Lecturer
+with the Faculty of Information Technology, Van Lang Technology (VLTECH),
+Van Lang University, Ho Chi Minh City, Vietnam.
+\end{IEEEbiography}
+
+\vspace{-3\baselineskip}
+
+\begin{IEEEbiography}[{\includegraphics[width=1in,height=1.25in,clip,keepaspectratio]{author/junyeongkim.png}}]{Junyeong Kim}
+(Member, IEEE) received the
+B.S., M.S., and Ph.D. degrees from KAIST, Republic of Korea, in 2015, 2017, and 2021, respectively. He was a Postdoctoral Research Associate with the Artificial Intelligence and Machine Learning Laboratory, School of Electrical Engineering, KAIST. He is currently an Assistant Professor
+with the Department of AI, Chung-Ang University, Republic of Korea. His research interests include
+visual language reasoning, visual question answering, and various video-based problems.
+\end{IEEEbiography}
+
+\EOD
+
+\end{document}

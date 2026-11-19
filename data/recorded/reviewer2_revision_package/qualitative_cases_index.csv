@@ -1,0 +1,9 @@
+case_id,target_model,selection,persona_index,persona_id,adaptive_minus_original_average_gain,methods_extracted,rerun_required,hidden_chain_of_thought
+Qwen_Qwen3-1.7B_116_adaptive_success,Qwen/Qwen3-1.7B,adaptive_success,116,persona_79c2ad82adf42ad9d602c30e1c94c2889dccc8030cc5986693f1b26a8bd0cafd,1.3047813336733394,10,False,[MISSING]; not requested or logged
+Qwen_Qwen3-1.7B_69_adaptive_failure,Qwen/Qwen3-1.7B,adaptive_failure,69,persona_3d376b4ddd01e6f32219f09ee8fcf4600ba72833112cdece7aaf57700998cf4d,-0.8870078235218674,10,False,[MISSING]; not requested or logged
+Qwen_Qwen3-4B_303_adaptive_success,Qwen/Qwen3-4B,adaptive_success,303,persona_4c8ee1cbf637e709175d7356b998761902aae3467a909ea4c4894dc134826814,1.232462368976413,10,False,[MISSING]; not requested or logged
+Qwen_Qwen3-4B_34_adaptive_failure,Qwen/Qwen3-4B,adaptive_failure,34,persona_285e3c7b645fb1a1bd06b635c0298c1e316eae104bcb6d2820ecbd31816e2a99,-0.8961791831357049,10,False,[MISSING]; not requested or logged
+meta-llama_Llama-3.2-3B-Instruct_232_adaptive_success,meta-llama/Llama-3.2-3B-Instruct,adaptive_success,232,persona_cd296b381daa77fec3d9e1163f66a4cda4eaab80d52da120d7a066c987014b75,1.232462368976413,10,False,[MISSING]; not requested or logged
+meta-llama_Llama-3.2-3B-Instruct_5_adaptive_failure,meta-llama/Llama-3.2-3B-Instruct,adaptive_failure,5,persona_1de48b2de244037cb7fa4633d6e729d0010c3f1cb98634e99da5405e64df4e7d,-1.2956099740595017,10,False,[MISSING]; not requested or logged
+google_gemma-3-4b-it_208_adaptive_success,google/gemma-3-4b-it,adaptive_success,208,persona_e05b7b32fa9adad5ca8ed639d76bd6d2ff7239645f67d5a92537a8a403b8399a,1.232462368976413,10,False,[MISSING]; not requested or logged
+google_gemma-3-4b-it_297_adaptive_failure,google/gemma-3-4b-it,adaptive_failure,297,persona_07fe693fb08b1b0e1ee3545123389f571abbb6961682e41961cb78362c9541ce,-1.2956099740595017,10,False,[MISSING]; not requested or logged

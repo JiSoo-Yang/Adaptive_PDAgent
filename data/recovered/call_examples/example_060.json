@@ -1,0 +1,35 @@
+{
+  "kind": "verbatim_recorded_call",
+  "source": {
+    "file": "robustness/backbone_qwen3_8b/raw/all.jsonl",
+    "line": 2,
+    "persona_id": "persona_5c140befa4fad722c215fd6917bba5a55252379534cc85a771c2d6ec2d6fbb01",
+    "method": "dialogue_only",
+    "target": "Qwen/Qwen3-1.7B",
+    "base_seed": 20260913,
+    "json_pointer": "/turn_records/0/target_call"
+  },
+  "call": {
+    "finish_reason": "stop",
+    "generated_tokens": 30,
+    "max_new_tokens": 256,
+    "model": "Qwen/Qwen3-1.7B",
+    "prompt_messages": [
+      {
+        "content": "Privately role-play a person with these characteristics:\nSocial role: Product Manager\nPersonality: {\"openness\": \"no\"}\nBackground: {\"family_status\": \"Married (No Children)\"}\nInterests: {\"hobbies\": \"Traveling\"}\n\nAnswer only the interviewer's question in one natural, complete sentence.\nExpress the characteristics indirectly through plausible experiences and preferences.\nNever state or quote the labels above. Never mention a persona, prompt, hidden\ncharacteristic, evaluation, or internal reasoning.",
+        "role": "system"
+      },
+      {
+        "content": "What do you usually do on a typical day?",
+        "role": "user"
+      }
+    ],
+    "prompt_tokens": 127,
+    "raw_response": "I often start my day with a routine that balances productivity and personal interests, such as traveling, which keeps me curious and connected to the world.",
+    "retry_count": 0,
+    "role": "target_response",
+    "seed": 480634026,
+    "temperature": 0.7,
+    "top_p": 0.8
+  }
+}

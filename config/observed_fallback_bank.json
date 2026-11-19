@@ -1,0 +1,30 @@
+{
+  "provenance": "Recovered from 3041 observed replacements; all 15 dimension/index slots have consistent text. Source code itself was not recovered.",
+  "questions": {
+    "social_role": [
+      "What kinds of responsibilities tend to occupy most of your day?",
+      "Could you describe a problem you often help other people solve?",
+      "What tools or routines are most important in your usual work?"
+    ],
+    "personality": [
+      "How do you usually react when plans change unexpectedly?",
+      "When making a difficult decision, what matters most to you?",
+      "How do you tend to handle disagreement with other people?"
+    ],
+    "background": [
+      "What past experience has most shaped how you approach daily life?",
+      "How would you describe the environment in which you spend most of your time?",
+      "What kind of learning or experience prepared you for what you do now?"
+    ],
+    "interests": [
+      "How do you usually choose to spend an unstructured evening?",
+      "What kinds of topics do you voluntarily seek out?",
+      "What activities help you recharge when you have free time?"
+    ],
+    "generic": [
+      "What has been taking up most of your attention lately?",
+      "Could you describe a recent situation that felt meaningful to you?",
+      "What is something you tend to make time for even when you are busy?"
+    ]
+  }
+}

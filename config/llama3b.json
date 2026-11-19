@@ -1,0 +1,37 @@
+{
+  "kind": "manuscript_based_reimplementation",
+  "historical_source": false,
+  "base_seed": 20260831,
+  "budget": 5,
+  "timeout_seconds": 300,
+  "agent": {
+    "model": "Qwen/Qwen3-14B",
+    "revision": "40c069824f4251a91eefaf281ebe4c544efd3e18",
+    "base_url": "http://127.0.0.1:8000/v1",
+    "chat_template_kwargs": {
+      "enable_thinking": false
+    },
+    "local_model_dir": "models/Qwen3-14B"
+  },
+  "target": {
+    "model": "meta-llama/Llama-3.2-3B-Instruct",
+    "revision": "0cb88a4f764b7a12671c53f0838cd831a0843b95",
+    "base_url": "http://127.0.0.1:8001/v1",
+    "chat_template_kwargs": {},
+    "local_model_dir": "models/Llama-3.2-3B-Instruct"
+  },
+  "known_checkpoints": {
+    "Qwen/Qwen3-14B": "40c069824f4251a91eefaf281ebe4c544efd3e18",
+    "Qwen/Qwen3-1.7B": "70d244cc86ccca08cf5af4e1e306ecf908b1ad5e",
+    "Qwen/Qwen3-4B": "1cfa9a7208912126459214e8b04321603b3df60c",
+    "meta-llama/Llama-3.2-3B-Instruct": "0cb88a4f764b7a12671c53f0838cd831a0843b95",
+    "google/gemma-3-4b-it": "093f9f388b31de276ce2de164bdc2081324b9767"
+  },
+  "reconstruction_choices": [
+    "Major dialogue-role system prompts and user schema suffixes were recovered from recorded calls; fallback text recovered from observed replacements. Online/Selective prompts, runtime serializers, leakage detector, fuzzy label matcher and per-call seed derivation remain reconstructed.",
+    "Qwen enable_thinking=False is a new explicit choice; historical setting unknown.",
+    "Use bfloat16 and generation-config vllm for new servers; historical primary precision remains unknown.",
+    "No reference-table values are used to tune generated data or predictions.",
+    "Integrated Selective extraction/state prompt is explicitly reconstructed for the final manuscript; not recovered historical wording."
+  ]
+}

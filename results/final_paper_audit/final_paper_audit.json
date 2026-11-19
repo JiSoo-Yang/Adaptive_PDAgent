@@ -1,0 +1,362 @@
+{
+  "kind": "historical_score_reanalysis_against_final_paper",
+  "inference_performed": false,
+  "paper_sha256": "fb9de4316d52e60a8a3a068b4298f57a4496be2588be9e9d7317e1603aca93d0",
+  "all_checks_passed": true,
+  "reference_inputs_match": true,
+  "checks": [
+    {
+      "target": "Qwen3-1.7B",
+      "metric": "n",
+      "final_paper": 304.0,
+      "recalculated": 304,
+      "tolerance": 0.500000000001,
+      "absolute_error": 0.0,
+      "passed": true
+    },
+    {
+      "target": "Qwen3-1.7B",
+      "metric": "original",
+      "final_paper": 0.2528,
+      "recalculated": 0.2528188430244432,
+      "tolerance": 5.0000001000000005e-05,
+      "absolute_error": 1.8843024443160328e-05,
+      "passed": true
+    },
+    {
+      "target": "Qwen3-1.7B",
+      "metric": "adaptive",
+      "final_paper": 0.2718,
+      "recalculated": 0.27178309331696493,
+      "tolerance": 5.0000001000000005e-05,
+      "absolute_error": 1.6906683035056158e-05,
+      "passed": true
+    },
+    {
+      "target": "Qwen3-1.7B",
+      "metric": "delta",
+      "final_paper": 0.019,
+      "recalculated": 0.01896425029252171,
+      "tolerance": 5.0000001000000005e-05,
+      "absolute_error": 3.5749707478289344e-05,
+      "passed": true
+    },
+    {
+      "target": "Qwen3-1.7B",
+      "metric": "ci_low",
+      "final_paper": -0.0139,
+      "recalculated": -0.013869855623468987,
+      "tolerance": 5.0000001000000005e-05,
+      "absolute_error": 3.0144376531012276e-05,
+      "passed": true
+    },
+    {
+      "target": "Qwen3-1.7B",
+      "metric": "ci_high",
+      "final_paper": 0.0519,
+      "recalculated": 0.05185720939552284,
+      "tolerance": 5.0000001000000005e-05,
+      "absolute_error": 4.279060447716365e-05,
+      "passed": true
+    },
+    {
+      "target": "Qwen3-1.7B",
+      "metric": "W",
+      "final_paper": 2994.0,
+      "recalculated": 2994.0,
+      "tolerance": 0.050000000001,
+      "absolute_error": 0.0,
+      "passed": true
+    },
+    {
+      "target": "Qwen3-1.7B",
+      "metric": "p",
+      "final_paper": 0.211209,
+      "recalculated": 0.21120877635889757,
+      "tolerance": 5.00001e-07,
+      "absolute_error": 2.236411024425511e-07,
+      "passed": true
+    },
+    {
+      "target": "Qwen3-1.7B",
+      "metric": "p_bh",
+      "final_paper": 0.211209,
+      "recalculated": 0.21120877635889757,
+      "tolerance": 5.00001e-07,
+      "absolute_error": 2.236411024425511e-07,
+      "passed": true
+    },
+    {
+      "target": "Qwen3-1.7B",
+      "metric": "n_nonzero",
+      "final_paper": 117,
+      "recalculated": 117,
+      "passed": true
+    },
+    {
+      "target": "Qwen3-4B",
+      "metric": "n",
+      "final_paper": 304.0,
+      "recalculated": 304,
+      "tolerance": 0.500000000001,
+      "absolute_error": 0.0,
+      "passed": true
+    },
+    {
+      "target": "Qwen3-4B",
+      "metric": "original",
+      "final_paper": 0.3179,
+      "recalculated": 0.31785782523318057,
+      "tolerance": 5.0000001000000005e-05,
+      "absolute_error": 4.217476681944721e-05,
+      "passed": true
+    },
+    {
+      "target": "Qwen3-4B",
+      "metric": "adaptive",
+      "final_paper": 0.3575,
+      "recalculated": 0.35754967415469596,
+      "tolerance": 5.0000001000000005e-05,
+      "absolute_error": 4.96741546959778e-05,
+      "passed": true
+    },
+    {
+      "target": "Qwen3-4B",
+      "metric": "delta",
+      "final_paper": 0.0397,
+      "recalculated": 0.03969184892151542,
+      "tolerance": 5.0000001000000005e-05,
+      "absolute_error": 8.151078484577856e-06,
+      "passed": true
+    },
+    {
+      "target": "Qwen3-4B",
+      "metric": "ci_low",
+      "final_paper": 0.0046,
+      "recalculated": 0.004634944586364331,
+      "tolerance": 5.0000001000000005e-05,
+      "absolute_error": 3.494458636433065e-05,
+      "passed": true
+    },
+    {
+      "target": "Qwen3-4B",
+      "metric": "ci_high",
+      "final_paper": 0.0753,
+      "recalculated": 0.07531501407884152,
+      "tolerance": 5.0000001000000005e-05,
+      "absolute_error": 1.5014078841510403e-05,
+      "passed": true
+    },
+    {
+      "target": "Qwen3-4B",
+      "metric": "W",
+      "final_paper": 3442.0,
+      "recalculated": 3442.0,
+      "tolerance": 0.050000000001,
+      "absolute_error": 0.0,
+      "passed": true
+    },
+    {
+      "target": "Qwen3-4B",
+      "metric": "p",
+      "final_paper": 0.022351,
+      "recalculated": 0.02235122003265723,
+      "tolerance": 5.00001e-07,
+      "absolute_error": 2.200326572297795e-07,
+      "passed": true
+    },
+    {
+      "target": "Qwen3-4B",
+      "metric": "p_bh",
+      "final_paper": 0.030072,
+      "recalculated": 0.030071847748226476,
+      "tolerance": 5.00001e-07,
+      "absolute_error": 1.522517735254303e-07,
+      "passed": true
+    },
+    {
+      "target": "Qwen3-4B",
+      "metric": "n_nonzero",
+      "final_paper": 133,
+      "recalculated": 133,
+      "passed": true
+    },
+    {
+      "target": "Llama-3.2-3B-Instruct",
+      "metric": "n",
+      "final_paper": 304.0,
+      "recalculated": 304,
+      "tolerance": 0.500000000001,
+      "absolute_error": 0.0,
+      "passed": true
+    },
+    {
+      "target": "Llama-3.2-3B-Instruct",
+      "metric": "original",
+      "final_paper": 0.3364,
+      "recalculated": 0.3363595743456484,
+      "tolerance": 5.0000001000000005e-05,
+      "absolute_error": 4.042565435158352e-05,
+      "passed": true
+    },
+    {
+      "target": "Llama-3.2-3B-Instruct",
+      "metric": "adaptive",
+      "final_paper": 0.3899,
+      "recalculated": 0.38991878596813495,
+      "tolerance": 5.0000001000000005e-05,
+      "absolute_error": 1.8785968134926723e-05,
+      "passed": true
+    },
+    {
+      "target": "Llama-3.2-3B-Instruct",
+      "metric": "delta",
+      "final_paper": 0.0536,
+      "recalculated": 0.05355921162248658,
+      "tolerance": 5.0000001000000005e-05,
+      "absolute_error": 4.0788377513423235e-05,
+      "passed": true
+    },
+    {
+      "target": "Llama-3.2-3B-Instruct",
+      "metric": "ci_low",
+      "final_paper": 0.0181,
+      "recalculated": 0.018113399389080024,
+      "tolerance": 5.0000001000000005e-05,
+      "absolute_error": 1.3399389080022417e-05,
+      "passed": true
+    },
+    {
+      "target": "Llama-3.2-3B-Instruct",
+      "metric": "ci_high",
+      "final_paper": 0.0901,
+      "recalculated": 0.09012017050038419,
+      "tolerance": 5.0000001000000005e-05,
+      "absolute_error": 2.0170500384192325e-05,
+      "passed": true
+    },
+    {
+      "target": "Llama-3.2-3B-Instruct",
+      "metric": "W",
+      "final_paper": 4603.5,
+      "recalculated": 4603.5,
+      "tolerance": 0.050000000001,
+      "absolute_error": 0.0,
+      "passed": true
+    },
+    {
+      "target": "Llama-3.2-3B-Instruct",
+      "metric": "p",
+      "final_paper": 0.001188,
+      "recalculated": 0.001187591356776012,
+      "tolerance": 5.00001e-07,
+      "absolute_error": 4.0864322398809737e-07,
+      "passed": true
+    },
+    {
+      "target": "Llama-3.2-3B-Instruct",
+      "metric": "p_bh",
+      "final_paper": 0.00475,
+      "recalculated": 0.004750365427104048,
+      "tolerance": 5.00001e-07,
+      "absolute_error": 3.65427104047876e-07,
+      "passed": true
+    },
+    {
+      "target": "Llama-3.2-3B-Instruct",
+      "metric": "n_nonzero",
+      "final_paper": 161,
+      "recalculated": 161,
+      "passed": true
+    },
+    {
+      "target": "Gemma-3-4B-IT",
+      "metric": "n",
+      "final_paper": 304.0,
+      "recalculated": 304,
+      "tolerance": 0.500000000001,
+      "absolute_error": 0.0,
+      "passed": true
+    },
+    {
+      "target": "Gemma-3-4B-IT",
+      "metric": "original",
+      "final_paper": 0.3731,
+      "recalculated": 0.37313809601181297,
+      "tolerance": 5.0000001000000005e-05,
+      "absolute_error": 3.80960118129825e-05,
+      "passed": true
+    },
+    {
+      "target": "Gemma-3-4B-IT",
+      "metric": "adaptive",
+      "final_paper": 0.4013,
+      "recalculated": 0.4012751633551817,
+      "tolerance": 5.0000001000000005e-05,
+      "absolute_error": 2.4836644818282405e-05,
+      "passed": true
+    },
+    {
+      "target": "Gemma-3-4B-IT",
+      "metric": "delta",
+      "final_paper": 0.0281,
+      "recalculated": 0.028137067343368773,
+      "tolerance": 5.0000001000000005e-05,
+      "absolute_error": 3.7067343368772654e-05,
+      "passed": true
+    },
+    {
+      "target": "Gemma-3-4B-IT",
+      "metric": "ci_low",
+      "final_paper": -0.0088,
+      "recalculated": -0.00883896618633304,
+      "tolerance": 5.0000001000000005e-05,
+      "absolute_error": 3.896618633303893e-05,
+      "passed": true
+    },
+    {
+      "target": "Gemma-3-4B-IT",
+      "metric": "ci_high",
+      "final_paper": 0.0656,
+      "recalculated": 0.0655907669202795,
+      "tolerance": 5.0000001000000005e-05,
+      "absolute_error": 9.233079720505355e-06,
+      "passed": true
+    },
+    {
+      "target": "Gemma-3-4B-IT",
+      "metric": "W",
+      "final_paper": 4641.5,
+      "recalculated": 4641.5,
+      "tolerance": 0.050000000001,
+      "absolute_error": 0.0,
+      "passed": true
+    },
+    {
+      "target": "Gemma-3-4B-IT",
+      "metric": "p",
+      "final_paper": 0.022554,
+      "recalculated": 0.022553885811169856,
+      "tolerance": 5.00001e-07,
+      "absolute_error": 1.1418883014494008e-07,
+      "passed": true
+    },
+    {
+      "target": "Gemma-3-4B-IT",
+      "metric": "p_bh",
+      "final_paper": 0.030072,
+      "recalculated": 0.030071847748226476,
+      "tolerance": 5.00001e-07,
+      "absolute_error": 1.522517735254303e-07,
+      "passed": true
+    },
+    {
+      "target": "Gemma-3-4B-IT",
+      "metric": "n_nonzero",
+      "final_paper": 153,
+      "recalculated": 153,
+      "passed": true
+    }
+  ],
+  "limitation": "Recomputes retained binary scores and paired statistics; does not rerun models or recover the historical label scorer."
+}

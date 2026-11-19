@@ -1,0 +1,12 @@
+target,comparison,family,n,n_nonzero,difference,ci_low,ci_high,wilcoxon_W,p_raw,positive,negative,ties,p_bh
+Qwen/Qwen3-1.7B,adaptive - original,primary_original_vs_adaptive,2,0,0.0,0.0,0.0,0.0,1.0,0,0,2,1.0
+Qwen/Qwen3-1.7B,adaptive - online,graph_diagnostics,2,0,0.0,0.0,0.0,0.0,1.0,0,0,2,1.0
+Qwen/Qwen3-1.7B,adaptive - selective,graph_diagnostics,2,0,0.0,0.0,0.0,0.0,1.0,0,0,2,1.0
+Qwen/Qwen3-1.7B,adaptive - random_candidate,expanded_controls,2,0,0.0,0.0,0.0,0.0,1.0,0,0,2,1.0
+Qwen/Qwen3-1.7B,adaptive - round_robin,expanded_controls,2,0,0.0,0.0,0.0,0.0,1.0,0,0,2,1.0
+Qwen/Qwen3-1.7B,adaptive - dialogue,expanded_controls,2,0,0.0,0.0,0.0,0.0,1.0,0,0,2,1.0
+Qwen/Qwen3-1.7B,adaptive - generic,expanded_controls,2,0,0.0,0.0,0.0,0.0,1.0,0,0,2,1.0
+Qwen/Qwen3-1.7B,adaptive - direct,controller_ablations,2,0,0.0,0.0,0.0,0.0,1.0,0,0,2,1.0
+Qwen/Qwen3-1.7B,adaptive - no_coverage,controller_ablations,2,0,0.0,0.0,0.0,0.0,1.0,0,0,2,1.0
+Qwen/Qwen3-1.7B,adaptive - no_redundancy,controller_ablations,2,0,0.0,0.0,0.0,0.0,1.0,0,0,2,1.0
+Qwen/Qwen3-1.7B,adaptive - uncertainty,active_uncertainty,2,0,0.0,0.0,0.0,0.0,1.0,0,0,2,1.0

@@ -1,0 +1,41 @@
+{
+  "call_id": "e52372d4b9b734fba4790177101adf249ac5b8ec708fb13f5813e3bc81374f73",
+  "role": "round_robin",
+  "request": {
+    "model": "Qwen/Qwen3-14B",
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a fixed-budget interviewer. Ask one indirect question intended to elicit background evidence. Follow the fixed round-robin schedule; do not assess which dimension is ambiguous or under-covered. Never name persona dimensions or candidate labels. Output only the question."
+      },
+      {
+        "role": "user",
+        "content": "Conversation so far:\nQ1: What responsibilities occupy most of your day?\nA1: I review tasks and plan with colleagues before starting the day.\nQ2: What responsibilities occupy most of your day?\nA2: I review tasks and plan with colleagues before starting the day.\nQ3: What responsibilities occupy most of your day?\nA3: I review tasks and plan with colleagues before starting the day.\n\nAsk question 4 of 5."
+      }
+    ],
+    "temperature": 0.7,
+    "top_p": 0.8,
+    "max_tokens": 128,
+    "seed": 13451159,
+    "chat_template_kwargs": {
+      "enable_thinking": false
+    }
+  },
+  "response": {
+    "choices": [
+      {
+        "message": {
+          "content": "What responsibilities occupy most of your day?"
+        },
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": null,
+    "mock": true
+  },
+  "text": "What responsibilities occupy most of your day?",
+  "requested_revision": "40c069824f4251a91eefaf281ebe4c544efd3e18",
+  "revision_verified": false,
+  "backend": "mock_synthetic",
+  "elapsed_seconds": 1.184176653623581e-06
+}

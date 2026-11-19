@@ -1,0 +1,44 @@
+{
+  "call_id": "f5fb85620c656de8b3435d51d1508046c51737ea4a2ffd57a946d4cca7fb4a1b",
+  "role": "integrated",
+  "request": {
+    "model": "Qwen/Qwen3-14B",
+    "messages": [
+      {
+        "role": "system",
+        "content": "Extract grounded concepts and implicit bridging relations from CURRENT_RESPONSE, using earlier dialogue/graph only as context. Return JSON {\"nodes\":[{\"name\":\"short concept\",\"span\":\"exact substring of current response\",\"dimensions\":[\"social_role\"]}],\"edges\":[{\"source\":\"concept name\",\"target\":\"concept name\",\"relation\":\"part-of\",\"span\":\"exact substring of current response\"}],\"competitions\":[]}. Dimensions may be social_role, personality, background, interests. Relations may be part-of, member-of, instrument, theme, cause-of, in, temporal. Include only concepts and edges supported by current-response spans. Reuse canonical names; do not substitute synonyms merely because they seem related. A competition, if retained, has alternatives (at least two distinct readings), spans (at least two distinct retained node-support spans), and discriminator (a concrete unanswered question distinguishing them). Omit unsupported competition. Return only JSON. Also inspect previous_graph and earlier_dialogue for competing interpretations. Return competitions only when two distinct retained support spans ground two different readings and provide a concrete unanswered discriminator. Newly extracted nodes/edges must still cite the current response; deterministic host code computes coverage and novelty."
+      },
+      {
+        "role": "user",
+        "content": "{\"CURRENT_RESPONSE\": \"I review tasks and plan with colleagues before starting the day.\", \"question\": \"What experiences have shaped your everyday routine?\", \"earlier_dialogue\": [{\"question\": \"What responsibilities occupy most of your day?\", \"answer\": \"I review tasks and plan with colleagues before starting the day.\"}, {\"question\": \"What experiences have shaped your everyday routine?\", \"answer\": \"I review tasks and plan with colleagues before starting the day.\"}], \"previous_graph\": {\"nodes\": [{\"name\": \"tasks\", \"spans\": [\"review tasks\"], \"dimensions\": [\"social_role\"]}, {\"name\": \"colleagues\", \"spans\": [\"plan with colleagues\"], \"dimensions\": [\"social_role\"]}], \"edges\": [{\"source\": \"tasks\", \"relation\": \"theme\", \"target\": \"colleagues\", \"spans\": [\"review tasks and plan with colleagues\"]}]}}"
+      }
+    ],
+    "temperature": 0.0,
+    "top_p": 0.8,
+    "max_tokens": 896,
+    "seed": 424220308,
+    "response_format": {
+      "type": "json_object"
+    },
+    "chat_template_kwargs": {
+      "enable_thinking": false
+    }
+  },
+  "response": {
+    "choices": [
+      {
+        "message": {
+          "content": "{\"nodes\": [{\"name\": \"tasks\", \"span\": \"review tasks\", \"dimensions\": [\"social_role\"]}, {\"name\": \"colleagues\", \"span\": \"plan with colleagues\", \"dimensions\": [\"social_role\"]}], \"edges\": [{\"source\": \"tasks\", \"target\": \"colleagues\", \"relation\": \"theme\", \"span\": \"review tasks and plan with colleagues\"}], \"competitions\": []}"
+        },
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": null,
+    "mock": true
+  },
+  "text": "{\"nodes\": [{\"name\": \"tasks\", \"span\": \"review tasks\", \"dimensions\": [\"social_role\"]}, {\"name\": \"colleagues\", \"span\": \"plan with colleagues\", \"dimensions\": [\"social_role\"]}], \"edges\": [{\"source\": \"tasks\", \"target\": \"colleagues\", \"relation\": \"theme\", \"span\": \"review tasks and plan with colleagues\"}], \"competitions\": []}",
+  "requested_revision": "40c069824f4251a91eefaf281ebe4c544efd3e18",
+  "revision_verified": false,
+  "backend": "mock_synthetic",
+  "elapsed_seconds": 1.971609890460968e-05
+}

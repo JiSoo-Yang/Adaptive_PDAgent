@@ -1,0 +1,75 @@
+{
+  "status": "legacy_code_is_not_access_experiment_implementation",
+  "legacy_commit": "2f98390b0dc2b29fe693ae30ee9e7e2483cbeb4e",
+  "scope": "Read-only static audit. No model runs, API calls, source edits, manuscript edits, or new experiment results.",
+  "reusable": [
+    "Persona schema category/value counts agree with manuscript: 43 social roles, 5 binary traits, 25 background values, 59 interest values. Exact sampler equivalence is not established.",
+    "Seven bridging relation labels and legacy extraction/conditioning prompt source.",
+    "Legacy graph/JSON parsing code as engineering reference, subject to revised protocol differences."
+  ],
+  "gaps": [
+    {
+      "component": "reasoning backbone",
+      "legacy": "test/test_qwen.py: GPT tool agent, temperature 0.3; local demo reuses the target model for every role",
+      "manuscript": "Qwen3-14B fixed interviewer/extractor/predictor with role-specific decoding",
+      "action": "Separate role clients and pin manuscript checkpoint revisions."
+    },
+    {
+      "component": "Adaptive policy",
+      "legacy": "Generic follow-up from previous dialogue; no three-candidate Adaptive controller found",
+      "manuscript": "Dialogue-only three-candidate prompted controller, field defaults, fallback selection and Stop",
+      "action": "Reimplement reported behavior; executed prompt and fallback-bank wording remain unavailable."
+    },
+    {
+      "component": "graph extraction",
+      "legacy": "Post-interview full-dialogue extraction; centrality graph constructed",
+      "manuscript": "Incremental per-response extraction and normalized exact-span validation; no predictor centrality scores",
+      "action": "Reimplement grounding, merge/deduplication and graph payload."
+    },
+    {
+      "component": "online/selective policies",
+      "legacy": "No corresponding implementation found",
+      "manuscript": "Unconditional online graph policy and selective gate/utility/stopping",
+      "action": "Implement separately; do not apply selective weighted utility to Adaptive."
+    },
+    {
+      "component": "evaluation",
+      "legacy": "Embedding cosine similarity",
+      "manuscript": "Closed-set per-dimension scoring, majority normalization, persona-level AG, paired tests",
+      "action": "Implement scorer, freeze mapping conventions, use separate correction families."
+    },
+    {
+      "component": "cohort/pairing",
+      "legacy": "Unseeded module-level random.choice; single-run example outputs",
+      "manuscript": "304 frozen identities, paired first question and response, recorded cohort seeds",
+      "action": "Recover original manifest if possible. A new seeded sampler does not guarantee historical identities."
+    },
+    {
+      "component": "inference runtime",
+      "legacy": "HF wrapper forces CPU float32; no checkpoint revision pins in the examined wrapper",
+      "manuscript": "vLLM 0.11.0, role-specific limits; revision bfloat16 and scoped provenance",
+      "action": "Build pinned runtime separately; historical primary precision remains unverified."
+    },
+    {
+      "component": "result artifacts",
+      "legacy": "One June 2026 three-turn Qwen example and parsing-failure report",
+      "manuscript": "Primary/expanded paired cohorts, per-instance predictions and statistical tables",
+      "action": "No current artifact supports recomputing the Access tables."
+    }
+  ],
+  "recovery_checks": {
+    "all_git_branches": "main, origin/main, upstream/main examined through all-ref history",
+    "head_date": "2026-07-07",
+    "unreachable_commits": "Four January 2026 README/figure commits examined; no Access implementation found. One unreachable tree also inspected.",
+    "roadmap": "R-GCN/BIG-Net extension, not the accepted Adaptive PD-Agent design. Mentions evaluation/ and real_*.py files absent from the supplied checkout and inspected all-ref file history.",
+    "python_syntax": "14 files parsed successfully without import/execution.",
+    "runtime": "torch, transformers, vllm, langchain, langgraph, langchain_openai and scipy not installed in current Python; no runtime validation."
+  },
+  "unrecoverable_from_present_evidence": [
+    "Verbatim Access system/user prompt templates and full fallback banks",
+    "Exact frozen 304-persona identity manifest and shared first responses",
+    "Primary/expanded per-instance predictions, call logs, and source-linked archive",
+    "Historical seed derivation and unverified primary execution settings"
+  ],
+  "implementation_boundary": "A manuscript-based reconstruction can test the method anew. It cannot be labelled the original experimental implementation or used to guarantee historical table values. New prompts, manifests and outputs must be identified as newly created."
+}

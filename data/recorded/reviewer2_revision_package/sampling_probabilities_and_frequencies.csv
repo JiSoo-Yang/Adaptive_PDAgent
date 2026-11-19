@@ -1,0 +1,158 @@
+dimension,level,category,label,sampling_probability_before_duplicate_rejection,sampling_probability_formula,development_count,development_rate,heldout_count,heldout_rate
+social_role,category,general_role,,0.3333333333333333,1/3,32,0.32,97,0.3190789473684211
+social_role,value,general_role,Student,0.023809523809523808,1/3 × 1/14,5,0.05,8,0.02631578947368421
+social_role,value,general_role,Homemaker,0.023809523809523808,1/3 × 1/14,2,0.02,9,0.029605263157894735
+social_role,value,general_role,Retiree,0.023809523809523808,1/3 × 1/14,1,0.01,5,0.01644736842105263
+social_role,value,general_role,Freelancer,0.023809523809523808,1/3 × 1/14,3,0.03,8,0.02631578947368421
+social_role,value,general_role,Self-employed,0.023809523809523808,1/3 × 1/14,4,0.04,8,0.02631578947368421
+social_role,value,general_role,Office Worker,0.023809523809523808,1/3 × 1/14,3,0.03,6,0.019736842105263157
+social_role,value,general_role,Service Worker,0.023809523809523808,1/3 × 1/14,2,0.02,4,0.013157894736842105
+social_role,value,general_role,Salesperson,0.023809523809523808,1/3 × 1/14,1,0.01,10,0.03289473684210526
+social_role,value,general_role,Factory Worker,0.023809523809523808,1/3 × 1/14,0,0.0,7,0.023026315789473683
+social_role,value,general_role,Artist,0.023809523809523808,1/3 × 1/14,1,0.01,7,0.023026315789473683
+social_role,value,general_role,Writer,0.023809523809523808,1/3 × 1/14,1,0.01,5,0.01644736842105263
+social_role,value,general_role,Content Creator,0.023809523809523808,1/3 × 1/14,5,0.05,7,0.023026315789473683
+social_role,value,general_role,Athlete,0.023809523809523808,1/3 × 1/14,0,0.0,7,0.023026315789473683
+social_role,value,general_role,Chef,0.023809523809523808,1/3 × 1/14,4,0.04,6,0.019736842105263157
+social_role,category,professional,,0.3333333333333333,1/3,32,0.32,118,0.3881578947368421
+social_role,value,professional,Doctor,0.023809523809523808,1/3 × 1/14,3,0.03,9,0.029605263157894735
+social_role,value,professional,Lawyer,0.023809523809523808,1/3 × 1/14,4,0.04,7,0.023026315789473683
+social_role,value,professional,Accountant,0.023809523809523808,1/3 × 1/14,2,0.02,6,0.019736842105263157
+social_role,value,professional,Architect,0.023809523809523808,1/3 × 1/14,5,0.05,11,0.03618421052631579
+social_role,value,professional,Pharmacist,0.023809523809523808,1/3 × 1/14,1,0.01,10,0.03289473684210526
+social_role,value,professional,Professor,0.023809523809523808,1/3 × 1/14,0,0.0,10,0.03289473684210526
+social_role,value,professional,Researcher,0.023809523809523808,1/3 × 1/14,3,0.03,10,0.03289473684210526
+social_role,value,professional,Judge,0.023809523809523808,1/3 × 1/14,1,0.01,9,0.029605263157894735
+social_role,value,professional,Prosecutor,0.023809523809523808,1/3 × 1/14,3,0.03,8,0.02631578947368421
+social_role,value,professional,Patent Attorney,0.023809523809523808,1/3 × 1/14,2,0.02,10,0.03289473684210526
+social_role,value,professional,Real Estate Agent,0.023809523809523808,1/3 × 1/14,3,0.03,7,0.023026315789473683
+social_role,value,professional,Tax Accountant,0.023809523809523808,1/3 × 1/14,0,0.0,10,0.03289473684210526
+social_role,value,professional,Appraiser,0.023809523809523808,1/3 × 1/14,2,0.02,6,0.019736842105263157
+social_role,value,professional,Labor Consultant,0.023809523809523808,1/3 × 1/14,3,0.03,5,0.01644736842105263
+social_role,category,technical_management,,0.3333333333333333,1/3,36,0.36,89,0.29276315789473684
+social_role,value,technical_management,Software Engineer,0.02222222222222222,1/3 × 1/15,4,0.04,4,0.013157894736842105
+social_role,value,technical_management,Data Scientist,0.02222222222222222,1/3 × 1/15,3,0.03,4,0.013157894736842105
+social_role,value,technical_management,Product Manager,0.02222222222222222,1/3 × 1/15,2,0.02,6,0.019736842105263157
+social_role,value,technical_management,Project Manager,0.02222222222222222,1/3 × 1/15,3,0.03,6,0.019736842105263157
+social_role,value,technical_management,UX/UI Designer,0.02222222222222222,1/3 × 1/15,2,0.02,8,0.02631578947368421
+social_role,value,technical_management,System Administrator,0.02222222222222222,1/3 × 1/15,2,0.02,1,0.003289473684210526
+social_role,value,technical_management,Marketing Manager,0.02222222222222222,1/3 × 1/15,1,0.01,11,0.03618421052631579
+social_role,value,technical_management,Sales Manager,0.02222222222222222,1/3 × 1/15,3,0.03,12,0.039473684210526314
+social_role,value,technical_management,HR Specialist,0.02222222222222222,1/3 × 1/15,4,0.04,7,0.023026315789473683
+social_role,value,technical_management,Finance Manager,0.02222222222222222,1/3 × 1/15,1,0.01,6,0.019736842105263157
+social_role,value,technical_management,Strategy Planner,0.02222222222222222,1/3 × 1/15,3,0.03,8,0.02631578947368421
+social_role,value,technical_management,Quality Manager,0.02222222222222222,1/3 × 1/15,4,0.04,5,0.01644736842105263
+social_role,value,technical_management,DevOps Engineer,0.02222222222222222,1/3 × 1/15,3,0.03,1,0.003289473684210526
+social_role,value,technical_management,Data Engineer,0.02222222222222222,1/3 × 1/15,0,0.0,6,0.019736842105263157
+social_role,value,technical_management,Security Specialist,0.02222222222222222,1/3 × 1/15,1,0.01,4,0.013157894736842105
+personality,category,openness,,0.2,1/5,10,0.1,62,0.20394736842105263
+personality,value,openness,yes,0.1,1/5 × 1/2,5,0.05,27,0.08881578947368421
+personality,value,openness,no,0.1,1/5 × 1/2,5,0.05,35,0.11513157894736842
+personality,category,conscientiousness,,0.2,1/5,25,0.25,53,0.17434210526315788
+personality,value,conscientiousness,yes,0.1,1/5 × 1/2,12,0.12,26,0.08552631578947369
+personality,value,conscientiousness,no,0.1,1/5 × 1/2,13,0.13,27,0.08881578947368421
+personality,category,extroversion,,0.2,1/5,21,0.21,58,0.19078947368421054
+personality,value,extroversion,yes,0.1,1/5 × 1/2,7,0.07,35,0.11513157894736842
+personality,value,extroversion,no,0.1,1/5 × 1/2,14,0.14,23,0.0756578947368421
+personality,category,agreeableness,,0.2,1/5,17,0.17,70,0.23026315789473684
+personality,value,agreeableness,yes,0.1,1/5 × 1/2,12,0.12,34,0.1118421052631579
+personality,value,agreeableness,no,0.1,1/5 × 1/2,5,0.05,36,0.11842105263157894
+personality,category,neuroticism,,0.2,1/5,27,0.27,61,0.20065789473684212
+personality,value,neuroticism,yes,0.1,1/5 × 1/2,15,0.15,28,0.09210526315789473
+personality,value,neuroticism,no,0.1,1/5 × 1/2,12,0.12,33,0.10855263157894737
+background,category,economic_status,,0.2,1/5,25,0.25,67,0.22039473684210525
+background,value,economic_status,Low Income,0.04,1/5 × 1/5,4,0.04,13,0.04276315789473684
+background,value,economic_status,Lower-Middle Class,0.04,1/5 × 1/5,4,0.04,10,0.03289473684210526
+background,value,economic_status,Middle Class,0.04,1/5 × 1/5,7,0.07,16,0.05263157894736842
+background,value,economic_status,Upper-Middle Class,0.04,1/5 × 1/5,5,0.05,19,0.0625
+background,value,economic_status,High Income,0.04,1/5 × 1/5,5,0.05,9,0.029605263157894735
+background,category,education,,0.2,1/5,13,0.13,48,0.15789473684210525
+background,value,education,High School,0.03333333333333333,1/5 × 1/6,3,0.03,6,0.019736842105263157
+background,value,education,Associate Degree,0.03333333333333333,1/5 × 1/6,2,0.02,9,0.029605263157894735
+background,value,education,Bachelor’s Degree,0.03333333333333333,1/5 × 1/6,0,0.0,5,0.01644736842105263
+background,value,education,Master’s Degree,0.03333333333333333,1/5 × 1/6,4,0.04,7,0.023026315789473683
+background,value,education,Doctorate (Ph.D.),0.03333333333333333,1/5 × 1/6,3,0.03,10,0.03289473684210526
+background,value,education,Other,0.03333333333333333,1/5 × 1/6,1,0.01,11,0.03618421052631579
+background,category,family_status,,0.2,1/5,17,0.17,48,0.15789473684210525
+background,value,family_status,Single,0.04,1/5 × 1/5,5,0.05,12,0.039473684210526314
+background,value,family_status,Married (No Children),0.04,1/5 × 1/5,4,0.04,9,0.029605263157894735
+background,value,family_status,Married (With Children),0.04,1/5 × 1/5,2,0.02,10,0.03289473684210526
+background,value,family_status,Single Parent,0.04,1/5 × 1/5,2,0.02,11,0.03618421052631579
+background,value,family_status,Living Alone,0.04,1/5 × 1/5,4,0.04,6,0.019736842105263157
+background,category,location,,0.2,1/5,19,0.19,66,0.21710526315789475
+background,value,location,Metropolitan Area,0.05,1/5 × 1/4,8,0.08,20,0.06578947368421052
+background,value,location,Small/Mid-sized City,0.05,1/5 × 1/4,2,0.02,17,0.05592105263157895
+background,value,location,Rural Area,0.05,1/5 × 1/4,3,0.03,10,0.03289473684210526
+background,value,location,Abroad,0.05,1/5 × 1/4,6,0.06,19,0.0625
+background,category,work_experience,,0.2,1/5,26,0.26,75,0.24671052631578946
+background,value,work_experience,Entry-level (0–2 years),0.04,1/5 × 1/5,3,0.03,15,0.049342105263157895
+background,value,work_experience,Junior (3–5 years),0.04,1/5 × 1/5,6,0.06,11,0.03618421052631579
+background,value,work_experience,Mid-level (6–10 years),0.04,1/5 × 1/5,10,0.1,22,0.07236842105263158
+background,value,work_experience,Senior (11–15 years),0.04,1/5 × 1/5,3,0.03,11,0.03618421052631579
+background,value,work_experience,Expert (16+ years),0.04,1/5 × 1/5,4,0.04,16,0.05263157894736842
+interests,category,communication_style,,0.14285714285714285,1/7,19,0.19,41,0.13486842105263158
+interests,value,communication_style,Direct,0.017857142857142856,1/7 × 1/8,3,0.03,3,0.009868421052631578
+interests,value,communication_style,Indirect,0.017857142857142856,1/7 × 1/8,2,0.02,8,0.02631578947368421
+interests,value,communication_style,Formal,0.017857142857142856,1/7 × 1/8,3,0.03,2,0.006578947368421052
+interests,value,communication_style,Informal,0.017857142857142856,1/7 × 1/8,2,0.02,6,0.019736842105263157
+interests,value,communication_style,Emotional,0.017857142857142856,1/7 × 1/8,2,0.02,6,0.019736842105263157
+interests,value,communication_style,Logical,0.017857142857142856,1/7 × 1/8,2,0.02,7,0.023026315789473683
+interests,value,communication_style,Concise,0.017857142857142856,1/7 × 1/8,3,0.03,6,0.019736842105263157
+interests,value,communication_style,Detailed,0.017857142857142856,1/7 × 1/8,2,0.02,3,0.009868421052631578
+interests,category,content_preferences,,0.14285714285714285,1/7,10,0.1,37,0.12171052631578948
+interests,value,content_preferences,News / Current Affairs,0.014285714285714285,1/7 × 1/10,1,0.01,5,0.01644736842105263
+interests,value,content_preferences,Education / Learning,0.014285714285714285,1/7 × 1/10,2,0.02,3,0.009868421052631578
+interests,value,content_preferences,Entertainment,0.014285714285714285,1/7 × 1/10,2,0.02,4,0.013157894736842105
+interests,value,content_preferences,Sports,0.014285714285714285,1/7 × 1/10,1,0.01,2,0.006578947368421052
+interests,value,content_preferences,Technology / Science,0.014285714285714285,1/7 × 1/10,1,0.01,3,0.009868421052631578
+interests,value,content_preferences,Business / Economy,0.014285714285714285,1/7 × 1/10,2,0.02,3,0.009868421052631578
+interests,value,content_preferences,Health / Wellness,0.014285714285714285,1/7 × 1/10,0,0.0,7,0.023026315789473683
+interests,value,content_preferences,Lifestyle,0.014285714285714285,1/7 × 1/10,0,0.0,5,0.01644736842105263
+interests,value,content_preferences,Arts / Culture,0.014285714285714285,1/7 × 1/10,1,0.01,3,0.009868421052631578
+interests,value,content_preferences,Politics / Society,0.014285714285714285,1/7 × 1/10,0,0.0,2,0.006578947368421052
+interests,category,hobbies,,0.14285714285714285,1/7,10,0.1,38,0.125
+interests,value,hobbies,Reading,0.010989010989010988,1/7 × 1/13,1,0.01,2,0.006578947368421052
+interests,value,hobbies,Fitness / Exercise,0.010989010989010988,1/7 × 1/13,2,0.02,4,0.013157894736842105
+interests,value,hobbies,Cooking,0.010989010989010988,1/7 × 1/13,1,0.01,1,0.003289473684210526
+interests,value,hobbies,Traveling,0.010989010989010988,1/7 × 1/13,1,0.01,4,0.013157894736842105
+interests,value,hobbies,Photography / Videography,0.010989010989010988,1/7 × 1/13,1,0.01,3,0.009868421052631578
+interests,value,hobbies,Gaming,0.010989010989010988,1/7 × 1/13,0,0.0,2,0.006578947368421052
+interests,value,hobbies,Listening to / Playing Music,0.010989010989010988,1/7 × 1/13,1,0.01,2,0.006578947368421052
+interests,value,hobbies,Drawing / Crafts,0.010989010989010988,1/7 × 1/13,0,0.0,3,0.009868421052631578
+interests,value,hobbies,Hiking / Camping,0.010989010989010988,1/7 × 1/13,0,0.0,3,0.009868421052631578
+interests,value,hobbies,Watching Movies / TV Shows,0.010989010989010988,1/7 × 1/13,0,0.0,5,0.01644736842105263
+interests,value,hobbies,Fashion / Beauty,0.010989010989010988,1/7 × 1/13,1,0.01,2,0.006578947368421052
+interests,value,hobbies,Pet Care,0.010989010989010988,1/7 × 1/13,2,0.02,2,0.006578947368421052
+interests,value,hobbies,Gardening,0.010989010989010988,1/7 × 1/13,0,0.0,5,0.01644736842105263
+interests,category,shopping_style,,0.14285714285714285,1/7,16,0.16,46,0.1513157894736842
+interests,value,shopping_style,Value-oriented,0.02040816326530612,1/7 × 1/7,2,0.02,8,0.02631578947368421
+interests,value,shopping_style,Quality-focused,0.02040816326530612,1/7 × 1/7,5,0.05,10,0.03289473684210526
+interests,value,shopping_style,Brand-focused,0.02040816326530612,1/7 × 1/7,1,0.01,7,0.023026315789473683
+interests,value,shopping_style,Trendy,0.02040816326530612,1/7 × 1/7,0,0.0,5,0.01644736842105263
+interests,value,shopping_style,Practical,0.02040816326530612,1/7 × 1/7,3,0.03,7,0.023026315789473683
+interests,value,shopping_style,Impulse Buyer,0.02040816326530612,1/7 × 1/7,2,0.02,4,0.013157894736842105
+interests,value,shopping_style,Planned Buyer,0.02040816326530612,1/7 × 1/7,3,0.03,5,0.01644736842105263
+interests,category,social_media_usage,,0.14285714285714285,1/7,13,0.13,43,0.14144736842105263
+interests,value,social_media_usage,no,0.07142857142857142,1/7 × 1/2,5,0.05,18,0.05921052631578947
+interests,value,social_media_usage,yes,0.07142857142857142,1/7 × 1/2,8,0.08,25,0.08223684210526316
+interests,category,technology_adoption,,0.14285714285714285,1/7,15,0.15,52,0.17105263157894737
+interests,value,technology_adoption,Early Adopter,0.02857142857142857,1/7 × 1/5,5,0.05,15,0.049342105263157895
+interests,value,technology_adoption,Active User,0.02857142857142857,1/7 × 1/5,0,0.0,9,0.029605263157894735
+interests,value,technology_adoption,Average User,0.02857142857142857,1/7 × 1/5,0,0.0,10,0.03289473684210526
+interests,value,technology_adoption,Conservative User,0.02857142857142857,1/7 × 1/5,6,0.06,6,0.019736842105263157
+interests,value,technology_adoption,Tech-averse,0.02857142857142857,1/7 × 1/5,4,0.04,12,0.039473684210526314
+interests,category,values,,0.14285714285714285,1/7,17,0.17,47,0.15460526315789475
+interests,value,values,Achievement / Success,0.01020408163265306,1/7 × 1/14,4,0.04,2,0.006578947368421052
+interests,value,values,Family,0.01020408163265306,1/7 × 1/14,2,0.02,4,0.013157894736842105
+interests,value,values,Health,0.01020408163265306,1/7 × 1/14,0,0.0,8,0.02631578947368421
+interests,value,values,Freedom,0.01020408163265306,1/7 × 1/14,3,0.03,3,0.009868421052631578
+interests,value,values,Stability,0.01020408163265306,1/7 × 1/14,2,0.02,5,0.01644736842105263
+interests,value,values,Creativity,0.01020408163265306,1/7 × 1/14,0,0.0,3,0.009868421052631578
+interests,value,values,Social Contribution,0.01020408163265306,1/7 × 1/14,2,0.02,3,0.009868421052631578
+interests,value,values,Environmental Protection,0.01020408163265306,1/7 × 1/14,0,0.0,3,0.009868421052631578
+interests,value,values,Fairness,0.01020408163265306,1/7 × 1/14,1,0.01,6,0.019736842105263157
+interests,value,values,Tradition,0.01020408163265306,1/7 × 1/14,0,0.0,1,0.003289473684210526
+interests,value,values,Innovation,0.01020408163265306,1/7 × 1/14,1,0.01,1,0.003289473684210526
+interests,value,values,Knowledge / Learning,0.01020408163265306,1/7 × 1/14,0,0.0,5,0.01644736842105263
+interests,value,values,Reputation,0.01020408163265306,1/7 × 1/14,1,0.01,0,0.0
+interests,value,values,Financial Security,0.01020408163265306,1/7 × 1/14,1,0.01,3,0.009868421052631578

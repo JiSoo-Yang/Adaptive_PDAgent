@@ -1,0 +1,145 @@
+{
+  "artifact_kind": "synthetic_smoke_only",
+  "majority_baselines": {
+    "social_role": 0.3881578947368421,
+    "personality": 0.5460526315789473,
+    "background": 0.27631578947368424,
+    "interests": 0.2565789473684211
+  },
+  "methods": {
+    "original": {
+      "n": 2,
+      "average_gain": -0.43676344424523,
+      "accuracy": {
+        "social_role": 0.5,
+        "personality": 0.0,
+        "background": 0.0,
+        "interests": 0.0
+      },
+      "mean_turns": 5.0
+    },
+    "adaptive": {
+      "n": 2,
+      "average_gain": -0.43676344424523,
+      "accuracy": {
+        "social_role": 0.5,
+        "personality": 0.0,
+        "background": 0.0,
+        "interests": 0.0
+      },
+      "mean_turns": 5.0
+    },
+    "online": {
+      "n": 2,
+      "average_gain": -0.43676344424523,
+      "accuracy": {
+        "social_role": 0.5,
+        "personality": 0.0,
+        "background": 0.0,
+        "interests": 0.0
+      },
+      "mean_turns": 5.0
+    },
+    "selective": {
+      "n": 2,
+      "average_gain": -0.43676344424523,
+      "accuracy": {
+        "social_role": 0.5,
+        "personality": 0.0,
+        "background": 0.0,
+        "interests": 0.0
+      },
+      "mean_turns": 5.0
+    },
+    "random_candidate": {
+      "n": 2,
+      "average_gain": -0.43676344424523,
+      "accuracy": {
+        "social_role": 0.5,
+        "personality": 0.0,
+        "background": 0.0,
+        "interests": 0.0
+      },
+      "mean_turns": 5.0
+    },
+    "round_robin": {
+      "n": 2,
+      "average_gain": -0.43676344424523,
+      "accuracy": {
+        "social_role": 0.5,
+        "personality": 0.0,
+        "background": 0.0,
+        "interests": 0.0
+      },
+      "mean_turns": 5.0
+    },
+    "dialogue": {
+      "n": 2,
+      "average_gain": -0.43676344424523,
+      "accuracy": {
+        "social_role": 0.5,
+        "personality": 0.0,
+        "background": 0.0,
+        "interests": 0.0
+      },
+      "mean_turns": 5.0
+    },
+    "generic": {
+      "n": 2,
+      "average_gain": -0.43676344424523,
+      "accuracy": {
+        "social_role": 0.5,
+        "personality": 0.0,
+        "background": 0.0,
+        "interests": 0.0
+      },
+      "mean_turns": 5.0
+    },
+    "direct": {
+      "n": 2,
+      "average_gain": -0.43676344424523,
+      "accuracy": {
+        "social_role": 0.5,
+        "personality": 0.0,
+        "background": 0.0,
+        "interests": 0.0
+      },
+      "mean_turns": 5.0
+    },
+    "no_coverage": {
+      "n": 2,
+      "average_gain": -0.43676344424523,
+      "accuracy": {
+        "social_role": 0.5,
+        "personality": 0.0,
+        "background": 0.0,
+        "interests": 0.0
+      },
+      "mean_turns": 5.0
+    },
+    "no_redundancy": {
+      "n": 2,
+      "average_gain": -0.43676344424523,
+      "accuracy": {
+        "social_role": 0.5,
+        "personality": 0.0,
+        "background": 0.0,
+        "interests": 0.0
+      },
+      "mean_turns": 5.0
+    },
+    "uncertainty": {
+      "n": 2,
+      "average_gain": -0.43676344424523,
+      "accuracy": {
+        "social_role": 0.5,
+        "personality": 0.0,
+        "background": 0.0,
+        "interests": 0.0
+      },
+      "mean_turns": 5.0
+    }
+  },
+  "note": "Null AG means a baseline equals one. Mock scores are not experimental evidence.",
+  "resource_accounting": "Per-method tokens are logical attribution including shared initial calls. Unique cached call IDs give physical model-call totals; cache reuse is not new generation."
+}

@@ -1,0 +1,24 @@
+{
+  "source": "results/selective_gai/raw_runs.jsonl",
+  "seed": 20260913,
+  "per_relation_requested": 20,
+  "availability": {
+    "part-of": 3489,
+    "member-of": 450,
+    "instrument": 2617,
+    "theme": 4057,
+    "cause-of": 5528,
+    "in": 1638,
+    "temporal": 562
+  },
+  "sampled": 140,
+  "relation_counts": {
+    "part-of": 20,
+    "member-of": 20,
+    "instrument": 20,
+    "theme": 20,
+    "cause-of": 20,
+    "in": 20,
+    "temporal": 20
+  }
+}

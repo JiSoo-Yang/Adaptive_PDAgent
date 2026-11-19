@@ -1,0 +1,25 @@
+{
+  "final_archive": "IEEE_Access_final_main.zip",
+  "final_archive_sha256": "3a9e8b82831a8cfd086fd48137c134b62c35383472795328f240b126217ee585",
+  "paper_title": "Adaptive PD-Agent: Active Interviewing for LLM Persona Discovery with Bridging Inference",
+  "implementation_origin": "persona/access_reimplementation; manuscript-based reconstruction, not historical experiment source",
+  "original_code_files": {
+    "README.md": "4e322abb90bdab4f7267f4c79a90a88677ae8316386cd1c6f663148a7c03852d",
+    "requirements-analysis.txt": "8964ddd6955e5b1c843a8f286697a00a8d52eca0d548cbd00042659fb0a806ba",
+    ".gitignore": "91e2fb589ed7eec6a9b811e22ee3d196381927183750a3be2d41c632613e758b",
+    "pdaccess/__init__.py": "291d262b65e6c0816b5098e267391c19b81cd223b22c889eb22b78874adbe75e",
+    "pdaccess/core.py": "c24040197f144b6fe551dff9582bf0bb9fa0d0ee23d1ff0e6016dfeadb8c84c9",
+    "pdaccess/prompts.py": "ea83405f9b0e71ba781a35c5831aa8bf2313751c5a388a591859847942707e5c",
+    "pdaccess/backend.py": "c812502f711ce5312cf3d8c9eb855bb1e3da6fd53e76f4ed68a248da674cd86b",
+    "pdaccess/runner.py": "aec02ecff15aaf00fe5bb2232ad77f9c93d36ef1569899660d244412b7ea5d82",
+    "pdaccess/recover.py": "dbf1a68903ed91fa20ec20faafcf8b5882ee7e1cfa033ea7ec98035a1204bbe4",
+    "pdaccess/analyze_recovered.py": "16b38a8533fa2a325f3f1f96b69fed86d784d6194f9771f61514e51ba642a788",
+    "pdaccess/__main__.py": "4427155e5d4fd449855a6cd32abbbb550d08fcc0ffa667474d42d9cbd3229316",
+    "tests/test_core.py": "cf9a0bcba88447c46a8e25c4180d342b392f5145a05c18c6b5a2b02714c42e54",
+    "config/persona_schema.json": "ac392c5f17f89138cf4b136ad8d2fc3db956a4a5d7db5d7064cbee66f8e59ba4",
+    "config/run.json": "0b598fa0ba34b1636cb99a7c9b89be06b4b41ee6b21ded21631147572724c111",
+    "config/recorded_prompt_examples.json": "fc012e5d0934fba74bea8394bbed3202b843b3999f30b209b7587a0544c58197",
+    "config/observed_fallback_bank.json": "376eae63ea09ac7974fe65d29f63087fec9548b8098440ef2591497fba6a7670"
+  },
+  "paper_sha256": "fb9de4316d52e60a8a3a068b4298f57a4496be2588be9e9d7317e1603aca93d0"
+}

@@ -1,0 +1,84 @@
+{
+  "kind": "manuscript_transcription_not_raw_execution_record",
+  "source": "final_revision/access_revision.tex",
+  "source_sha256": "d07fcaf52283e6feaf7b6067342a84f65cc09e58ecc8e0e5dd4c8c3e943af7c3",
+  "scope": "Selected target-visible questions and graph counts only. These do not recover the controller system/user prompts or complete transcripts. Cases are deliberately selected extremes, not a representative sample.",
+  "cases": [
+    {
+      "heading": "Online Graph Guidance, persona 11 (success)",
+      "method": "online",
+      "persona_index": 11,
+      "selected_outcome": "success",
+      "base_seed": 20260831,
+      "target": "Qwen/Qwen3-4B",
+      "questions_2_to_5": [
+        "How do you handle challenges in your work life?",
+        "Can you describe a time when you had to adapt your approach to achieve a goal?",
+        "Can you share how you manage your time between personal and professional responsibilities?",
+        "Could you describe a problem you often help other people solve?"
+      ],
+      "final_graph_counts": {
+        "concepts": 28,
+        "edges": 18
+      },
+      "source_line": 1953
+    },
+    {
+      "heading": "Online Graph Guidance, persona 6 (failure)",
+      "method": "online",
+      "persona_index": 6,
+      "selected_outcome": "failure",
+      "base_seed": 20260831,
+      "target": "Qwen/Qwen3-4B",
+      "questions_2_to_5": [
+        "What tools or software have you found most useful in your work?",
+        "How do you typically interact with clients or colleagues during your workday?",
+        "Can you describe a time when you had to adjust your communication style for a specific client or team?",
+        "Can you describe a situation where you had to adapt your work approach based on feedback from a colleague?"
+      ],
+      "final_graph_counts": {
+        "concepts": 19,
+        "edges": 14
+      },
+      "source_line": 1992
+    },
+    {
+      "heading": "Selective Graph Guidance, persona 10 (success)",
+      "method": "selective",
+      "persona_index": 10,
+      "selected_outcome": "success",
+      "base_seed": 20260831,
+      "target": "Qwen/Qwen3-4B",
+      "questions_2_to_5": [
+        "What kind of updates do you usually look for on social media?",
+        "What activities help you recharge when you have free time?",
+        "How do you usually choose to spend an unstructured evening?",
+        "What kinds of activities do you typically engage in with others during your free time?"
+      ],
+      "final_graph_counts": {
+        "concepts": 24,
+        "edges": 12
+      },
+      "source_line": 2031
+    },
+    {
+      "heading": "Selective Graph Guidance, persona 143 (failure)",
+      "method": "selective",
+      "persona_index": 143,
+      "selected_outcome": "failure",
+      "base_seed": 20260831,
+      "target": "Qwen/Qwen3-4B",
+      "questions_2_to_5": [
+        "What kind of tech projects are you currently working on?",
+        "How did you get started with integrating wearable data into fitness applications?",
+        "What inspired you to experiment with AI tools for optimizing your workouts?",
+        "What other areas of technology interest you besides fitness and AI?"
+      ],
+      "final_graph_counts": {
+        "concepts": 22,
+        "edges": 16
+      },
+      "source_line": 2071
+    }
+  ]
+}

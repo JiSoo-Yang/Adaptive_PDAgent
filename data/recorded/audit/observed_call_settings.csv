@@ -1,0 +1,16 @@
+role,model,temperature,top_p,max_new_tokens,observed_calls,max_retry_count
+adaptive_direct_question_selection,Qwen/Qwen3-14B,0.7,0.8,512,4864,0
+adaptive_no_coverage_question_selection,Qwen/Qwen3-14B,0.7,0.8,512,4864,0
+adaptive_no_redundancy_question_selection,Qwen/Qwen3-14B,0.7,0.8,512,4864,0
+controller_matched_generic_selection,Qwen/Qwen3-14B,0.7,0.8,512,4864,0
+dialogue_action_question_selection,Qwen/Qwen3-14B,0.7,0.8,512,9728,0
+dialogue_followup_question_generation,Qwen/Qwen3-14B,0.7,0.8,128,4864,0
+final_persona_prediction,Qwen/Qwen3-14B,0.0,0.8,384,10944,0
+graph_extraction,Qwen/Qwen3-14B,0.0,0.8,768,54720,0
+original_question_generation,Qwen/Qwen3-14B,0.7,0.8,96,4864,0
+question_generation,Qwen/Qwen3-14B,0.7,0.8,96,10944,0
+round_robin_question_generation,Qwen/Qwen3-14B,0.7,0.8,128,4864,0
+target_response,Qwen/Qwen3-1.7B,0.7,0.8,256,13680,0
+target_response,Qwen/Qwen3-4B,0.7,0.8,256,13680,0
+target_response,google/gemma-3-4b-it,0.7,0.8,256,13680,0
+target_response,meta-llama/Llama-3.2-3B-Instruct,0.7,0.8,256,13680,0

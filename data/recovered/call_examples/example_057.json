@@ -1,0 +1,35 @@
+{
+  "kind": "verbatim_recorded_call",
+  "source": {
+    "file": "robustness/backbone_qwen3_8b/raw/all.jsonl",
+    "line": 2,
+    "persona_id": "persona_5c140befa4fad722c215fd6917bba5a55252379534cc85a771c2d6ec2d6fbb01",
+    "method": "dialogue_only",
+    "target": "Qwen/Qwen3-1.7B",
+    "base_seed": 20260913,
+    "json_pointer": "/turn_records/0/decision_call"
+  },
+  "call": {
+    "finish_reason": "stop",
+    "generated_tokens": 179,
+    "max_new_tokens": 512,
+    "model": "Qwen/Qwen3-8B",
+    "prompt_messages": [
+      {
+        "content": "You are the Dialogue-only Adaptive controller. Use only the visible dialogue: no graph nodes, edges, relation types, graph novelty, or graph-derived interpretations. Decide what is still missing or ambiguous. Generate exactly three indirect candidate questions and select one, or Stop only when the dialogue already supports all four persona dimensions. Never expose candidate labels. Return JSON only; do not provide chain-of-thought.",
+        "role": "system"
+      },
+      {
+        "content": "Completed turns: 1/5\nDialogue:\nQ1: What do you usually do on a typical day?\nA1: I often start my day with a routine that balances productivity and personal interests, such as , which keeps me curious and connected to the world.\n\nReturn exactly this schema:\n{\n  \"action\": \"Explore or Stop\",\n  \"target_dimension\": \"social_role, personality, background, interests, or null\",\n  \"candidates\": [\n    {\"question\": \"...\", \"coverage_gain\": 0.0, \"redundancy_penalty\": 0.0}\n  ],\n  \"selected_question\": \"... or empty for Stop\",\n  \"rationale_summary\": \"one short evidence-based phrase\"\n}",
+        "role": "user"
+      }
+    ],
+    "prompt_tokens": 242,
+    "raw_response": "{\n  \"action\": \"Explore\",\n  \"target_dimension\": \"interests\",\n  \"candidates\": [\n    {\"question\": \"What are some of your hobbies or activities you enjoy?\", \"coverage_gain\": 0.5, \"redundancy_penalty\": 0.0},\n    {\"question\": \"Can you share something you're passionate about?\", \"coverage_gain\": 0.5, \"redundancy_penalty\": 0.0},\n    {\"question\": \"What kind of activities do you enjoy doing in your free time?\", \"coverage_gain\": 0.5, \"redundancy_penalty\": 0.0}\n  ],\n  \"selected_question\": \"What are some of your hobbies or activities you enjoy?\",\n  \"rationale_summary\": \"The answer mentions balancing productivity with personal interests, suggesting a need to explore hobbies and activities.\"\n}",
+    "retry_count": 0,
+    "role": "dialogue_action_question_selection",
+    "seed": 3145284426,
+    "temperature": 0.7,
+    "top_p": 0.8
+  }
+}

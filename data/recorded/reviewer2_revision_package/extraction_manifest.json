@@ -1,0 +1,37 @@
+{
+  "generated_sha256": {
+    "results/access_revision/reviewer2_revision_package/budget_allocation.csv": "ff7108b92569a6c8c3367959c34998628313dcd3c232e9e4e2f4152f23cecd64",
+    "results/access_revision/reviewer2_revision_package/qualitative_cases_all_methods.jsonl": "bfc3a2804951ed22f381dc9898cf7c3dd0de8681871c50296629ce75c8cf88b9",
+    "results/access_revision/reviewer2_revision_package/qualitative_cases_index.csv": "e417ffc1b854bc75e202d2bc1691e9df85d8f6789740771307ae122ac54ed26c",
+    "results/access_revision/reviewer2_revision_package/revision_methods_pairing_audit.csv": "c0c3975e31eb5f4c7a47c00234b4a4b9e9ed0be027e9fb34c0549fdfafa76d26",
+    "results/access_revision/reviewer2_revision_package/sampling_probabilities_and_frequencies.csv": "1bee68fa5dae4c583a469bca7088f26b5755eb5a288cf004f9f604087d943605"
+  },
+  "methods_per_case": [
+    "original",
+    "dialogue_only",
+    "random_candidate",
+    "round_robin",
+    "dialogue_followup",
+    "controller_matched_generic",
+    "adaptive_direct",
+    "adaptive_no_coverage",
+    "adaptive_no_redundancy",
+    "uncertainty_sampling"
+  ],
+  "model_inference_performed": false,
+  "qualitative_cases": 8,
+  "reproduction_command": "/opt/conda/envs/tracecal_rl/bin/python -m evaluation.build_reviewer2_revision_package",
+  "source_counts": {
+    "active_rows": 1216,
+    "development_personas": 100,
+    "heldout_personas": 304,
+    "main_rows": 10944
+  },
+  "source_sha256": {
+    "results/access_revision/active_information_gain/main/aggregate/manifest.json": "4631b8ff86aff20b60b713973f23257fb11f755036dd3922a8ed20e03e72187e",
+    "results/access_revision/main/aggregate/manifest.json": "6c2e032482e63aeaa8d46ed8e2ba531b2e00a438a7d3c73880810aa84e6b9f96",
+    "results/selective_gai/development_personas.jsonl": "dd8e7d8b55ab61deee7e80cf8ba259771a16e2d0e2bfe0bdbdcaa62bfd8c5e4c",
+    "results/selective_gai/heldout_personas.jsonl": "b7e89d6576941af0331bd4792a522a8d078609bacedd9f3b484cd473ca5537d0",
+    "schema/persona_schema.json": "6e46719e3af9087026a3b8dc00445635078bb927f7555111d9598ee3243f63a6"
+  }
+}

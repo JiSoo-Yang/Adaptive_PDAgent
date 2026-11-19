@@ -1,0 +1,9 @@
+log,elapsed_seconds,completed_rows
+results/access_revision/active_information_gain/main/logs/google_gemma-3-4b-it/shard_0.log,1127,152
+results/access_revision/active_information_gain/main/logs/google_gemma-3-4b-it/shard_1.log,1127,152
+results/access_revision/active_information_gain/main/logs/meta-llama_llama-3_2-3b-instruct/shard_0.log,1101,152
+results/access_revision/active_information_gain/main/logs/meta-llama_llama-3_2-3b-instruct/shard_1.log,1100,152
+results/access_revision/active_information_gain/main/logs/qwen_qwen3-1_7b/shard_0.log,969,152
+results/access_revision/active_information_gain/main/logs/qwen_qwen3-1_7b/shard_1.log,971,152
+results/access_revision/active_information_gain/main/logs/qwen_qwen3-4b/shard_0.log,1016,152
+results/access_revision/active_information_gain/main/logs/qwen_qwen3-4b/shard_1.log,1014,152

@@ -1,0 +1,3 @@
+# Paper-reported inference backend. Keep separate from the CPU analysis environment.
+vllm==0.11.0
+huggingface_hub>=0.34,<1

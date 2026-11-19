@@ -1,0 +1,508 @@
+{
+  "final_persona_prediction": {
+    "kind": "verbatim_recorded_call",
+    "source": {
+      "file": "active_information_gain/main/raw/google_gemma-3-4b-it/shard_0.jsonl",
+      "line": 1,
+      "persona_id": "persona_5c140befa4fad722c215fd6917bba5a55252379534cc85a771c2d6ec2d6fbb01",
+      "method": "uncertainty_sampling",
+      "target": "google/gemma-3-4b-it",
+      "base_seed": 20260913,
+      "json_pointer": "/final_prediction_call"
+    },
+    "call": {
+      "finish_reason": "stop",
+      "generated_tokens": 66,
+      "max_new_tokens": 384,
+      "model": "Qwen/Qwen3-14B",
+      "prompt_messages": [
+        {
+          "content": "Predict the final persona from only the interview and grounded bridging graph. Copy allowed values verbatim. Return one JSON object only; do not provide reasoning.",
+          "role": "system"
+        },
+        {
+          "content": "Interview:\n[{\"question\": \"What do you typically do on a regular day?\", \"answer\": \"I usually start my day reviewing the progress on current projects, ensuring everything aligns with the established roadmap and that we’re meeting our key performance indicators, often spending a good portion of the day focused on analyzing data and adjusting strategies based on what I’ve observed during my trips – it’s fascinating to see how different markets respond to similar approaches.\"}, {\"question\": \"How do you typically handle unexpected challenges that arise during your data analysis or strategy adjustments?\", \"answer\": \"When things shift unexpectedly, I tend to step back and really dissect the core assumptions driving the initial plan, meticulously examining the data to identify the root cause of the deviation, and then prioritize a focused, incremental adjustment rather than a sweeping overhaul, drawing on experiences from past trips where adapting to unforeseen circumstances was crucial for success.\"}, {\"question\": \"How do you approach situations where different teams have conflicting priorities or interpretations of the data?\", \"answer\": \"I find it’s most effective to facilitate a structured discussion where everyone clearly articulates their perspective and the rationale behind it, grounding the conversation in the objective data and focusing on identifying a shared understanding of the desired outcome, much like navigating a new city – you need to understand the local routes and landmarks to reach your destination effectively.\"}, {\"question\": \"How did your early experiences shape your approach to problem-solving and collaboration?\", \"answer\": \"extensively early on really instilled a sense of needing to be adaptable and resourceful, recognizing that plans rarely unfold exactly as anticipated, and building relationships with people from diverse backgrounds taught me the value of listening deeply and appreciating different viewpoints before attempting to forge a path forward.\"}, {\"question\": \"What kind of activities do you enjoy in your free time?\", \"answer\": \"I often find myself drawn to destinations with unique cultural landscapes and a sense of exploration, allowing me to observe how different communities approach challenges and opportunities – it’s a rewarding way to broaden my perspective.\"}]\n\nGrounded bridging graph:\n{\"concepts\": {\"review progress\": {\"dimensions\": [], \"evidence\": [{\"supporting_span\": \"reviewing the progress on current projects\", \"turn_index\": 1}]}, \"align with roadmap\": {\"dimensions\": [], \"evidence\": [{\"supporting_span\": \"everything aligns with the established roadmap\", \"turn_index\": 1}]}, \"meet kpis\": {\"dimensions\": [], \"evidence\": [{\"supporting_span\": \"we’re meeting our key performance indicators\", \"turn_index\": 1}]}, \"analyze data\": {\"dimensions\": [], \"evidence\": [{\"supporting_span\": \"focused on analyzing data\", \"turn_index\": 1}]}, \"adjust strategies\": {\"dimensions\": [], \"evidence\": [{\"supporting_span\": \"adjusting strategies based on what I’ve observed\", \"turn_index\": 1}]}, \"observe market responses\": {\"dimensions\": [], \"evidence\": [{\"supporting_span\": \"see how different markets respond to similar approaches\", \"turn_index\": 1}]}, \"dissect assumptions\": {\"dimensions\": [], \"evidence\": [{\"supporting_span\": \"step back and really dissect the core assumptions\", \"turn_index\": 2}]}, \"identify root cause\": {\"dimensions\": [], \"evidence\": [{\"supporting_span\": \"meticulously examining the data to identify the root cause\", \"turn_index\": 2}]}, \"incremental adjustment\": {\"dimensions\": [], \"evidence\": [{\"supporting_span\": \"prioritize a focused, incremental adjustment\", \"turn_index\": 2}]}, \"past experiences\": {\"dimensions\": [], \"evidence\": [{\"supporting_span\": \"drawing on experiences from past trips\", \"turn_index\": 2}]}, \"structured discussion\": {\"dimensions\": [], \"evidence\": [{\"supporting_span\": \"structured discussion\", \"turn_index\": 3}]}, \"shared understanding\": {\"dimensions\": [], \"evidence\": [{\"supporting_span\": \"shared understanding of the desired outcome\", \"turn_index\": 3}]}, \"objective data\": {\"dimensions\": [], \"evidence\": [{\"supporting_span\": \"grounding the conversation in the objective data\", \"turn_index\": 3}]}, \"local routes\": {\"dimensions\": [], \"evidence\": [{\"supporting_span\": \"understand the local routes\", \"turn_index\": 3}]}, \"landmarks\": {\"dimensions\": [], \"evidence\": [{\"supporting_span\": \"understand the local routes and landmarks\", \"turn_index\": 3}]}, \"desired outcome\": {\"dimensions\": [], \"evidence\": [{\"supporting_span\": \"shared understanding of the desired outcome\", \"turn_index\": 3}]}, \"adaptable\": {\"dimensions\": [\"personality\"], \"evidence\": [{\"supporting_span\": \"instilled a sense of needing to be adaptable\", \"turn_index\": 4}]}, \"resourceful\": {\"dimensions\": [\"personality\"], \"evidence\": [{\"supporting_span\": \"needing to be adaptable and resourceful\", \"turn_index\": 4}]}, \"diverse backgrounds\": {\"dimensions\": [\"background\"], \"evidence\": [{\"supporting_span\": \"building relationships with people from diverse backgrounds\", \"turn_index\": 4}]}, \"listening deeply\": {\"dimensions\": [\"personality\"], \"evidence\": [{\"supporting_span\": \"the value of listening deeply\", \"turn_index\": 4}]}, \"different viewpoints\": {\"dimensions\": [\"background\"], \"evidence\": [{\"supporting_span\": \"appreciating different viewpoints\", \"turn_index\": 4}]}, \"forge a path forward\": {\"dimensions\": [\"personality\"], \"evidence\": [{\"supporting_span\": \"before attempting to forge a path forward\", \"turn_index\": 4}]}, \"cultural landscapes\": {\"dimensions\": [\"interests\"], \"evidence\": [{\"supporting_span\": \"destinations with unique cultural landscapes\", \"turn_index\": 5}]}, \"exploration\": {\"dimensions\": [\"interests\"], \"evidence\": [{\"supporting_span\": \"a sense of exploration\", \"turn_index\": 5}]}, \"observe communities\": {\"dimensions\": [\"interests\"], \"evidence\": [{\"supporting_span\": \"observe how different communities approach challenges\", \"turn_index\": 5}]}, \"broaden perspective\": {\"dimensions\": [\"interests\"], \"evidence\": [{\"supporting_span\": \"broaden my perspective\", \"turn_index\": 5}]}}, \"edges\": [{\"source\": \"review progress\", \"target\": \"align with roadmap\", \"relation_type\": \"cause-of\", \"supporting_span\": \"reviewing the progress on current projects, ensuring everything aligns with the established roadmap\", \"turn_index\": 1}, {\"source\": \"review progress\", \"target\": \"meet kpis\", \"relation_type\": \"cause-of\", \"supporting_span\": \"reviewing the progress on current projects, ensuring everything aligns with the established roadmap and that we’re meeting our key performance indicators\", \"turn_index\": 1}, {\"source\": \"analyze data\", \"target\": \"adjust strategies\", \"relation_type\": \"cause-of\", \"supporting_span\": \"focused on analyzing data and adjusting strategies based on what I’ve observed\", \"turn_index\": 1}, {\"source\": \"observe market responses\", \"target\": \"adjust strategies\", \"relation_type\": \"cause-of\", \"supporting_span\": \"adjusting strategies based on what I’ve observed during my trips – it’s fascinating to see how different markets respond to similar approaches\", \"turn_index\": 1}, {\"source\": \"dissect assumptions\", \"target\": \"identify root cause\", \"relation_type\": \"cause-of\", \"supporting_span\": \"step back and really dissect the core assumptions driving the initial plan, meticulously examining the data to identify the root cause\", \"turn_index\": 2}, {\"source\": \"identify root cause\", \"target\": \"incremental adjustment\", \"relation_type\": \"cause-of\", \"supporting_span\": \"meticulously examining the data to identify the root cause of the deviation, and then prioritize a focused, incremental adjustment\", \"turn_index\": 2}, {\"source\": \"structured discussion\", \"target\": \"objective data\", \"relation_type\": \"in\", \"supporting_span\": \"grounding the conversation in the objective data\", \"turn_index\": 3}, {\"source\": \"structured discussion\", \"target\": \"shared understanding\", \"relation_type\": \"cause-of\", \"supporting_span\": \"focusing on identifying a shared understanding of the desired outcome\", \"turn_index\": 3}, {\"source\": \"local routes\", \"target\": \"landmarks\", \"relation_type\": \"part-of\", \"supporting_span\": \"understand the local routes and landmarks\", \"turn_index\": 3}, {\"source\": \"local routes\", \"target\": \"desired outcome\", \"relation_type\": \"theme\", \"supporting_span\": \"you need to understand the local routes and landmarks to reach your destination effectively\", \"turn_index\": 3}, {\"source\": \"diverse backgrounds\", \"target\": \"listening deeply\", \"relation_type\": \"cause-of\", \"supporting_span\": \"building relationships with people from diverse backgrounds taught me the value of listening deeply\", \"turn_index\": 4}, {\"source\": \"cultural landscapes\", \"target\": \"exploration\", \"relation_type\": \"theme\", \"supporting_span\": \"destinations with unique cultural landscapes and a sense of exploration\", \"turn_index\": 5}, {\"source\": \"observe communities\", \"target\": \"broaden perspective\", \"relation_type\": \"cause-of\", \"supporting_span\": \"observe how different communities approach challenges and opportunities – it’s a rewarding way to broaden my perspective\", \"turn_index\": 5}]}\n\nAllowed values:\n- social_role: Doctor, Lawyer, Accountant, Architect, Pharmacist, Professor, Researcher, Judge, Prosecutor, Patent Attorney, Real Estate Agent, Tax Accountant, Appraiser, Labor Consultant, Software Engineer, Data Scientist, Product Manager, Project Manager, UX/UI Designer, System Administrator, Marketing Manager, Sales Manager, HR Specialist, Finance Manager, Strategy Planner, Quality Manager, DevOps Engineer, Data Engineer, Security Specialist, Student, Homemaker, Retiree, Freelancer, Self-employed, Office Worker, Service Worker, Salesperson, Factory Worker, Artist, Writer, Content Creator, Athlete, Chef\n- personality trait \"openness\": yes, no\n- background category \"family_status\": Single, Married (No Children), Married (With Children), Single Parent, Living Alone\n- interests category \"hobbies\": Reading, Fitness / Exercise, Cooking, Traveling, Photography / Videography, Gaming, Listening to / Playing Music, Drawing / Crafts, Hiking / Camping, Watching Movies / TV Shows, Fashion / Beauty, Pet Care, Gardening\n\nReturn exactly:\n{\n  \"social_role\": \"...\",\n  \"personality\": {\"trait\": \"openness\", \"value\": \"yes or no\"},\n  \"background\": {\"category\": \"family_status\", \"value\": \"...\"},\n  \"interests\": {\"category\": \"hobbies\", \"value\": \"...\"}\n}",
+          "role": "user"
+        }
+      ],
+      "prompt_tokens": 2359,
+      "raw_response": "{\n  \"social_role\": \"Strategy Planner\",\n  \"personality\": {\"trait\": \"openness\", \"value\": \"yes\"},\n  \"background\": {\"category\": \"family_status\", \"value\": \"Single\"},\n  \"interests\": {\"category\": \"hobbies\", \"value\": \"Traveling\"}\n}",
+      "retry_count": 0,
+      "role": "final_persona_prediction",
+      "seed": 2813357022,
+      "temperature": 0.0,
+      "top_p": 0.8
+    }
+  },
+  "uncertainty_targeted_question_generation": {
+    "kind": "verbatim_recorded_call",
+    "source": {
+      "file": "active_information_gain/main/raw/google_gemma-3-4b-it/shard_0.jsonl",
+      "line": 1,
+      "persona_id": "persona_5c140befa4fad722c215fd6917bba5a55252379534cc85a771c2d6ec2d6fbb01",
+      "method": "uncertainty_sampling",
+      "target": "google/gemma-3-4b-it",
+      "base_seed": 20260913,
+      "json_pointer": "/turn_records/0/decision_call"
+    },
+    "call": {
+      "finish_reason": "stop",
+      "generated_tokens": 18,
+      "max_new_tokens": 128,
+      "model": "Qwen/Qwen3-14B",
+      "prompt_messages": [
+        {
+          "content": "Ask one short, indirect, natural follow-up question. Do not name persona dimensions or candidate labels. Output only the question.",
+          "role": "system"
+        },
+        {
+          "content": "Conversation so far:\nQ1: What do you typically do on a regular day?\nA1: I usually start my day reviewing the progress on current projects, ensuring everything aligns with the established roadmap and that we’re meeting our key performance indicators, often spending a good portion of the day focused on analyzing data and adjusting strategies based on what I’ve observed during my trips – it’s fascinating to see how different markets respond to similar approaches.\n\nAn uncertainty sampler selected the least certain area. Ask one question about usual responsibilities, work problems, routines, or tools. This is question 2 of 5.",
+          "role": "user"
+        }
+      ],
+      "prompt_tokens": 163,
+      "raw_response": "How do you typically handle unexpected challenges that arise during your data analysis or strategy adjustments?",
+      "retry_count": 0,
+      "role": "uncertainty_targeted_question_generation",
+      "seed": 3201278143,
+      "temperature": 0.7,
+      "top_p": 0.8
+    }
+  },
+  "graph_extraction": {
+    "kind": "verbatim_recorded_call",
+    "source": {
+      "file": "active_information_gain/main/raw/google_gemma-3-4b-it/shard_0.jsonl",
+      "line": 1,
+      "persona_id": "persona_5c140befa4fad722c215fd6917bba5a55252379534cc85a771c2d6ec2d6fbb01",
+      "method": "uncertainty_sampling",
+      "target": "google/gemma-3-4b-it",
+      "base_seed": 20260913,
+      "json_pointer": "/turn_records/0/graph_extraction_call"
+    },
+    "call": {
+      "finish_reason": "stop",
+      "generated_tokens": 445,
+      "max_new_tokens": 768,
+      "model": "Qwen/Qwen3-14B",
+      "prompt_messages": [
+        {
+          "content": "Extract only grounded concepts and bridging relations from the latest Target response. Every new concept or edge supporting_span must be an exact contiguous substring of that response. Do not infer persona labels or use hidden information. Valid relation_type values are: part-of, member-of, instrument, theme, cause-of, in, temporal. Extract at most six concepts and four edges; prefer fewer high-value items. Return one compact JSON object only.",
+          "role": "system"
+        },
+        {
+          "content": "Latest question: What do you typically do on a regular day?\nLatest Target response: I usually start my day reviewing the progress on current projects, ensuring everything aligns with the established roadmap and that we’re meeting our key performance indicators, often spending a good portion of the day focused on analyzing data and adjusting strategies based on what I’ve observed during my trips – it’s fascinating to see how different markets respond to similar approaches.\nPreviously known concepts: []\n\nReturn:\n{\n  \"concepts\": [\n    {\n      \"name\": \"1-3 word concept\",\n      \"dimensions\": [\"zero or more of social_role, personality, background, interests\"],\n      \"supporting_span\": \"exact response substring\"\n    }\n  ],\n  \"edges\": [\n    {\n      \"source\": \"concept name\",\n      \"target\": \"concept name\",\n      \"relation_type\": \"one allowed type\",\n      \"supporting_span\": \"exact response substring supporting the link\"\n    }\n  ]\n}",
+          "role": "user"
+        }
+      ],
+      "prompt_tokens": 300,
+      "raw_response": "{\n  \"concepts\": [\n    {\n      \"name\": \"review progress\",\n      \"dimensions\": [],\n      \"supporting_span\": \"reviewing the progress on current projects\"\n    },\n    {\n      \"name\": \"align with roadmap\",\n      \"dimensions\": [],\n      \"supporting_span\": \"everything aligns with the established roadmap\"\n    },\n    {\n      \"name\": \"meet KPIs\",\n      \"dimensions\": [],\n      \"supporting_span\": \"we’re meeting our key performance indicators\"\n    },\n    {\n      \"name\": \"analyze data\",\n      \"dimensions\": [],\n      \"supporting_span\": \"focused on analyzing data\"\n    },\n    {\n      \"name\": \"adjust strategies\",\n      \"dimensions\": [],\n      \"supporting_span\": \"adjusting strategies based on what I’ve observed\"\n    },\n    {\n      \"name\": \"observe market responses\",\n      \"dimensions\": [],\n      \"supporting_span\": \"see how different markets respond to similar approaches\"\n    }\n  ],\n  \"edges\": [\n    {\n      \"source\": \"review progress\",\n      \"target\": \"align with roadmap\",\n      \"relation_type\": \"cause-of\",\n      \"supporting_span\": \"reviewing the progress on current projects, ensuring everything aligns with the established roadmap\"\n    },\n    {\n      \"source\": \"review progress\",\n      \"target\": \"meet KPIs\",\n      \"relation_type\": \"cause-of\",\n      \"supporting_span\": \"reviewing the progress on current projects, ensuring everything aligns with the established roadmap and that we’re meeting our key performance indicators\"\n    },\n    {\n      \"source\": \"analyze data\",\n      \"target\": \"adjust strategies\",\n      \"relation_type\": \"cause-of\",\n      \"supporting_span\": \"focused on analyzing data and adjusting strategies based on what I’ve observed\"\n    },\n    {\n      \"source\": \"observe market responses\",\n      \"target\": \"adjust strategies\",\n      \"relation_type\": \"cause-of\",\n      \"supporting_span\": \"adjusting strategies based on what I’ve observed during my trips – it’s fascinating to see how different markets respond to similar approaches\"\n    }\n  ]\n}",
+      "retry_count": 0,
+      "role": "graph_extraction",
+      "seed": 1127447776,
+      "temperature": 0.0,
+      "top_p": 0.8
+    }
+  },
+  "question_generation": {
+    "kind": "verbatim_recorded_call",
+    "source": {
+      "file": "active_information_gain/main/raw/google_gemma-3-4b-it/shard_0.jsonl",
+      "line": 1,
+      "persona_id": "persona_5c140befa4fad722c215fd6917bba5a55252379534cc85a771c2d6ec2d6fbb01",
+      "method": "uncertainty_sampling",
+      "target": "google/gemma-3-4b-it",
+      "base_seed": 20260913,
+      "json_pointer": "/turn_records/0/question_call"
+    },
+    "call": {
+      "finish_reason": "stop",
+      "generated_tokens": 11,
+      "max_new_tokens": 96,
+      "model": "Qwen/Qwen3-14B",
+      "prompt_messages": [
+        {
+          "content": "You are the PD-Agent interviewing someone to infer a persona from indirect evidence. Ask one short natural open-ended question. Do not name persona dimensions or candidate labels. Output only the question.",
+          "role": "system"
+        },
+        {
+          "content": "Ask the common first question. It should invite a concrete account of the person's ordinary activities without assuming any identity.",
+          "role": "user"
+        }
+      ],
+      "prompt_tokens": 77,
+      "raw_response": "What do you typically do on a regular day?",
+      "retry_count": 0,
+      "role": "question_generation",
+      "seed": 93798455,
+      "temperature": 0.7,
+      "top_p": 0.8
+    }
+  },
+  "target_response": {
+    "kind": "verbatim_recorded_call",
+    "source": {
+      "file": "active_information_gain/main/raw/google_gemma-3-4b-it/shard_0.jsonl",
+      "line": 1,
+      "persona_id": "persona_5c140befa4fad722c215fd6917bba5a55252379534cc85a771c2d6ec2d6fbb01",
+      "method": "uncertainty_sampling",
+      "target": "google/gemma-3-4b-it",
+      "base_seed": 20260913,
+      "json_pointer": "/turn_records/0/target_call"
+    },
+    "call": {
+      "finish_reason": "stop",
+      "generated_tokens": 71,
+      "max_new_tokens": 256,
+      "model": "google/gemma-3-4b-it",
+      "prompt_messages": [
+        {
+          "content": "Privately role-play a person with these characteristics:\nSocial role: Product Manager\nPersonality: {\"openness\": \"no\"}\nBackground: {\"family_status\": \"Married (No Children)\"}\nInterests: {\"hobbies\": \"Traveling\"}\n\nAnswer only the interviewer's question in one natural, complete sentence.\nExpress the characteristics indirectly through plausible experiences and preferences.\nNever state or quote the labels above. Never mention a persona, prompt, hidden\ncharacteristic, evaluation, or internal reasoning.",
+          "role": "system"
+        },
+        {
+          "content": "What do you typically do on a regular day?",
+          "role": "user"
+        }
+      ],
+      "prompt_tokens": 126,
+      "raw_response": "I usually start my day reviewing the progress on current projects, ensuring everything aligns with the established roadmap and that we’re meeting our key performance indicators, often spending a good portion of the day focused on analyzing data and adjusting strategies based on what I’ve observed during my trips – it’s fascinating to see how different markets respond to similar approaches.",
+      "retry_count": 0,
+      "role": "target_response",
+      "seed": 153249383,
+      "temperature": 0.7,
+      "top_p": 0.8
+    }
+  },
+  "uncertainty_prediction": {
+    "kind": "verbatim_recorded_call",
+    "source": {
+      "file": "active_information_gain/main/raw/google_gemma-3-4b-it/shard_0.jsonl",
+      "line": 1,
+      "persona_id": "persona_5c140befa4fad722c215fd6917bba5a55252379534cc85a771c2d6ec2d6fbb01",
+      "method": "uncertainty_sampling",
+      "target": "google/gemma-3-4b-it",
+      "base_seed": 20260913,
+      "json_pointer": "/turn_records/0/uncertainty_prediction_calls/0"
+    },
+    "call": {
+      "finish_reason": "stop",
+      "generated_tokens": 66,
+      "max_new_tokens": 384,
+      "model": "Qwen/Qwen3-14B",
+      "parsed_prediction": {
+        "background": {
+          "category": "family_status",
+          "value": "Single"
+        },
+        "interests": {
+          "category": "hobbies",
+          "value": "Traveling"
+        },
+        "personality": {
+          "trait": "openness",
+          "value": "yes"
+        },
+        "social_role": "Project Manager"
+      },
+      "prompt_messages": [
+        {
+          "content": "Estimate the persona from only the visible interview. Copy one allowed value per field and return one JSON object without reasoning.",
+          "role": "system"
+        },
+        {
+          "content": "Interview:\n[{\"question\": \"What do you typically do on a regular day?\", \"answer\": \"I usually start my day reviewing the progress on current projects, ensuring everything aligns with the established roadmap and that we’re meeting our key performance indicators, often spending a good portion of the day focused on analyzing data and adjusting strategies based on what I’ve observed during my trips – it’s fascinating to see how different markets respond to similar approaches.\"}]\n\nAllowed values:\n- social_role: Doctor, Lawyer, Accountant, Architect, Pharmacist, Professor, Researcher, Judge, Prosecutor, Patent Attorney, Real Estate Agent, Tax Accountant, Appraiser, Labor Consultant, Software Engineer, Data Scientist, Product Manager, Project Manager, UX/UI Designer, System Administrator, Marketing Manager, Sales Manager, HR Specialist, Finance Manager, Strategy Planner, Quality Manager, DevOps Engineer, Data Engineer, Security Specialist, Student, Homemaker, Retiree, Freelancer, Self-employed, Office Worker, Service Worker, Salesperson, Factory Worker, Artist, Writer, Content Creator, Athlete, Chef\n- personality trait \"openness\": yes, no\n- background category \"family_status\": Single, Married (No Children), Married (With Children), Single Parent, Living Alone\n- interests category \"hobbies\": Reading, Fitness / Exercise, Cooking, Traveling, Photography / Videography, Gaming, Listening to / Playing Music, Drawing / Crafts, Hiking / Camping, Watching Movies / TV Shows, Fashion / Beauty, Pet Care, Gardening\n\nReturn exactly:\n{\n  \"social_role\": \"...\",\n  \"personality\": {\"trait\": \"openness\", \"value\": \"yes or no\"},\n  \"background\": {\"category\": \"family_status\", \"value\": \"...\"},\n  \"interests\": {\"category\": \"hobbies\", \"value\": \"...\"}\n}",
+          "role": "user"
+        }
+      ],
+      "prompt_tokens": 421,
+      "raw_response": "{\n  \"social_role\": \"Project Manager\",\n  \"personality\": {\"trait\": \"openness\", \"value\": \"yes\"},\n  \"background\": {\"category\": \"family_status\", \"value\": \"Single\"},\n  \"interests\": {\"category\": \"hobbies\", \"value\": \"Traveling\"}\n}",
+      "retry_count": 0,
+      "role": "uncertainty_prediction",
+      "sample_index": 0,
+      "seed": 3833573525,
+      "temperature": 0.8,
+      "top_p": 0.8
+    }
+  },
+  "original_question_generation": {
+    "kind": "verbatim_recorded_call",
+    "source": {
+      "file": "main/raw/google_gemma-3-4b-it/shard_0.jsonl",
+      "line": 1,
+      "persona_id": "persona_5c140befa4fad722c215fd6917bba5a55252379534cc85a771c2d6ec2d6fbb01",
+      "method": "original",
+      "target": "google/gemma-3-4b-it",
+      "base_seed": 20260913,
+      "json_pointer": "/turn_records/0/decision_call"
+    },
+    "call": {
+      "finish_reason": "stop",
+      "generated_tokens": 16,
+      "max_new_tokens": 96,
+      "model": "Qwen/Qwen3-14B",
+      "prompt_messages": [
+        {
+          "content": "You are the Original PD-Agent interviewer. Use only dialogue history. Ask one general open-ended follow-up. Do not use an evidence state, choose a persona dimension, stop early, or mention candidate labels. Output only the question.",
+          "role": "system"
+        },
+        {
+          "content": "Conversation so far:\nQ1: What do you typically do on a regular day?\nA1: I usually start my day reviewing the progress on current projects, ensuring everything aligns with the established roadmap and that we’re meeting our key performance indicators, often spending a good portion of the day focused on analyzing data and adjusting strategies based on what I’ve observed during my trips – it’s fascinating to see how different markets respond to similar approaches.\n\nAsk question 2 of 5.",
+          "role": "user"
+        }
+      ],
+      "prompt_tokens": 159,
+      "raw_response": "How do you approach decision-making when faced with conflicting priorities or limited resources?",
+      "retry_count": 0,
+      "role": "original_question_generation",
+      "seed": 3201278143,
+      "temperature": 0.7,
+      "top_p": 0.8
+    }
+  },
+  "dialogue_action_question_selection": {
+    "kind": "verbatim_recorded_call",
+    "source": {
+      "file": "main/raw/google_gemma-3-4b-it/shard_0.jsonl",
+      "line": 2,
+      "persona_id": "persona_5c140befa4fad722c215fd6917bba5a55252379534cc85a771c2d6ec2d6fbb01",
+      "method": "dialogue_only",
+      "target": "google/gemma-3-4b-it",
+      "base_seed": 20260913,
+      "json_pointer": "/turn_records/0/decision_call"
+    },
+    "call": {
+      "finish_reason": "stop",
+      "generated_tokens": 189,
+      "max_new_tokens": 512,
+      "model": "Qwen/Qwen3-14B",
+      "prompt_messages": [
+        {
+          "content": "You are the Dialogue-only Adaptive controller. Use only the visible dialogue: no graph nodes, edges, relation types, graph novelty, or graph-derived interpretations. Decide what is still missing or ambiguous. Generate exactly three indirect candidate questions and select one, or Stop only when the dialogue already supports all four persona dimensions. Never expose candidate labels. Return JSON only; do not provide chain-of-thought.",
+          "role": "system"
+        },
+        {
+          "content": "Completed turns: 1/5\nDialogue:\nQ1: What do you typically do on a regular day?\nA1: I usually start my day reviewing the progress on current projects, ensuring everything aligns with the established roadmap and that we’re meeting our key performance indicators, often spending a good portion of the day focused on analyzing data and adjusting strategies based on what I’ve observed during my trips – it’s fascinating to see how different markets respond to similar approaches.\n\nReturn exactly this schema:\n{\n  \"action\": \"Explore or Stop\",\n  \"target_dimension\": \"social_role, personality, background, interests, or null\",\n  \"candidates\": [\n    {\"question\": \"...\", \"coverage_gain\": 0.0, \"redundancy_penalty\": 0.0}\n  ],\n  \"selected_question\": \"... or empty for Stop\",\n  \"rationale_summary\": \"one short evidence-based phrase\"\n}",
+          "role": "user"
+        }
+      ],
+      "prompt_tokens": 282,
+      "raw_response": "{\n  \"action\": \"Explore\",\n  \"target_dimension\": \"background\",\n  \"candidates\": [\n    {\"question\": \"What kind of trips do you usually take to observe market responses?\", \"coverage_gain\": 0.3, \"redundancy_penalty\": 0.0},\n    {\"question\": \"How long have you been working on these projects and in this field?\", \"coverage_gain\": 0.4, \"redundancy_penalty\": 0.0},\n    {\"question\": \"What kind of data do you analyze to adjust your strategies?\", \"coverage_gain\": 0.3, \"redundancy_penalty\": 0.0}\n  ],\n  \"selected_question\": \"How long have you been working on these projects and in this field?\",\n  \"rationale_summary\": \"The response hints at professional experience, suggesting a need to explore the individual's background in more depth.\"\n}",
+      "retry_count": 0,
+      "role": "dialogue_action_question_selection",
+      "seed": 3201278143,
+      "temperature": 0.7,
+      "top_p": 0.8
+    }
+  },
+  "round_robin_question_generation": {
+    "kind": "verbatim_recorded_call",
+    "source": {
+      "file": "main/raw/google_gemma-3-4b-it/shard_0.jsonl",
+      "line": 4,
+      "persona_id": "persona_5c140befa4fad722c215fd6917bba5a55252379534cc85a771c2d6ec2d6fbb01",
+      "method": "round_robin",
+      "target": "google/gemma-3-4b-it",
+      "base_seed": 20260913,
+      "json_pointer": "/turn_records/0/decision_call"
+    },
+    "call": {
+      "finish_reason": "stop",
+      "generated_tokens": 18,
+      "max_new_tokens": 128,
+      "model": "Qwen/Qwen3-14B",
+      "prompt_messages": [
+        {
+          "content": "You are a fixed-budget interviewer. Ask one indirect question intended to elicit social_role evidence. Follow the fixed round-robin schedule; do not assess which dimension is ambiguous or under-covered. Never name persona dimensions or candidate labels. Output only the question.",
+          "role": "system"
+        },
+        {
+          "content": "Conversation so far:\nQ1: What do you typically do on a regular day?\nA1: I usually start my day reviewing the progress on current projects, ensuring everything aligns with the established roadmap and that we’re meeting our key performance indicators, often spending a good portion of the day focused on analyzing data and adjusting strategies based on what I’ve observed during my trips – it’s fascinating to see how different markets respond to similar approaches.\n\nAsk question 2 of 5.",
+          "role": "user"
+        }
+      ],
+      "prompt_tokens": 164,
+      "raw_response": "How do you approach situations where the priorities of different teams or departments seem to conflict?",
+      "retry_count": 0,
+      "role": "round_robin_question_generation",
+      "seed": 3201278143,
+      "temperature": 0.7,
+      "top_p": 0.8
+    }
+  },
+  "dialogue_followup_question_generation": {
+    "kind": "verbatim_recorded_call",
+    "source": {
+      "file": "main/raw/google_gemma-3-4b-it/shard_0.jsonl",
+      "line": 5,
+      "persona_id": "persona_5c140befa4fad722c215fd6917bba5a55252379534cc85a771c2d6ec2d6fbb01",
+      "method": "dialogue_followup",
+      "target": "google/gemma-3-4b-it",
+      "base_seed": 20260913,
+      "json_pointer": "/turn_records/0/decision_call"
+    },
+    "call": {
+      "finish_reason": "stop",
+      "generated_tokens": 21,
+      "max_new_tokens": 128,
+      "model": "Qwen/Qwen3-14B",
+      "prompt_messages": [
+        {
+          "content": "You are a fixed-budget interviewer. Ask one specific, natural follow-up to the most recent answer. Do not estimate ambiguity or coverage, generate candidates, assign scores, or select a persona dimension. Never name persona dimensions or candidate labels. Output only the question.",
+          "role": "system"
+        },
+        {
+          "content": "Conversation so far:\nQ1: What do you typically do on a regular day?\nA1: I usually start my day reviewing the progress on current projects, ensuring everything aligns with the established roadmap and that we’re meeting our key performance indicators, often spending a good portion of the day focused on analyzing data and adjusting strategies based on what I’ve observed during my trips – it’s fascinating to see how different markets respond to similar approaches.\n\nAsk question 2 of 5.",
+          "role": "user"
+        }
+      ],
+      "prompt_tokens": 165,
+      "raw_response": "How do you handle situations where the data from different markets contradicts each other or suggests conflicting strategies?",
+      "retry_count": 0,
+      "role": "dialogue_followup_question_generation",
+      "seed": 3201278143,
+      "temperature": 0.7,
+      "top_p": 0.8
+    }
+  },
+  "controller_matched_generic_selection": {
+    "kind": "verbatim_recorded_call",
+    "source": {
+      "file": "main/raw/google_gemma-3-4b-it/shard_0.jsonl",
+      "line": 6,
+      "persona_id": "persona_5c140befa4fad722c215fd6917bba5a55252379534cc85a771c2d6ec2d6fbb01",
+      "method": "controller_matched_generic",
+      "target": "google/gemma-3-4b-it",
+      "base_seed": 20260913,
+      "json_pointer": "/turn_records/0/decision_call"
+    },
+    "call": {
+      "finish_reason": "stop",
+      "generated_tokens": 190,
+      "max_new_tokens": 512,
+      "model": "Qwen/Qwen3-14B",
+      "prompt_messages": [
+        {
+          "content": "You are a generic fixed-budget interviewer. Generate exactly three natural dialogue follow-ups, rate only conversational specificity and repetition, and select one. Do not estimate persona ambiguity, evidence coverage, or a target dimension. Never expose candidate labels. Return JSON only and do not provide chain-of-thought.",
+          "role": "system"
+        },
+        {
+          "content": "Completed turns: 1/5\nDialogue:\nQ1: What do you typically do on a regular day?\nA1: I usually start my day reviewing the progress on current projects, ensuring everything aligns with the established roadmap and that we’re meeting our key performance indicators, often spending a good portion of the day focused on analyzing data and adjusting strategies based on what I’ve observed during my trips – it’s fascinating to see how different markets respond to similar approaches.\n\nReturn exactly:\n{\n  \"action\": \"Explore\",\n  \"target_dimension\": null,\n  \"candidates\": [\n    {\"question\": \"...\", \"specificity\": 0.0, \"redundancy_penalty\": 0.0}\n  ],\n  \"selected_question\": \"...\",\n  \"rationale_summary\": \"one short dialogue-based phrase\"\n}",
+          "role": "user"
+        }
+      ],
+      "prompt_tokens": 243,
+      "raw_response": "{\n  \"action\": \"Explore\",\n  \"target_dimension\": null,\n  \"candidates\": [\n    {\"question\": \"Can you give an example of a time when market differences influenced your strategy adjustments?\", \"specificity\": 0.85, \"redundancy_penalty\": 0.0},\n    {\"question\": \"How do you ensure that the strategies you adjust are effectively implemented across different markets?\", \"specificity\": 0.75, \"redundancy_penalty\": 0.0},\n    {\"question\": \"What tools or methods do you use to analyze the data from your trips?\", \"specificity\": 0.70, \"redundancy_penalty\": 0.0}\n  ],\n  \"selected_question\": \"Can you give an example of a time when market differences influenced your strategy adjustments?\",\n  \"rationale_summary\": \"Promotes concrete example sharing and reduces ambiguity.\"\n}",
+      "retry_count": 0,
+      "role": "controller_matched_generic_selection",
+      "seed": 3201278143,
+      "temperature": 0.7,
+      "top_p": 0.8
+    }
+  },
+  "adaptive_direct_question_selection": {
+    "kind": "verbatim_recorded_call",
+    "source": {
+      "file": "main/raw/google_gemma-3-4b-it/shard_0.jsonl",
+      "line": 7,
+      "persona_id": "persona_5c140befa4fad722c215fd6917bba5a55252379534cc85a771c2d6ec2d6fbb01",
+      "method": "adaptive_direct",
+      "target": "google/gemma-3-4b-it",
+      "base_seed": 20260913,
+      "json_pointer": "/turn_records/0/decision_call"
+    },
+    "call": {
+      "finish_reason": "stop",
+      "generated_tokens": 73,
+      "max_new_tokens": 512,
+      "model": "Qwen/Qwen3-14B",
+      "prompt_messages": [
+        {
+          "content": "You are an ablated Dialogue-only Adaptive controller. Use only the visible dialogue to identify the least-supported persona dimension, then directly write one indirect question. Do not generate or rank alternatives and do not assign coverage or redundancy scores. Stop only when the visible dialogue supports all four dimensions. Never expose candidate labels. Return JSON only; do not provide chain-of-thought.",
+          "role": "system"
+        },
+        {
+          "content": "Completed turns: 1/5\nDialogue:\nQ1: What do you typically do on a regular day?\nA1: I usually start my day reviewing the progress on current projects, ensuring everything aligns with the established roadmap and that we’re meeting our key performance indicators, often spending a good portion of the day focused on analyzing data and adjusting strategies based on what I’ve observed during my trips – it’s fascinating to see how different markets respond to similar approaches.\n\nDirectly select the single generated question.\nReturn exactly:\n{\n  \"action\": \"Explore or Stop\",\n  \"target_dimension\": \"social_role, personality, background, interests, or null\",\n  \"candidates\": [],\n  \"selected_question\": \"one question, or empty for Stop\",\n  \"rationale_summary\": \"one short evidence-based phrase\"\n}",
+          "role": "user"
+        }
+      ],
+      "prompt_tokens": 256,
+      "raw_response": "{\n  \"action\": \"Explore\",\n  \"target_dimension\": \"interests\",\n  \"candidates\": [],\n  \"selected_question\": \"What aspects of analyzing data and adjusting strategies based on market responses do you find most intriguing?\",\n  \"rationale_summary\": \"The dialogue highlights data analysis and market responses, suggesting potential interests in strategy and market dynamics.\"\n}",
+      "retry_count": 0,
+      "role": "adaptive_direct_question_selection",
+      "seed": 3201278143,
+      "temperature": 0.7,
+      "top_p": 0.8
+    }
+  },
+  "adaptive_no_coverage_question_selection": {
+    "kind": "verbatim_recorded_call",
+    "source": {
+      "file": "main/raw/google_gemma-3-4b-it/shard_0.jsonl",
+      "line": 8,
+      "persona_id": "persona_5c140befa4fad722c215fd6917bba5a55252379534cc85a771c2d6ec2d6fbb01",
+      "method": "adaptive_no_coverage",
+      "target": "google/gemma-3-4b-it",
+      "base_seed": 20260913,
+      "json_pointer": "/turn_records/0/decision_call"
+    },
+    "call": {
+      "finish_reason": "stop",
+      "generated_tokens": 149,
+      "max_new_tokens": 512,
+      "model": "Qwen/Qwen3-14B",
+      "prompt_messages": [
+        {
+          "content": "You are an ablated Dialogue-only Adaptive controller. Use only the visible dialogue to identify what remains ambiguous. Generate exactly three indirect candidate questions and select the least redundant. Do not estimate or score expected coverage gain. Stop only when the visible dialogue supports all four dimensions. Never expose candidate labels. Return JSON only; do not provide chain-of-thought.",
+          "role": "system"
+        },
+        {
+          "content": "Completed turns: 1/5\nDialogue:\nQ1: What do you typically do on a regular day?\nA1: I usually start my day reviewing the progress on current projects, ensuring everything aligns with the established roadmap and that we’re meeting our key performance indicators, often spending a good portion of the day focused on analyzing data and adjusting strategies based on what I’ve observed during my trips – it’s fascinating to see how different markets respond to similar approaches.\n\nSelect using redundancy only.\nReturn exactly:\n{\n  \"action\": \"Explore or Stop\",\n  \"target_dimension\": \"social_role, personality, background, interests, or null\",\n  \"candidates\": [{\"question\": \"...\", \"redundancy_penalty\": 0.0}],\n  \"selected_question\": \"one question, or empty for Stop\",\n  \"rationale_summary\": \"one short evidence-based phrase\"\n}",
+          "role": "user"
+        }
+      ],
+      "prompt_tokens": 266,
+      "raw_response": "{\n  \"action\": \"Explore\",\n  \"target_dimension\": \"background\",\n  \"candidates\": [\n    {\"question\": \"What kind of projects are you currently working on?\", \"redundancy_penalty\": 0.0},\n    {\"question\": \"How long have you been in this role?\", \"redundancy_penalty\": 0.0},\n    {\"question\": \"What sparked your interest in analyzing data and adjusting strategies?\", \"redundancy_penalty\": 0.0}\n  ],\n  \"selected_question\": \"What kind of projects are you currently working on?\",\n  \"rationale_summary\": \"The response mentions reviewing progress on current projects, but details about the nature of these projects remain unspecified.\"\n}",
+      "retry_count": 0,
+      "role": "adaptive_no_coverage_question_selection",
+      "seed": 3201278143,
+      "temperature": 0.7,
+      "top_p": 0.8
+    }
+  },
+  "adaptive_no_redundancy_question_selection": {
+    "kind": "verbatim_recorded_call",
+    "source": {
+      "file": "main/raw/google_gemma-3-4b-it/shard_0.jsonl",
+      "line": 9,
+      "persona_id": "persona_5c140befa4fad722c215fd6917bba5a55252379534cc85a771c2d6ec2d6fbb01",
+      "method": "adaptive_no_redundancy",
+      "target": "google/gemma-3-4b-it",
+      "base_seed": 20260913,
+      "json_pointer": "/turn_records/0/decision_call"
+    },
+    "call": {
+      "finish_reason": "stop",
+      "generated_tokens": 156,
+      "max_new_tokens": 512,
+      "model": "Qwen/Qwen3-14B",
+      "prompt_messages": [
+        {
+          "content": "You are an ablated Dialogue-only Adaptive controller. Use only the visible dialogue to identify the least-supported persona dimension. Generate exactly three indirect candidate questions and select the highest expected coverage gain. Do not estimate or score redundancy. Stop only when the visible dialogue supports all four dimensions. Never expose candidate labels. Return JSON only; do not provide chain-of-thought.",
+          "role": "system"
+        },
+        {
+          "content": "Completed turns: 1/5\nDialogue:\nQ1: What do you typically do on a regular day?\nA1: I usually start my day reviewing the progress on current projects, ensuring everything aligns with the established roadmap and that we’re meeting our key performance indicators, often spending a good portion of the day focused on analyzing data and adjusting strategies based on what I’ve observed during my trips – it’s fascinating to see how different markets respond to similar approaches.\n\nSelect using expected coverage only.\nReturn exactly:\n{\n  \"action\": \"Explore or Stop\",\n  \"target_dimension\": \"social_role, personality, background, interests, or null\",\n  \"candidates\": [{\"question\": \"...\", \"coverage_gain\": 0.0}],\n  \"selected_question\": \"one question, or empty for Stop\",\n  \"rationale_summary\": \"one short evidence-based phrase\"\n}",
+          "role": "user"
+        }
+      ],
+      "prompt_tokens": 266,
+      "raw_response": "{\n  \"action\": \"Explore\",\n  \"target_dimension\": \"interests\",\n  \"candidates\": [\n    {\"question\": \"What aspects of analyzing data and adjusting strategies do you find most rewarding?\", \"coverage_gain\": 0.25},\n    {\"question\": \"How do you typically handle differences in market responses to similar approaches?\", \"coverage_gain\": 0.2},\n    {\"question\": \"What kind of travel or field experiences have influenced your strategies?\", \"coverage_gain\": 0.15}\n  ],\n  \"selected_question\": \"What aspects of analyzing data and adjusting strategies do you find most rewarding?\",\n  \"rationale_summary\": \"The dialogue highlights data analysis and strategy adjustment as key activities, suggesting interests in analytical and strategic work.\"\n}",
+      "retry_count": 0,
+      "role": "adaptive_no_redundancy_question_selection",
+      "seed": 3201278143,
+      "temperature": 0.7,
+      "top_p": 0.8
+    }
+  }
+}

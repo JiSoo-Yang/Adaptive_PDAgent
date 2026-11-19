@@ -1,0 +1,1372 @@
+{
+  "kind": "recovery_from_supplied_logs",
+  "source_root": "/home1/irteam/js/persona/more",
+  "raw_files": [
+    {
+      "file": "active_information_gain/main/raw/google_gemma-3-4b-it/shard_0.jsonl",
+      "rows": 152,
+      "sha256": "e07fdb797fdd6323548a4ad6fec19003b1e869ee9fbaa43fbee6b4dd7c49ef59"
+    },
+    {
+      "file": "active_information_gain/main/raw/google_gemma-3-4b-it/shard_1.jsonl",
+      "rows": 152,
+      "sha256": "ecf02feedb5aadf9c030078cb24ba765935ab9bd95abac199d691887b14a8d93"
+    },
+    {
+      "file": "active_information_gain/main/raw/meta-llama_llama-3_2-3b-instruct/shard_0.jsonl",
+      "rows": 152,
+      "sha256": "e887edd71bc53d5b67ed706bb98e6acb34228d76784cafc48c2560d152f86e9b"
+    },
+    {
+      "file": "active_information_gain/main/raw/meta-llama_llama-3_2-3b-instruct/shard_1.jsonl",
+      "rows": 152,
+      "sha256": "a1c27c747461661c3359b74583a4fbdbbf07a35467944a866659d0d863c36767"
+    },
+    {
+      "file": "active_information_gain/main/raw/qwen_qwen3-1_7b/shard_0.jsonl",
+      "rows": 152,
+      "sha256": "4248e60ca402aec63db3dd5d7e7f3cc0bd34dcc7d60dba40c6853fd58feef7f3"
+    },
+    {
+      "file": "active_information_gain/main/raw/qwen_qwen3-1_7b/shard_1.jsonl",
+      "rows": 152,
+      "sha256": "9fc73672fccbdeaaea242e53f3991964bb31603a8a255bf12c37eeb7ba48b23a"
+    },
+    {
+      "file": "active_information_gain/main/raw/qwen_qwen3-4b/shard_0.jsonl",
+      "rows": 152,
+      "sha256": "9313382888aa317bea869344e5c9984fa29c596ca292220396349be3b96146d3"
+    },
+    {
+      "file": "active_information_gain/main/raw/qwen_qwen3-4b/shard_1.jsonl",
+      "rows": 152,
+      "sha256": "b20a469cffa9856fe01c50ffde6570319f411164f5af6533dda4efd6b20ac131"
+    },
+    {
+      "file": "main/raw/google_gemma-3-4b-it/shard_0.jsonl",
+      "rows": 1368,
+      "sha256": "4f6c019f6607f9a07ae74f20993c264ff112589fe1f78a5628cbcb13730e1368"
+    },
+    {
+      "file": "main/raw/google_gemma-3-4b-it/shard_1.jsonl",
+      "rows": 1368,
+      "sha256": "b64008be25abc276c1b34a98dcb8bc547517bf858f2adcef29f35b94fcddc19c"
+    },
+    {
+      "file": "main/raw/meta-llama_llama-3_2-3b-instruct/shard_0.jsonl",
+      "rows": 1368,
+      "sha256": "b5416164c94dca8d454283c34ba5618c864082c6294b9f5e95a8eb605c4f5d39"
+    },
+    {
+      "file": "main/raw/meta-llama_llama-3_2-3b-instruct/shard_1.jsonl",
+      "rows": 1368,
+      "sha256": "c0587e3800ab65beeeb248f7c0cb6d3a1939d76300f6cb754728a454594bda93"
+    },
+    {
+      "file": "main/raw/qwen_qwen3-1_7b/shard_0.jsonl",
+      "rows": 1368,
+      "sha256": "03db36bcaa6d1121212410c1ba79ca9e248d4155b493d899002e711821d87eac"
+    },
+    {
+      "file": "main/raw/qwen_qwen3-1_7b/shard_1.jsonl",
+      "rows": 1368,
+      "sha256": "9b5547357ed6407e91ee173b696c3ace8b90e8cf8e0b7c2f6c505466bd584d2f"
+    },
+    {
+      "file": "main/raw/qwen_qwen3-4b/shard_0.jsonl",
+      "rows": 1368,
+      "sha256": "623663ff0bdb75515dc3983eb3d9104137bf147fc3a240f45352a8443799e779"
+    },
+    {
+      "file": "main/raw/qwen_qwen3-4b/shard_1.jsonl",
+      "rows": 1368,
+      "sha256": "a53c4ddb8af70a9ee3a76d4f9a309514f9301be0fa6510442d77f5d8e55e3f76"
+    },
+    {
+      "file": "robustness/backbone_qwen3_8b/raw/all.jsonl",
+      "rows": 200,
+      "sha256": "3ca43ac968623a864cb6d8cfa369e6ab1659fa92fe77fc727a3d659de47d48cf"
+    },
+    {
+      "file": "robustness/seed3/raw/google_gemma-3-4b-it.jsonl",
+      "rows": 200,
+      "sha256": "cd07f7e1b57ebc617e3eaf92a8d448c55315f53605b4123d815e8caf8798af72"
+    },
+    {
+      "file": "robustness/seed3/raw/meta-llama_llama-3_2-3b-instruct.jsonl",
+      "rows": 200,
+      "sha256": "01778cfd693ee7acd5ba6bafd274d4a2b7532e530f15f614e8516723835cbcd6"
+    },
+    {
+      "file": "robustness/seed3/raw/qwen_qwen3-1_7b.jsonl",
+      "rows": 200,
+      "sha256": "5a2c2b889445d6300a6be79c2045d24a888adbb06ce49ad42980754c9360ff2c"
+    },
+    {
+      "file": "robustness/seed3/raw/qwen_qwen3-4b.jsonl",
+      "rows": 200,
+      "sha256": "b18efe002fa97a9792cec7ffee01bcbf7dfb8022e7e8faca30157c8d1603877d"
+    }
+  ],
+  "historical_personas": 304,
+  "first_turn_pairing_groups": 2932,
+  "record_counts": [
+    {
+      "family": "active_information_gain/main",
+      "target": "Qwen/Qwen3-1.7B",
+      "method": "uncertainty_sampling",
+      "count": 304
+    },
+    {
+      "family": "active_information_gain/main",
+      "target": "Qwen/Qwen3-4B",
+      "method": "uncertainty_sampling",
+      "count": 304
+    },
+    {
+      "family": "active_information_gain/main",
+      "target": "google/gemma-3-4b-it",
+      "method": "uncertainty_sampling",
+      "count": 304
+    },
+    {
+      "family": "active_information_gain/main",
+      "target": "meta-llama/Llama-3.2-3B-Instruct",
+      "method": "uncertainty_sampling",
+      "count": 304
+    },
+    {
+      "family": "main",
+      "target": "Qwen/Qwen3-1.7B",
+      "method": "adaptive_direct",
+      "count": 304
+    },
+    {
+      "family": "main",
+      "target": "Qwen/Qwen3-1.7B",
+      "method": "adaptive_no_coverage",
+      "count": 304
+    },
+    {
+      "family": "main",
+      "target": "Qwen/Qwen3-1.7B",
+      "method": "adaptive_no_redundancy",
+      "count": 304
+    },
+    {
+      "family": "main",
+      "target": "Qwen/Qwen3-1.7B",
+      "method": "controller_matched_generic",
+      "count": 304
+    },
+    {
+      "family": "main",
+      "target": "Qwen/Qwen3-1.7B",
+      "method": "dialogue_followup",
+      "count": 304
+    },
+    {
+      "family": "main",
+      "target": "Qwen/Qwen3-1.7B",
+      "method": "dialogue_only",
+      "count": 304
+    },
+    {
+      "family": "main",
+      "target": "Qwen/Qwen3-1.7B",
+      "method": "original",
+      "count": 304
+    },
+    {
+      "family": "main",
+      "target": "Qwen/Qwen3-1.7B",
+      "method": "random_candidate",
+      "count": 304
+    },
+    {
+      "family": "main",
+      "target": "Qwen/Qwen3-1.7B",
+      "method": "round_robin",
+      "count": 304
+    },
+    {
+      "family": "main",
+      "target": "Qwen/Qwen3-4B",
+      "method": "adaptive_direct",
+      "count": 304
+    },
+    {
+      "family": "main",
+      "target": "Qwen/Qwen3-4B",
+      "method": "adaptive_no_coverage",
+      "count": 304
+    },
+    {
+      "family": "main",
+      "target": "Qwen/Qwen3-4B",
+      "method": "adaptive_no_redundancy",
+      "count": 304
+    },
+    {
+      "family": "main",
+      "target": "Qwen/Qwen3-4B",
+      "method": "controller_matched_generic",
+      "count": 304
+    },
+    {
+      "family": "main",
+      "target": "Qwen/Qwen3-4B",
+      "method": "dialogue_followup",
+      "count": 304
+    },
+    {
+      "family": "main",
+      "target": "Qwen/Qwen3-4B",
+      "method": "dialogue_only",
+      "count": 304
+    },
+    {
+      "family": "main",
+      "target": "Qwen/Qwen3-4B",
+      "method": "original",
+      "count": 304
+    },
+    {
+      "family": "main",
+      "target": "Qwen/Qwen3-4B",
+      "method": "random_candidate",
+      "count": 304
+    },
+    {
+      "family": "main",
+      "target": "Qwen/Qwen3-4B",
+      "method": "round_robin",
+      "count": 304
+    },
+    {
+      "family": "main",
+      "target": "google/gemma-3-4b-it",
+      "method": "adaptive_direct",
+      "count": 304
+    },
+    {
+      "family": "main",
+      "target": "google/gemma-3-4b-it",
+      "method": "adaptive_no_coverage",
+      "count": 304
+    },
+    {
+      "family": "main",
+      "target": "google/gemma-3-4b-it",
+      "method": "adaptive_no_redundancy",
+      "count": 304
+    },
+    {
+      "family": "main",
+      "target": "google/gemma-3-4b-it",
+      "method": "controller_matched_generic",
+      "count": 304
+    },
+    {
+      "family": "main",
+      "target": "google/gemma-3-4b-it",
+      "method": "dialogue_followup",
+      "count": 304
+    },
+    {
+      "family": "main",
+      "target": "google/gemma-3-4b-it",
+      "method": "dialogue_only",
+      "count": 304
+    },
+    {
+      "family": "main",
+      "target": "google/gemma-3-4b-it",
+      "method": "original",
+      "count": 304
+    },
+    {
+      "family": "main",
+      "target": "google/gemma-3-4b-it",
+      "method": "random_candidate",
+      "count": 304
+    },
+    {
+      "family": "main",
+      "target": "google/gemma-3-4b-it",
+      "method": "round_robin",
+      "count": 304
+    },
+    {
+      "family": "main",
+      "target": "meta-llama/Llama-3.2-3B-Instruct",
+      "method": "adaptive_direct",
+      "count": 304
+    },
+    {
+      "family": "main",
+      "target": "meta-llama/Llama-3.2-3B-Instruct",
+      "method": "adaptive_no_coverage",
+      "count": 304
+    },
+    {
+      "family": "main",
+      "target": "meta-llama/Llama-3.2-3B-Instruct",
+      "method": "adaptive_no_redundancy",
+      "count": 304
+    },
+    {
+      "family": "main",
+      "target": "meta-llama/Llama-3.2-3B-Instruct",
+      "method": "controller_matched_generic",
+      "count": 304
+    },
+    {
+      "family": "main",
+      "target": "meta-llama/Llama-3.2-3B-Instruct",
+      "method": "dialogue_followup",
+      "count": 304
+    },
+    {
+      "family": "main",
+      "target": "meta-llama/Llama-3.2-3B-Instruct",
+      "method": "dialogue_only",
+      "count": 304
+    },
+    {
+      "family": "main",
+      "target": "meta-llama/Llama-3.2-3B-Instruct",
+      "method": "original",
+      "count": 304
+    },
+    {
+      "family": "main",
+      "target": "meta-llama/Llama-3.2-3B-Instruct",
+      "method": "random_candidate",
+      "count": 304
+    },
+    {
+      "family": "main",
+      "target": "meta-llama/Llama-3.2-3B-Instruct",
+      "method": "round_robin",
+      "count": 304
+    },
+    {
+      "family": "robustness/backbone_qwen3_8b",
+      "target": "Qwen/Qwen3-1.7B",
+      "method": "dialogue_only",
+      "count": 100
+    },
+    {
+      "family": "robustness/backbone_qwen3_8b",
+      "target": "Qwen/Qwen3-1.7B",
+      "method": "original",
+      "count": 100
+    },
+    {
+      "family": "robustness/seed3",
+      "target": "Qwen/Qwen3-1.7B",
+      "method": "dialogue_only",
+      "count": 100
+    },
+    {
+      "family": "robustness/seed3",
+      "target": "Qwen/Qwen3-1.7B",
+      "method": "original",
+      "count": 100
+    },
+    {
+      "family": "robustness/seed3",
+      "target": "Qwen/Qwen3-4B",
+      "method": "dialogue_only",
+      "count": 100
+    },
+    {
+      "family": "robustness/seed3",
+      "target": "Qwen/Qwen3-4B",
+      "method": "original",
+      "count": 100
+    },
+    {
+      "family": "robustness/seed3",
+      "target": "google/gemma-3-4b-it",
+      "method": "dialogue_only",
+      "count": 100
+    },
+    {
+      "family": "robustness/seed3",
+      "target": "google/gemma-3-4b-it",
+      "method": "original",
+      "count": 100
+    },
+    {
+      "family": "robustness/seed3",
+      "target": "meta-llama/Llama-3.2-3B-Instruct",
+      "method": "dialogue_only",
+      "count": 100
+    },
+    {
+      "family": "robustness/seed3",
+      "target": "meta-llama/Llama-3.2-3B-Instruct",
+      "method": "original",
+      "count": 100
+    }
+  ],
+  "call_roles": [
+    {
+      "family": "active_information_gain/main",
+      "method": "uncertainty_sampling",
+      "role": "final_persona_prediction",
+      "count": 1216
+    },
+    {
+      "family": "active_information_gain/main",
+      "method": "uncertainty_sampling",
+      "role": "graph_extraction",
+      "count": 6080
+    },
+    {
+      "family": "active_information_gain/main",
+      "method": "uncertainty_sampling",
+      "role": "question_generation",
+      "count": 1216
+    },
+    {
+      "family": "active_information_gain/main",
+      "method": "uncertainty_sampling",
+      "role": "target_response",
+      "count": 6080
+    },
+    {
+      "family": "active_information_gain/main",
+      "method": "uncertainty_sampling",
+      "role": "uncertainty_prediction",
+      "count": 24320
+    },
+    {
+      "family": "active_information_gain/main",
+      "method": "uncertainty_sampling",
+      "role": "uncertainty_targeted_question_generation",
+      "count": 4864
+    },
+    {
+      "family": "main",
+      "method": "adaptive_direct",
+      "role": "adaptive_direct_question_selection",
+      "count": 4864
+    },
+    {
+      "family": "main",
+      "method": "adaptive_direct",
+      "role": "final_persona_prediction",
+      "count": 1216
+    },
+    {
+      "family": "main",
+      "method": "adaptive_direct",
+      "role": "graph_extraction",
+      "count": 6080
+    },
+    {
+      "family": "main",
+      "method": "adaptive_direct",
+      "role": "question_generation",
+      "count": 1216
+    },
+    {
+      "family": "main",
+      "method": "adaptive_direct",
+      "role": "target_response",
+      "count": 6080
+    },
+    {
+      "family": "main",
+      "method": "adaptive_no_coverage",
+      "role": "adaptive_no_coverage_question_selection",
+      "count": 4864
+    },
+    {
+      "family": "main",
+      "method": "adaptive_no_coverage",
+      "role": "final_persona_prediction",
+      "count": 1216
+    },
+    {
+      "family": "main",
+      "method": "adaptive_no_coverage",
+      "role": "graph_extraction",
+      "count": 6080
+    },
+    {
+      "family": "main",
+      "method": "adaptive_no_coverage",
+      "role": "question_generation",
+      "count": 1216
+    },
+    {
+      "family": "main",
+      "method": "adaptive_no_coverage",
+      "role": "target_response",
+      "count": 6080
+    },
+    {
+      "family": "main",
+      "method": "adaptive_no_redundancy",
+      "role": "adaptive_no_redundancy_question_selection",
+      "count": 4864
+    },
+    {
+      "family": "main",
+      "method": "adaptive_no_redundancy",
+      "role": "final_persona_prediction",
+      "count": 1216
+    },
+    {
+      "family": "main",
+      "method": "adaptive_no_redundancy",
+      "role": "graph_extraction",
+      "count": 6080
+    },
+    {
+      "family": "main",
+      "method": "adaptive_no_redundancy",
+      "role": "question_generation",
+      "count": 1216
+    },
+    {
+      "family": "main",
+      "method": "adaptive_no_redundancy",
+      "role": "target_response",
+      "count": 6080
+    },
+    {
+      "family": "main",
+      "method": "controller_matched_generic",
+      "role": "controller_matched_generic_selection",
+      "count": 4864
+    },
+    {
+      "family": "main",
+      "method": "controller_matched_generic",
+      "role": "final_persona_prediction",
+      "count": 1216
+    },
+    {
+      "family": "main",
+      "method": "controller_matched_generic",
+      "role": "graph_extraction",
+      "count": 6080
+    },
+    {
+      "family": "main",
+      "method": "controller_matched_generic",
+      "role": "question_generation",
+      "count": 1216
+    },
+    {
+      "family": "main",
+      "method": "controller_matched_generic",
+      "role": "target_response",
+      "count": 6080
+    },
+    {
+      "family": "main",
+      "method": "dialogue_followup",
+      "role": "dialogue_followup_question_generation",
+      "count": 4864
+    },
+    {
+      "family": "main",
+      "method": "dialogue_followup",
+      "role": "final_persona_prediction",
+      "count": 1216
+    },
+    {
+      "family": "main",
+      "method": "dialogue_followup",
+      "role": "graph_extraction",
+      "count": 6080
+    },
+    {
+      "family": "main",
+      "method": "dialogue_followup",
+      "role": "question_generation",
+      "count": 1216
+    },
+    {
+      "family": "main",
+      "method": "dialogue_followup",
+      "role": "target_response",
+      "count": 6080
+    },
+    {
+      "family": "main",
+      "method": "dialogue_only",
+      "role": "dialogue_action_question_selection",
+      "count": 4864
+    },
+    {
+      "family": "main",
+      "method": "dialogue_only",
+      "role": "final_persona_prediction",
+      "count": 1216
+    },
+    {
+      "family": "main",
+      "method": "dialogue_only",
+      "role": "graph_extraction",
+      "count": 6080
+    },
+    {
+      "family": "main",
+      "method": "dialogue_only",
+      "role": "question_generation",
+      "count": 1216
+    },
+    {
+      "family": "main",
+      "method": "dialogue_only",
+      "role": "target_response",
+      "count": 6080
+    },
+    {
+      "family": "main",
+      "method": "original",
+      "role": "final_persona_prediction",
+      "count": 1216
+    },
+    {
+      "family": "main",
+      "method": "original",
+      "role": "graph_extraction",
+      "count": 6080
+    },
+    {
+      "family": "main",
+      "method": "original",
+      "role": "original_question_generation",
+      "count": 4864
+    },
+    {
+      "family": "main",
+      "method": "original",
+      "role": "question_generation",
+      "count": 1216
+    },
+    {
+      "family": "main",
+      "method": "original",
+      "role": "target_response",
+      "count": 6080
+    },
+    {
+      "family": "main",
+      "method": "random_candidate",
+      "role": "dialogue_action_question_selection",
+      "count": 4864
+    },
+    {
+      "family": "main",
+      "method": "random_candidate",
+      "role": "final_persona_prediction",
+      "count": 1216
+    },
+    {
+      "family": "main",
+      "method": "random_candidate",
+      "role": "graph_extraction",
+      "count": 6080
+    },
+    {
+      "family": "main",
+      "method": "random_candidate",
+      "role": "question_generation",
+      "count": 1216
+    },
+    {
+      "family": "main",
+      "method": "random_candidate",
+      "role": "target_response",
+      "count": 6080
+    },
+    {
+      "family": "main",
+      "method": "round_robin",
+      "role": "final_persona_prediction",
+      "count": 1216
+    },
+    {
+      "family": "main",
+      "method": "round_robin",
+      "role": "graph_extraction",
+      "count": 6080
+    },
+    {
+      "family": "main",
+      "method": "round_robin",
+      "role": "question_generation",
+      "count": 1216
+    },
+    {
+      "family": "main",
+      "method": "round_robin",
+      "role": "round_robin_question_generation",
+      "count": 4864
+    },
+    {
+      "family": "main",
+      "method": "round_robin",
+      "role": "target_response",
+      "count": 6080
+    },
+    {
+      "family": "robustness/backbone_qwen3_8b",
+      "method": "dialogue_only",
+      "role": "dialogue_action_question_selection",
+      "count": 400
+    },
+    {
+      "family": "robustness/backbone_qwen3_8b",
+      "method": "dialogue_only",
+      "role": "final_persona_prediction",
+      "count": 100
+    },
+    {
+      "family": "robustness/backbone_qwen3_8b",
+      "method": "dialogue_only",
+      "role": "graph_extraction",
+      "count": 500
+    },
+    {
+      "family": "robustness/backbone_qwen3_8b",
+      "method": "dialogue_only",
+      "role": "question_generation",
+      "count": 100
+    },
+    {
+      "family": "robustness/backbone_qwen3_8b",
+      "method": "dialogue_only",
+      "role": "target_response",
+      "count": 500
+    },
+    {
+      "family": "robustness/backbone_qwen3_8b",
+      "method": "original",
+      "role": "final_persona_prediction",
+      "count": 100
+    },
+    {
+      "family": "robustness/backbone_qwen3_8b",
+      "method": "original",
+      "role": "graph_extraction",
+      "count": 500
+    },
+    {
+      "family": "robustness/backbone_qwen3_8b",
+      "method": "original",
+      "role": "original_question_generation",
+      "count": 400
+    },
+    {
+      "family": "robustness/backbone_qwen3_8b",
+      "method": "original",
+      "role": "question_generation",
+      "count": 100
+    },
+    {
+      "family": "robustness/backbone_qwen3_8b",
+      "method": "original",
+      "role": "target_response",
+      "count": 500
+    },
+    {
+      "family": "robustness/seed3",
+      "method": "dialogue_only",
+      "role": "dialogue_action_question_selection",
+      "count": 1600
+    },
+    {
+      "family": "robustness/seed3",
+      "method": "dialogue_only",
+      "role": "final_persona_prediction",
+      "count": 400
+    },
+    {
+      "family": "robustness/seed3",
+      "method": "dialogue_only",
+      "role": "graph_extraction",
+      "count": 2000
+    },
+    {
+      "family": "robustness/seed3",
+      "method": "dialogue_only",
+      "role": "question_generation",
+      "count": 400
+    },
+    {
+      "family": "robustness/seed3",
+      "method": "dialogue_only",
+      "role": "target_response",
+      "count": 2000
+    },
+    {
+      "family": "robustness/seed3",
+      "method": "original",
+      "role": "final_persona_prediction",
+      "count": 400
+    },
+    {
+      "family": "robustness/seed3",
+      "method": "original",
+      "role": "graph_extraction",
+      "count": 2000
+    },
+    {
+      "family": "robustness/seed3",
+      "method": "original",
+      "role": "original_question_generation",
+      "count": 1600
+    },
+    {
+      "family": "robustness/seed3",
+      "method": "original",
+      "role": "question_generation",
+      "count": 400
+    },
+    {
+      "family": "robustness/seed3",
+      "method": "original",
+      "role": "target_response",
+      "count": 2000
+    }
+  ],
+  "examples": [
+    {
+      "family": "active_information_gain/main",
+      "method": "uncertainty_sampling",
+      "role": "final_persona_prediction",
+      "file": "call_examples/example_000.json"
+    },
+    {
+      "family": "active_information_gain/main",
+      "method": "uncertainty_sampling",
+      "role": "uncertainty_targeted_question_generation",
+      "file": "call_examples/example_001.json"
+    },
+    {
+      "family": "active_information_gain/main",
+      "method": "uncertainty_sampling",
+      "role": "graph_extraction",
+      "file": "call_examples/example_002.json"
+    },
+    {
+      "family": "active_information_gain/main",
+      "method": "uncertainty_sampling",
+      "role": "question_generation",
+      "file": "call_examples/example_003.json"
+    },
+    {
+      "family": "active_information_gain/main",
+      "method": "uncertainty_sampling",
+      "role": "target_response",
+      "file": "call_examples/example_004.json"
+    },
+    {
+      "family": "active_information_gain/main",
+      "method": "uncertainty_sampling",
+      "role": "uncertainty_prediction",
+      "file": "call_examples/example_005.json"
+    },
+    {
+      "family": "main",
+      "method": "original",
+      "role": "final_persona_prediction",
+      "file": "call_examples/example_006.json"
+    },
+    {
+      "family": "main",
+      "method": "original",
+      "role": "original_question_generation",
+      "file": "call_examples/example_007.json"
+    },
+    {
+      "family": "main",
+      "method": "original",
+      "role": "graph_extraction",
+      "file": "call_examples/example_008.json"
+    },
+    {
+      "family": "main",
+      "method": "original",
+      "role": "question_generation",
+      "file": "call_examples/example_009.json"
+    },
+    {
+      "family": "main",
+      "method": "original",
+      "role": "target_response",
+      "file": "call_examples/example_010.json"
+    },
+    {
+      "family": "main",
+      "method": "dialogue_only",
+      "role": "final_persona_prediction",
+      "file": "call_examples/example_011.json"
+    },
+    {
+      "family": "main",
+      "method": "dialogue_only",
+      "role": "dialogue_action_question_selection",
+      "file": "call_examples/example_012.json"
+    },
+    {
+      "family": "main",
+      "method": "dialogue_only",
+      "role": "graph_extraction",
+      "file": "call_examples/example_013.json"
+    },
+    {
+      "family": "main",
+      "method": "dialogue_only",
+      "role": "question_generation",
+      "file": "call_examples/example_014.json"
+    },
+    {
+      "family": "main",
+      "method": "dialogue_only",
+      "role": "target_response",
+      "file": "call_examples/example_015.json"
+    },
+    {
+      "family": "main",
+      "method": "random_candidate",
+      "role": "final_persona_prediction",
+      "file": "call_examples/example_016.json"
+    },
+    {
+      "family": "main",
+      "method": "random_candidate",
+      "role": "dialogue_action_question_selection",
+      "file": "call_examples/example_017.json"
+    },
+    {
+      "family": "main",
+      "method": "random_candidate",
+      "role": "graph_extraction",
+      "file": "call_examples/example_018.json"
+    },
+    {
+      "family": "main",
+      "method": "random_candidate",
+      "role": "question_generation",
+      "file": "call_examples/example_019.json"
+    },
+    {
+      "family": "main",
+      "method": "random_candidate",
+      "role": "target_response",
+      "file": "call_examples/example_020.json"
+    },
+    {
+      "family": "main",
+      "method": "round_robin",
+      "role": "final_persona_prediction",
+      "file": "call_examples/example_021.json"
+    },
+    {
+      "family": "main",
+      "method": "round_robin",
+      "role": "round_robin_question_generation",
+      "file": "call_examples/example_022.json"
+    },
+    {
+      "family": "main",
+      "method": "round_robin",
+      "role": "graph_extraction",
+      "file": "call_examples/example_023.json"
+    },
+    {
+      "family": "main",
+      "method": "round_robin",
+      "role": "question_generation",
+      "file": "call_examples/example_024.json"
+    },
+    {
+      "family": "main",
+      "method": "round_robin",
+      "role": "target_response",
+      "file": "call_examples/example_025.json"
+    },
+    {
+      "family": "main",
+      "method": "dialogue_followup",
+      "role": "final_persona_prediction",
+      "file": "call_examples/example_026.json"
+    },
+    {
+      "family": "main",
+      "method": "dialogue_followup",
+      "role": "dialogue_followup_question_generation",
+      "file": "call_examples/example_027.json"
+    },
+    {
+      "family": "main",
+      "method": "dialogue_followup",
+      "role": "graph_extraction",
+      "file": "call_examples/example_028.json"
+    },
+    {
+      "family": "main",
+      "method": "dialogue_followup",
+      "role": "question_generation",
+      "file": "call_examples/example_029.json"
+    },
+    {
+      "family": "main",
+      "method": "dialogue_followup",
+      "role": "target_response",
+      "file": "call_examples/example_030.json"
+    },
+    {
+      "family": "main",
+      "method": "controller_matched_generic",
+      "role": "final_persona_prediction",
+      "file": "call_examples/example_031.json"
+    },
+    {
+      "family": "main",
+      "method": "controller_matched_generic",
+      "role": "controller_matched_generic_selection",
+      "file": "call_examples/example_032.json"
+    },
+    {
+      "family": "main",
+      "method": "controller_matched_generic",
+      "role": "graph_extraction",
+      "file": "call_examples/example_033.json"
+    },
+    {
+      "family": "main",
+      "method": "controller_matched_generic",
+      "role": "question_generation",
+      "file": "call_examples/example_034.json"
+    },
+    {
+      "family": "main",
+      "method": "controller_matched_generic",
+      "role": "target_response",
+      "file": "call_examples/example_035.json"
+    },
+    {
+      "family": "main",
+      "method": "adaptive_direct",
+      "role": "final_persona_prediction",
+      "file": "call_examples/example_036.json"
+    },
+    {
+      "family": "main",
+      "method": "adaptive_direct",
+      "role": "adaptive_direct_question_selection",
+      "file": "call_examples/example_037.json"
+    },
+    {
+      "family": "main",
+      "method": "adaptive_direct",
+      "role": "graph_extraction",
+      "file": "call_examples/example_038.json"
+    },
+    {
+      "family": "main",
+      "method": "adaptive_direct",
+      "role": "question_generation",
+      "file": "call_examples/example_039.json"
+    },
+    {
+      "family": "main",
+      "method": "adaptive_direct",
+      "role": "target_response",
+      "file": "call_examples/example_040.json"
+    },
+    {
+      "family": "main",
+      "method": "adaptive_no_coverage",
+      "role": "final_persona_prediction",
+      "file": "call_examples/example_041.json"
+    },
+    {
+      "family": "main",
+      "method": "adaptive_no_coverage",
+      "role": "adaptive_no_coverage_question_selection",
+      "file": "call_examples/example_042.json"
+    },
+    {
+      "family": "main",
+      "method": "adaptive_no_coverage",
+      "role": "graph_extraction",
+      "file": "call_examples/example_043.json"
+    },
+    {
+      "family": "main",
+      "method": "adaptive_no_coverage",
+      "role": "question_generation",
+      "file": "call_examples/example_044.json"
+    },
+    {
+      "family": "main",
+      "method": "adaptive_no_coverage",
+      "role": "target_response",
+      "file": "call_examples/example_045.json"
+    },
+    {
+      "family": "main",
+      "method": "adaptive_no_redundancy",
+      "role": "final_persona_prediction",
+      "file": "call_examples/example_046.json"
+    },
+    {
+      "family": "main",
+      "method": "adaptive_no_redundancy",
+      "role": "adaptive_no_redundancy_question_selection",
+      "file": "call_examples/example_047.json"
+    },
+    {
+      "family": "main",
+      "method": "adaptive_no_redundancy",
+      "role": "graph_extraction",
+      "file": "call_examples/example_048.json"
+    },
+    {
+      "family": "main",
+      "method": "adaptive_no_redundancy",
+      "role": "question_generation",
+      "file": "call_examples/example_049.json"
+    },
+    {
+      "family": "main",
+      "method": "adaptive_no_redundancy",
+      "role": "target_response",
+      "file": "call_examples/example_050.json"
+    },
+    {
+      "family": "robustness/backbone_qwen3_8b",
+      "method": "original",
+      "role": "final_persona_prediction",
+      "file": "call_examples/example_051.json"
+    },
+    {
+      "family": "robustness/backbone_qwen3_8b",
+      "method": "original",
+      "role": "original_question_generation",
+      "file": "call_examples/example_052.json"
+    },
+    {
+      "family": "robustness/backbone_qwen3_8b",
+      "method": "original",
+      "role": "graph_extraction",
+      "file": "call_examples/example_053.json"
+    },
+    {
+      "family": "robustness/backbone_qwen3_8b",
+      "method": "original",
+      "role": "question_generation",
+      "file": "call_examples/example_054.json"
+    },
+    {
+      "family": "robustness/backbone_qwen3_8b",
+      "method": "original",
+      "role": "target_response",
+      "file": "call_examples/example_055.json"
+    },
+    {
+      "family": "robustness/backbone_qwen3_8b",
+      "method": "dialogue_only",
+      "role": "final_persona_prediction",
+      "file": "call_examples/example_056.json"
+    },
+    {
+      "family": "robustness/backbone_qwen3_8b",
+      "method": "dialogue_only",
+      "role": "dialogue_action_question_selection",
+      "file": "call_examples/example_057.json"
+    },
+    {
+      "family": "robustness/backbone_qwen3_8b",
+      "method": "dialogue_only",
+      "role": "graph_extraction",
+      "file": "call_examples/example_058.json"
+    },
+    {
+      "family": "robustness/backbone_qwen3_8b",
+      "method": "dialogue_only",
+      "role": "question_generation",
+      "file": "call_examples/example_059.json"
+    },
+    {
+      "family": "robustness/backbone_qwen3_8b",
+      "method": "dialogue_only",
+      "role": "target_response",
+      "file": "call_examples/example_060.json"
+    },
+    {
+      "family": "robustness/seed3",
+      "method": "original",
+      "role": "final_persona_prediction",
+      "file": "call_examples/example_061.json"
+    },
+    {
+      "family": "robustness/seed3",
+      "method": "original",
+      "role": "original_question_generation",
+      "file": "call_examples/example_062.json"
+    },
+    {
+      "family": "robustness/seed3",
+      "method": "original",
+      "role": "graph_extraction",
+      "file": "call_examples/example_063.json"
+    },
+    {
+      "family": "robustness/seed3",
+      "method": "original",
+      "role": "question_generation",
+      "file": "call_examples/example_064.json"
+    },
+    {
+      "family": "robustness/seed3",
+      "method": "original",
+      "role": "target_response",
+      "file": "call_examples/example_065.json"
+    },
+    {
+      "family": "robustness/seed3",
+      "method": "dialogue_only",
+      "role": "final_persona_prediction",
+      "file": "call_examples/example_066.json"
+    },
+    {
+      "family": "robustness/seed3",
+      "method": "dialogue_only",
+      "role": "dialogue_action_question_selection",
+      "file": "call_examples/example_067.json"
+    },
+    {
+      "family": "robustness/seed3",
+      "method": "dialogue_only",
+      "role": "graph_extraction",
+      "file": "call_examples/example_068.json"
+    },
+    {
+      "family": "robustness/seed3",
+      "method": "dialogue_only",
+      "role": "question_generation",
+      "file": "call_examples/example_069.json"
+    },
+    {
+      "family": "robustness/seed3",
+      "method": "dialogue_only",
+      "role": "target_response",
+      "file": "call_examples/example_070.json"
+    }
+  ],
+  "system_prompt_variants": 320,
+  "replaced_questions": 3041,
+  "unsuccessful_records": [],
+  "file_hash_checks": [
+    {
+      "file": "main/raw/google_gemma-3-4b-it/shard_0.jsonl",
+      "expected": "4f6c019f6607f9a07ae74f20993c264ff112589fe1f78a5628cbcb13730e1368",
+      "actual": "4f6c019f6607f9a07ae74f20993c264ff112589fe1f78a5628cbcb13730e1368",
+      "match": true
+    },
+    {
+      "file": "main/raw/google_gemma-3-4b-it/shard_1.jsonl",
+      "expected": "b64008be25abc276c1b34a98dcb8bc547517bf858f2adcef29f35b94fcddc19c",
+      "actual": "b64008be25abc276c1b34a98dcb8bc547517bf858f2adcef29f35b94fcddc19c",
+      "match": true
+    },
+    {
+      "file": "main/raw/meta-llama_llama-3_2-3b-instruct/shard_0.jsonl",
+      "expected": "b5416164c94dca8d454283c34ba5618c864082c6294b9f5e95a8eb605c4f5d39",
+      "actual": "b5416164c94dca8d454283c34ba5618c864082c6294b9f5e95a8eb605c4f5d39",
+      "match": true
+    },
+    {
+      "file": "main/raw/meta-llama_llama-3_2-3b-instruct/shard_1.jsonl",
+      "expected": "c0587e3800ab65beeeb248f7c0cb6d3a1939d76300f6cb754728a454594bda93",
+      "actual": "c0587e3800ab65beeeb248f7c0cb6d3a1939d76300f6cb754728a454594bda93",
+      "match": true
+    },
+    {
+      "file": "main/raw/qwen_qwen3-1_7b/shard_0.jsonl",
+      "expected": "03db36bcaa6d1121212410c1ba79ca9e248d4155b493d899002e711821d87eac",
+      "actual": "03db36bcaa6d1121212410c1ba79ca9e248d4155b493d899002e711821d87eac",
+      "match": true
+    },
+    {
+      "file": "main/raw/qwen_qwen3-1_7b/shard_1.jsonl",
+      "expected": "9b5547357ed6407e91ee173b696c3ace8b90e8cf8e0b7c2f6c505466bd584d2f",
+      "actual": "9b5547357ed6407e91ee173b696c3ace8b90e8cf8e0b7c2f6c505466bd584d2f",
+      "match": true
+    },
+    {
+      "file": "main/raw/qwen_qwen3-4b/shard_0.jsonl",
+      "expected": "623663ff0bdb75515dc3983eb3d9104137bf147fc3a240f45352a8443799e779",
+      "actual": "623663ff0bdb75515dc3983eb3d9104137bf147fc3a240f45352a8443799e779",
+      "match": true
+    },
+    {
+      "file": "main/raw/qwen_qwen3-4b/shard_1.jsonl",
+      "expected": "a53c4ddb8af70a9ee3a76d4f9a309514f9301be0fa6510442d77f5d8e55e3f76",
+      "actual": "a53c4ddb8af70a9ee3a76d4f9a309514f9301be0fa6510442d77f5d8e55e3f76",
+      "match": true
+    },
+    {
+      "file": "m1_m2_reporting/M1_M2_raw_results.csv",
+      "expected": "8cb22d92ac5bea94de3504c94a308cd6ecb741f810a8e7d4dde39d44f21b32bd",
+      "actual": "8cb22d92ac5bea94de3504c94a308cd6ecb741f810a8e7d4dde39d44f21b32bd",
+      "match": true
+    },
+    {
+      "file": "m1_m2_reporting/dimension_level_tests.csv",
+      "expected": "10cd189b7bc0363d1d315f4a179495561fbc891da60113b1e27cf6aff58dfdf0",
+      "actual": "10cd189b7bc0363d1d315f4a179495561fbc891da60113b1e27cf6aff58dfdf0",
+      "match": true
+    },
+    {
+      "file": "m1_m2_reporting/m1_persona_level.csv",
+      "expected": "77bb66d9d24e3978e089681058d727bc820ec7b502277b7a230408005f0db8ff",
+      "actual": "77bb66d9d24e3978e089681058d727bc820ec7b502277b7a230408005f0db8ff",
+      "match": true
+    },
+    {
+      "file": "m1_m2_reporting/m1_primary_summary.csv",
+      "expected": "040b99f5652275e8bd827a34bb58d27bb2cb34e59ee0508a8a92bb9af1cd9973",
+      "actual": "040b99f5652275e8bd827a34bb58d27bb2cb34e59ee0508a8a92bb9af1cd9973",
+      "match": true
+    },
+    {
+      "file": "m1_m2_reporting/m1_primary_summary_table.tex",
+      "expected": "d821d8c35da5924a90720e5d831771c80f06b53f85f4eafff014a94b7351e776",
+      "actual": "d821d8c35da5924a90720e5d831771c80f06b53f85f4eafff014a94b7351e776",
+      "match": true
+    },
+    {
+      "file": "m1_m2_reporting/majority_baselines.csv",
+      "expected": "fbff0e5eb901d574b27393f539e0ee0f8321961657adfad44ef64b79f5893824",
+      "actual": "fbff0e5eb901d574b27393f539e0ee0f8321961657adfad44ef64b79f5893824",
+      "match": true
+    },
+    {
+      "file": "m1_m2_reporting/pairing_sampling_audit.csv",
+      "expected": "1439f2fa5f4ac99c3416715ab8186d8198b57188bc02d4244eaf86f1722adcca",
+      "actual": "1439f2fa5f4ac99c3416715ab8186d8198b57188bc02d4244eaf86f1722adcca",
+      "match": true
+    }
+  ],
+  "limitations": [
+    "Serialized calls are actual recorded messages, not recovered runner source code.",
+    "Only fallback questions that occurred in logs are recovered; a complete bank is not implied.",
+    "Primary Original/Adaptive per-instance scores are in the separate M1/M2 CSV; expanded raw logs must not replace the primary run.",
+    "Original/Adaptive/controls dominate these raw files. No full primary Online/Selective call log has been established."
+  ]
+}

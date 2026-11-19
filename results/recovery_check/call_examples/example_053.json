@@ -1,0 +1,35 @@
+{
+  "kind": "verbatim_recorded_call",
+  "source": {
+    "file": "robustness/backbone_qwen3_8b/raw/all.jsonl",
+    "line": 1,
+    "persona_id": "persona_5c140befa4fad722c215fd6917bba5a55252379534cc85a771c2d6ec2d6fbb01",
+    "method": "original",
+    "target": "Qwen/Qwen3-1.7B",
+    "base_seed": 20260913,
+    "json_pointer": "/turn_records/0/graph_extraction_call"
+  },
+  "call": {
+    "finish_reason": "stop",
+    "generated_tokens": 363,
+    "max_new_tokens": 768,
+    "model": "Qwen/Qwen3-8B",
+    "prompt_messages": [
+      {
+        "content": "Extract only grounded concepts and bridging relations from the latest Target response. Every new concept or edge supporting_span must be an exact contiguous substring of that response. Do not infer persona labels or use hidden information. Valid relation_type values are: part-of, member-of, instrument, theme, cause-of, in, temporal. Extract at most six concepts and four edges; prefer fewer high-value items. Return one compact JSON object only.",
+        "role": "system"
+      },
+      {
+        "content": "Latest question: What do you usually do on a typical day?\nLatest Target response: I often start my day with a routine that balances productivity and personal interests, such as , which keeps me curious and connected to the world.\nPreviously known concepts: []\n\nReturn:\n{\n  \"concepts\": [\n    {\n      \"name\": \"1-3 word concept\",\n      \"dimensions\": [\"zero or more of social_role, personality, background, interests\"],\n      \"supporting_span\": \"exact response substring\"\n    }\n  ],\n  \"edges\": [\n    {\n      \"source\": \"concept name\",\n      \"target\": \"concept name\",\n      \"relation_type\": \"one allowed type\",\n      \"supporting_span\": \"exact response substring supporting the link\"\n    }\n  ]\n}",
+        "role": "user"
+      }
+    ],
+    "prompt_tokens": 260,
+    "raw_response": "{\n  \"concepts\": [\n    {\n      \"name\": \"daily routine\",\n      \"dimensions\": [\"social_role\"],\n      \"supporting_span\": \"I often start my day with a routine\"\n    },\n    {\n      \"name\": \"productivity\",\n      \"dimensions\": [\"personality\"],\n      \"supporting_span\": \"balances productivity and personal interests\"\n    },\n    {\n      \"name\": \"personal interests\",\n      \"dimensions\": [\"interests\"],\n      \"supporting_span\": \"balances productivity and personal interests\"\n    },\n    {\n      \"name\": \"curiosity\",\n      \"dimensions\": [\"personality\"],\n      \"supporting_span\": \"keeps me curious\"\n    },\n    {\n      \"name\": \"connection to the world\",\n      \"dimensions\": [\"background\"],\n      \"supporting_span\": \"keeps me curious and connected to the world\"\n    }\n  ],\n  \"edges\": [\n    {\n      \"source\": \"daily routine\",\n      \"target\": \"productivity\",\n      \"relation_type\": \"part-of\",\n      \"supporting_span\": \"balances productivity and personal interests\"\n    },\n    {\n      \"source\": \"daily routine\",\n      \"target\": \"personal interests\",\n      \"relation_type\": \"part-of\",\n      \"supporting_span\": \"balances productivity and personal interests\"\n    },\n    {\n      \"source\": \"daily routine\",\n      \"target\": \"curiosity\",\n      \"relation_type\": \"cause-of\",\n      \"supporting_span\": \"keeps me curious\"\n    },\n    {\n      \"source\": \"daily routine\",\n      \"target\": \"connection to the world\",\n      \"relation_type\": \"cause-of\",\n      \"supporting_span\": \"keeps me curious and connected to the world\"\n    }\n  ]\n}",
+    "retry_count": 0,
+    "role": "graph_extraction",
+    "seed": 3341697852,
+    "temperature": 0.0,
+    "top_p": 0.8
+  }
+}

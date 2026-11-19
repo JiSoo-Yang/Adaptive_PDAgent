@@ -1,0 +1,65 @@
+{
+  "raw_files": {
+    "results/access_revision/main/raw/google_gemma-3-4b-it/shard_0.jsonl": "4f6c019f6607f9a07ae74f20993c264ff112589fe1f78a5628cbcb13730e1368",
+    "results/access_revision/main/raw/google_gemma-3-4b-it/shard_1.jsonl": "b64008be25abc276c1b34a98dcb8bc547517bf858f2adcef29f35b94fcddc19c",
+    "results/access_revision/main/raw/meta-llama_llama-3_2-3b-instruct/shard_0.jsonl": "b5416164c94dca8d454283c34ba5618c864082c6294b9f5e95a8eb605c4f5d39",
+    "results/access_revision/main/raw/meta-llama_llama-3_2-3b-instruct/shard_1.jsonl": "c0587e3800ab65beeeb248f7c0cb6d3a1939d76300f6cb754728a454594bda93",
+    "results/access_revision/main/raw/qwen_qwen3-1_7b/shard_0.jsonl": "03db36bcaa6d1121212410c1ba79ca9e248d4155b493d899002e711821d87eac",
+    "results/access_revision/main/raw/qwen_qwen3-1_7b/shard_1.jsonl": "9b5547357ed6407e91ee173b696c3ace8b90e8cf8e0b7c2f6c505466bd584d2f",
+    "results/access_revision/main/raw/qwen_qwen3-4b/shard_0.jsonl": "623663ff0bdb75515dc3983eb3d9104137bf147fc3a240f45352a8443799e779",
+    "results/access_revision/main/raw/qwen_qwen3-4b/shard_1.jsonl": "a53c4ddb8af70a9ee3a76d4f9a309514f9301be0fa6510442d77f5d8e55e3f76"
+  },
+  "personas": "results/selective_gai/heldout_personas.jsonl",
+  "personas_sha256": "b7e89d6576941af0331bd4792a522a8d078609bacedd9f3b484cd473ca5537d0",
+  "targets": [
+    "Qwen/Qwen3-1.7B",
+    "Qwen/Qwen3-4B",
+    "meta-llama/Llama-3.2-3B-Instruct",
+    "google/gemma-3-4b-it"
+  ],
+  "methods": [
+    "original",
+    "dialogue_only",
+    "random_candidate",
+    "round_robin",
+    "dialogue_followup",
+    "controller_matched_generic",
+    "adaptive_direct",
+    "adaptive_no_coverage",
+    "adaptive_no_redundancy"
+  ],
+  "expected_n": 304,
+  "majority_baselines": {
+    "social_role": 0.3881578947368421,
+    "personality": 0.5460526315789473,
+    "background": 0.27631578947368424,
+    "interests": 0.2565789473684211
+  },
+  "majority_labels": {
+    "social_role_coarse_category": "professional",
+    "personality_within_trait": {
+      "openness": "no",
+      "conscientiousness": "no",
+      "agreeableness": "no",
+      "neuroticism": "no",
+      "extroversion": "yes"
+    },
+    "background_within_category": {
+      "family_status": "single",
+      "education": "other",
+      "work_experience": "midlevel 610 year",
+      "location": "metropolitan area",
+      "economic_status": "uppermiddle clas"
+    },
+    "interests_within_category": {
+      "hobbies": "watching movy tv show",
+      "values": "health",
+      "social_media_usage": "yes",
+      "content_preferences": "health wellnes",
+      "technology_adoption": "early adopter",
+      "communication_style": "indirect",
+      "shopping_style": "qualityfocused"
+    }
+  },
+  "rows": 10944
+}

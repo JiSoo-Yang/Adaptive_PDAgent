@@ -1,0 +1,44 @@
+{
+  "call_id": "b5c1f8ce0709bee0e7a895c5734b5324f8e92a3c8fa79d26c7ec664b3269c6ec",
+  "role": "uncertainty",
+  "request": {
+    "model": "Qwen/Qwen3-14B",
+    "messages": [
+      {
+        "role": "system",
+        "content": "Estimate the persona from only the visible interview. Copy one allowed value per field and return one JSON object without reasoning."
+      },
+      {
+        "role": "user",
+        "content": "Interview:\n[{\"question\": \"What responsibilities occupy most of your day?\", \"answer\": \"I review tasks and plan with colleagues before starting the day.\"}, {\"question\": \"What responsibilities occupy most of your day?\", \"answer\": \"I review tasks and plan with colleagues before starting the day.\"}, {\"question\": \"What responsibilities occupy most of your day?\", \"answer\": \"I review tasks and plan with colleagues before starting the day.\"}]\n\nAllowed values:\n- social_role: Doctor, Lawyer, Accountant, Architect, Pharmacist, Professor, Researcher, Judge, Prosecutor, Patent Attorney, Real Estate Agent, Tax Accountant, Appraiser, Labor Consultant, Software Engineer, Data Scientist, Product Manager, Project Manager, UX/UI Designer, System Administrator, Marketing Manager, Sales Manager, HR Specialist, Finance Manager, Strategy Planner, Quality Manager, DevOps Engineer, Data Engineer, Security Specialist, Student, Homemaker, Retiree, Freelancer, Self-employed, Office Worker, Service Worker, Salesperson, Factory Worker, Artist, Writer, Content Creator, Athlete, Chef\n- personality trait \"openness\": yes, no\n- background category \"family_status\": Single, Married (No Children), Married (With Children), Single Parent, Living Alone\n- interests category \"hobbies\": Reading, Fitness / Exercise, Cooking, Traveling, Photography / Videography, Gaming, Listening to / Playing Music, Drawing / Crafts, Hiking / Camping, Watching Movies / TV Shows, Fashion / Beauty, Pet Care, Gardening\n\nReturn exactly:\n{\n  \"social_role\": \"...\",\n  \"personality\": {\"trait\": \"openness\", \"value\": \"yes or no\"},\n  \"background\": {\"category\": \"family_status\", \"value\": \"...\"},\n  \"interests\": {\"category\": \"hobbies\", \"value\": \"...\"}\n}"
+      }
+    ],
+    "temperature": 0.8,
+    "top_p": 0.8,
+    "max_tokens": 384,
+    "seed": 139326085,
+    "response_format": {
+      "type": "json_object"
+    },
+    "chat_template_kwargs": {
+      "enable_thinking": false
+    }
+  },
+  "response": {
+    "choices": [
+      {
+        "message": {
+          "content": "{\"social_role\": \"Doctor\", \"personality\": \"yes\", \"background\": \"Single\", \"interests\": \"Reading\"}"
+        },
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": null,
+    "mock": true
+  },
+  "text": "{\"social_role\": \"Doctor\", \"personality\": \"yes\", \"background\": \"Single\", \"interests\": \"Reading\"}",
+  "requested_revision": "40c069824f4251a91eefaf281ebe4c544efd3e18",
+  "revision_verified": false,
+  "backend": "mock_synthetic",
+  "elapsed_seconds": 3.14801000058651e-05
+}

@@ -1,0 +1,366 @@
+{
+  "kind": "mapping_inferred_from_recorded_replacements_and_previous_decisions",
+  "not_recovered_source_code": true,
+  "entries": [
+    {
+      "dimension": "background",
+      "index": 0,
+      "observed_questions": [
+        {
+          "question": "What past experience has most shaped how you approach daily life?",
+          "occurrences": 128,
+          "source": {
+            "file": "active_information_gain/main/raw/google_gemma-3-4b-it/shard_0.jsonl",
+            "line": 123,
+            "turn_record": 3,
+            "previous_decision": {
+              "action": "Explore",
+              "candidates": [],
+              "parsed": true,
+              "rationale_summary": "",
+              "selected_question": "How did you first become interested in gardening and plant care?",
+              "target_dimension": "background"
+            },
+            "method": "uncertainty_sampling"
+          }
+        }
+      ]
+    },
+    {
+      "dimension": "background",
+      "index": 1,
+      "observed_questions": [
+        {
+          "question": "How would you describe the environment in which you spend most of your time?",
+          "occurrences": 140,
+          "source": {
+            "file": "active_information_gain/main/raw/google_gemma-3-4b-it/shard_0.jsonl",
+            "line": 28,
+            "turn_record": 4,
+            "previous_decision": {
+              "action": "Explore",
+              "candidates": [],
+              "parsed": true,
+              "rationale_summary": "",
+              "selected_question": "How did your grandmother's approach to cooking and eating influence your perspective on community health initiatives?",
+              "target_dimension": "background"
+            },
+            "method": "uncertainty_sampling"
+          }
+        }
+      ]
+    },
+    {
+      "dimension": "background",
+      "index": 2,
+      "observed_questions": [
+        {
+          "question": "What kind of learning or experience prepared you for what you do now?",
+          "occurrences": 72,
+          "source": {
+            "file": "active_information_gain/main/raw/google_gemma-3-4b-it/shard_1.jsonl",
+            "line": 69,
+            "turn_record": 2,
+            "previous_decision": {
+              "action": "Explore",
+              "candidates": [],
+              "parsed": true,
+              "rationale_summary": "",
+              "selected_question": "How did you first become interested in gardening?",
+              "target_dimension": "background"
+            },
+            "method": "uncertainty_sampling"
+          }
+        }
+      ]
+    },
+    {
+      "dimension": "generic",
+      "index": 0,
+      "observed_questions": [
+        {
+          "question": "What has been taking up most of your attention lately?",
+          "occurrences": 227,
+          "source": {
+            "file": "main/raw/google_gemma-3-4b-it/shard_0.jsonl",
+            "line": 14,
+            "turn_record": 3,
+            "previous_decision": {
+              "action": "Explore",
+              "candidates": [],
+              "parsed": true,
+              "rationale_summary": "",
+              "selected_question": "How do you approach balancing creative freedom with the need to meet specific client expectations or constraints?",
+              "target_dimension": null
+            },
+            "method": "dialogue_followup"
+          }
+        }
+      ]
+    },
+    {
+      "dimension": "generic",
+      "index": 1,
+      "observed_questions": [
+        {
+          "question": "Could you describe a recent situation that felt meaningful to you?",
+          "occurrences": 456,
+          "source": {
+            "file": "main/raw/google_gemma-3-4b-it/shard_0.jsonl",
+            "line": 68,
+            "turn_record": 1,
+            "previous_decision": {
+              "action": "Explore",
+              "candidates": [],
+              "parsed": true,
+              "rationale_summary": "",
+              "selected_question": "What kind of challenges do you face when trying to explain complex health information to patients?",
+              "target_dimension": null
+            },
+            "method": "dialogue_followup"
+          }
+        }
+      ]
+    },
+    {
+      "dimension": "generic",
+      "index": 2,
+      "observed_questions": [
+        {
+          "question": "What is something you tend to make time for even when you are busy?",
+          "occurrences": 184,
+          "source": {
+            "file": "main/raw/google_gemma-3-4b-it/shard_0.jsonl",
+            "line": 10,
+            "turn_record": 2,
+            "previous_decision": {
+              "action": "Explore",
+              "candidates": [],
+              "parsed": true,
+              "rationale_summary": "",
+              "selected_question": "How do you ensure that your creative process remains both innovative and aligned with the practical needs of your clients?",
+              "target_dimension": null
+            },
+            "method": "original"
+          }
+        }
+      ]
+    },
+    {
+      "dimension": "interests",
+      "index": 0,
+      "observed_questions": [
+        {
+          "question": "How do you usually choose to spend an unstructured evening?",
+          "occurrences": 450,
+          "source": {
+            "file": "active_information_gain/main/raw/google_gemma-3-4b-it/shard_0.jsonl",
+            "line": 36,
+            "turn_record": 3,
+            "previous_decision": {
+              "action": "Explore",
+              "candidates": [],
+              "parsed": true,
+              "rationale_summary": "",
+              "selected_question": "What kinds of books or gardening projects have you found most rewarding lately?",
+              "target_dimension": "interests"
+            },
+            "method": "uncertainty_sampling"
+          }
+        }
+      ]
+    },
+    {
+      "dimension": "interests",
+      "index": 1,
+      "observed_questions": [
+        {
+          "question": "What kinds of topics do you voluntarily seek out?",
+          "occurrences": 763,
+          "source": {
+            "file": "active_information_gain/main/raw/google_gemma-3-4b-it/shard_0.jsonl",
+            "line": 12,
+            "turn_record": 4,
+            "previous_decision": {
+              "action": "Explore",
+              "candidates": [],
+              "parsed": true,
+              "rationale_summary": "",
+              "selected_question": "What kinds of activities do you turn to when you need a break from work or to recharge your creativity?",
+              "target_dimension": "interests"
+            },
+            "method": "uncertainty_sampling"
+          }
+        }
+      ]
+    },
+    {
+      "dimension": "interests",
+      "index": 2,
+      "observed_questions": [
+        {
+          "question": "What activities help you recharge when you have free time?",
+          "occurrences": 392,
+          "source": {
+            "file": "active_information_gain/main/raw/qwen_qwen3-4b/shard_0.jsonl",
+            "line": 94,
+            "turn_record": 2,
+            "previous_decision": {
+              "action": "Explore",
+              "candidates": [],
+              "parsed": true,
+              "rationale_summary": "",
+              "selected_question": "What kinds of books or topics tend to capture your interest when you're reading for pleasure?",
+              "target_dimension": "interests"
+            },
+            "method": "uncertainty_sampling"
+          }
+        }
+      ]
+    },
+    {
+      "dimension": "personality",
+      "index": 0,
+      "observed_questions": [
+        {
+          "question": "How do you usually react when plans change unexpectedly?",
+          "occurrences": 23,
+          "source": {
+            "file": "active_information_gain/main/raw/google_gemma-3-4b-it/shard_0.jsonl",
+            "line": 23,
+            "turn_record": 3,
+            "previous_decision": {
+              "action": "Explore",
+              "candidates": [],
+              "parsed": true,
+              "rationale_summary": "",
+              "selected_question": "How do you decide which historical economic trends to focus on when you're reading in the evenings?",
+              "target_dimension": "personality"
+            },
+            "method": "uncertainty_sampling"
+          }
+        }
+      ]
+    },
+    {
+      "dimension": "personality",
+      "index": 1,
+      "observed_questions": [
+        {
+          "question": "When making a difficult decision, what matters most to you?",
+          "occurrences": 18,
+          "source": {
+            "file": "active_information_gain/main/raw/google_gemma-3-4b-it/shard_1.jsonl",
+            "line": 73,
+            "turn_record": 4,
+            "previous_decision": {
+              "action": "Explore",
+              "candidates": [],
+              "parsed": true,
+              "rationale_summary": "",
+              "selected_question": "How do you decide when a product’s value is worth highlighting, even if it’s not the most popular or trendy option?",
+              "target_dimension": "personality"
+            },
+            "method": "uncertainty_sampling"
+          }
+        }
+      ]
+    },
+    {
+      "dimension": "personality",
+      "index": 2,
+      "observed_questions": [
+        {
+          "question": "How do you tend to handle disagreement with other people?",
+          "occurrences": 46,
+          "source": {
+            "file": "active_information_gain/main/raw/google_gemma-3-4b-it/shard_0.jsonl",
+            "line": 44,
+            "turn_record": 2,
+            "previous_decision": {
+              "action": "Explore",
+              "candidates": [],
+              "parsed": true,
+              "rationale_summary": "",
+              "selected_question": "How do you decide when to offer more detailed examples versus keeping feedback more concise?",
+              "target_dimension": "personality"
+            },
+            "method": "uncertainty_sampling"
+          }
+        }
+      ]
+    },
+    {
+      "dimension": "social_role",
+      "index": 0,
+      "observed_questions": [
+        {
+          "question": "What kinds of responsibilities tend to occupy most of your day?",
+          "occurrences": 15,
+          "source": {
+            "file": "active_information_gain/main/raw/qwen_qwen3-1_7b/shard_1.jsonl",
+            "line": 45,
+            "turn_record": 3,
+            "previous_decision": {
+              "action": "Explore",
+              "candidates": [],
+              "parsed": true,
+              "rationale_summary": "",
+              "selected_question": "How do you usually approach balancing creative ideas with practical constraints in your work?",
+              "target_dimension": "social_role"
+            },
+            "method": "uncertainty_sampling"
+          }
+        }
+      ]
+    },
+    {
+      "dimension": "social_role",
+      "index": 1,
+      "observed_questions": [
+        {
+          "question": "Could you describe a problem you often help other people solve?",
+          "occurrences": 107,
+          "source": {
+            "file": "active_information_gain/main/raw/google_gemma-3-4b-it/shard_1.jsonl",
+            "line": 102,
+            "turn_record": 1,
+            "previous_decision": {
+              "action": "Explore",
+              "candidates": [],
+              "parsed": true,
+              "rationale_summary": "",
+              "selected_question": "What kind of tools or resources do you rely on most for your gardening or reading about sports?",
+              "target_dimension": "social_role"
+            },
+            "method": "uncertainty_sampling"
+          }
+        }
+      ]
+    },
+    {
+      "dimension": "social_role",
+      "index": 2,
+      "observed_questions": [
+        {
+          "question": "What tools or routines are most important in your usual work?",
+          "occurrences": 20,
+          "source": {
+            "file": "active_information_gain/main/raw/meta-llama_llama-3_2-3b-instruct/shard_0.jsonl",
+            "line": 16,
+            "turn_record": 2,
+            "previous_decision": {
+              "action": "Explore",
+              "candidates": [],
+              "parsed": true,
+              "rationale_summary": "",
+              "selected_question": "What tools or resources do you commonly use to stay organized with your projects and reading?",
+              "target_dimension": "social_role"
+            },
+            "method": "uncertainty_sampling"
+          }
+        }
+      ]
+    }
+  ]
+}

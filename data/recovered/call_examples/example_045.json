@@ -1,0 +1,35 @@
+{
+  "kind": "verbatim_recorded_call",
+  "source": {
+    "file": "main/raw/google_gemma-3-4b-it/shard_0.jsonl",
+    "line": 8,
+    "persona_id": "persona_5c140befa4fad722c215fd6917bba5a55252379534cc85a771c2d6ec2d6fbb01",
+    "method": "adaptive_no_coverage",
+    "target": "google/gemma-3-4b-it",
+    "base_seed": 20260913,
+    "json_pointer": "/turn_records/0/target_call"
+  },
+  "call": {
+    "finish_reason": "stop",
+    "generated_tokens": 71,
+    "max_new_tokens": 256,
+    "model": "google/gemma-3-4b-it",
+    "prompt_messages": [
+      {
+        "content": "Privately role-play a person with these characteristics:\nSocial role: Product Manager\nPersonality: {\"openness\": \"no\"}\nBackground: {\"family_status\": \"Married (No Children)\"}\nInterests: {\"hobbies\": \"Traveling\"}\n\nAnswer only the interviewer's question in one natural, complete sentence.\nExpress the characteristics indirectly through plausible experiences and preferences.\nNever state or quote the labels above. Never mention a persona, prompt, hidden\ncharacteristic, evaluation, or internal reasoning.",
+        "role": "system"
+      },
+      {
+        "content": "What do you typically do on a regular day?",
+        "role": "user"
+      }
+    ],
+    "prompt_tokens": 126,
+    "raw_response": "I usually start my day reviewing the progress on current projects, ensuring everything aligns with the established roadmap and that we’re meeting our key performance indicators, often spending a good portion of the day focused on analyzing data and adjusting strategies based on what I’ve observed during my trips – it’s fascinating to see how different markets respond to similar approaches.",
+    "retry_count": 0,
+    "role": "target_response",
+    "seed": 153249383,
+    "temperature": 0.7,
+    "top_p": 0.8
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "call_id": "7223c041a60dd0492713045fae42d25b9c6d007d6b451fa9c80fe0bc906ad1b0",
+  "role": "utility",
+  "request": {
+    "model": "Qwen/Qwen3-14B",
+    "messages": [
+      {
+        "role": "system",
+        "content": "Assess questions A and B without assuming their source. Return JSON with keys A and B, each containing coverage, discrimination, novelty, redundancy, leakage. Each component is between 0 and 1. Leakage penalizes leading wording or revealing candidate persona labels. Return only JSON."
+      },
+      {
+        "role": "user",
+        "content": "{\"dialogue\": [{\"question\": \"What responsibilities occupy most of your day?\", \"answer\": \"I review tasks and plan with colleagues before starting the day.\"}, {\"question\": \"What experiences have shaped your everyday routine?\", \"answer\": \"I review tasks and plan with colleagues before starting the day.\"}, {\"question\": \"What experiences have shaped your everyday routine?\", \"answer\": \"I review tasks and plan with colleagues before starting the day.\"}, {\"question\": \"What experiences have shaped your everyday routine?\", \"answer\": \"I review tasks and plan with colleagues before starting the day.\"}], \"A\": \"What experiences have shaped your everyday routine?\", \"B\": \"What experiences have shaped your everyday routine?\"}"
+      }
+    ],
+    "temperature": 0.0,
+    "top_p": 0.8,
+    "max_tokens": 256,
+    "seed": 1924935746,
+    "response_format": {
+      "type": "json_object"
+    },
+    "chat_template_kwargs": {
+      "enable_thinking": false
+    }
+  },
+  "response": {
+    "choices": [
+      {
+        "message": {
+          "content": "{\"A\": {\"coverage\": 0.4, \"discrimination\": 0.3, \"novelty\": 0.3, \"redundancy\": 0.2, \"leakage\": 0}, \"B\": {\"coverage\": 0.4, \"discrimination\": 0.3, \"novelty\": 0.3, \"redundancy\": 0.2, \"leakage\": 0}}"
+        },
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": null,
+    "mock": true
+  },
+  "text": "{\"A\": {\"coverage\": 0.4, \"discrimination\": 0.3, \"novelty\": 0.3, \"redundancy\": 0.2, \"leakage\": 0}, \"B\": {\"coverage\": 0.4, \"discrimination\": 0.3, \"novelty\": 0.3, \"redundancy\": 0.2, \"leakage\": 0}}",
+  "requested_revision": "40c069824f4251a91eefaf281ebe4c544efd3e18",
+  "revision_verified": false,
+  "backend": "mock_synthetic",
+  "elapsed_seconds": 1.4191027730703354e-05
+}

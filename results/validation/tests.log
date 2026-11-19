@@ -1,0 +1,23 @@
+test_http_transport_request_and_cache (test_core.RecoveredEvidence.test_http_transport_request_and_cache) ... ok
+test_recorded_initial_and_controller_messages (test_core.RecoveredEvidence.test_recorded_initial_and_controller_messages) ... ok
+test_all_methods_mock_and_resume (test_core.Rules.test_all_methods_mock_and_resume) ... Completed persona 0
+Completed persona 1
+ok
+test_grounding_and_merge (test_core.Rules.test_grounding_and_merge) ... ok
+test_json_strings_and_last_object (test_core.Rules.test_json_strings_and_last_object) ... ok
+test_manifest_and_scoring (test_core.Rules.test_manifest_and_scoring) ... ok
+test_parser_no_reranking (test_core.Rules.test_parser_no_reranking) ... ok
+test_utility_and_stop (test_core.Rules.test_utility_and_stop) ... ok
+test_adaptive_prompt_excludes_graph (test_registration.RegistrationTests.test_adaptive_prompt_excludes_graph) ... ok
+test_grounded_competition_activates_gate (test_registration.RegistrationTests.test_grounded_competition_activates_gate) ... ok
+test_integrated_prompt_requests_grounded_competition (test_registration.RegistrationTests.test_integrated_prompt_requests_grounded_competition) ... ok
+test_mock_report_and_pairing_rejection (test_registration.RegistrationTests.test_mock_report_and_pairing_rejection) ... Completed persona 0
+Completed persona 1
+ok
+test_model_configs_match_paper_revisions (test_registration.RegistrationTests.test_model_configs_match_paper_revisions) ... ok
+test_pair_statistics_ties_and_direction (test_registration.RegistrationTests.test_pair_statistics_ties_and_direction) ... ok
+
+----------------------------------------------------------------------
+Ran 14 tests in 1.413s
+
+OK

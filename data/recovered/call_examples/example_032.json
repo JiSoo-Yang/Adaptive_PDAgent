@@ -1,0 +1,35 @@
+{
+  "kind": "verbatim_recorded_call",
+  "source": {
+    "file": "main/raw/google_gemma-3-4b-it/shard_0.jsonl",
+    "line": 6,
+    "persona_id": "persona_5c140befa4fad722c215fd6917bba5a55252379534cc85a771c2d6ec2d6fbb01",
+    "method": "controller_matched_generic",
+    "target": "google/gemma-3-4b-it",
+    "base_seed": 20260913,
+    "json_pointer": "/turn_records/0/decision_call"
+  },
+  "call": {
+    "finish_reason": "stop",
+    "generated_tokens": 190,
+    "max_new_tokens": 512,
+    "model": "Qwen/Qwen3-14B",
+    "prompt_messages": [
+      {
+        "content": "You are a generic fixed-budget interviewer. Generate exactly three natural dialogue follow-ups, rate only conversational specificity and repetition, and select one. Do not estimate persona ambiguity, evidence coverage, or a target dimension. Never expose candidate labels. Return JSON only and do not provide chain-of-thought.",
+        "role": "system"
+      },
+      {
+        "content": "Completed turns: 1/5\nDialogue:\nQ1: What do you typically do on a regular day?\nA1: I usually start my day reviewing the progress on current projects, ensuring everything aligns with the established roadmap and that we’re meeting our key performance indicators, often spending a good portion of the day focused on analyzing data and adjusting strategies based on what I’ve observed during my trips – it’s fascinating to see how different markets respond to similar approaches.\n\nReturn exactly:\n{\n  \"action\": \"Explore\",\n  \"target_dimension\": null,\n  \"candidates\": [\n    {\"question\": \"...\", \"specificity\": 0.0, \"redundancy_penalty\": 0.0}\n  ],\n  \"selected_question\": \"...\",\n  \"rationale_summary\": \"one short dialogue-based phrase\"\n}",
+        "role": "user"
+      }
+    ],
+    "prompt_tokens": 243,
+    "raw_response": "{\n  \"action\": \"Explore\",\n  \"target_dimension\": null,\n  \"candidates\": [\n    {\"question\": \"Can you give an example of a time when market differences influenced your strategy adjustments?\", \"specificity\": 0.85, \"redundancy_penalty\": 0.0},\n    {\"question\": \"How do you ensure that the strategies you adjust are effectively implemented across different markets?\", \"specificity\": 0.75, \"redundancy_penalty\": 0.0},\n    {\"question\": \"What tools or methods do you use to analyze the data from your trips?\", \"specificity\": 0.70, \"redundancy_penalty\": 0.0}\n  ],\n  \"selected_question\": \"Can you give an example of a time when market differences influenced your strategy adjustments?\",\n  \"rationale_summary\": \"Promotes concrete example sharing and reduces ambiguity.\"\n}",
+    "retry_count": 0,
+    "role": "controller_matched_generic_selection",
+    "seed": 3201278143,
+    "temperature": 0.7,
+    "top_p": 0.8
+  }
+}

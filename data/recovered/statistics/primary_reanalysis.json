@@ -1,0 +1,370 @@
+{
+  "kind": "reanalysis_of_recorded_primary_scores",
+  "inference_performed": false,
+  "numpy": "2.2.6",
+  "scipy": "1.17.1",
+  "validated_long_rows": 9728,
+  "primary": [
+    {
+      "target": "Qwen/Qwen3-1.7B",
+      "n": 304,
+      "original": 0.2528188430244432,
+      "adaptive": 0.27178309331696493,
+      "delta": 0.01896425029252171,
+      "W": 2994.0,
+      "p": 0.21120877635889757,
+      "ci_low": -0.013869855623468987,
+      "ci_high": 0.05185720939552284,
+      "positive": 63,
+      "negative": 54,
+      "ties": 187,
+      "bootstrap_seed": 20260917,
+      "reference_absolute_errors": {
+        "original": 0.0,
+        "adaptive": 0.0,
+        "delta": 0.0,
+        "W": 0.0,
+        "p": 0.0,
+        "ci_low": 0.0,
+        "ci_high": 0.0,
+        "positive": 0.0,
+        "negative": 0.0,
+        "ties": 0.0,
+        "p_bh": 0.0
+      },
+      "p_bh": 0.21120877635889757
+    },
+    {
+      "target": "Qwen/Qwen3-4B",
+      "n": 304,
+      "original": 0.31785782523318057,
+      "adaptive": 0.35754967415469596,
+      "delta": 0.03969184892151542,
+      "W": 3442.0,
+      "p": 0.02235122003265723,
+      "ci_low": 0.004634944586364331,
+      "ci_high": 0.07531501407884152,
+      "positive": 80,
+      "negative": 53,
+      "ties": 171,
+      "bootstrap_seed": 20260927,
+      "reference_absolute_errors": {
+        "original": 0.0,
+        "adaptive": 0.0,
+        "delta": 0.0,
+        "W": 0.0,
+        "p": 0.0,
+        "ci_low": 0.0,
+        "ci_high": 0.0,
+        "positive": 0.0,
+        "negative": 0.0,
+        "ties": 0.0,
+        "p_bh": 0.0
+      },
+      "p_bh": 0.030071847748226476
+    },
+    {
+      "target": "meta-llama/Llama-3.2-3B-Instruct",
+      "n": 304,
+      "original": 0.3363595743456484,
+      "adaptive": 0.38991878596813495,
+      "delta": 0.05355921162248658,
+      "W": 4603.5,
+      "p": 0.001187591356776012,
+      "ci_low": 0.018113399389080024,
+      "ci_high": 0.09012017050038419,
+      "positive": 98,
+      "negative": 63,
+      "ties": 143,
+      "bootstrap_seed": 20260937,
+      "reference_absolute_errors": {
+        "original": 0.0,
+        "adaptive": 0.0,
+        "delta": 0.0,
+        "W": 0.0,
+        "p": 0.0,
+        "ci_low": 0.0,
+        "ci_high": 0.0,
+        "positive": 0.0,
+        "negative": 0.0,
+        "ties": 0.0,
+        "p_bh": 0.0
+      },
+      "p_bh": 0.004750365427104048
+    },
+    {
+      "target": "google/gemma-3-4b-it",
+      "n": 304,
+      "original": 0.37313809601181297,
+      "adaptive": 0.4012751633551817,
+      "delta": 0.028137067343368773,
+      "W": 4641.5,
+      "p": 0.022553885811169856,
+      "ci_low": -0.00883896618633304,
+      "ci_high": 0.0655907669202795,
+      "positive": 81,
+      "negative": 72,
+      "ties": 151,
+      "bootstrap_seed": 20260947,
+      "reference_absolute_errors": {
+        "original": 0.0,
+        "adaptive": 0.0,
+        "delta": 0.0,
+        "W": 0.0,
+        "p": 0.0,
+        "ci_low": 0.0,
+        "ci_high": 0.0,
+        "positive": 0.0,
+        "negative": 0.0,
+        "ties": 0.0,
+        "p_bh": 0.0
+      },
+      "p_bh": 0.030071847748226476
+    }
+  ],
+  "dimension_tests": [
+    {
+      "target": "Qwen/Qwen3-1.7B",
+      "dimension": "social_role",
+      "b": 10,
+      "c": 16,
+      "delta": 0.019736842105263157,
+      "p": 0.32693958282470703,
+      "p_bh": 0.5694957165555521,
+      "reference_absolute_errors": {
+        "b": 0,
+        "c": 0,
+        "p": 0.0,
+        "p_bh": 0.0
+      }
+    },
+    {
+      "target": "Qwen/Qwen3-1.7B",
+      "dimension": "personality",
+      "b": 14,
+      "c": 20,
+      "delta": 0.019736842105263157,
+      "p": 0.39152830513194203,
+      "p_bh": 0.5694957165555521,
+      "reference_absolute_errors": {
+        "b": 0,
+        "c": 0,
+        "p": 0.0,
+        "p_bh": 0.0
+      }
+    },
+    {
+      "target": "Qwen/Qwen3-1.7B",
+      "dimension": "background",
+      "b": 14,
+      "c": 15,
+      "delta": 0.003289473684210526,
+      "p": 1.0,
+      "p_bh": 1.0,
+      "reference_absolute_errors": {
+        "b": 0,
+        "c": 0,
+        "p": 0.0,
+        "p_bh": 0.0
+      }
+    },
+    {
+      "target": "Qwen/Qwen3-1.7B",
+      "dimension": "interests",
+      "b": 26,
+      "c": 25,
+      "delta": -0.003289473684210526,
+      "p": 1.0,
+      "p_bh": 1.0,
+      "reference_absolute_errors": {
+        "b": 0,
+        "c": 0,
+        "p": 0.0,
+        "p_bh": 0.0
+      }
+    },
+    {
+      "target": "Qwen/Qwen3-4B",
+      "dimension": "social_role",
+      "b": 7,
+      "c": 15,
+      "delta": 0.02631578947368421,
+      "p": 0.13380050659179688,
+      "p_bh": 0.3568013509114583,
+      "reference_absolute_errors": {
+        "b": 0,
+        "c": 0,
+        "p": 0.0,
+        "p_bh": 0.0
+      }
+    },
+    {
+      "target": "Qwen/Qwen3-4B",
+      "dimension": "personality",
+      "b": 21,
+      "c": 19,
+      "delta": -0.006578947368421052,
+      "p": 0.8746293123804207,
+      "p_bh": 1.0,
+      "reference_absolute_errors": {
+        "b": 0,
+        "c": 0,
+        "p": 0.0,
+        "p_bh": 0.0
+      }
+    },
+    {
+      "target": "Qwen/Qwen3-4B",
+      "dimension": "background",
+      "b": 17,
+      "c": 33,
+      "delta": 0.05263157894736842,
+      "p": 0.032839137564268484,
+      "p_bh": 0.13135655025707393,
+      "reference_absolute_errors": {
+        "b": 0,
+        "c": 0,
+        "p": 0.0,
+        "p_bh": 0.0
+      }
+    },
+    {
+      "target": "Qwen/Qwen3-4B",
+      "dimension": "interests",
+      "b": 19,
+      "c": 32,
+      "delta": 0.04276315789473684,
+      "p": 0.09191454981585423,
+      "p_bh": 0.2941265594107335,
+      "reference_absolute_errors": {
+        "b": 0,
+        "c": 0,
+        "p": 0.0,
+        "p_bh": 0.0
+      }
+    },
+    {
+      "target": "meta-llama/Llama-3.2-3B-Instruct",
+      "dimension": "social_role",
+      "b": 13,
+      "c": 17,
+      "delta": 0.013157894736842105,
+      "p": 0.5846647117286922,
+      "p_bh": 0.7795529489715896,
+      "reference_absolute_errors": {
+        "b": 0,
+        "c": 0,
+        "p": 0.0,
+        "p_bh": 0.0
+      }
+    },
+    {
+      "target": "meta-llama/Llama-3.2-3B-Instruct",
+      "dimension": "personality",
+      "b": 21,
+      "c": 30,
+      "delta": 0.029605263157894735,
+      "p": 0.2624375357110438,
+      "p_bh": 0.5694957165555521,
+      "reference_absolute_errors": {
+        "b": 0,
+        "c": 0,
+        "p": 0.0,
+        "p_bh": 0.0
+      }
+    },
+    {
+      "target": "meta-llama/Llama-3.2-3B-Instruct",
+      "dimension": "background",
+      "b": 18,
+      "c": 48,
+      "delta": 0.09868421052631579,
+      "p": 0.00028711844966164033,
+      "p_bh": 0.004593895194586245,
+      "reference_absolute_errors": {
+        "b": 0,
+        "c": 0,
+        "p": 0.0,
+        "p_bh": 0.0
+      }
+    },
+    {
+      "target": "meta-llama/Llama-3.2-3B-Instruct",
+      "dimension": "interests",
+      "b": 36,
+      "c": 34,
+      "delta": -0.006578947368421052,
+      "p": 0.9049745264594622,
+      "p_bh": 1.0,
+      "reference_absolute_errors": {
+        "b": 0,
+        "c": 0,
+        "p": 0.0,
+        "p_bh": 0.0
+      }
+    },
+    {
+      "target": "google/gemma-3-4b-it",
+      "dimension": "social_role",
+      "b": 13,
+      "c": 19,
+      "delta": 0.019736842105263157,
+      "p": 0.37708558747544885,
+      "p_bh": 0.5694957165555521,
+      "reference_absolute_errors": {
+        "b": 0,
+        "c": 0,
+        "p": 0.0,
+        "p_bh": 0.0
+      }
+    },
+    {
+      "target": "google/gemma-3-4b-it",
+      "dimension": "personality",
+      "b": 19,
+      "c": 26,
+      "delta": 0.023026315789473683,
+      "p": 0.3712980344710104,
+      "p_bh": 0.5694957165555521,
+      "reference_absolute_errors": {
+        "b": 0,
+        "c": 0,
+        "p": 0.0,
+        "p_bh": 0.0
+      }
+    },
+    {
+      "target": "google/gemma-3-4b-it",
+      "dimension": "background",
+      "b": 16,
+      "c": 41,
+      "delta": 0.08223684210526316,
+      "p": 0.001263559472435463,
+      "p_bh": 0.010108475779483704,
+      "reference_absolute_errors": {
+        "b": 0,
+        "c": 0,
+        "p": 0.0,
+        "p_bh": 0.0
+      }
+    },
+    {
+      "target": "google/gemma-3-4b-it",
+      "dimension": "interests",
+      "b": 41,
+      "c": 22,
+      "delta": -0.0625,
+      "p": 0.022574972673257185,
+      "p_bh": 0.12039985425737165,
+      "reference_absolute_errors": {
+        "b": 0,
+        "c": 0,
+        "p": 0.0,
+        "p_bh": 0.0
+      }
+    }
+  ],
+  "max_reference_error": 0.0,
+  "matches_within_1e_10": true,
+  "scope": "Binary scores and stored persona AG validated algebraically; tests recomputed from serialized historical AG. Does not rerun inference or independently restore the original label canonicalizer."
+}

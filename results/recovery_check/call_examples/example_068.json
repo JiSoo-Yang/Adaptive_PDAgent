@@ -1,0 +1,35 @@
+{
+  "kind": "verbatim_recorded_call",
+  "source": {
+    "file": "robustness/seed3/raw/google_gemma-3-4b-it.jsonl",
+    "line": 2,
+    "persona_id": "persona_5c140befa4fad722c215fd6917bba5a55252379534cc85a771c2d6ec2d6fbb01",
+    "method": "dialogue_only",
+    "target": "google/gemma-3-4b-it",
+    "base_seed": 20260914,
+    "json_pointer": "/turn_records/0/graph_extraction_call"
+  },
+  "call": {
+    "finish_reason": "stop",
+    "generated_tokens": 358,
+    "max_new_tokens": 768,
+    "model": "Qwen/Qwen3-14B",
+    "prompt_messages": [
+      {
+        "content": "Extract only grounded concepts and bridging relations from the latest Target response. Every new concept or edge supporting_span must be an exact contiguous substring of that response. Do not infer persona labels or use hidden information. Valid relation_type values are: part-of, member-of, instrument, theme, cause-of, in, temporal. Extract at most six concepts and four edges; prefer fewer high-value items. Return one compact JSON object only.",
+        "role": "system"
+      },
+      {
+        "content": "Latest question: What do you typically do on a regular day?\nLatest Target response: I usually start by reviewing the current roadmap and prioritizing tasks based on their impact on our key metrics, then I spend a good portion of the day coordinating with different teams to ensure we’re all aligned on timelines and requirements, and I often wrap up by analyzing user feedback to identify areas for potential improvements.\nPreviously known concepts: []\n\nReturn:\n{\n  \"concepts\": [\n    {\n      \"name\": \"1-3 word concept\",\n      \"dimensions\": [\"zero or more of social_role, personality, background, interests\"],\n      \"supporting_span\": \"exact response substring\"\n    }\n  ],\n  \"edges\": [\n    {\n      \"source\": \"concept name\",\n      \"target\": \"concept name\",\n      \"relation_type\": \"one allowed type\",\n      \"supporting_span\": \"exact response substring supporting the link\"\n    }\n  ]\n}",
+        "role": "user"
+      }
+    ],
+    "prompt_tokens": 293,
+    "raw_response": "{\n  \"concepts\": [\n    {\n      \"name\": \"roadmap review\",\n      \"dimensions\": [],\n      \"supporting_span\": \"reviewing the current roadmap\"\n    },\n    {\n      \"name\": \"task prioritization\",\n      \"dimensions\": [],\n      \"supporting_span\": \"prioritizing tasks based on their impact on our key metrics\"\n    },\n    {\n      \"name\": \"team coordination\",\n      \"dimensions\": [],\n      \"supporting_span\": \"coordinating with different teams to ensure we’re all aligned on timelines and requirements\"\n    },\n    {\n      \"name\": \"user feedback analysis\",\n      \"dimensions\": [],\n      \"supporting_span\": \"analyzing user feedback to identify areas for potential improvements\"\n    }\n  ],\n  \"edges\": [\n    {\n      \"source\": \"roadmap review\",\n      \"target\": \"task prioritization\",\n      \"relation_type\": \"temporal\",\n      \"supporting_span\": \"I usually start by reviewing the current roadmap and prioritizing tasks\"\n    },\n    {\n      \"source\": \"task prioritization\",\n      \"target\": \"team coordination\",\n      \"relation_type\": \"temporal\",\n      \"supporting_span\": \"then I spend a good portion of the day coordinating with different teams\"\n    },\n    {\n      \"source\": \"team coordination\",\n      \"target\": \"user feedback analysis\",\n      \"relation_type\": \"temporal\",\n      \"supporting_span\": \"and I often wrap up by analyzing user feedback\"\n    },\n    {\n      \"source\": \"user feedback analysis\",\n      \"target\": \"roadmap review\",\n      \"relation_type\": \"cause-of\",\n      \"supporting_span\": \"to identify areas for potential improvements\"\n    }\n  ]\n}",
+    "retry_count": 0,
+    "role": "graph_extraction",
+    "seed": 1515202530,
+    "temperature": 0.0,
+    "top_p": 0.8
+  }
+}
